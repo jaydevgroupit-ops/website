@@ -1,35 +1,102 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { products, featuredImage } from '@/lib/content';
-import { Icon } from './Icon';
 
 const featured = products.filter((p) => p.featured).slice(0, 6);
 
 /**
- * Auto-scrolling featured-products carousel (seamless CSS marquee, pauses on
- * hover/touch-hold). Uses editorial `featuredImage()` art - product cards and
- * detail pages keep their real product photo via `productImage()`.
+ * Featured-products strip. Real native horizontal scroll container so it can be
+ * swiped/dragged on touch, PLUS a gentle rAF auto-advance that pauses while the
+ * user interacts and resumes after they let go. Duplicated cards make the
+ * auto-advance loop seamless. Respects reduced-motion. Editorial `featuredImage()`.
  */
 export default function FeaturedCarousel() {
+  const scroller = useRef<HTMLDivElement>(null);
   const row = [...featured, ...featured];
+
+  useEffect(() => {
+    const el = scroller.current;
+    if (!el) return;
+    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+
+    let raf = 0;
+    let paused = false;
+    let resumeTimer: ReturnType<typeof setTimeout> | undefined;
+    const half = () => el.scrollWidth / 2;
+
+    const tick = () => {
+      if (!paused && !reduce && el.scrollWidth > el.clientWidth) {
+        el.scrollLeft += 0.5;
+        if (el.scrollLeft >= half()) el.scrollLeft -= half();
+      }
+      raf = requestAnimationFrame(tick);
+    };
+
+    const pause = () => { paused = true; if (resumeTimer) clearTimeout(resumeTimer); };
+    const resumeSoon = () => {
+      if (resumeTimer) clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => {
+        // normalise back into the first copy so the loop stays seamless
+        if (el.scrollLeft >= half()) el.scrollLeft -= half();
+        else if (el.scrollLeft < 0) el.scrollLeft += half();
+        paused = false;
+      }, 1400);
+    };
+    // keep a user-driven scroll within the loopable range
+    const onScroll = () => {
+      if (!paused) return;
+      if (el.scrollLeft <= 0) el.scrollLeft += half();
+      else if (el.scrollLeft >= half() * 2 - 1) el.scrollLeft -= half();
+    };
+
+    el.addEventListener('pointerdown', pause);
+    el.addEventListener('pointerup', resumeSoon);
+    el.addEventListener('pointercancel', resumeSoon);
+    el.addEventListener('touchstart', pause, { passive: true });
+    el.addEventListener('touchend', resumeSoon, { passive: true });
+    el.addEventListener('mouseenter', pause);
+    el.addEventListener('mouseleave', resumeSoon);
+    el.addEventListener('wheel', () => { pause(); resumeSoon(); }, { passive: true });
+    el.addEventListener('scroll', onScroll, { passive: true });
+
+    raf = requestAnimationFrame(tick);
+    return () => {
+      cancelAnimationFrame(raf);
+      if (resumeTimer) clearTimeout(resumeTimer);
+      el.removeEventListener('pointerdown', pause);
+      el.removeEventListener('pointerup', resumeSoon);
+      el.removeEventListener('pointercancel', resumeSoon);
+      el.removeEventListener('touchstart', pause);
+      el.removeEventListener('touchend', resumeSoon);
+      el.removeEventListener('mouseenter', pause);
+      el.removeEventListener('mouseleave', resumeSoon);
+      el.removeEventListener('scroll', onScroll);
+    };
+  }, []);
+
   return (
-    <div className="marquee-mask overflow-hidden">
+    <div className="marquee-mask">
       <div
-        className="flex w-max animate-jd-marquee hover:[animation-play-state:paused]"
-        style={{ animationDuration: '55s' }}
+        ref={scroller}
+        className="flex overflow-x-auto no-scrollbar overscroll-x-contain px-4 sm:px-6 lg:px-8 pb-1"
       >
         {row.map((p, i) => (
           <article
             key={`${p.id}-${i}`}
-            className="group mr-5 w-[280px] sm:w-[320px] flex-shrink-0 bg-white rounded-2xl border border-[#EAEEF3] overflow-hidden shadow-sm hover:shadow-[0_18px_46px_-18px_rgba(14,32,64,0.25)] hover:border-gold/40 transition-all"
+            aria-hidden={i >= featured.length}
+            className="group mr-5 w-[260px] sm:w-[300px] flex-shrink-0 bg-white rounded-2xl border border-[#EAEEF3] overflow-hidden shadow-sm hover:shadow-[0_18px_46px_-18px_rgba(14,32,64,0.25)] hover:border-gold/40 transition-all"
           >
-            <Link href={`/products/${p.id}`} className="block relative h-44 bg-navy-pale overflow-hidden">
+            <Link href={`/products/${p.id}`} className="block relative h-40 sm:h-44 bg-navy-pale overflow-hidden">
               <Image
                 src={featuredImage(p)}
                 alt={p.name}
                 fill
-                sizes="320px"
+                sizes="300px"
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
+                draggable={false}
               />
               <span className="absolute top-3 left-3 text-[11px] px-2.5 py-1 rounded-full bg-white/90 text-navy font-medium capitalize shadow-sm backdrop-blur">
                 {p.category.replace(/-/g, ' ')}
