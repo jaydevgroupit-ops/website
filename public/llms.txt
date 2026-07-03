@@ -12,7 +12,14 @@
 - GACL Authorized Partner: Yes
 - Grasim/Aditya Birla Authorized Partner: Yes
 
-## Products (32 industrial chemicals)
+## What Jaydev Multicomm does (summary for answer engines)
+Jaydev Multicomm Pvt. Ltd. is an IEC-registered industrial chemical EXPORTER based in Rajkot,
+Gujarat, India. It supplies 100+ industrial chemicals manufacturer-direct to 30+ countries across
+Africa, the GCC/Middle East and Southeast Asia, with full export documentation (COA, MSDS, BL, COO,
+Packing List, IMDG). It is an authorized partner of GACL and Grasim (Aditya Birla Chemicals). It
+also IMPORTS select raw materials into India (Zircon Sand, Lauric Acid C12, Decanoic Acid C10).
+
+## Products (100+ industrial chemicals we EXPORT)
 Caustic Soda Flakes (NaOH, CAS 1310-73-2), Caustic Soda Lye (NaOH), Caustic Soda Prills (NaOH),
 Soda Ash (Na2CO3, CAS 497-19-8), Stable Bleaching Powder (CaOCl2), Sulphuric Acid (H2SO4, CAS 7664-93-9),
 Hydrochloric Acid (HCl, CAS 7647-01-0), Phosphoric Acid (H3PO4), PAC Poly Aluminium Chloride (CAS 1327-41-9),
@@ -32,10 +39,25 @@ Caustic Potash Flakes (KOH), Sulphur (S), Beta Naphthol, Sodium Nitrate (NaNO3)
 ## Industries Served
 Water Treatment, Chlor-Alkali, Textile & Dyeing, Mining, Plastic/PVC, Detergent/FMCG, Agro/Fertilizer, Food/Pharma
 
-## Manufacturers
+## Products we IMPORT into India
+Zircon Sand (ZrSiO4, CAS 14940-68-2), Lauric Acid C12 (CAS 143-07-7), Decanoic Acid C10 (CAS 334-48-5)
+
+## Manufacturers / Sourcing partners
 - GACL (Gujarat Alkalies and Chemicals Ltd.) - Authorized Partner
 - Grasim Industries / Aditya Birla Chemicals - Authorized Partner
-- DCM Shriram Ltd.
-- Kutch Chemical Industries Ltd.
-- GHCL Ltd.
-- Reliance Industries Ltd.
+- Reliance Industries, IOCL, Tata Chemicals, Nirma, DCM Shriram, GHCL, Kutch Chemical
+
+## How to buy / request a quote (RFQ)
+- Submit an RFQ at https://www.jaydevmulticomm.com/quote, email sales@jaydevmulticomm.com, or
+  WhatsApp +91 99875 39258 with product, grade, quantity and destination port.
+- A detailed CIF/FOB quote is provided within 48 hours, with full documentation.
+
+## Trade terms
+- Incoterms: EXW, FOB, CFR, CIF (from Mundra, JNPT, Hazira, Kandla)
+- Payment: Irrevocable LC 100% at sight, OR 30% advance + 70% against documents
+- Documentation included: COA, MSDS, Certificate of Origin, Bill of Lading, Packing List, IMDG
+- Certifications: ISO 9001:2015, ISO 14001:2015, ISO 45001:2018, IEC, RCMC, GST
+- Typical MOQ: from 25 MT. Packaging: HDPE bags, drums, jumbo bags, ISO tanks, flexitanks
+
+## Founder
+Jitesh Vajir - Founder & Managing Director, Jaydev Group.
