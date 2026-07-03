@@ -34,18 +34,43 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
     .filter(Boolean) as typeof products;
   const img = INDUSTRY_IMAGE_MAP[ind.id];
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    serviceType: `${ind.name} Chemicals Supply`,
-    provider: { '@type': 'Organization', name: 'Jaydev Multicomm Pvt. Ltd.' },
-    areaServed: ind.markets,
-    description: ind.description,
-  };
+  const BASE = 'https://www.jaydevmulticomm.com';
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      serviceType: `${ind.name} Chemicals Supply`,
+      provider: { '@type': 'Organization', name: 'Jaydev Multicomm Pvt. Ltd.' },
+      areaServed: ind.markets,
+      description: ind.description,
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
+        { '@type': 'ListItem', position: 2, name: 'Industries', item: `${BASE}/industries` },
+        { '@type': 'ListItem', position: 3, name: `${ind.name} Chemicals`, item: `${BASE}/industries/${ind.id}` },
+      ],
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: `Chemicals for ${ind.name}`,
+      itemListElement: industryProducts.map((p, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        url: `${BASE}/products/${p.id}`,
+        name: p.name,
+      })),
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-white pt-16 pb-20">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {jsonLd.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
 
       {/* Hero */}
       <div className="relative bg-navy overflow-hidden">

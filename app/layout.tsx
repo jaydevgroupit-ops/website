@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     siteName: 'Jaydev Multicomm Pvt. Ltd.',
     title: 'Jaydev Multicomm - Global Industrial Chemical Supply',
     description: 'IEC-registered chemical exporter from India. 100+ products, 100+ global buyers, GACL & Grasim Authorized Partner.',
-    images: [{ url: '/brand/logo.png', width: 800, height: 800, alt: 'Jaydev Multicomm' }],
+    // og image auto-supplied by app/opengraph-image.tsx (1200x630 branded)
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Jaydev Multicomm Pvt. Ltd.',
     description: 'Industrial chemical exporter from Rajkot, India. GACL & Grasim Authorized Partner.',
-    images: ['/brand/logo.png'],
+    // twitter image auto-derived from the opengraph-image
   },
 };
 

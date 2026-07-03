@@ -28,21 +28,41 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   if (!a) notFound();
   const related = articles.filter((x) => x.slug !== a.slug).slice(0, 3);
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: a.title,
-    description: a.excerpt,
-    datePublished: a.date,
-    author: { '@type': 'Organization', name: a.author },
-    publisher: { '@type': 'Organization', name: 'Jaydev Multicomm Pvt. Ltd.' },
-    image: `https://www.jaydevmulticomm.com${a.image}`,
-    keywords: a.keywords,
-  };
+  const BASE = 'https://www.jaydevmulticomm.com';
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: a.title,
+      description: a.excerpt,
+      datePublished: a.date,
+      dateModified: a.date,
+      author: { '@type': 'Organization', name: a.author, url: BASE },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Jaydev Multicomm Pvt. Ltd.',
+        logo: { '@type': 'ImageObject', url: `${BASE}/brand/logo.png` },
+      },
+      image: `${BASE}${a.image}`,
+      mainEntityOfPage: `${BASE}/articles/${a.slug}`,
+      keywords: a.keywords,
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
+        { '@type': 'ListItem', position: 2, name: 'Insights', item: `${BASE}/articles` },
+        { '@type': 'ListItem', position: 3, name: a.title, item: `${BASE}/articles/${a.slug}` },
+      ],
+    },
+  ];
 
   return (
     <article className="min-h-screen bg-white pt-16 pb-20">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {jsonLd.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
 
       <div className="relative bg-navy">
         <Image src={a.image} alt={a.title} fill sizes="(max-width:768px) 100vw, 420px" className="object-cover opacity-20" priority />
