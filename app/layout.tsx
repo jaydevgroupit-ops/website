@@ -9,10 +9,10 @@ import MobileNav from '@/components/MobileNav';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Jaydev Multicomm Pvt. Ltd. - Global Industrial Chemical Exporter',
+    default: 'Industrial Chemical Exporter India | Jaydev Multicomm',
     template: '%s | Jaydev Multicomm',
   },
-  description: 'Jaydev Group - Rajkot-based chemical enterprise. Multicomm exports & imports 100+ industrial chemicals across 12 industries to Africa, GCC & SE Asia; Pharma & Intermediates serves India. Authorized partner of GACL & Grasim.',
+  description: 'IEC-registered industrial chemical exporter in Rajkot, India. 100+ chemicals to 30+ countries - GACL & Grasim authorized, full COA, MSDS & export documentation.',
   keywords: ['industrial chemicals exporter India', 'caustic soda exporter', 'sulphuric acid supplier', 'PAC SMBS exporter', 'GACL Grasim authorized partner', 'chemical trading Rajkot Gujarat', 'zircon sand importer', 'lauric acid decanoic acid'],
   metadataBase: new URL('https://www.jaydevmulticomm.com'),
   openGraph: {
