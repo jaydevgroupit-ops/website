@@ -161,6 +161,11 @@ export default function Philosophy() {
       )}
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* page h1 for SEO/a11y - visually hidden, the cinematic panels carry the visual headline */}
+        <h1 className="sr-only">
+          Jaydev Multicomm - Industrial Chemical Exporter in India. 100+ chemicals shipped to 30+ countries.
+        </h1>
+
         {/* compact looping action-word sequence - opens the page with motion */}
         <div className="pt-28 sm:pt-32 pb-8 flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-5 gap-y-2">
           {VERBS.map((v, i) => (
