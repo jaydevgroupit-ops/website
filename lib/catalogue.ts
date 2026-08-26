@@ -90,5 +90,3 @@ export const countMatches = (query: string, division: Division) => {
   if (!q) return 0;
   return catalogue.filter((e) => e.division === division && e.haystack.includes(q)).length;
 };
-
-export const TOTAL_PRODUCTS = catalogue.length;

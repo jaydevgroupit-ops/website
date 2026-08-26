@@ -4,31 +4,24 @@ node_modules/
 # Next.js
 .next/
 out/
-
-# Build files
 dist/
 build/
 
-# Logs
-*.log
-
-# Environment variables
+# Environment - never commit real keys
 .env
-.env.local
+.env*.local
 .env.production
 
 # TypeScript
 *.tsbuildinfo
 
-# Mac
-.DS_Store
-
 # Vercel
 .vercel/
 
-# VS Code
+# Editors / OS
 .vscode/settings.json
-# OS / build cruft
 .DS_Store
-tsconfig.tsbuildinfo
+
+# Tooling scratch
 .playwright-mcp/
+*.log

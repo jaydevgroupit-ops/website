@@ -1,11 +1,44 @@
-# Jaydev Group - Premium Chemical Export Website
+# Jaydev Group - website
 
-A modern Next.js 15 website for Jaydev Group, India's trusted industrial chemical exporter to 30+ countries.
+Next.js 15 site for Jaydev Group, Ahmedabad. Two portfolios sold both across
+India and for export to 30+ countries:
 
-**Status**: Phase 2 Audit Complete | Phase 3 In Progress  
-**Tech Stack**: Next.js 15.5.19 | React 18.3.0 | TypeScript | Tailwind CSS | Framer Motion
+- **Industrial Chemicals** - 103 products
+- **Pharma, Intermediates & APIs** - 209 products, 95 APIs across 15 therapeutic areas
+
+Two entities: **Jaydev Multicomm Pvt. Ltd.** contracts all exports;
+**Jaydev Pharma & Intermediates LLP** covers domestic supply.
+
+**Stack**: Next.js 15 (App Router) · React 18 · TypeScript · Tailwind CSS · Framer Motion · Resend
 
 ---
+
+
+## Pharma catalogue data
+
+`lib/pharma.ts` is **generated** - do not edit it by hand.
+
+```bash
+python3 scripts/import_pharma.py            # reads ~/Downloads/Jaydev Group Product list.xlsx
+python3 scripts/import_pharma.py path.xlsx  # or point it at another workbook
+```
+
+The workbook encodes therapeutic segment as **cell fill colour** and carries
+section headers inline as rows, so the parser decodes both. Hand-maintained
+corrections live outside the generated file and survive re-runs:
+
+| File | Purpose |
+|---|---|
+| `data/pharma-cas-overrides.json` | CAS numbers the sheet left blank; also declares multi-isomer products |
+| `data/pharma-short-names.json` | Short trade names for long IUPAC names |
+
+Every CAS is validated against the official check-digit algorithm - the script
+exits non-zero rather than emitting an invalid one.
+
+Supplier names and plant locations from the workbook are **deliberately not
+emitted**; they were internal sourcing research and would otherwise ship in the
+client bundle.
+
 
 ## 🚀 Quick Start
 
@@ -14,9 +47,9 @@ A modern Next.js 15 website for Jaydev Group, India's trusted industrial chemica
 - npm 10.x or higher
 
 ### Environment
-- Copy `.env.example` to `.env.local`
-- Or set `QUOTE_WEBHOOK_URL` to forward quote submissions to a webhook
-- `.env.local` is ignored by git
+- Copy `.env.example` to `.env.local` and fill in `RESEND_API_KEY`
+- `.env.local` is gitignored. **Never put a real key in `.env.example`** - it is committed
+- Optional: `QUOTE_WEBHOOK_URL` mirrors quote submissions to a webhook
 
 ### Development
 
@@ -156,7 +189,6 @@ npm run lint
 | `/products/[slug]` | Individual product detail | 🔄 In Progress (Phase 3) |
 | `/markets` | Export markets & corridors | ⚠️ Needs expansion |
 | `/industries` | Industries served | ⚠️ Needs expansion |
-| `/quality` | Quality assurance & documentation | ⚠️ Placeholder |
 | `/quote` | RFQ form for export inquiries | ✅ Complete |
 | `/blog` | Blog listing | 📋 Planned (Phase 8) |
 | `/blog/[slug]` | Individual blog post | 📋 Planned (Phase 8) |
