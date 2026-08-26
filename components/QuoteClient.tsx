@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { products, industryData, marketData, IMPORT_PRODUCTS } from '@/lib/content';
+import { pharmaProducts } from '@/lib/pharma';
 import { Icon } from './Icon';
 
 const popularProducts = [
@@ -74,8 +75,14 @@ export default function QuoteClient() {
       if (productId) {
         const p = products.find(x => x.id === productId);
         const imp = IMPORT_PRODUCTS.find(x => x.id === productId);
+        const ph = pharmaProducts.find(x => x.id === productId);
         if (p) next.product = p.name;
         else if (imp) { next.product = imp.name; next.notes = `Import enquiry (into India).${next.notes ? ' ' + next.notes : ''}`; }
+        else if (ph) {
+          next.product = ph.cas ? `${ph.name} (CAS ${ph.cas})` : ph.name;
+          const kind = ph.section === 'apis' ? 'API' : 'pharmaceutical';
+          next.notes = `${kind} enquiry${ph.therapeuticSegment ? ` - ${ph.therapeuticSegment}` : ''}. Please confirm pharmacopoeial grade, DMF/CEP status and packaging.${next.notes ? ' ' + next.notes : ''}`;
+        }
       }
       if (industryId) { const i = industryData.find(x => x.id === industryId); if (i) next.notes = `Enquiry for the ${i.name} industry.${next.notes ? ' ' + next.notes : ''}`; }
       if (marketId) { const m = marketData.find(x => x.id === marketId); if (m) { next.country = next.country || m.name; next.notes = `Shipping to ${m.name}.${next.notes ? ' ' + next.notes : ''}`; } }
@@ -111,7 +118,7 @@ export default function QuoteClient() {
           </div>
           <h1 className="font-jakarta text-2xl font-extrabold text-navy mb-3">Quote Request Received!</h1>
           <p className="text-gray-500 mb-8">We&apos;ll respond within 48 hours with a detailed quote. For a faster response, reach us on WhatsApp.</p>
-          <a href={`https://wa.me/919987539258?text=${waMessage}`} target="_blank" rel="noopener noreferrer"
+          <a href={`https://wa.me/919099796811?text=${waMessage}`} target="_blank" rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 w-full px-6 py-4 rounded-xl bg-green-50 border border-green-200 text-green-700 font-semibold mb-4 hover:bg-green-100 transition-all">
             <WaIcon className="w-5 h-5" /> Follow Up on WhatsApp
           </a>
@@ -176,11 +183,14 @@ export default function QuoteClient() {
                 {step === 0 && (
                   <motion.div key="s0" custom={dir} variants={variants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.3 }}>
                     <h2 className="font-jakarta font-extrabold text-navy text-lg mb-1">What do you need?</h2>
-                    <p className="text-gray-400 text-sm mb-5">Choose a product and quantity.</p>
+                    <p className="text-gray-400 text-sm mb-5">Product and quantity.</p>
                     <div className="mb-4">
                       <label className={labelClass}>Product Name *</label>
-                      <input type="text" list="products-list" value={form.product} onChange={set('product')} placeholder="e.g. Caustic Soda" className={inputClass} />
-                      <datalist id="products-list">{products.map(p => <option key={p.id} value={p.name} />)}</datalist>
+                      <input type="text" list="products-list" value={form.product} onChange={set('product')} placeholder="e.g. Caustic Soda or Paclitaxel" className={inputClass} />
+                      <datalist id="products-list">
+                        {products.map(p => <option key={p.id} value={p.name} />)}
+                        {pharmaProducts.map(p => <option key={p.id} value={p.name} />)}
+                      </datalist>
                     </div>
                     <div className="mb-5">
                       <p className="text-gray-400 text-xs font-medium mb-2">Popular:</p>
@@ -317,7 +327,7 @@ export default function QuoteClient() {
               {submitError && (
                 <p className="mt-4 text-sm text-red-600">
                   Couldn&apos;t send your request just now.{' '}
-                  <a href={`https://wa.me/919987539258?text=${waMessage}`} target="_blank" rel="noopener noreferrer" className="font-semibold underline">
+                  <a href={`https://wa.me/919099796811?text=${waMessage}`} target="_blank" rel="noopener noreferrer" className="font-semibold underline">
                     Send it on WhatsApp instead
                   </a>{' '}or try again.
                 </p>
@@ -335,9 +345,9 @@ export default function QuoteClient() {
             <div className="card-white p-6 rounded-2xl border-2 border-green-200">
               <h3 className="font-jakarta font-extrabold text-navy mb-2">Prefer WhatsApp?</h3>
               <p className="text-gray-500 text-xs mb-4">Skip the form - your entries auto-fill the message. Fastest response.</p>
-              <a href={`https://wa.me/919987539258?text=${waMessage}`} target="_blank" rel="noopener noreferrer"
+              <a href={`https://wa.me/919099796811?text=${waMessage}`} target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-green-50 border border-green-200 text-green-700 text-sm font-semibold hover:bg-green-100 transition-all">
-                <WaIcon /> WhatsApp +91 99875 39258
+                <WaIcon /> WhatsApp +91 90997 96811
               </a>
             </div>
 
@@ -355,9 +365,9 @@ export default function QuoteClient() {
             <div className="card-white p-6 rounded-2xl">
               <h3 className="font-jakarta font-extrabold text-navy mb-3 text-sm">Direct Contact</h3>
               <div className="space-y-2.5 text-sm text-gray-600">
-                <div className="flex items-center gap-2"><Icon name="Mail" className="w-4 h-4 text-gold flex-shrink-0" /> <a href="mailto:sales@jaydevmulticomm.com" className="hover:text-navy transition-colors">sales@jaydevmulticomm.com</a></div>
+                <div className="flex items-center gap-2"><Icon name="Mail" className="w-4 h-4 text-gold flex-shrink-0" /> <a href="mailto:exports@jaydevgroup.co.in" className="hover:text-navy transition-colors">exports@jaydevgroup.co.in</a></div>
+                <div className="flex items-center gap-2"><Icon name="Phone" className="w-4 h-4 text-gold flex-shrink-0" /> +91 90997 96811</div>
                 <div className="flex items-center gap-2"><Icon name="Phone" className="w-4 h-4 text-gold flex-shrink-0" /> +91 99875 39258</div>
-                <div className="flex items-center gap-2"><Icon name="Phone" className="w-4 h-4 text-gold flex-shrink-0" /> +91 99784 79258 (Office)</div>
               </div>
             </div>
           </div>

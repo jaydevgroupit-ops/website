@@ -8,10 +8,10 @@ Embed the Jaydev Group's business model, value propositions, and market understa
   Tagline: "Connecting Chemistry, Creating Solutions".
 - **Branches**: Rajkot (HQ) · Ahmedabad · Mumbai · Lagos, Nigeria.
 - **Two business units:**
-  1. **Jaydev Multicomm Pvt. Ltd.** - export & import. IEC-registered; serves 30+ countries.
+  1. **Jaydev Group** - export & import. IEC-registered; serves 30+ countries.
      - **Exports**: 100+ industrial chemicals (GACL/Grasim/Reliance/DCM Shriram backed).
      - **Imports**: Zircon Sand (ZrSiO₄), Lauric Acid (C12), Decanoic Acid (C10).
-  2. **Jaydev Pharma & Intermediates** - domestic India sales of pharma intermediates,
+  2. **Jaydev Pharma & Intermediates LLP** - domestic India sales of pharma intermediates,
      fine chemicals, and industrial raw materials.
 - The website is a **Group hub**: positions Multicomm as the global-trade arm and Pharma
   as the domestic arm. See `jaydev-design-system.md` for visual/IA rules.

@@ -22,7 +22,7 @@ export const articles: Article[] = [
     excerpt:
       'How sodium metabisulphite (SMBS) neutralises cyanide in gold and silver tailings - recommended dosage, purity grades, and what East African mines should specify when importing.',
     date: '2026-06-10',
-    author: 'Jaydev Multicomm',
+    author: 'Jaydev Group',
     readTime: '5 min read',
     category: 'Mining',
     image: '/images/products/smbs.jpg',
@@ -48,7 +48,7 @@ export const articles: Article[] = [
     excerpt:
       'The three commercial forms of sodium hydroxide differ in purity, handling, and cost-in-use. A practical guide to choosing the right caustic soda form for textiles, soap, water treatment, and pharma.',
     date: '2026-06-05',
-    author: 'Jaydev Multicomm',
+    author: 'Jaydev Group',
     readTime: '4 min read',
     category: 'Chlor-Alkali',
     image: '/images/products/caustic-soda.jpg',
@@ -74,7 +74,7 @@ export const articles: Article[] = [
     excerpt:
       'A plain-English guide to the Incoterms that matter when importing industrial chemicals - who pays freight, who carries risk, and how to compare quotes correctly.',
     date: '2026-05-28',
-    author: 'Jaydev Multicomm',
+    author: 'Jaydev Group',
     readTime: '6 min read',
     category: 'Trade & Logistics',
     image: '/images/logistics-port.png',
@@ -103,7 +103,7 @@ export const articles: Article[] = [
     excerpt:
       'Poly Aluminium Chloride and aluminium sulphate both clarify water - but they behave differently on pH, dose, sludge, and cold-water performance. How to choose for municipal and industrial plants.',
     date: '2026-05-20',
-    author: 'Jaydev Multicomm',
+    author: 'Jaydev Group',
     readTime: '5 min read',
     category: 'Water Treatment',
     image: '/images/watertreatment.webp',

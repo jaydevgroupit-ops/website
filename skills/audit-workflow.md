@@ -1,6 +1,6 @@
 # Audit Workflow
 
-This document defines the auditing process for Jaydev Multicomm.
+This document defines the auditing process for Jaydev Group.
 It is the baseline for understanding content, structure, UX, and technical gaps before migration.
 
 ## Purpose

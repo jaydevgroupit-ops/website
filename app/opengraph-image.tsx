@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-export const alt = 'Jaydev Multicomm — Industrial Chemical Exporter';
+export const alt = 'Jaydev Group — Industrial Chemical Exporter & Supplier';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -38,7 +38,7 @@ export default function OpengraphImage() {
         {/* wordmark */}
         <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '46px' }}>
           <div style={{ color: '#ffffff', fontSize: '46px', fontWeight: 800, letterSpacing: '2px' }}>JAYDEV</div>
-          <div style={{ color: '#E8B84B', fontSize: '22px', fontWeight: 700, letterSpacing: '10px' }}>MULTICOMM</div>
+          <div style={{ color: '#E8B84B', fontSize: '22px', fontWeight: 700, letterSpacing: '10px' }}>GROUP</div>
         </div>
 
         {/* headline */}
@@ -51,7 +51,7 @@ export default function OpengraphImage() {
 
         {/* stats */}
         <div style={{ display: 'flex', color: 'rgba(255,255,255,0.72)', fontSize: '30px', fontWeight: 500 }}>
-          100+ chemicals · 30+ countries · GACL &amp; Grasim Authorized
+          Export &amp; Import · Pharma &amp; Intermediates · GACL &amp; Grasim Authorized
         </div>
       </div>
     ),

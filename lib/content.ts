@@ -1,13 +1,15 @@
 // ─────────────────────────────────────────────
-//  JAYDEV MULTICOMM - Master Content Library
+//  JAYDEV GROUP - Master Content Library
 // ─────────────────────────────────────────────
+
+import { SITE_URL, SALES_EMAIL, EXPORT_EMAIL, MARKETING_EMAIL, PROCUREMENT_EMAIL, PHONE_EXPORT, PHONE_RAJKOT, PHONE_PROCUREMENT } from './site';
 
 export const COMPANY = {
   name: 'Jaydev Multicomm Pvt. Ltd.',
-  address: '911 RK Supreme, 150 Ft Ring Road, Rajkot, Gujarat – 360005',
-  email: 'sales@jaydevmulticomm.com',
-  website: 'https://www.jaydevmulticomm.com',
-  whatsappDarsh: '+919987539258',
+  address: 'B-408 Ratnakar Nine Square, opp ITC Narmada, near Keshavbaug Cross Road, Vastrapur, Ahmedabad, Gujarat – 380015',
+  email: SALES_EMAIL,
+  website: SITE_URL,
+  whatsappExport: PHONE_EXPORT,
   whatsappOffice: '+919978479258',
   stats: {
     monthlyMT: '5000+',
@@ -17,31 +19,40 @@ export const COMPANY = {
   },
   team: [
     {
-      name: 'Jitesh Vajir',
-      role: 'Founder & Managing Director',
-      bio: 'Leading the Jaydev Group with deep expertise in chemical trading and export operations across India and global markets.',
-      linkedin: 'https://www.linkedin.com/in/jitesh-vajir-2471993b6/',
-      email: null as string | null,
-      whatsapp: null as string | null,
-      image: '/brand/jitesh-vajir.png' as string | null,
+      name: 'Manish Shukla',
+      role: 'Chief Procurement Officer (CPO)',
+      remit: 'Global procurement, sourcing & supplier relationships',
+      linkedin: null as string | null,
+      email: PROCUREMENT_EMAIL as string | null,
+      whatsapp: PHONE_PROCUREMENT as string | null,
+      image: null as string | null,
     },
     {
-      name: 'Meet S',
-      role: 'Marketing & Export Operations',
-      bio: 'Overseeing marketing, documentation, logistics, and export compliance to ensure seamless delivery to global buyers.',
+      name: 'Meet Sheth',
+      role: 'Chief Operating Officer (COO)',
+      remit: 'Export, import, logistics, documentation & operations',
       linkedin: 'https://www.linkedin.com/in/meet-sheth-0871/',
-      email: 'marketing@jaydevmulticomm.com' as string | null,
-      whatsapp: null as string | null,
-      image: null as string | null,
+      email: EXPORT_EMAIL,
+      whatsapp: PHONE_EXPORT,
+      image: null,
     },
     {
-      name: 'Darsh K',
-      role: 'Business Development',
-      bio: 'Driving international partnerships and client acquisition across East Africa, GCC, and Southeast Asia.',
+      name: 'Darsh Katkoria',
+      role: 'Chief Business Officer (CBO)',
+      remit: 'Sales, customers, revenue & commercial growth',
       linkedin: 'https://www.linkedin.com/in/darsh-k-07579a3b5/',
-      email: null as string | null,
-      whatsapp: '+919987539258' as string | null,
-      image: null as string | null,
+      email: SALES_EMAIL,
+      whatsapp: '+919987539258',
+      image: null,
+    },
+    {
+      name: 'Mahir Bhojani',
+      role: 'Marketing & Business Development',
+      remit: 'Pharma & API sales, marketing & market expansion',
+      linkedin: 'https://www.linkedin.com/in/mahir-bhojani-b49027268/',
+      email: MARKETING_EMAIL,
+      whatsapp: '+919825112687',
+      image: null,
     },
   ],
   manufacturers: [
@@ -72,18 +83,18 @@ export const GROUP = {
   name: 'Jaydev Group',
   founder: 'Jitesh Vajir',
   founderImage: '/brand/jitesh-vajir.png',
-  founderTitle: 'Founder & Managing Director',
+  founderTitle: 'Founder',
   tagline: 'Connecting Chemistry, Creating Solutions',
-  hq: 'Rajkot, Gujarat, India',
+  hq: 'Ahmedabad, Gujarat, India',
   established: '2018',
   description:
-    'Jaydev Group is a Rajkot-headquartered chemical enterprise backed by direct manufacturer relationships with India\'s leading producers',
+    'Ahmedabad-based. We buy direct from India\'s largest chemical producers.',
 };
 
 export type Branch = { city: string; country: string; role: string; lat: number; lng: number; hq?: boolean };
 export const BRANCHES: Branch[] = [
-  { city: 'Rajkot', country: 'India', role: 'Head Office & Operations', lat: 22.30, lng: 70.80, hq: true },
-  { city: 'Ahmedabad', country: 'India', role: 'Sourcing & Logistics', lat: 23.02, lng: 72.57 },
+  { city: 'Ahmedabad', country: 'India', role: 'Head Office & Operations', lat: 23.02, lng: 72.57, hq: true },
+  { city: 'Rajkot', country: 'India', role: 'Sourcing & Trade Desk', lat: 22.30, lng: 70.80 },
   { city: 'Mumbai', country: 'India', role: 'Port & Trade Desk', lat: 19.08, lng: 72.88 },
   { city: 'Lagos', country: 'Nigeria', role: 'West Africa Distribution', lat: 6.52, lng: 3.38 },
 ];
@@ -103,17 +114,17 @@ export const BUSINESS_UNITS: BusinessUnit[] = [
     scope: 'Export & Import',
     icon: 'Globe',
     description:
-      'Our global trade arm - IEC-registered exporter and importer of industrial chemicals serving 100+ buyers across Africa, the GCC, and Southeast Asia, with full export documentation and manufacturer-backed quality.',
-    highlights: ['Export to 30+ countries', 'IEC Registered', 'Import: Zircon, Fatty Acids', 'Full COA / MSDS / COO'],
+      'Our export arm. IEC-registered, and the entity that contracts every export - chemicals and pharma alike. 100+ buyers across Africa, the Gulf and Southeast Asia.',
+    highlights: ['Export to 30+ countries', 'IEC Registered', 'Chemicals & pharma', 'Full COA / MSDS / COO'],
   },
   {
     id: 'pharma',
-    name: 'Jaydev Pharma & Intermediates',
-    scope: 'Domestic Sales',
+    name: 'Jaydev Pharma & Intermediates LLP',
+    scope: 'Domestic Supply',
     icon: 'FlaskConical',
     description:
-      'Our domestic distribution arm - supplying pharmaceutical intermediates, fine chemicals, and industrial raw materials to manufacturers and processors across India with reliable lead times and credit terms.',
-    highlights: ['Pan-India distribution', 'Pharma intermediates', 'Bulk & spot supply', 'Trusted credit terms'],
+      'Our India arm. Supplies APIs, intermediates, excipients and industrial chemicals to manufacturers nationwide, on bulk or spot terms with credit.',
+    highlights: ['Pan-India distribution', 'APIs & intermediates', 'Bulk & spot supply', 'Trusted credit terms'],
   },
 ];
 
@@ -1271,24 +1282,11 @@ export const categories = [
   { id: 'agro',            label: 'Agro',            icon: 'Wheat',        count: 0 },
 ];
 
-// ─── Industry super-groups (PCIPL-style filtering) ──
-export type SuperGroup = { id: string; label: string };
-export const superGroups: SuperGroup[] = [
-  { id: 'all',            label: 'All Industries' },
-  { id: 'water-energy',   label: 'Water, Mining & Energy' },
-  { id: 'process',        label: 'Chemical Synthesis' },
-  { id: 'case',           label: 'Coatings, Adhesives & Polymers' },
-  { id: 'care',           label: 'Home & Personal Care' },
-  { id: 'agro-food',      label: 'Agro, Food & Pharma' },
-  { id: 'textile-paper',  label: 'Textile, Pulp & Paper' },
-];
-
 // ─── Industry Data ────────────────────────────
 export type IndustryData = {
   id: string;
   name: string;
   icon: string;          // lucide-react icon name
-  superGroup: string;    // super-group id
   description: string;
   seoKeywords: string;   // comma-separated, for meta + AEO
   productIds: string[];
@@ -1301,7 +1299,6 @@ export const industryData: IndustryData[] = [
     id: 'water-treatment',
     name: 'Water Treatment',
     icon: 'Droplets',
-    superGroup: 'water-energy',
     description: 'Municipal water purification, desalination, industrial effluent, and sewage treatment chemicals - coagulants, disinfectants, and pH control for plants across Africa, the GCC, and Asia.',
     seoKeywords: 'water treatment chemicals exporter, PAC supplier, poly aluminium chloride, aluminium sulphate, sodium hypochlorite, TCCA, bleaching powder',
     productIds: ['pac', 'aluminium-sulphate', 'sodium-hypochlorite', 'caustic-soda', 'calcium-hypochlorite', 'tcca', 'stable-bleaching-powder', 'sodium-sulphite', 'ferric-chloride', 'ferrous-sulphate', 'copper-sulphate', 'potassium-permanganate', 'sodium-thiosulphate', 'activated-carbon'],
@@ -1312,7 +1309,6 @@ export const industryData: IndustryData[] = [
     id: 'mining',
     name: 'Mining & Metallurgy',
     icon: 'Pickaxe',
-    superGroup: 'water-energy',
     description: 'Gold, silver, and copper extraction - cyanide destruction, leaching, flotation, and pH adjustment chemicals for mines across East and West Africa.',
     seoKeywords: 'mining chemicals exporter, SMBS for cyanide destruction, sodium metabisulphite mining, gold leaching chemicals, flotation reagents Africa',
     productIds: ['smbs', 'sodium-sulphite', 'sulphuric-acid', 'caustic-soda', 'hydrazine-hydrate', 'calcium-chloride', 'sodium-chlorate', 'copper-sulphate', 'activated-carbon', 'sodium-thiosulphate', 'quick-lime'],
@@ -1323,7 +1319,6 @@ export const industryData: IndustryData[] = [
     id: 'oil-gas',
     name: 'Oil, Gas & Energy',
     icon: 'Flame',
-    superGroup: 'water-energy',
     description: 'Drilling fluids, well completion, refinery, and energy-sector chemicals - high-demand calcium chloride and caustic across GCC oilfields.',
     seoKeywords: 'oilfield chemicals supplier, calcium chloride drilling fluid, caustic soda oil and gas, GCC chemical exporter',
     productIds: ['calcium-chloride', 'caustic-soda', 'hydrochloric-acid', 'sulphuric-acid', 'methanol', 'sodium-bicarbonate', 'barite', 'bentonite', 'mono-ethanolamine', 'potassium-chloride', 'shmp'],
@@ -1334,7 +1329,6 @@ export const industryData: IndustryData[] = [
     id: 'chlor-alkali',
     name: 'Chlor-Alkali & Basics',
     icon: 'Atom',
-    superGroup: 'process',
     description: 'Core chlor-alkali commodities - caustic soda, chlorine, soda ash, and acids that form the backbone of every downstream chemical industry.',
     seoKeywords: 'caustic soda exporter India, caustic soda flakes GACL, soda ash supplier, liquid chlorine, hydrochloric acid bulk',
     productIds: ['caustic-soda', 'caustic-potash', 'hydrochloric-acid', 'liquid-chlorine', 'soda-ash', 'sodium-silicate', 'quick-lime', 'hydrated-lime'],
@@ -1345,7 +1339,6 @@ export const industryData: IndustryData[] = [
     id: 'chemical-intermediates',
     name: 'Chemical Intermediates',
     icon: 'FlaskConical',
-    superGroup: 'process',
     description: 'Building-block solvents, acids, and reactive intermediates for pharmaceutical, agrochemical, dye, and specialty chemical synthesis.',
     seoKeywords: 'chemical intermediates exporter, chlorinated solvents, oleum, chlorosulphonic acid, epichlorohydrin India',
     productIds: ['oleum', 'chlorosulphonic-acid', 'sulphuryl-chloride', 'thionyl-chloride', 'chloroform', 'methylene-chloride', 'epichlorohydrin', 'beta-naphthol', 'acetic-acid', 'formic-acid', 'formaldehyde', 'isopropyl-alcohol', 'mek', 'mibk'],
@@ -1356,7 +1349,6 @@ export const industryData: IndustryData[] = [
     id: 'paints-coatings',
     name: 'Paints, Inks & Coatings',
     icon: 'PaintBucket',
-    superGroup: 'case',
     description: 'Resins, solvents, pigments dispersants, and additives for paints, printing inks, and protective/industrial coatings.',
     seoKeywords: 'paint chemicals supplier, epoxy resin exporter, coating solvents, toluene, MEG, titanium dioxide',
     productIds: ['epoxy-resin', 'toluene', 'acetone', 'ethyl-acetate', 'methanol', 'ethylene-glycol', 'titanium-dioxide', 'xylene', 'n-butanol', 'propylene-glycol', 'calcium-carbonate', 'stearic-acid'],
@@ -1367,7 +1359,6 @@ export const industryData: IndustryData[] = [
     id: 'plastic-rubber',
     name: 'Plastics, PVC & Rubber',
     icon: 'Recycle',
-    superGroup: 'case',
     description: 'Polymer feedstock, plasticizers, stabilizers, and processing aids for PVC, polymers, and rubber manufacturing.',
     seoKeywords: 'PVC chemicals supplier, chlorinated paraffin exporter, EDC, plasticizer, polymer additives India',
     productIds: ['caustic-soda', 'chlorinated-paraffin', 'aluminium-chloride', 'ethylene-dichloride', 'liquid-chlorine', 'epoxy-resin', 'sulphur', 'calcium-carbonate', 'titanium-dioxide', 'zinc-oxide', 'stearic-acid', 'china-clay', 'diethylene-glycol'],
@@ -1378,7 +1369,6 @@ export const industryData: IndustryData[] = [
     id: 'home-personal-care',
     name: 'Home & Personal Care',
     icon: 'SprayCan',
-    superGroup: 'care',
     description: 'Surfactants, builders, and actives for soaps, detergents, cosmetics, and household cleaning - including imported fatty acids.',
     seoKeywords: 'detergent chemicals supplier, LABSA, caustic soda soap, lauric acid importer, surfactants exporter',
     productIds: ['caustic-soda', 'caustic-potash', 'soda-ash', 'sodium-sulphate', 'oleum', 'sodium-bicarbonate', 'lauric-acid', 'decanoic-acid', 'labsa', 'sles', 'cdea', 'soap-noodles', 'refined-glycerine', 'citric-acid', 'stpp'],
@@ -1389,7 +1379,6 @@ export const industryData: IndustryData[] = [
     id: 'agro-fertilizer',
     name: 'Agro & Fertilizer',
     icon: 'Wheat',
-    superGroup: 'agro-food',
     description: 'Crop nutrition, soil treatment, and crop-protection intermediates - sulphur, acids, and nitrate salts for agriculture.',
     seoKeywords: 'agro chemicals exporter, fertilizer raw material, sulphur supplier, sodium nitrate, phosphoric acid agriculture',
     productIds: ['sulphur', 'sulphuric-acid', 'sodium-nitrate', 'phosphoric-acid', 'sodium-chlorate', 'urea', 'dap', 'potassium-chloride', 'calcium-nitrate', 'potassium-sulphate', 'ammonium-sulphate', 'potassium-nitrate', 'magnesium-sulphate', 'zinc-sulphate', 'boric-acid'],
@@ -1400,7 +1389,6 @@ export const industryData: IndustryData[] = [
     id: 'food-pharma',
     name: 'Food & Pharma',
     icon: 'Pill',
-    superGroup: 'agro-food',
     description: 'Food-grade and pharmaceutical-grade chemicals for processing, preservation, buffering, and active synthesis.',
     seoKeywords: 'food grade chemicals exporter, pharma intermediates, sodium bicarbonate food grade, calcium chloride food, phosphoric acid food grade',
     productIds: ['smbs', 'calcium-chloride', 'sodium-bicarbonate', 'hydrogen-peroxide', 'phosphoric-acid', 'sodium-acetate', 'sodium-nitrate', 'decanoic-acid', 'citric-acid', 'lactic-acid', 'refined-glycerine', 'magnesium-sulphate', 'ammonium-chloride'],
@@ -1411,7 +1399,6 @@ export const industryData: IndustryData[] = [
     id: 'textile-dyeing',
     name: 'Textile & Dyeing',
     icon: 'Shirt',
-    superGroup: 'textile-paper',
     description: 'Fabric mercerizing, scouring, bleaching, dyeing, and effluent treatment chemicals for textile mills and dye houses.',
     seoKeywords: 'textile chemicals exporter, caustic soda mercerizing, hydrogen peroxide bleaching, beta naphthol dye, glauber salt',
     productIds: ['caustic-soda', 'hydrogen-peroxide', 'sodium-hypochlorite', 'sulphuric-acid', 'beta-naphthol', 'sodium-sulphate', 'acetic-acid', 'formic-acid', 'oxalic-acid'],
@@ -1422,7 +1409,6 @@ export const industryData: IndustryData[] = [
     id: 'pulp-paper',
     name: 'Pulp & Paper',
     icon: 'ScrollText',
-    superGroup: 'textile-paper',
     description: 'Pulping, bleaching, sizing, and de-inking chemicals for paper mills and packaging board producers.',
     seoKeywords: 'paper chemicals supplier, caustic soda pulp, sodium chlorate bleaching, hydrogen peroxide paper, rosin sizing',
     productIds: ['caustic-soda', 'sodium-chlorate', 'hydrogen-peroxide', 'soda-ash', 'aluminium-sulphate', 'sodium-sulphite', 'china-clay', 'calcium-carbonate', 'sodium-silicate'],

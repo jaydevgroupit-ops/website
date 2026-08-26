@@ -1,0 +1,26 @@
+{
+  "_comment": "Short names shown on product cards, keyed by CAS. The full chemical name stays in the search index and on hover. Re-running scripts/import_pharma.py never overwrites this file.",
+  "_provenance": "Entries marked CONFIRMED were verified against multiple independent supplier/reference databases (ChemicalBook, PharmaCompass, Sigma-Aldrich, BOC Sciences, SynZeal and named API manufacturers). Entries marked CHEMICAL make no claim about a target drug - they are shortened forms of the molecule's own name. Have a chemist sign these off before go-live.",
+
+  "142569-70-8": "Montelukast intermediate",
+  "376608-65-0": "Ticagrelor intermediate",
+  "376608-71-8": "Ticagrelor intermediate",
+  "519032-08-7": "Raltegravir intermediate",
+  "201677-59-0": "Formoterol intermediate",
+  "1049695-95-5": "Formoterol intermediate",
+  "368421-58-3": "Isavuconazole intermediate",
+  "1589503-95-6": "Relugolix intermediate",
+  "1869118-24-0": "Upadacitinib intermediate",
+  "1428243-26-8": "Upadacitinib intermediate",
+  "6870-94-6": "Methylprednisolone intermediate",
+  "2135-17-3": "Flumethasone",
+
+  "1809286-36-9": "Roxadustat intermediate",
+
+  "2212022-57-4": "Pyrazolopyridine imidazolone, HCl",
+  "2212021-59-3": "Pyrazolopyridine carboxylate, Boc",
+  "452339-73-0": "Benzodioxinyl oxazolidinone",
+  "1481631-51-9": "Methoxy-methyl indole carboxylate, Boc",
+  "601487-89-2": "Indanyl trifluoroacetamide",
+  "8061-53-8": "Lignosulfonate (Ca/Na/Mg/K/NH4)"
+}

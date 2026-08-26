@@ -1,0 +1,29 @@
+{
+  "_comment": "CAS numbers for rows the source sheet left blank or wrote as #VALUE!. Keyed by product id. A string sets one CAS; a list of {label, cas} declares a product sold in multiple isomeric forms. Every CAS is validated against the official check-digit algorithm before it is emitted.",
+  "_provenance": "Each verified against multiple independent references (ChemicalBook, Sigma-Aldrich, PubChem, USP, TCI, Cayman Chemical) in August 2026.",
+  "heparin-sodium": "9041-08-1",
+  "clindamycin-palmitate-hydrochloride": "25507-04-4",
+  "2-bromo-thiophene": "1003-09-4",
+  "methyl-2-bromomethyl-3-nitrobenzoate": "98475-07-1",
+  "inositol-nicotinate": "6556-11-2",
+  "hydroxypropyl-beta-cyclodextrin": "128446-35-5",
+  "5-ala-5-aminolevulinic-acid-hydrochloride": "5451-09-2",
+  "phytoene": [
+    {
+      "label": "15-cis",
+      "cas": "13920-14-4"
+    },
+    {
+      "label": "all-trans",
+      "cas": "540-04-5"
+    }
+  ],
+  "n-amino-3-azabicyclo-3-3-0-octan-hcl": "58108-05-7",
+  "2-methylamino-pyridine-3-methanol": "32399-12-5",
+  "_no_cas_exists": {
+    "branched-chain-amino-acids": "A blend of L-leucine (61-90-5), L-isoleucine (73-32-5) and L-valine (72-18-4). A mixture has no single CAS."
+  },
+  "_removed": {
+    "kinds-of-beef-organs-powder": "Removed from the catalogue - not a defined chemical substance."
+  }
+}

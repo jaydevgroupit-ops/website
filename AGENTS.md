@@ -1,18 +1,18 @@
-# Jaydev Multicomm - AI Agents & Working Norms
+# Jaydev Group - AI Agents & Working Norms
 
-This document defines the strategic, design, and technical guidelines for rebuilding the Jaydev Multicomm website into a premium, export-focused industrial B2B platform.
+This document defines the strategic, design, and technical guidelines for rebuilding the Jaydev Group website into a premium, export-focused industrial B2B platform.
 
 ---
 
 ## Company Overview
 
-**Jaydev Multicomm Pvt. Ltd.**  
+**Jaydev Group**  
 - **Location**: 911 RK Supreme, 150 Ft Ring Road, Rajkot, Gujarat 360005 · India
 - **Founders**: Jitesh Vajir (Chairman/Founder), Darsh (Business Development), Meet Sheth (Director International Export)
 - **IEC Code**: AAKCM4483G (Export-Import Registered)
 - **GST**: 24AAKCM4483G1ZB (Available for B2B)
 - **Contact**: +91 99875 39258 | +91 99784 79258 (WhatsApp preferred)  
-  Email: sales@jaydevmulticomm.com
+  Email: sales@jaydevgroup.co.in
 
 ---
 
@@ -81,7 +81,7 @@ This document defines the strategic, design, and technical guidelines for rebuil
 - **Global Logistics**: Hazira, Mundra, JNPT ports; Incoterms flexibility (FOB, CIF, CFR, EXW).
 
 ### **Visual & Messaging Rules**
-- **Logo**: Use provided Jaydev Multicomm logo (with network/hub motif) as primary brand asset.
+- **Logo**: Use provided Jaydev Group logo (with network/hub motif) as primary brand asset.
 - **Color Palette**: 
   - Primary: Navy (#0E2040) – Trust, professionalism.
   - Accent: Teal (#0B7A72) – Energy, chemistry.

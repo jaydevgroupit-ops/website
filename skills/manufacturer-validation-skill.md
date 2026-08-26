@@ -88,7 +88,7 @@ CASE STUDY (Optional): "XYZ Mining – 500 MT SMBS quarterly from GACL via Jayde
 FORM HEADING: "Get Export-Ready Quote From Manufacturer-Backed Supplier"
 
 CONFIRMATION EMAIL (POST-SUBMISSION):
-"Thank you for your inquiry. Your request has been sent to our sourcing team at Jaydev Multicomm.
+"Thank you for your inquiry. Your request has been sent to our sourcing team at Jaydev Group.
 
 We will confirm your product details with our manufacturer partner [GACL/Grasim/Reliance] 
 and send you a detailed quote including:

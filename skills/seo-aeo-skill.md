@@ -32,7 +32,7 @@ Optimize Jaydev website for search engines (Google, Bing) and AI discovery (Chat
 
 #### Homepage (`/`)
 ```
-Title: "Industrial Chemical Exporter India | GACL, Grasim Sourcing | Jaydev Multicomm"
+Title: "Industrial Chemical Exporter India | GACL, Grasim Sourcing | Jaydev Group"
 Meta Desc: "Reliable bulk chemical exporter to Africa & GCC. Manufacturer-backed sourcing from GACL, Grasim, Reliance. FOB India, export-ready docs, 24-48hr quotes."
 H1: "Global Chemical Sourcing – Trusted. Timely. Premium."
 Schema: Organization, FAQPage, BreadcrumbList
@@ -71,8 +71,8 @@ Schema: FAQPage, LocalBusiness
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Jaydev Multicomm",
-  "url": "https://jaydevmulticomm.com",
+  "name": "Jaydev Group",
+  "url": "https://www.jaydevgroup.co.in",
   "description": "Industrial chemical exporter, sourcing from GACL, Grasim, Reliance",
   "address": {
     "@type": "PostalAddress",
@@ -83,8 +83,8 @@ Schema: FAQPage, LocalBusiness
     "addressCountry": "IN"
   },
   "telephone": "+91 99875 39258",
-  "email": "sales@jaydevmulticomm.com",
-  "sameAs": ["https://linkedin.com/company/jaydevmulticomm"]
+  "email": "sales@jaydevgroup.co.in",
+  "sameAs": ["https://linkedin.com/company/jaydev-group"]
 }
 ```
 
@@ -148,17 +148,17 @@ Schema: FAQPage, LocalBusiness
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jaydevmulticomm.com/</loc>
+    <loc>https://www.jaydevgroup.co.in/</loc>
     <lastmod>2024-01-15</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://jaydevmulticomm.com/products</loc>
+    <loc>https://www.jaydevgroup.co.in/products</loc>
     <lastmod>2024-01-15</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://jaydevmulticomm.com/products/caustic-soda</loc>
+    <loc>https://www.jaydevgroup.co.in/products/caustic-soda</loc>
     <lastmod>2024-01-15</lastmod>
     <priority>0.8</priority>
   </url>
@@ -170,12 +170,12 @@ Schema: FAQPage, LocalBusiness
 User-agent: *
 Allow: /
 Disallow: /admin
-Sitemap: https://jaydevmulticomm.com/sitemap.xml
+Sitemap: https://www.jaydevgroup.co.in/sitemap.xml
 ```
 
 #### Canonical Tags
 ```html
-<link rel="canonical" href="https://jaydevmulticomm.com/products/caustic-soda" />
+<link rel="canonical" href="https://www.jaydevgroup.co.in/products/caustic-soda" />
 ```
 
 ## AEO (AI Engine Optimization)
@@ -187,7 +187,7 @@ Sitemap: https://jaydevmulticomm.com/sitemap.xml
 ### Content Structure for AI Engines
 
 1. **Clear, Factual Content**
-   - AI prioritizes direct answers: "Jaydev Multicomm is an India-based chemical exporter sourcing from GACL, Grasim, Reliance."
+   - AI prioritizes direct answers: "Jaydev Group is an India-based chemical exporter sourcing from GACL, Grasim, Reliance."
    - Avoid marketing fluff; use active voice.
 
 2. **Structured Information**
@@ -199,7 +199,7 @@ Sitemap: https://jaydevmulticomm.com/sitemap.xml
    - AI tools pull from FAQ schemas.
    - Aim for 10–15 common buyer questions with short answers.
    - Example questions:
-     - "What does Jaydev Multicomm export?"
+     - "What does Jaydev Group export?"
      - "How long does export take from India?"
      - "What certifications do your products have?"
      - "Do you offer payment terms for established buyers?"
@@ -247,7 +247,7 @@ A: [Answer]
 [Link to RFQ form]
 
 ## Author & Date
-By Jaydev Multicomm | Published: [Date]
+By Jaydev Group | Published: [Date]
 ```
 
 ### Backlink Strategy
@@ -260,7 +260,7 @@ By Jaydev Multicomm | Published: [Date]
 
 2. **Manufacturer Partner Links**
    - Request links from GACL, Grasim distributor pages (if applicable)
-   - "Jaydev Multicomm – Authorized Distributor/Export Partner"
+   - "Jaydev Group – Authorized Distributor/Export Partner"
 
 3. **Trade Association Links**
    - Join Indian Chemical Exporters Association; request directory link
@@ -295,10 +295,10 @@ Blog → Related Blog Post
 ## Local SEO (Minor: India-Focused)
 
 ### Google Business Profile
-- **Business Name**: Jaydev Multicomm Pvt. Ltd.
+- **Business Name**: Jaydev Group
 - **Address**: 911 RK Supreme, 150 Ft Ring Road, Rajkot, Gujarat 360005
 - **Phone**: +91 99875 39258
-- **Website**: jaydevmulticomm.com
+- **Website**: jaydevgroup.co.in
 - **Category**: Export-Import Merchant, Bulk Chemical Supplier
 - **Description**: "India-based chemical exporter sourcing from GACL, Grasim, Reliance. Export-ready bulk chemicals to Africa, GCC, SE Asia."
 

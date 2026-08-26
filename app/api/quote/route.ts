@@ -1,25 +1,21 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { EXPORT_EMAIL, SITE_NAME } from '@/lib/site';
 
 /**
- * RFQ endpoint. Primary channel = email notification to the sales inbox
- * (Resend), matching the old site's behaviour. Airtable + a generic webhook
- * are kept as OPTIONAL secondary logging. Everything is env-driven so the
- * route never throws just because a channel isn't configured.
+ * RFQ endpoint. Email notification to the sales inbox (Resend) is the only
+ * primary channel; an optional generic webhook can mirror submissions
+ * elsewhere. Everything is env-driven so the route never throws just because
+ * a channel isn't configured.
  */
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY || '';
-const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL || 'sales@jaydevmulticomm.com';
+const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL || EXPORT_EMAIL;
 const NOTIFICATION_FROM_EMAIL =
-  process.env.NOTIFICATION_FROM_EMAIL || 'Jaydev Multicomm <noreply@jaydevmulticomm.com>';
+  process.env.NOTIFICATION_FROM_EMAIL || `${SITE_NAME} <noreply@jaydevgroup.co.in>`;
 
 const WEBHOOK = process.env.QUOTE_WEBHOOK_URL || '';
-const AIRTABLE_API_KEY = process.env.AIRTABLE_API_KEY || '';
-const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID || '';
-const AIRTABLE_TABLE_NAME = process.env.AIRTABLE_TABLE_NAME || '';
-
 const emailEnabled = Boolean(RESEND_API_KEY);
-const airtableEnabled = Boolean(AIRTABLE_API_KEY && AIRTABLE_BASE_ID && AIRTABLE_TABLE_NAME);
 
 const esc = (s: unknown) =>
   String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -47,7 +43,7 @@ function buildEmail(q: Quote) {
   const html = `
   <div style="font-family:system-ui,Segoe UI,Arial,sans-serif;max-width:560px;margin:auto;color:#0E2040">
     <div style="background:#0E2040;color:#fff;padding:20px 24px;border-radius:12px 12px 0 0">
-      <div style="font-weight:800;font-size:18px">New RFQ — Jaydev Multicomm</div>
+      <div style="font-weight:800;font-size:18px">New RFQ — Jaydev Group</div>
       <div style="color:#E8B84B;font-size:13px;margin-top:2px">Request for Quote submitted on the website</div>
     </div>
     <table style="width:100%;border-collapse:collapse;border:1px solid #E5E7EB;border-top:0">
@@ -81,39 +77,6 @@ async function sendEmail(q: Quote) {
   if (error) throw new Error(`Resend: ${error.message}`);
 }
 
-async function createAirtableRecord(q: Quote) {
-  // Field names match the "Inquiries" table exactly. Extra RFQ fields (incoterm,
-  // port, country, packaging, unit) have no dedicated column, so they go into Details.
-  const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE_NAME)}`;
-  const volume = Number(String(q.quantity ?? '').replace(/[^0-9.]/g, ''));
-  const details = [
-    `Quantity: ${q.quantity || '—'} ${q.unit || ''}`.trim(),
-    `Incoterm: ${q.incoterm || '—'}`,
-    `Destination port: ${q.destinationPort || '—'}`,
-    `Packaging: ${q.packaging || '—'}`,
-    `Country: ${q.country || '—'}`,
-    `Notes: ${q.notes || '—'}`,
-  ].join('\n');
-
-  const fields: Record<string, unknown> = {
-    Company: q.company || '',
-    Name: q.name || '',
-    Email: q.email || '',
-    Phone: q.phone || '',
-    Products: q.product || '',
-    Details: details,
-    Source: 'Website RFQ',
-  };
-  if (Number.isFinite(volume) && volume > 0) fields.Volume = volume;
-
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${AIRTABLE_API_KEY}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ records: [{ fields }], typecast: true }),
-  });
-  if (!res.ok) throw new Error(`Airtable ${res.status}: ${await res.text()}`);
-}
-
 export async function POST(request: Request) {
   try {
     const q = (await request.json()) as Quote;
@@ -124,7 +87,6 @@ export async function POST(request: Request) {
 
     const channels: Promise<void>[] = [];
     if (emailEnabled) channels.push(sendEmail(q));
-    if (airtableEnabled) channels.push(createAirtableRecord(q));
     if (WEBHOOK) {
       channels.push(
         fetch(WEBHOOK, {
@@ -136,8 +98,13 @@ export async function POST(request: Request) {
     }
 
     if (channels.length === 0) {
-      // Nothing configured (e.g. local dev) — accept so the form still works.
-      console.warn('[quote] No notification channel configured (set RESEND_API_KEY).');
+      // Email is the only real channel, so an unconfigured production deploy
+      // would silently swallow every enquiry. Fail loudly there; stay lenient
+      // in local dev so the form is still testable without a key.
+      console.error('[quote] No notification channel configured (set RESEND_API_KEY).');
+      if (process.env.NODE_ENV === 'production') {
+        return NextResponse.json({ error: 'Could not submit request' }, { status: 502 });
+      }
       return NextResponse.json({ ok: true, warning: 'no-channel-configured' });
     }
 
@@ -155,5 +122,5 @@ export async function POST(request: Request) {
 }
 
 export async function GET() {
-  return NextResponse.json({ ok: true, message: 'Quote endpoint is live', emailEnabled, airtableEnabled });
+  return NextResponse.json({ ok: true, message: 'Quote endpoint is live', emailEnabled });
 }

@@ -8,7 +8,7 @@
 ## Brand
 
 - **Group**: Jaydev Group - founded by **Jitesh Vajir** (Founder & MD), HQ Rajkot, Gujarat.
-- **Business units**: Jaydev Multicomm (export & import) · Jaydev Pharma & Intermediates (domestic).
+- **Business units**: Jaydev Multicomm Pvt. Ltd. (export & import) · Jaydev Pharma & Intermediates LLP (domestic).
 - **Branches**: Rajkot (HQ), Ahmedabad, Mumbai, Lagos (Nigeria).
 - **Tagline**: "Connecting Chemistry, Creating Solutions".
 - **Logo (LOCKED - exact file, no recreation)**: use the PNG at

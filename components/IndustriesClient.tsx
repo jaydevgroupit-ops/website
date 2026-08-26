@@ -4,14 +4,14 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { industryData, products, INDUSTRY_IMAGE_MAP, superGroups } from '@/lib/content';
+import { industryData, products, INDUSTRY_IMAGE_MAP } from '@/lib/content';
 import { Icon } from './Icon';
 
 export default function IndustriesClient() {
   const [active, setActive] = useState('all');
 
   const filtered = useMemo(
-    () => (active === 'all' ? industryData : industryData.filter(i => i.superGroup === active)),
+    () => (active === 'all' ? industryData : industryData.filter(i => i.id === active)),
     [active]
   );
 
@@ -29,20 +29,26 @@ export default function IndustriesClient() {
         </div>
       </div>
 
-      {/* Super-group filter bar */}
+      {/* Sector filter - one axis, the 12 sectors themselves */}
       <div className="sticky top-16 z-30 bg-white/95 backdrop-blur border-b border-[#E5E7EB]">
         <div className="max-w-7xl mx-auto px-4 py-3 flex gap-2 overflow-x-auto no-scrollbar">
-          {superGroups.map(sg => (
+          <button
+            onClick={() => setActive('all')}
+            className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-semibold transition-all border ${
+              active === 'all' ? 'bg-navy text-white border-navy' : 'bg-white text-gray-600 border-[#E5E7EB] hover:border-navy hover:text-navy'
+            }`}
+          >
+            All sectors
+          </button>
+          {industryData.map(i => (
             <button
-              key={sg.id}
-              onClick={() => setActive(sg.id)}
+              key={i.id}
+              onClick={() => setActive(i.id)}
               className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-semibold transition-all border ${
-                active === sg.id
-                  ? 'bg-navy text-white border-navy'
-                  : 'bg-white text-gray-600 border-[#E5E7EB] hover:border-navy hover:text-navy'
+                active === i.id ? 'bg-navy text-white border-navy' : 'bg-white text-gray-600 border-[#E5E7EB] hover:border-navy hover:text-navy'
               }`}
             >
-              {sg.label}
+              {i.name}
             </button>
           ))}
         </div>
@@ -125,7 +131,7 @@ export default function IndustriesClient() {
                       </span>
                     </Link>
                     <a
-                      href={`https://wa.me/919987539258?text=Hi%2C%20I%20need%20chemicals%20for%20the%20${encodeURIComponent(industry.name)}%20industry`}
+                      href={`https://wa.me/919099796811?text=Hi%2C%20I%20need%20chemicals%20for%20the%20${encodeURIComponent(industry.name)}%20industry`}
                       target="_blank" rel="noopener noreferrer"
                       aria-label={`WhatsApp enquiry for ${industry.name}`}
                       className="flex-shrink-0 w-9 h-9 rounded-full bg-green-50 border border-green-200 text-green-600 flex items-center justify-center hover:bg-green-100 transition-colors"

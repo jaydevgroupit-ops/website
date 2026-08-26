@@ -7,7 +7,8 @@ import dynamic from 'next/dynamic';
 import ProcessFlow from './ProcessFlow';
 import FeaturedCarousel from './FeaturedCarousel';
 import { Icon } from './Icon';
-import { industryData, INDUSTRY_IMAGE_MAP, BRANCHES, CERTIFICATIONS } from '@/lib/content';
+import { industryData, INDUSTRY_IMAGE_MAP, BRANCHES, CERTIFICATIONS, products, categories } from '@/lib/content';
+import { pharmaProducts, PHARMA_SECTIONS, THERAPEUTIC_SEGMENTS } from '@/lib/pharma';
 
 const Philosophy = dynamic(() => import('./Philosophy'));
 
@@ -28,28 +29,95 @@ export default function HomeClient() {
       {/* smooth bridge from the cinematic dark into the light sections */}
       <div className="h-20 bg-gradient-to-b from-[#0B1B38] to-white" />
 
-      {/* ═══ FEATURED PRODUCTS (auto-scrolling carousel) ═══ */}
-      <section className="py-14 bg-white">
-        <div className="max-w-7xl mx-auto px-4 mb-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-          <div>
-            <span className="section-label mb-3">Our Products</span>
-            <h2 className="font-jakarta text-3xl sm:text-4xl font-extrabold text-navy">Featured Chemicals</h2>
+      {/* ═══ WHAT WE SUPPLY - named molecules, not category lists.
+             The /products page does taxonomy; /about does structure.
+             This section's only job is to show real product names fast. ═══ */}
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-10">
+            <span className="section-label mb-3">What We Supply</span>
+            <h2 className="font-jakarta text-3xl sm:text-[2.5rem] font-extrabold text-navy leading-tight">
+              {products.length + pharmaProducts.length} products, ready to quote
+            </h2>
           </div>
-          <Link href="/products" className="btn-navy px-7 py-3 self-start sm:self-auto">View All Products <Icon name="ArrowRight" className="w-4 h-4" /></Link>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+            {/* Industrial */}
+            <Link
+              href="/products?division=industrial"
+              className="group relative overflow-hidden rounded-3xl border border-[#EAEEF3] bg-white p-7 sm:p-8 transition-all hover:border-gold/40 hover:shadow-[0_20px_50px_-24px_rgba(14,32,64,0.3)]"
+            >
+              <div className="flex items-baseline gap-3 mb-6">
+                <span className="font-jakarta font-extrabold text-navy text-2xl">Industrial Chemicals</span>
+                <span className="font-jakarta font-extrabold text-gold-dark text-lg tabular-nums">{products.length}</span>
+              </div>
+
+              <ul className="grid grid-cols-2 gap-x-5 gap-y-3 mb-7">
+                {['Caustic Soda', 'Sulphuric Acid', 'PAC', 'SMBS', 'Hydrogen Peroxide', 'Calcium Chloride'].map((n) => {
+                  const hit = products.find((p) => p.name === n || p.name.startsWith(n));
+                  return (
+                    <li key={n} className="flex items-baseline gap-2 border-b border-[#F1F5F9] pb-2.5">
+                      <span className="text-navy text-sm font-semibold">{n}</span>
+                      {hit?.formula && hit.formula !== '-' && (
+                        <span className="font-mono text-[11px] text-gold-dark">{hit.formula}</span>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <span className="inline-flex items-center gap-2 font-jakarta font-bold text-navy text-sm group-hover:text-gold-dark transition-colors">
+                See all {products.length}
+                <Icon name="ArrowRight" className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </Link>
+
+            {/* Pharma */}
+            <Link
+              href="/products?division=pharma"
+              className="group relative overflow-hidden rounded-3xl bg-navy p-7 sm:p-8 transition-all hover:shadow-[0_20px_50px_-24px_rgba(14,32,64,0.6)]"
+            >
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -top-24 -right-24 w-64 h-64 rounded-full transition-transform duration-500 group-hover:scale-110"
+                style={{ background: 'radial-gradient(circle, rgba(38,255,0,0.10), transparent 70%)' }}
+              />
+              <div className="relative flex items-baseline gap-3 mb-6">
+                <span className="font-jakarta font-extrabold text-white text-2xl">Pharma &amp; APIs</span>
+                <span className="font-jakarta font-extrabold text-gold-light text-lg tabular-nums">{pharmaProducts.length}</span>
+              </div>
+
+              <ul className="relative grid grid-cols-2 gap-x-5 gap-y-3 mb-7">
+                {['Paclitaxel', 'Azithromycin', 'Heparin Sodium', 'Budesonide', 'Acyclovir', 'Propofol'].map((n) => {
+                  const hit = pharmaProducts.find((p) => p.name.toLowerCase() === n.toLowerCase());
+                  return (
+                    <li key={n} className="flex flex-col border-b border-white/10 pb-2.5">
+                      <span className="text-white/90 text-sm font-semibold leading-tight">{n}</span>
+                      {hit?.cas && <span className="font-mono text-[11px] text-gold-light/70 mt-0.5">CAS {hit.cas}</span>}
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <span className="relative inline-flex items-center gap-2 font-jakarta font-bold text-white text-sm group-hover:text-gold-light transition-colors">
+                See all {pharmaProducts.length}
+                <Icon name="ArrowRight" className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </Link>
+          </div>
+
+          <div className="mt-14">
+            <FeaturedCarousel />
+          </div>
         </div>
-        <FeaturedCarousel />
       </section>
-
-      {/* Sourcing Ecosystem marquee merged into the Philosophy "The Source" pillar */}
-
-      {/* Business Units ("Two Arms, One Standard") removed from home - lives on the Group page only */}
 
       {/* ═══ PROCESS FLOW ═══ */}
       <section className="py-14 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10">
             <span className="section-label mb-3">How We Work</span>
-            <h2 className="font-jakarta text-3xl sm:text-4xl font-extrabold text-navy mb-3">From Enquiry to Your Port</h2>
+            <h2 className="font-jakarta text-3xl sm:text-4xl font-extrabold text-navy mb-3">How an Order Works</h2>
           </div>
           <ProcessFlow />
         </div>
@@ -60,7 +128,7 @@ export default function HomeClient() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-8">
             <span className="section-label mb-3">Industries</span>
-            <h2 className="font-jakarta text-3xl sm:text-4xl font-extrabold text-white mb-3">Solutions for Every Sector</h2>
+            <h2 className="font-jakarta text-3xl sm:text-4xl font-extrabold text-white mb-3">Sectors We Supply</h2>
             <p className="text-white/60 max-w-xl mx-auto">Solutions for {industryData.length} sectors - water, mining, coatings, care, agro &amp; more</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -104,8 +172,8 @@ export default function HomeClient() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-8">
             <span className="section-label mb-3">Trade Terms</span>
-            <h2 className="font-jakarta text-3xl sm:text-4xl font-extrabold text-navy mb-3">Simple, Secure Trade Terms</h2>
-            <p className="text-gray-500 max-w-xl mx-auto">Payment, incoterms &amp; documentation - structured for safe trade.</p>
+            <h2 className="font-jakarta text-3xl sm:text-4xl font-extrabold text-navy mb-3">Trade Terms</h2>
+            <p className="text-gray-500 max-w-xl mx-auto">LC at sight, or 30% advance and 70% against documents.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {/* Payment terms - featured */}
@@ -127,15 +195,15 @@ export default function HomeClient() {
                     <strong>30% Cash in Advance</strong> and <strong>70% balance</strong> against Clearance Documents.
                   </p>
                 </div>
-                <p className="text-gray-400 text-xs">Flexible terms available for established buyers - LC, TT, DA/DP.</p>
+                <p className="text-gray-400 text-xs">Established buyers: LC, TT or DA/DP.</p>
               </div>
             </div>
 
             {[
-              { icon: 'Ship', title: 'Incoterms', body: 'EXW · FOB · CFR · CIF from Mundra, JNPT, Hazira & Kandla - quoted to your destination port.' },
-              { icon: 'FileText', title: 'Full Documentation', body: 'COA, MSDS, Certificate of Origin, Bill of Lading, Packing List, Commercial Invoice & IMDG declarations.' },
-              { icon: 'Boxes', title: 'MOQ & Packing', body: 'Typical MOQ from 25 MT. HDPE bags, drums, jumbo bags, ISO tanks & flexitanks - IMDG-compliant.' },
-              { icon: 'Clock', title: 'Lead Times', body: 'GCC 7–12 days · East Africa 15–20 · SE Asia 12–18 · West Africa 18–25 days.' },
+              { icon: 'Ship', title: 'Incoterms', body: 'EXW, FOB, CFR or CIF from Mundra, JNPT, Hazira and Kandla.' },
+              { icon: 'FileText', title: 'Full Documentation', body: 'COA, MSDS, Certificate of Origin, Bill of Lading, Packing List, Commercial Invoice and IMDG declaration.' },
+              { icon: 'Boxes', title: 'MOQ & Packing', body: 'MOQ from 25 MT. HDPE bags, drums, jumbo bags, ISO tanks or flexitanks.' },
+              { icon: 'Clock', title: 'Lead Times', body: 'Gulf 7-12 days. East Africa 15-20. SE Asia 12-18. West Africa 18-25.' },
             ].map((t) => (
               <div key={t.title} className="card-white p-6">
                 <div className="flex items-center gap-3 mb-2">
@@ -158,7 +226,7 @@ export default function HomeClient() {
           <div className="flex flex-col lg:flex-row lg:items-center gap-6">
             <div className="lg:w-60 flex-shrink-0">
               <span className="section-label mb-2">Our Presence</span>
-              <p className="text-white/55 text-sm leading-relaxed">Offices across India &amp; Nigeria - shipping worldwide.</p>
+              <p className="text-white/55 text-sm leading-relaxed">Offices in India and Nigeria.</p>
             </div>
             <div className="flex-1 grid grid-cols-2 lg:grid-cols-4 gap-3">
               {BRANCHES.map(b => (
@@ -180,7 +248,7 @@ export default function HomeClient() {
           <div className="flex flex-col lg:flex-row lg:items-center gap-6">
             <div className="lg:w-60 flex-shrink-0">
               <span className="section-label mb-2">Certified &amp; Compliant</span>
-              <p className="text-white/55 text-sm leading-relaxed">Verifiable quality, safety &amp; export compliance on every shipment.</p>
+              <p className="text-white/55 text-sm leading-relaxed">Audited systems. Papers with every shipment.</p>
             </div>
             <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
               {CERTIFICATIONS.map((c) => (
@@ -200,14 +268,14 @@ export default function HomeClient() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,rgba(201,146,42,0.12),transparent_55%)]" />
         <div className="relative max-w-3xl mx-auto px-4 text-center">
           <span className="section-label mb-4">Get Started</span>
-          <h2 className="font-jakarta text-4xl font-extrabold text-white mb-4">Ready to Source Chemicals?</h2>
+          <h2 className="font-jakarta text-4xl font-extrabold text-white mb-4">Need a Quote?</h2>
           <p className="text-white/65 text-lg mb-8 max-w-xl mx-auto">
             Submit your RFQ and receive a detailed CIF quote
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/quote" className="btn-gold px-10 py-4 text-base">Request a Quote <Icon name="ArrowRight" className="w-4 h-4" /></Link>
             <a
-              href="https://wa.me/919987539258?text=Hi%2C%20I%20need%20a%20quote%20for%20industrial%20chemicals"
+              href="https://wa.me/919099796811?text=Hi%2C%20I%20need%20a%20quote%20for%20industrial%20chemicals"
               target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-green-500/15 border border-green-500/35 text-green-300 font-semibold hover:bg-green-500/25 transition-all"
             >

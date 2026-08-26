@@ -2,8 +2,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { products, productImage } from '@/lib/content';
 import ProductDetailClient from '@/components/ProductDetailClient';
-
-const BASE = 'https://www.jaydevmulticomm.com';
+import { SITE_URL as BASE } from '@/lib/site';
 
 export async function generateStaticParams() {
   return products.map((p) => ({ slug: p.id }));
@@ -11,13 +10,14 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+
   const product = products.find((p) => p.id === slug);
   if (!product) return {};
 
   const hasFormula = product.formula && product.formula !== '-';
   const title = `${product.name}${hasFormula ? ` (${product.formula})` : ''} - Exporter & Supplier | CAS ${product.cas}`;
   const description =
-    `Buy ${product.name}${hasFormula ? ` (${product.formula}, CAS ${product.cas})` : ''} from Jaydev Multicomm — ${product.grade}. ` +
+    `Buy ${product.name}${hasFormula ? ` (${product.formula}, CAS ${product.cas})` : ''} from Jaydev Group — ${product.grade}. ` +
     `${product.description.slice(0, 100)} Manufacturer-direct export with COA, MSDS & full documentation. Request a CIF/FOB quote.`;
   const keywords = [
     `${product.name} exporter`, `${product.name} supplier India`, `${product.name} manufacturer`,
@@ -44,6 +44,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+
   const product = products.find((p) => p.id === slug);
   if (!product) notFound();
 
@@ -59,7 +60,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     category: product.category?.replace(/-/g, ' '),
     sku: product.id,
     ...(product.cas ? { productID: `cas:${product.cas}`, mpn: product.cas } : {}),
-    brand: { '@type': 'Brand', name: 'Jaydev Multicomm' },
+    brand: { '@type': 'Brand', name: 'Jaydev Group' },
     manufacturer: (product.manufacturers ?? []).map((m: string) => ({ '@type': 'Organization', name: m })),
     additionalProperty: [
       ...(hasFormula ? [{ '@type': 'PropertyValue', name: 'Chemical Formula', value: product.formula }] : []),

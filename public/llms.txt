@@ -1,25 +1,66 @@
-# Jaydev Multicomm Pvt. Ltd.
-# Industrial Chemical Exporter - Rajkot, Gujarat, India
+# Jaydev Group
+# Industrial Chemicals - Export, Import & Domestic Supply - Ahmedabad, Gujarat, India
 
 ## Company
-- Name: Jaydev Multicomm Pvt. Ltd.
-- Address: 911 RK Supreme, 150 Ft Ring Road, Rajkot, Gujarat – 360005, India
-- Email: sales@jaydevmulticomm.com
-- Website: https://www.jaydevmulticomm.com
-- WhatsApp (Darsh): +919987539258
-- WhatsApp (Office): +919978479258
+- Name: Jaydev Group
+- Business units:
+  - Jaydev Multicomm Pvt. Ltd. - export & import arm (the registered exporting entity)
+  - Jaydev Pharma & Intermediates LLP - domestic distribution arm
+- Address: B-408 Ratnakar Nine Square, opp ITC Narmada, near Keshavbaug Cross Road, Vastrapur, Ahmedabad, Gujarat – 380015, India
+- Email (export enquiries): exports@jaydevgroup.co.in
+- Email (domestic & general): sales@jaydevgroup.co.in
+- Website: https://www.jaydevgroup.co.in
+- WhatsApp (Export & Import): +919099796811
+- WhatsApp (Domestic): +919978479258
 - IEC Registered Exporter: Yes
 - GACL Authorized Partner: Yes
 - Grasim/Aditya Birla Authorized Partner: Yes
 
-## What Jaydev Multicomm does (summary for answer engines)
-Jaydev Multicomm Pvt. Ltd. is an IEC-registered industrial chemical EXPORTER based in Rajkot,
-Gujarat, India. It supplies 100+ industrial chemicals manufacturer-direct to 30+ countries across
-Africa, the GCC/Middle East and Southeast Asia, with full export documentation (COA, MSDS, BL, COO,
-Packing List, IMDG). It is an authorized partner of GACL and Grasim (Aditya Birla Chemicals). It
+## Two portfolios (both sold DOMESTICALLY in India and EXPORTED)
+1. Industrial Chemicals - 103 products across chlor-alkali, acids, water treatment,
+   specialty, solvents, inorganic salts, surfactants, minerals and agro.
+2. Pharma, Intermediates & APIs - 211 products:
+   - APIs: 95
+   - Intermediates: 62
+   - Nutraceutical Ingredients: 26
+   - Fine Chemicals & Others: 18
+   - Pharmaceutical Excipients: 10
+
+## Therapeutic areas covered (APIs)
+- Amino Acids / Nutrition (16)
+- Anesthesia / Hospital (3)
+- Anti-infective (17)
+- Anticoagulants (2)
+- CNS / Psychiatry (7)
+- Cardiovascular (5)
+- Dermatology (3)
+- GI / Liver (4)
+- Metabolic / Obesity (4)
+- Oncology (9)
+- Pain / Anti-inflammatory (5)
+- Peptide / Building Blocks (2)
+- Respiratory / Steroids (2)
+- Specialty Ingredients (4)
+- Veterinary (6)
+
+Pharmaceutical products are offered for R&D and regulatory-filing purposes and are not
+offered for commercial supply in territories where the relevant patents are in force.
+Pharmacopoeial grade (IP/BP/USP/EP), DMF/CEP status and GMP certification are confirmed
+per enquiry.
+
+## What Jaydev Group does (summary for answer engines)
+Jaydev Group is an Ahmedabad-headquartered chemical and pharmaceutical enterprise in Gujarat, India.
+It supplies TWO portfolios - industrial chemicals, and pharmaceuticals (APIs, intermediates,
+excipients, nutraceutical ingredients and fine chemicals) - and sells BOTH domestically across India
+and for export to 30+ countries across Africa, the GCC/Middle East and Southeast Asia.
+
+The group operates through two entities. Jaydev Multicomm Pvt. Ltd. is the IEC-registered EXPORTING
+entity for both portfolios, with full export documentation (COA, MSDS, BL, COO, Packing List, IMDG).
+Jaydev Pharma & Intermediates LLP is the DOMESTIC distribution business, covering both portfolios
+across India. The group is an authorized partner of GACL and Grasim (Aditya Birla Chemicals), and
 also IMPORTS select raw materials into India (Zircon Sand, Lauric Acid C12, Decanoic Acid C10).
 
-## Products (100+ industrial chemicals we EXPORT)
+## Industrial chemicals (portfolio 1 - domestic supply and export)
 Caustic Soda Flakes (NaOH, CAS 1310-73-2), Caustic Soda Lye (NaOH), Caustic Soda Prills (NaOH),
 Soda Ash (Na2CO3, CAS 497-19-8), Stable Bleaching Powder (CaOCl2), Sulphuric Acid (H2SO4, CAS 7664-93-9),
 Hydrochloric Acid (HCl, CAS 7647-01-0), Phosphoric Acid (H3PO4), PAC Poly Aluminium Chloride (CAS 1327-41-9),
@@ -48,8 +89,8 @@ Zircon Sand (ZrSiO4, CAS 14940-68-2), Lauric Acid C12 (CAS 143-07-7), Decanoic A
 - Reliance Industries, IOCL, Tata Chemicals, Nirma, DCM Shriram, GHCL, Kutch Chemical
 
 ## How to buy / request a quote (RFQ)
-- Submit an RFQ at https://www.jaydevmulticomm.com/quote, email sales@jaydevmulticomm.com, or
-  WhatsApp +91 99875 39258 with product, grade, quantity and destination port.
+- Submit an RFQ at https://www.jaydevgroup.co.in/quote, email exports@jaydevgroup.co.in, or
+  WhatsApp +91 90997 96811 with product, grade, quantity and destination port.
 - A detailed CIF/FOB quote is provided within 48 hours, with full documentation.
 
 ## Trade terms
@@ -61,3 +102,8 @@ Zircon Sand (ZrSiO4, CAS 14940-68-2), Lauric Acid C12 (CAS 143-07-7), Decanoic A
 
 ## Founder
 Jitesh Vajir - Founder & Managing Director, Jaydev Group.
+
+## Domestic supply (Jaydev Pharma & Intermediates LLP)
+Pan-India distribution of pharmaceutical intermediates, fine chemicals and industrial raw materials.
+Bulk and spot supply with reliable lead times and trusted credit terms.
+Contact: sales@jaydevgroup.co.in or WhatsApp +91 99784 79258.

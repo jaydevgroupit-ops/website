@@ -3,8 +3,8 @@ export type Faq = { q: string; a: string };
 
 export const faqs: Faq[] = [
   {
-    q: 'What products does Jaydev Multicomm export?',
-    a: 'We export 45+ industrial chemicals across chlor-alkali, acids, water treatment, solvents, specialty chemicals, inorganic salts, and agro inputs - including Caustic Soda, Sulphuric Acid, PAC, SMBS, Hydrogen Peroxide, and Calcium Chloride. We also import Zircon Sand, Lauric Acid (C12), and Decanoic Acid (C10) into India.',
+    q: 'What does Jaydev Group supply?',
+    a: 'Two things. Industrial chemicals - 100+ products including Caustic Soda, Sulphuric Acid, PAC, SMBS, Hydrogen Peroxide and Calcium Chloride. And pharmaceuticals - APIs across 15 therapeutic areas, plus intermediates, excipients and nutraceutical ingredients. We sell both across India and export both. We also import Zircon Sand, Lauric Acid (C12) and Decanoic Acid (C10).',
   },
   {
     q: 'Which countries do you supply to?',
@@ -31,7 +31,15 @@ export const faqs: Faq[] = [
     a: 'Jaydev Multicomm is an IEC-registered exporter and authorized partner of GACL and Grasim, with direct relationships to GACL, Grasim, Reliance, DCM Shriram, and other leading Indian producers. You get manufacturer-backed quality and traceability without multi-tier markup.',
   },
   {
+    q: 'What documentation do you provide with each shipment?',
+    a: 'Every export shipment carries a batch-specific Certificate of Analysis (COA) from the manufacturer, a GHS-compliant MSDS / Safety Data Sheet in English, a Certificate of Origin issued by the Indian Chamber of Commerce or the relevant Export Promotion Council, the full set of original Bill of Lading or Seaway Bill as your bank requires, a detailed Packing List with weights, dimensions, marks and lot numbers, a Commercial Invoice with all fields needed for customs clearance, an IMDG / IMO dangerous goods declaration for hazardous shipments, and a phytosanitary fumigation certificate where wooden packaging is used. We hold ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018 certification and are IEC, GST and RCMC registered.',
+  },
+  {
+    q: 'What grades and documentation are available for APIs?',
+    a: 'Pharmacopoeial grade (IP, BP, USP or EP), DMF and CEP status, GMP certification and packaging are confirmed per enquiry, since they vary by molecule and manufacturing site. Pharmaceutical products are offered for R&D and regulatory-filing purposes and are not offered for commercial supply in territories where the relevant patents are in force.',
+  },
+  {
     q: 'How do I request a quote or today\'s price?',
-    a: 'Submit an RFQ through our Get Quote form, message us on WhatsApp at +91 99875 39258, or email sales@jaydevmulticomm.com with your product, grade, quantity, and destination port. We respond with a detailed CIF/FOB quote within 48 hours.',
+    a: 'Submit an RFQ through our Get Quote form, message us on WhatsApp at +91 90997 96811, or email exports@jaydevgroup.co.in with your product, grade, quantity, and destination port. We respond with a detailed CIF/FOB quote within 48 hours.',
   },
 ];

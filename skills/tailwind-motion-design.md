@@ -1,6 +1,6 @@
 # Tailwind + Motion Design System
 
-This document defines the premium visual system for the Jaydev Multicomm migration.
+This document defines the premium visual system for the Jaydev Group migration.
 It focuses on responsive layout, motion-driven experience, and modern industrial brand expression.
 
 ## Design Goals

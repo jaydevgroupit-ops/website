@@ -43,21 +43,21 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between text-xs">
           <a
-            href="https://maps.google.com/?q=911+RK+Supreme+150+Ft+Ring+Road+Rajkot"
+            href="https://maps.google.com/?q=B-408+Ratnakar+Nine+Square+Keshavbaug+Cross+Road+Ahmedabad+380015"
             target="_blank" rel="noopener noreferrer"
             className="hidden sm:flex items-center gap-1.5 hover:text-gold-light transition-colors"
           >
             <Icon name="MapPin" className="w-3.5 h-3.5 text-gold" />
-            911 RK Supreme, 150 Ft Ring Road, Rajkot, Gujarat – 360005
+            B-408 Ratnakar Nine Square, Keshavbaug Cross Road, Ahmedabad – 380015
           </a>
           <div className="flex items-center gap-4 ml-auto">
-            <a href="mailto:sales@jaydevmulticomm.com" className="flex items-center gap-1.5 hover:text-gold-light transition-colors">
+            <a href="mailto:sales@jaydevgroup.co.in" className="flex items-center gap-1.5 hover:text-gold-light transition-colors">
               <Icon name="Mail" className="w-3.5 h-3.5 text-gold" />
-              <span className="hidden sm:inline">sales@jaydevmulticomm.com</span>
+              <span className="hidden sm:inline">sales@jaydevgroup.co.in</span>
             </a>
-            <a href="https://wa.me/919987539258" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-green-400 transition-colors">
+            <a href="https://wa.me/919099796811" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-green-400 transition-colors">
               <WaIcon />
-              <span className="hidden sm:inline">+91 99875 39258</span>
+              <span className="hidden sm:inline">+91 90997 96811</span>
             </a>
             <a href="https://www.linkedin.com/company/jaydev-multicomm" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-[#0A66C2] transition-colors">
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
@@ -109,7 +109,7 @@ export default function Header() {
               Catalogue
             </a>
             <a
-              href="https://wa.me/919987539258"
+              href="https://wa.me/919099796811"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-green-700 bg-green-50 border border-green-200 text-sm font-medium hover:bg-green-100 transition-all"
@@ -170,7 +170,7 @@ export default function Header() {
               </a>
               <div className="mt-3 pt-3 border-t border-[#E5E7EB] flex gap-3">
                 <a
-                  href="https://wa.me/919987539258"
+                  href="https://wa.me/919099796811"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-green-50 border border-green-200 text-green-700 text-sm font-medium"

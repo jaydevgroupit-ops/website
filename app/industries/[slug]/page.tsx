@@ -4,6 +4,7 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import { industryData, products, INDUSTRY_IMAGE_MAP } from '@/lib/content';
 import { Icon } from '@/components/Icon';
+import { SITE_URL as BASE } from '@/lib/site';
 
 export function generateStaticParams() {
   return industryData.map((i) => ({ slug: i.id }));
@@ -14,13 +15,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const ind = industryData.find((i) => i.id === slug);
   if (!ind) return { title: 'Industry' };
   const title = `${ind.name} Chemicals - Exporter & Supplier`;
-  const desc = `${ind.description} Jaydev Multicomm supplies ${ind.productIds.length}+ chemicals for ${ind.name.toLowerCase()} with full COA, MSDS & export documentation to Africa, GCC & SE Asia.`;
+  const desc = `${ind.description} Jaydev Group supplies ${ind.productIds.length}+ chemicals for ${ind.name.toLowerCase()} with full COA, MSDS & export documentation to Africa, GCC & SE Asia.`;
   return {
     title,
     description: desc,
     keywords: ind.seoKeywords.split(',').map((s) => s.trim()),
-    alternates: { canonical: `https://www.jaydevmulticomm.com/industries/${ind.id}` },
-    openGraph: { title: `${title} | Jaydev Multicomm`, description: desc, type: 'website' },
+    alternates: { canonical: `${BASE}/industries/${ind.id}` },
+    openGraph: { title: `${title} | Jaydev Group`, description: desc, type: 'website' },
   };
 }
 
@@ -33,8 +34,6 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
     .map((id) => products.find((p) => p.id === id))
     .filter(Boolean) as typeof products;
   const img = INDUSTRY_IMAGE_MAP[ind.id];
-
-  const BASE = 'https://www.jaydevmulticomm.com';
   const jsonLd = [
     {
       '@context': 'https://schema.org',
@@ -157,7 +156,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
           <p className="text-white/60 mb-6">Get a CIF quote within 48 hours - full documentation included.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href={`/quote?industry=${ind.id}`} className="btn-gold px-8 py-3">Request a Quote</Link>
-            <a href={`https://wa.me/919987539258?text=Hi%2C%20I%20need%20chemicals%20for%20the%20${encodeURIComponent(ind.name)}%20industry`} target="_blank" rel="noopener noreferrer" className="btn-ghost-white px-8 py-3">WhatsApp Us</a>
+            <a href={`https://wa.me/919099796811?text=Hi%2C%20I%20need%20chemicals%20for%20the%20${encodeURIComponent(ind.name)}%20industry`} target="_blank" rel="noopener noreferrer" className="btn-ghost-white px-8 py-3">WhatsApp Us</a>
           </div>
         </div>
       </div>

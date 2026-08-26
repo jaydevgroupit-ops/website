@@ -188,10 +188,10 @@ Headline: "Quote Request Received!"
 Message: "Our team will respond within 24 hours via email and WhatsApp."
 Confirmation: "Confirmation email sent to: [user@company.com]"
 Next steps:
-  • Watch for email from sales@jaydevmulticomm.com
+  • Watch for email from sales@jaydevgroup.co.in
   • Or message us: +91 99875 39258 (WhatsApp)
 Secondary CTA: "Explore More Products" → Product page
-Contact: "Need urgent help? Email sales@jaydevmulticomm.com"
+Contact: "Need urgent help? Email sales@jaydevgroup.co.in"
 ```
 
 **Why**: Reduces post-submission anxiety; clear expectations on follow-up.
@@ -202,7 +202,7 @@ Contact: "Need urgent help? Email sales@jaydevmulticomm.com"
 
 **Auto-Email 1 (Immediate, after form submit)**
 ```
-Subject: "Quote Request Confirmed – [Product Name] | Jaydev Multicomm"
+Subject: "Quote Request Confirmed – [Product Name] | Jaydev Group"
 
 Body:
 "Hello [Contact Name],
@@ -224,14 +224,14 @@ NEXT STEPS:
 If urgent, WhatsApp us: +91 99875 39258
 
 Best regards,
-Jaydev Multicomm Sales Team
+Jaydev Group Sales Team
 IEC Code: AAKCM4483G
-sales@jaydevmulticomm.com"
+sales@jaydevgroup.co.in"
 ```
 
 **Auto-Email 2 (If no response in 48 hrs, sales manually follows up)**
 ```
-Subject: "Your Quote is Ready – [Product] | Jaydev Multicomm"
+Subject: "Your Quote is Ready – [Product] | Jaydev Group"
 
 Body:
 "Hi [Contact Name],
@@ -256,7 +256,7 @@ Questions? Reply to this email or WhatsApp: +91 99875 39258
 
 Best regards,
 [Sales person name & title]
-Jaydev Multicomm
+Jaydev Group
 IEC: AAKCM4483G"
 ```
 
@@ -273,7 +273,7 @@ Link: [Direct to RFQ in CRM/spreadsheet]"
 ```
 "Hi [Contact Name] 👋
 
-Thank you for reaching out to Jaydev Multicomm!
+Thank you for reaching out to Jaydev Group!
 
 Your quote for [Product] will be sent within 24 hours.
 

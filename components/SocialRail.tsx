@@ -13,7 +13,7 @@ const items = [
   },
   {
     label: 'WhatsApp',
-    href: 'https://wa.me/919987539258?text=Hi%2C%20I%20need%20a%20chemical%20quote',
+    href: 'https://wa.me/919099796811?text=Hi%2C%20I%20need%20a%20chemical%20quote',
     hover: 'hover:bg-green-500',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
@@ -23,7 +23,7 @@ const items = [
   },
   {
     label: 'Email',
-    href: 'mailto:sales@jaydevmulticomm.com',
+    href: 'mailto:sales@jaydevgroup.co.in',
     hover: 'hover:bg-gold',
     icon: <Icon name="Mail" className="w-4 h-4" />,
   },

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import StatCounter from './StatCounter';
 import { Icon } from './Icon';
+import MoleculeField from './MoleculeField';
 import { COMPANY } from '@/lib/content';
 
 const STATS = [
@@ -14,7 +15,7 @@ const STATS = [
   { num: 100, suffix: '+', label: 'Global Buyers' },
 ];
 
-const VERBS = ['Sourced', 'Documented', 'Shipped', 'Delivered'];
+const VERBS = ['Bought direct', 'Documented', 'Shipped', 'Delivered'];
 
 /**
  * Cinematic dark narrative - "a single obsession, suspended in darkness".
@@ -37,20 +38,20 @@ const DISC_NAMES = [
 const pillars = [
   {
     n: '01', tag: 'Philosophy', title: 'The Source', icon: 'Factory',
-    lede: 'No intermediaries between the molecule and your manifest',
-    body: 'We draw direct from India’s foundational producers - GACL, Grasim, Reliance, IOCL, Tata Chemicals, Nirma & others. Best factory price, no middlemen, every tonne traced to its furnace.',
+    lede: 'We buy direct from the producer',
+    body: 'GACL, Grasim, Reliance, IOCL, Tata Chemicals and Nirma. No middlemen, so you get factory price and we can trace every tonne back to the plant that made it.',
     metrics: [['Manufacturer-direct', 'GACL & Grasim authorized'], ['9', 'Foundational producers']],
   },
   {
     n: '02', tag: 'Craft', title: 'The Proof', icon: 'ShieldCheck',
-    lede: 'Documentation is not paperwork. It is our signature',
-    body: 'Every batch ships with its own certificate of truth - COA, MSDS, BL, COO, Packing List & IMDG, as standard. Quality systems audited to ISO 9001, 14001 & 45001. Nothing ships unverified.',
+    lede: 'Every batch ships with its papers',
+    body: 'COA, MSDS, Bill of Lading, Certificate of Origin, Packing List and IMDG declaration as standard. Our systems are audited to ISO 9001, 14001 and 45001.',
     metrics: [['ISO 9001 · 14001 · 45001', 'Certified systems'], ['COA + MSDS', 'On every batch']],
   },
   {
     n: '03', tag: 'Reach', title: 'The Reach', icon: 'Globe',
-    lede: 'Chemistry in motion, across oceans',
-    body: 'From Mundra and JNPT to thirty nations - East Africa, the Gulf, Southeast Asia. Regular FCL & LCL, fully documented, export-ready and on schedule, consistently.',
+    lede: 'We ship to 30+ countries',
+    body: 'FCL and LCL out of Mundra, JNPT, Hazira and Kandla. East Africa in 15-20 days, the Gulf in 7-12, Southeast Asia in 12-18.',
     metrics: [['30+', 'Export markets'], ['5000+ MT', 'Moved monthly']],
   },
 ];
@@ -102,12 +103,14 @@ export default function Philosophy() {
       {/* clip layer - holds the bleeding disc so the section itself has no overflow:hidden
           (which would break the sticky rail) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* phones get drifting molecules instead of the disc */}
+        <MoleculeField />
         {/* monumental radial-spoke disc - cropped, bleeds beyond viewport, slow rotation */}
-        <div className="absolute -right-[22%] top-1/2 -translate-y-1/2 hidden md:block">
-          <div className="relative w-[78vw] h-[78vw] max-w-[1100px] max-h-[1100px] animate-[jd-spin_160s_linear_infinite]">
+        <div className="absolute hidden sm:block sm:-right-[28%] sm:top-1/2 sm:-translate-y-1/2 md:-right-[22%]">
+          <div className="relative w-[100vw] md:w-[78vw] h-[100vw] md:h-[78vw] max-w-[1100px] max-h-[1100px] animate-[jd-spin_160s_linear_infinite]">
             {/* radial spokes */}
             <div
-              className="absolute inset-0 opacity-[0.22]"
+              className="absolute inset-0 opacity-[0.24] md:opacity-[0.22]"
               style={{
                 background:
                   'repeating-conic-gradient(from 0deg, rgba(232,184,75,0.55) 0deg 0.25deg, transparent 0.25deg 7.5deg)',
@@ -127,7 +130,7 @@ export default function Philosophy() {
               return (
                 <span
                   key={name}
-                  className="absolute font-mono text-[11px] lg:text-sm uppercase tracking-[0.14em] text-gold-light/25 whitespace-nowrap"
+                  className="absolute hidden sm:inline font-mono text-[11px] lg:text-sm uppercase tracking-[0.14em] text-gold-light/25 whitespace-nowrap"
                   style={{
                     // anchor each name's INNER edge at the same radius (16%) and let it
                     // read outward along the spoke - so every name starts on the same line
@@ -163,7 +166,7 @@ export default function Philosophy() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* page h1 for SEO/a11y - visually hidden, the cinematic panels carry the visual headline */}
         <h1 className="sr-only">
-          Jaydev Multicomm - Industrial Chemical Exporter in India. 100+ chemicals shipped to 30+ countries.
+          Jaydev Group supplies industrial chemicals and pharmaceutical APIs from India - across the country and to 30+ export markets.
         </h1>
 
         {/* compact looping action-word sequence - opens the page with motion */}
@@ -257,7 +260,7 @@ export default function Philosophy() {
                   {/* producer marquee - merged in from the old "Sourcing Ecosystem" section */}
                   {i === 0 && (
                     <div className="mt-11 max-w-xl">
-                      <div className="text-[10px] uppercase tracking-[0.28em] text-white/30 mb-3">Backed by India&apos;s leading producers</div>
+                      <div className="text-[10px] uppercase tracking-[0.28em] text-white/30 mb-3">Our producers</div>
                       <div className="marquee-mask overflow-hidden">
                         <div className="flex w-max animate-jd-marquee" style={{ animationDuration: '32s' }}>
                           {[...COMPANY.manufacturers, ...COMPANY.manufacturers].map((m, k) => (
@@ -290,14 +293,14 @@ export default function Philosophy() {
                 <div className="flex items-center gap-3 mb-6">
                   <span className="font-mono text-gold text-sm">04</span>
                   <span className="h-px w-10 bg-gold/40" />
-                  <span className="text-[11px] uppercase tracking-[0.28em] text-white/40">Sourced · Documented · Shipped · Delivered</span>
+                  <span className="text-[11px] uppercase tracking-[0.28em] text-white/40">Buy · Document · Ship</span>
                 </div>
 
                 <h2 className="font-serif italic text-5xl sm:text-6xl lg:text-7xl font-light text-white leading-[0.95] mb-6 tracking-[-0.02em]">
                   From Gujarat to <span className="text-gradient-gold not-italic font-jakarta font-extrabold">30+ countries</span>
                 </h2>
                 <p className="text-white/55 text-lg leading-relaxed max-w-lg mb-10">
-                  Manufacturer-backed, fully documented, export-ready. 100+ industrial chemicals, one trusted partner.
+                  300+ products - industrial chemicals and pharmaceutical APIs. Sold across India and exported to 30+ countries.
                 </p>
 
                 {/* stats strip (moved in from the old hero band) */}

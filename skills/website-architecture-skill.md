@@ -37,7 +37,7 @@ Define the technical foundation, code organization, deployment strategy, and per
 ## Project Structure
 
 ```
-jaydev-multicomm/
+jaydev-group/
 ├── app/                          # Next.js App Router
 │   ├── layout.tsx                # Root layout (header, footer)
 │   ├── page.tsx                  # Homepage
@@ -108,7 +108,7 @@ import Footer from "@/components/Footer";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Jaydev Multicomm | Chemical Exporter India",
+  title: "Jaydev Group | Chemical Exporter India",
   description: "Trusted bulk chemical exporter to 30+ countries. GACL, Grasim sourcing.",
 };
 
@@ -175,7 +175,7 @@ export const navLinks = [
 import QuoteForm from "./QuoteForm";
 
 export const metadata = {
-  title: "Request Quote | Jaydev Multicomm",
+  title: "Request Quote | Jaydev Group",
 };
 
 export default function QuotePage() {
@@ -267,7 +267,7 @@ export const metadata = ({
 }) => {
   const product = products.find((p) => p.id === params.slug);
   return {
-    title: `${product?.name} | Jaydev Multicomm`,
+    title: `${product?.name} | Jaydev Group`,
     description: product?.description,
   };
 };
@@ -322,8 +322,8 @@ npm run dev
 ```bash
 # .env.local (not committed to Git)
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXXXX    # Google Analytics
-NEXT_PUBLIC_SITE_URL=https://jaydevmulticomm.com
-SMTP_USER=noreply@jaydevmulticomm.com  # For emails (optional)
+NEXT_PUBLIC_SITE_URL=https://www.jaydevgroup.co.in
+SMTP_USER=noreply@jaydevgroup.co.in  # For emails (optional)
 SMTP_PASSWORD=xxxxx
 ```
 
@@ -336,7 +336,7 @@ SMTP_PASSWORD=xxxxx
 2. **Auto-deployment**
    - Commits to `main` branch trigger build
    - Built site deployed to CDN
-   - Custom domain: `jaydevmulticomm.com`
+   - Custom domain: `jaydevgroup.co.in`
 
 3. **Environment variables**
    - Add in Vercel dashboard (doesn't commit `.env.local`)
@@ -427,16 +427,16 @@ Tailwind CSS purges unused utilities at build time:
 ```tsx
 // app/page.tsx (Homepage)
 export const metadata: Metadata = {
-  title: "Global Chemical Exporter | GACL Sourcing | Jaydev Multicomm",
+  title: "Global Chemical Exporter | GACL Sourcing | Jaydev Group",
   description: "Trusted bulk chemical exporter to Africa & GCC...",
   openGraph: {
-    title: "Global Chemical Exporter | Jaydev Multicomm",
+    title: "Global Chemical Exporter | Jaydev Group",
     description: "...",
-    url: "https://jaydevmulticomm.com",
-    siteName: "Jaydev Multicomm",
+    url: "https://www.jaydevgroup.co.in",
+    siteName: "Jaydev Group",
     images: [
       {
-        url: "https://jaydevmulticomm.com/og-image.png",
+        url: "https://www.jaydevgroup.co.in/og-image.png",
         width: 1200,
         height: 630,
       },
@@ -458,8 +458,8 @@ export function OrganizationSchema() {
         __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "Jaydev Multicomm",
-          url: "https://jaydevmulticomm.com",
+          name: "Jaydev Group",
+          url: "https://www.jaydevgroup.co.in",
           // ... full schema
         }),
       }}

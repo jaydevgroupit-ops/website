@@ -1,6 +1,6 @@
-# Jaydev Multicomm - Premium Chemical Export Website
+# Jaydev Group - Premium Chemical Export Website
 
-A modern Next.js 15 website for Jaydev Multicomm Pvt. Ltd., India's trusted industrial chemical exporter to 30+ countries.
+A modern Next.js 15 website for Jaydev Group, India's trusted industrial chemical exporter to 30+ countries.
 
 **Status**: Phase 2 Audit Complete | Phase 3 In Progress  
 **Tech Stack**: Next.js 15.5.19 | React 18.3.0 | TypeScript | Tailwind CSS | Framer Motion
@@ -15,7 +15,6 @@ A modern Next.js 15 website for Jaydev Multicomm Pvt. Ltd., India's trusted indu
 
 ### Environment
 - Copy `.env.example` to `.env.local`
-- Fill `AIRTABLE_API_KEY`, `AIRTABLE_BASE_ID`, and `AIRTABLE_TABLE_NAME` to enable quotes storage in Airtable
 - Or set `QUOTE_WEBHOOK_URL` to forward quote submissions to a webhook
 - `.env.local` is ignored by git
 
@@ -49,7 +48,7 @@ npm start
 ## 📁 Project Structure
 
 ```
-jaydev-multicomm/
+jaydev-group/
 ├── app/                              # Next.js App Router
 │   ├── layout.tsx                    # Root layout (Header, Footer)
 │   ├── page.tsx                      # Homepage
@@ -168,12 +167,12 @@ npm run lint
 
 | Field | Value |
 |-------|-------|
-| **Company** | Jaydev Multicomm Pvt. Ltd. |
+| **Company** | Jaydev Group |
 | **IEC Code** | AAKCM4483G |
 | **GST Number** | 24AAKCM4483G1ZB |
 | **Location** | 911 RK Supreme, 150 Ft Ring Road, Rajkot, Gujarat 360005, India |
 | **Phone** | +91 99875 39258 |
-| **Email** | sales@jaydevmulticomm.com |
+| **Email** | sales@jaydevgroup.co.in |
 | **WhatsApp** | +91 99875 39258 (preferred) |
 
 ---
@@ -368,7 +367,7 @@ npx tsc --noEmit
 
 ## 📄 License & Credits
 
-**Owner**: Jaydev Multicomm Pvt. Ltd.  
+**Owner**: Jaydev Group  
 **Built with**: Next.js, React, Tailwind CSS, Framer Motion  
 **Last Updated**: 2026-06-18
 
@@ -428,9 +427,9 @@ async function handleSub(btn) {
 
 WhatsApp links use pre-filled messages for fast lead capture:
 ```
-https://wa.me/919987539258?text=Hello%2C+I+need+a+quote...
+https://wa.me/919099796811?text=Hello%2C+I+need+a+quote...
 ```
 Update the phone number in all 6 HTML files if it changes.
 
 ---
-*Built for Jaydev Multicomm Pvt. Ltd. - Rajkot, Gujarat, India*
+*Built for Jaydev Group - Rajkot, Gujarat, India*

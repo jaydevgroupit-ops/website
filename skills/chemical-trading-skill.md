@@ -86,9 +86,9 @@ This quote is valid until [Date + 7 days].
 Please feel free to reach out via WhatsApp for any clarifications.
 
 Best regards,
-Jaydev Multicomm
+Jaydev Group
 +91 99875 39258
-sales@jaydevmulticomm.com
+sales@jaydevgroup.co.in
 ```
 
 ### Order Confirmation

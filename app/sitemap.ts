@@ -1,8 +1,7 @@
 import { MetadataRoute } from 'next';
 import { products, industryData } from '@/lib/content';
 import { articles } from '@/lib/articles';
-
-const BASE = 'https://www.jaydevmulticomm.com';
+import { SITE_URL as BASE } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
@@ -11,7 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/industries`, lastModified: new Date(), priority: 0.8 },
     { url: `${BASE}/markets`, lastModified: new Date(), priority: 0.8 },
     { url: `${BASE}/about`, lastModified: new Date(), priority: 0.7 },
-    { url: `${BASE}/quality`, lastModified: new Date(), priority: 0.7 },
     { url: `${BASE}/quote`, lastModified: new Date(), priority: 0.9 },
     { url: `${BASE}/articles`, lastModified: new Date(), priority: 0.8 },
     { url: `${BASE}/faq`, lastModified: new Date(), priority: 0.7 },
@@ -28,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     priority: 0.7,
   }));
+
 
   const industryPages: MetadataRoute.Sitemap = industryData.map(i => ({
     url: `${BASE}/industries/${i.id}`,

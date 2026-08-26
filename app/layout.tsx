@@ -6,33 +6,46 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import SocialRail from '@/components/SocialRail';
 import SmoothScroll from '@/components/SmoothScroll';
 import MobileNav from '@/components/MobileNav';
+import { SITE_URL, SALES_EMAIL, EXPORT_EMAIL, PHONE_EXPORT, PHONE_RAJKOT } from '@/lib/site';
+import { products } from '@/lib/content';
+import { pharmaProducts, THERAPEUTIC_SEGMENTS } from '@/lib/pharma';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Industrial Chemical Exporter India | Jaydev Multicomm',
-    template: '%s | Jaydev Multicomm',
+    default: 'Industrial Chemicals & Pharma APIs India | Jaydev Group',
+    template: '%s | Jaydev Group',
   },
-  description: 'IEC-registered industrial chemical exporter in Rajkot, India. 100+ chemicals to 30+ countries - GACL & Grasim authorized, full COA, MSDS & export documentation.',
-  keywords: ['industrial chemicals exporter India', 'caustic soda exporter', 'sulphuric acid supplier', 'PAC SMBS exporter', 'GACL Grasim authorized partner', 'chemical trading Rajkot Gujarat', 'zircon sand importer', 'lauric acid decanoic acid'],
-  metadataBase: new URL('https://www.jaydevmulticomm.com'),
+  description: 'Industrial chemicals and pharmaceutical APIs from Ahmedabad, India. 300+ products supplied across India and exported to 30+ countries, fully documented.',
+  keywords: ['industrial chemicals exporter India', 'caustic soda exporter', 'sulphuric acid supplier', 'PAC SMBS exporter', 'GACL Grasim authorized partner', 'chemical trading Ahmedabad Gujarat', 'zircon sand importer', 'lauric acid decanoic acid'],
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://www.jaydevmulticomm.com',
-    siteName: 'Jaydev Multicomm Pvt. Ltd.',
-    title: 'Jaydev Multicomm - Global Industrial Chemical Supply',
-    description: 'IEC-registered chemical exporter from India. 100+ products, 100+ global buyers, GACL & Grasim Authorized Partner.',
+    url: SITE_URL,
+    siteName: 'Jaydev Group',
+    title: 'Jaydev Group - Global Industrial Chemical Supply',
+    description: 'Industrial chemicals and pharmaceutical APIs from India. Domestic supply and export to 30+ countries. GACL & Grasim Authorized Partner.',
     // og image auto-supplied by app/opengraph-image.tsx (1200x630 branded)
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jaydev Multicomm Pvt. Ltd.',
-    description: 'Industrial chemical exporter from Rajkot, India. GACL & Grasim Authorized Partner.',
+    title: 'Jaydev Group',
+    description: 'Industrial chemicals & pharma APIs from Ahmedabad, India. GACL & Grasim Authorized Partner.',
     // twitter image auto-derived from the opengraph-image
   },
 };
 
-const ORG_ID = 'https://www.jaydevmulticomm.com/#organization';
+const ORG_ID = `${SITE_URL}/#organization`;
+const LOGO = `${SITE_URL}/brand/jaydev-group-logo.png`;
+
+const ADDRESS = {
+  '@type': 'PostalAddress',
+  streetAddress: 'B-408 Ratnakar Nine Square, opp ITC Narmada, near Keshavbaug Cross Road, Vastrapur,',
+  addressLocality: 'Ahmedabad',
+  addressRegion: 'Gujarat',
+  postalCode: '380015',
+  addressCountry: 'IN',
+};
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -40,27 +53,57 @@ const jsonLd = {
     {
       '@type': 'Organization',
       '@id': ORG_ID,
-      name: 'Jaydev Multicomm Pvt. Ltd.',
+      name: 'Jaydev Group',
       legalName: 'Jaydev Multicomm Pvt. Ltd.',
-      alternateName: ['Jaydev Multicomm', 'Jaydev Group'],
-      url: 'https://www.jaydevmulticomm.com',
-      logo: 'https://www.jaydevmulticomm.com/brand/logo.png',
-      image: 'https://www.jaydevmulticomm.com/brand/logo.png',
-      email: 'sales@jaydevmulticomm.com',
-      telephone: '+919987539258',
+      alternateName: ['Jaydev Multicomm', 'Jaydev Multicomm Pvt. Ltd.', 'Jaydev Pharma & Intermediates LLP'],
+      url: SITE_URL,
+      logo: LOGO,
+      image: LOGO,
+      email: SALES_EMAIL,
+      telephone: PHONE_EXPORT,
       slogan: 'Connecting Chemistry, Creating Solutions',
       founder: { '@type': 'Person', name: 'Jitesh Vajir' },
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '911 RK Supreme, 150 Ft Ring Road',
-        addressLocality: 'Rajkot',
-        addressRegion: 'Gujarat',
-        postalCode: '360005',
-        addressCountry: 'IN',
-      },
+      address: ADDRESS,
+      hasOfferCatalog: [
+        {
+          '@type': 'OfferCatalog',
+          '@id': `${SITE_URL}/#catalog-industrial`,
+          name: 'Industrial Chemicals',
+          numberOfItems: products.length,
+          description:
+            'Chlor-alkali, acids, water treatment chemicals, solvents, inorganic salts, surfactants, minerals and agro inputs - manufacturer-direct, with full COA, MSDS and export documentation.',
+          url: `${SITE_URL}/products?division=industrial`,
+        },
+        {
+          '@type': 'OfferCatalog',
+          '@id': `${SITE_URL}/#catalog-pharma`,
+          name: 'Pharma, Intermediates & APIs',
+          numberOfItems: pharmaProducts.length,
+          description: `Active pharmaceutical ingredients across ${THERAPEUTIC_SEGMENTS.length} therapeutic areas, plus pharmaceutical intermediates, excipients, nutraceutical ingredients and fine chemicals. Supplied for R&D and regulatory-filing purposes.`,
+          url: `${SITE_URL}/products?division=pharma`,
+        },
+      ],
+      subOrganization: [
+        {
+          '@type': 'Organization',
+          '@id': `${SITE_URL}/#multicomm`,
+          name: 'Jaydev Multicomm Pvt. Ltd.',
+          description:
+            'The export and import arm of Jaydev Group, and the IEC-registered exporting entity for both portfolios - industrial chemicals and pharmaceuticals - to 30+ countries across Africa, the GCC and Southeast Asia.',
+          parentOrganization: { '@id': ORG_ID },
+        },
+        {
+          '@type': 'Organization',
+          '@id': `${SITE_URL}/#pharma`,
+          name: 'Jaydev Pharma & Intermediates LLP',
+          description:
+            'The domestic distribution arm of Jaydev Group, supplying both portfolios across India - APIs, intermediates and excipients alongside industrial chemicals and raw materials.',
+          parentOrganization: { '@id': ORG_ID },
+        },
+      ],
       contactPoint: [
-        { '@type': 'ContactPoint', telephone: '+919987539258', contactType: 'sales', email: 'sales@jaydevmulticomm.com', availableLanguage: ['English', 'Hindi', 'Gujarati'], areaServed: 'Worldwide' },
-        { '@type': 'ContactPoint', telephone: '+919978479258', contactType: 'customer support', availableLanguage: ['English', 'Hindi'] },
+        { '@type': 'ContactPoint', telephone: PHONE_EXPORT, contactType: 'sales', email: EXPORT_EMAIL, availableLanguage: ['English', 'Hindi', 'Gujarati'], areaServed: 'Worldwide' },
+        { '@type': 'ContactPoint', telephone: PHONE_RAJKOT, contactType: 'customer service', email: SALES_EMAIL, availableLanguage: ['English', 'Hindi', 'Gujarati'], areaServed: 'IN' },
       ],
       sameAs: [
         'https://www.linkedin.com/company/jaydev-multicomm',
@@ -68,19 +111,23 @@ const jsonLd = {
         'https://www.linkedin.com/in/darsh-k-07579a3b5/',
         'https://www.linkedin.com/in/meet-sheth-0871/',
       ],
-      areaServed: ['East Africa', 'West Africa', 'GCC', 'Middle East', 'Southeast Asia'],
+      areaServed: ['India', 'East Africa', 'West Africa', 'GCC', 'Middle East', 'Southeast Asia'],
       knowsAbout: [
         'Industrial chemicals export', 'Caustic Soda', 'Sulphuric Acid', 'Poly Aluminium Chloride (PAC)',
         'Sodium Metabisulphite (SMBS)', 'Hydrogen Peroxide', 'Calcium Chloride', 'Water treatment chemicals',
-        'Chlor-alkali chemicals', 'Chemical trading', 'Export documentation (COA, MSDS, IMDG)',
+        'Chlor-alkali chemicals', 'Chemical trading', 'Pharmaceutical intermediates',
+        'Active pharmaceutical ingredients (APIs)', 'Pharmaceutical excipients',
+        'Nutraceutical ingredients', 'Fine chemicals', 'API sourcing',
+        'Export documentation (COA, MSDS, IMDG)',
       ],
-      description: 'IEC-registered industrial chemical exporter from Rajkot, Gujarat, India. Authorized partner of GACL and Grasim / Aditya Birla Chemicals. Exports 100+ industrial chemicals to 30+ countries across Africa, the GCC and Southeast Asia.',
+      description:
+        'Jaydev Group is an Ahmedabad-headquartered chemical enterprise operating through two arms: Jaydev Multicomm Pvt. Ltd., an IEC-registered exporter and importer of industrial chemicals serving 30+ countries, and Jaydev Pharma & Intermediates LLP, its domestic distribution business. Authorized partner of GACL and Grasim / Aditya Birla Chemicals.',
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://www.jaydevmulticomm.com/#website',
-      url: 'https://www.jaydevmulticomm.com',
-      name: 'Jaydev Multicomm',
+      '@id': `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: 'Jaydev Group',
       inLanguage: 'en',
       publisher: { '@id': ORG_ID },
     },

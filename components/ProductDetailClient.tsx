@@ -136,7 +136,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                 <p className="text-white font-jakarta font-bold mb-1">Today&apos;s Indicative Price</p>
                 <p className="text-white/55 text-xs mb-4">Market-linked. Get the current CIF/FOB rate for {product.name}.</p>
                 <a
-                  href={`https://wa.me/919987539258?text=${encodeURIComponent(`Hi, please share today's indicative price for ${product.name} (CAS ${product.cas}).`)}`}
+                  href={`https://wa.me/919099796811?text=${encodeURIComponent(`Hi, please share today's indicative price for ${product.name} (CAS ${product.cas}).`)}`}
                   target="_blank" rel="noopener noreferrer"
                   className="btn-gold w-full justify-center text-sm"
                 >

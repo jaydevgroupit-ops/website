@@ -3,12 +3,13 @@ import type { Metadata } from 'next';
 import { faqs } from '@/lib/faqs';
 import FaqAccordion from '@/components/FaqAccordion';
 import { Icon } from '@/components/Icon';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Frequently Asked Questions - Export, Payment & Documentation',
+  title: 'FAQ - Export, Payment & Documentation',
   description:
-    'Answers on Jaydev Multicomm products, export markets, payment terms (LC at sight / 30-70), MOQ, lead times, documentation, and how to request a quote.',
-  alternates: { canonical: 'https://www.jaydevmulticomm.com/faq' },
+    'Answers on Jaydev Group products, export markets, payment terms (LC at sight / 30-70), MOQ, lead times, documentation, and how to request a quote.',
+  alternates: { canonical: `${SITE_URL}/faq` },
 };
 
 export default function FaqPage() {
@@ -43,7 +44,7 @@ export default function FaqPage() {
           <p className="text-white/60 mb-5 text-sm">Our trade desk responds within 48 hours.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href="/quote" className="btn-gold px-7 py-3">Request a Quote <Icon name="ArrowRight" className="w-4 h-4" /></Link>
-            <a href="https://wa.me/919987539258" target="_blank" rel="noopener noreferrer" className="btn-ghost-white px-7 py-3">WhatsApp Us</a>
+            <a href="https://wa.me/919099796811" target="_blank" rel="noopener noreferrer" className="btn-ghost-white px-7 py-3">WhatsApp Us</a>
           </div>
         </div>
       </div>

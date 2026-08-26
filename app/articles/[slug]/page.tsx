@@ -4,6 +4,7 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import { articles } from '@/lib/articles';
 import { Icon } from '@/components/Icon';
+import { SITE_URL as BASE } from '@/lib/site';
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: a.title,
     description: a.excerpt,
     keywords: a.keywords.split(',').map((s) => s.trim()),
-    alternates: { canonical: `https://www.jaydevmulticomm.com/articles/${a.slug}` },
+    alternates: { canonical: `${BASE}/articles/${a.slug}` },
     openGraph: { title: a.title, description: a.excerpt, type: 'article', images: [a.image] },
   };
 }
@@ -27,8 +28,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const a = articles.find((x) => x.slug === slug);
   if (!a) notFound();
   const related = articles.filter((x) => x.slug !== a.slug).slice(0, 3);
-
-  const BASE = 'https://www.jaydevmulticomm.com';
   const jsonLd = [
     {
       '@context': 'https://schema.org',
@@ -40,8 +39,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       author: { '@type': 'Organization', name: a.author, url: BASE },
       publisher: {
         '@type': 'Organization',
-        name: 'Jaydev Multicomm Pvt. Ltd.',
-        logo: { '@type': 'ImageObject', url: `${BASE}/brand/logo.png` },
+        name: 'Jaydev Group',
+        logo: { '@type': 'ImageObject', url: `${BASE}/brand/jaydev-group-logo.png` },
       },
       image: `${BASE}${a.image}`,
       mainEntityOfPage: `${BASE}/articles/${a.slug}`,

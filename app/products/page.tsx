@@ -1,11 +1,12 @@
+import { Suspense } from 'react';
 import ProductsClient from '@/components/ProductsClient';
 import { products } from '@/lib/content';
-
-const BASE = 'https://www.jaydevmulticomm.com';
+import { pharmaProducts } from '@/lib/pharma';
+import { SITE_URL as BASE } from '@/lib/site';
 
 export const metadata = {
-  title: 'Products - Chemicals We Export & Import',
-  description: 'Browse 100+ industrial chemicals Jaydev Multicomm exports from India - Caustic Soda, Sulphuric Acid, PAC, SMBS and more - plus raw materials we import into India (Zircon Sand, Lauric & Decanoic Acid). Full specs, COA & MSDS.',
+  title: 'Products - Chemicals, APIs & Intermediates',
+  description: `Browse ${products.length}+ industrial chemicals and ${pharmaProducts.length} pharmaceutical products from Jaydev Group - APIs across 15 therapeutic areas, intermediates, excipients and fine chemicals. Domestic supply and export.`,
   alternates: { canonical: `${BASE}/products` },
 };
 
@@ -21,7 +22,7 @@ const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Industrial chemicals exported by Jaydev Multicomm',
+    name: 'Industrial chemicals supplied by Jaydev Group',
     numberOfItems: products.length,
     itemListElement: products.map((p, i) => ({
       '@type': 'ListItem',
@@ -38,7 +39,9 @@ export default function ProductsPage() {
       {jsonLd.map((s, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
-      <ProductsClient />
+      <Suspense fallback={<div className="min-h-screen bg-white pt-24" />}>
+        <ProductsClient />
+      </Suspense>
     </>
   );
 }

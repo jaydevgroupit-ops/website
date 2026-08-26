@@ -183,7 +183,7 @@ SUCCESS PAGE (After submission)
 ├─ Auto-email confirmation sent to [email]
 ├─ WhatsApp alert sent to our team
 ├─ Secondary CTA: "Explore more products" → Products page
-└─ Contact info: "Not hearing back? Email sales@jaydevmulticomm.com"
+└─ Contact info: "Not hearing back? Email sales@jaydevgroup.co.in"
 ```
 
 ## Component Patterns

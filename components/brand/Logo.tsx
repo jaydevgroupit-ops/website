@@ -2,30 +2,33 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 /**
- * Official Jaydev logo - the exact gold molecular-square PNG.
- * Source: public/brand/logo.png (do not replace with a recreation).
+ * Official Jaydev Group logo lockup (wordmark + green mark).
+ * Master artwork: brand-source/JAYDEV GROUP LOGO.jpg (not served); the PNGs
+ * in public/brand are keyed-to-transparent derivatives of it.
+ * Use the `light` variant on navy/dark surfaces - the default lockup's
+ * wordmark is black and disappears against them.
  */
 
-export function MoleculeMark({ className = 'w-10 h-10' }: { className?: string }) {
+/** Full lockup. Set `dark` when placing on a dark background. */
+export function LogoLockup({ dark = false, className = 'h-10' }: { dark?: boolean; className?: string }) {
   return (
-    <span className={`relative inline-block ${className}`}>
-      <Image src="/brand/logo.png" alt="Jaydev" fill sizes="48px" className="object-contain" priority />
+    <span className={`relative block ${className}`} style={{ aspectRatio: '1258 / 578' }}>
+      <Image
+        src={dark ? '/brand/jaydev-group-logo-light.png' : '/brand/jaydev-group-logo.png'}
+        alt="Jaydev Group"
+        fill
+        sizes="200px"
+        className="object-contain object-left"
+        priority
+      />
     </span>
   );
 }
 
 export function Logo({ dark = false }: { dark?: boolean }) {
   return (
-    <Link href="/" className="flex items-center gap-3 group">
-      <MoleculeMark className="w-11 h-11 flex-shrink-0 transition-transform group-hover:scale-105" />
-      <div className="leading-none">
-        <div className={`font-jakarta font-extrabold text-lg tracking-tight ${dark ? 'text-white' : 'text-navy'}`}>
-          JAYDEV
-        </div>
-        <div className="font-jakarta text-[10px] font-semibold tracking-[0.22em] text-gold uppercase mt-0.5">
-          Multicomm
-        </div>
-      </div>
+    <Link href="/" className="flex items-center group" aria-label="Jaydev Group - home">
+      <LogoLockup dark={dark} className="h-10 sm:h-12 transition-transform group-hover:scale-[1.03]" />
     </Link>
   );
 }

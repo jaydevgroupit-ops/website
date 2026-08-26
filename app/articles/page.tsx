@@ -3,12 +3,13 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import { articles } from '@/lib/articles';
 import { Icon } from '@/components/Icon';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Insights & Articles - Chemical Trade Knowledge',
+  title: 'Insights - Chemical Trade Knowledge',
   description:
-    'Practical guides on industrial chemicals, grades, dosing, water treatment, mining reagents, and export trade terms from Jaydev Multicomm.',
-  alternates: { canonical: 'https://www.jaydevmulticomm.com/articles' },
+    'Practical guides on industrial chemicals, grades, dosing, water treatment, mining reagents, and export trade terms from Jaydev Group.',
+  alternates: { canonical: `${SITE_URL}/articles` },
 };
 
 export default function ArticlesPage() {
