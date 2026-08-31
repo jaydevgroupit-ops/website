@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { LogoLockup } from './brand/Logo';
 import { Icon } from './Icon';
+import { BRANCHES, CERTIFICATIONS } from '@/lib/content';
 
 const WaIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -8,19 +9,10 @@ const WaIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
   </svg>
 );
 
-const productLinks = [
-  { label: 'Caustic Soda', href: '/products/caustic-soda' },
-  { label: 'Sulphuric Acid', href: '/products/sulphuric-acid' },
-  { label: 'PAC Coagulant', href: '/products/pac' },
-  { label: 'SMBS', href: '/products/smbs' },
-  { label: 'Hydrogen Peroxide', href: '/products/hydrogen-peroxide' },
-];
-
 const companyLinks = [
   { label: 'The Group', href: '/about' },
   { label: 'Industries', href: '/industries' },
-  { label: 'Export Markets', href: '/markets' },
-  { label: 'Insights', href: '/articles' },
+  { label: 'Markets & Insights', href: '/markets' },
   { label: 'FAQ & Documentation', href: '/faq' },
 ];
 
@@ -30,9 +22,9 @@ type Line = { phone: string; note?: string };
 function Desk({ title, email, phones }: { title: string; email: string; phones: Line[] }) {
   return (
     <div>
-      <div className="text-white/40 text-[11px] uppercase tracking-wider mb-1.5">{title}</div>
-      <a href={`mailto:${email}`} className="flex items-center gap-2 text-white/70 text-sm hover:text-gold-light transition-colors">
-        <Icon name="Mail" className="w-3.5 h-3.5 text-gold flex-shrink-0" /> {email}
+      <div className="text-ink-soft text-[11px] uppercase tracking-wider mb-1.5">{title}</div>
+      <a href={`mailto:${email}`} className="flex items-center gap-2 text-ink-muted text-sm hover:text-lime-text transition-colors">
+        <Icon name="Mail" className="w-3.5 h-3.5 text-lime-text flex-shrink-0" /> {email}
       </a>
       {phones.map((l) => (
         <a
@@ -40,10 +32,10 @@ function Desk({ title, email, phones }: { title: string; email: string; phones: 
           href={`https://wa.me/${l.phone.replace(/[^0-9]/g, '')}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-white/70 text-sm hover:text-green-400 transition-colors mt-1"
+          className="flex items-center gap-2 text-ink-muted text-sm hover:text-[#25D366] transition-colors mt-1"
         >
-          <WaIcon className="w-3.5 h-3.5 text-green-400 flex-shrink-0" /> {l.phone}
-          {l.note && <span className="text-white/35">{l.note}</span>}
+          <WaIcon className="w-3.5 h-3.5 text-[#25D366] flex-shrink-0" /> {l.phone}
+          {l.note && <span className="text-ink-soft">{l.note}</span>}
         </a>
       ))}
     </div>
@@ -52,81 +44,62 @@ function Desk({ title, email, phones }: { title: string; email: string; phones: 
 
 export default function Footer() {
   return (
-    <footer className="bg-navy border-t border-navy-mid">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-8 gap-y-10">
+    <footer className="bg-surface border-t border-line">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
-          {/* Brand + contact */}
-          <div className="md:col-span-2 lg:col-span-5">
-            <LogoLockup dark className="h-11 mb-4" />
-            <p className="text-white/55 text-sm leading-relaxed mb-6 max-w-sm">
-              Two arms, one group. <strong className="text-white/75 font-semibold">Jaydev Multicomm Pvt. Ltd.</strong> exports
-              and imports; <strong className="text-white/75 font-semibold">Jaydev Pharma &amp; Intermediates LLP</strong> supplies across India.
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
+
+          {/* brand */}
+          <div className="lg:col-span-4">
+            <LogoLockup className="h-9 mb-3" />
+            <p className="text-ink-soft text-[13px] leading-relaxed max-w-xs">
+              Industrial chemicals and pharmaceutical APIs from Ahmedabad - across India and to 30+ export markets.
             </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6">
-              <Desk
-                title="Export"
-                email="exports@jaydevgroup.co.in"
-                phones={[{ phone: '+91 99875 39258' }, { phone: '+91 90997 96811' }]}
-              />
-              <Desk
-                title="Sales &amp; Domestic"
-                email="sales@jaydevgroup.co.in"
-                phones={[
-                  { phone: '+91 98251 12687', note: '(Ahmedabad)' },
-                  { phone: '+91 99784 79258', note: '(Rajkot)' },
-                ]}
-              />
-            </div>
-
-            <div className="flex items-start gap-2 text-white/45 text-xs leading-relaxed max-w-sm">
-              <Icon name="MapPin" className="w-3.5 h-3.5 mt-0.5 text-gold/70 flex-shrink-0" />
-              <span>B-408 Ratnakar Nine Square, opp ITC Narmada, near Keshavbaug Cross Road, Vastrapur, Ahmedabad, Gujarat – 380015</span>
-            </div>
+            <p className="text-ink-subtle text-[11px] leading-relaxed mt-3 max-w-xs">
+              B-408 Ratnakar Nine Square, Keshavbaug Cross Road, Vastrapur, Ahmedabad, Gujarat - 380015
+            </p>
           </div>
 
-          {/* Products */}
-          <div className="lg:col-span-2">
-            <h3 className="text-white font-jakarta font-semibold text-xs uppercase tracking-wider mb-4">Products</h3>
-            <ul className="space-y-2.5">
-              {productLinks.map((p) => (
-                <li key={p.href}>
-                  <Link href={p.href} className="text-white/55 text-sm hover:text-gold-light transition-colors">{p.label}</Link>
-                </li>
-              ))}
-              <li>
-                <Link href="/products" className="text-gold-light text-sm font-medium hover:text-gold transition-colors">
-                  All products →
-                </Link>
-              </li>
-            </ul>
+          {/* desks - two columns of contact, tightened */}
+          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {[
+              { title: 'Export', email: 'exports@jaydevgroup.co.in', phones: ['+91 99875 39258', '+91 90997 96811'] },
+              { title: 'Sales & domestic', email: 'sales@jaydevgroup.co.in', phones: ['+91 98251 12687', '+91 99784 79258'] },
+            ].map((d) => (
+              <div key={d.title}>
+                <h3 className="text-[10px] font-bold uppercase tracking-[0.13em] text-ink-subtle mb-2">{d.title}</h3>
+                <a href={`mailto:${d.email}`} className="block text-[13px] text-ink font-medium hover:text-lime-text transition-colors break-all">
+                  {d.email}
+                </a>
+                <ul className="mt-1.5 space-y-0.5">
+                  {d.phones.map((ph) => (
+                    <li key={ph}>
+                      <a href={`tel:${ph.replace(/\s/g, '')}`} className="text-[13px] text-ink-soft hover:text-ink transition-colors tabular-nums">
+                        {ph}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
 
-          {/* Company */}
-          <div className="lg:col-span-2">
-            <h3 className="text-white font-jakarta font-semibold text-xs uppercase tracking-wider mb-4">Company</h3>
-            <ul className="space-y-2.5">
+          {/* links + actions */}
+          <div className="lg:col-span-3">
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.13em] text-ink-subtle mb-2">Company</h3>
+            <ul className="space-y-1.5 mb-5">
               {companyLinks.map((c) => (
                 <li key={c.href}>
-                  <Link href={c.href} className="text-white/55 text-sm hover:text-gold-light transition-colors">{c.label}</Link>
+                  <Link href={c.href} className="text-[13px] text-ink-soft hover:text-lime-text transition-colors">{c.label}</Link>
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Quote */}
-          <div className="md:col-span-2 lg:col-span-3">
-            <h3 className="text-white font-jakarta font-semibold text-xs uppercase tracking-wider mb-4">Request a Quote</h3>
-            <div className="bg-white/[0.06] rounded-xl border border-white/10 p-4">
-              <p className="text-white/55 text-xs leading-relaxed mb-3">
-                Product, quantity &amp; destination - we reply within 48 hours.
-              </p>
-              <Link href="/quote" className="btn-gold text-xs w-full justify-center mb-2">Get a Quote</Link>
+            <div className="flex flex-wrap gap-2">
+              <Link href="/quote" className="btn-lime text-xs">Request a quote</Link>
               <a
                 href="/Jaydev-Multicomm-Catalogue.pdf"
                 download
-                className="flex items-center justify-center gap-1.5 w-full px-3 py-2 rounded-lg bg-white/[0.06] border border-white/15 text-white/75 text-xs font-medium hover:bg-white/15 transition-all"
+                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-[14px] bg-white border border-line text-ink text-xs font-semibold hover:border-lime/45 transition-colors"
               >
                 <Icon name="Download" className="w-3.5 h-3.5" /> Catalogue
               </a>
@@ -134,19 +107,35 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom strip */}
-        <div className="section-divider my-8" />
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex flex-wrap gap-2">
-            {['GACL Authorized Partner', 'Grasim Authorized Partner', 'IEC Registered'].map((badge) => (
-              <span key={badge} className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold/10 border border-gold/30 text-gold-light text-xs font-medium">
-                <Icon name="BadgeCheck" className="w-3.5 h-3.5" /> {badge}
-              </span>
-            ))}
+        {/* one hairline row for the credentials, not two stacked blocks */}
+        <div className="mt-8 pt-6 border-t border-line flex flex-col lg:flex-row lg:items-start gap-5 lg:gap-10">
+          <div className="lg:w-[38%]">
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.13em] text-ink-subtle mb-2">Offices</h3>
+            <div className="flex flex-wrap gap-1.5">
+              {BRANCHES.map((b) => (
+                <span key={b.city} className={`inline-flex items-baseline gap-1 text-[11px] px-2.5 py-1 rounded-full border ${b.hq ? 'border-lime/45 bg-lime-tint' : 'border-line bg-white'}`}>
+                  <span className="font-semibold text-ink">{b.city}</span>
+                  <span className="text-ink-subtle">{b.country}</span>
+                </span>
+              ))}
+            </div>
           </div>
-          <p className="text-white/35 text-xs text-center md:text-right">
-            © {new Date().getFullYear()} Jaydev Group · Ahmedabad, Gujarat, India
-          </p>
+          <div className="flex-1">
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.13em] text-ink-subtle mb-2">Accreditation</h3>
+            <div className="flex flex-wrap gap-1.5">
+              {[...CERTIFICATIONS.map((c) => c.code), 'GACL Authorized', 'Grasim Authorized'].map((code) => (
+                <span key={code} className="inline-flex items-center gap-1 text-[11px] px-2.5 py-1 rounded-full bg-gold-bg border border-gold/30 text-gold-dark font-medium">
+                  <Icon name="BadgeCheck" className="w-3 h-3 flex-shrink-0" />
+                  {code}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-7 pt-5 border-t border-line flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p className="text-ink-subtle text-[11px]">© {new Date().getFullYear()} Jaydev Group · Ahmedabad, Gujarat, India</p>
+          <p className="text-ink-subtle text-[11px]">Jaydev Multicomm Pvt. Ltd. · Jaydev Pharma &amp; Intermediates LLP</p>
         </div>
       </div>
     </footer>

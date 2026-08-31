@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const hasFormula = product.formula && product.formula !== '-';
   const title = `${product.name}${hasFormula ? ` (${product.formula})` : ''} - Exporter & Supplier | CAS ${product.cas}`;
   const description =
-    `Buy ${product.name}${hasFormula ? ` (${product.formula}, CAS ${product.cas})` : ''} from Jaydev Group — ${product.grade}. ` +
+    `Buy ${product.name}${hasFormula ? ` (${product.formula}, CAS ${product.cas})` : ''} from Jaydev Group - ${product.grade}. ` +
     `${product.description.slice(0, 100)} Manufacturer-direct export with COA, MSDS & full documentation. Request a CIF/FOB quote.`;
   const keywords = [
     `${product.name} exporter`, `${product.name} supplier India`, `${product.name} manufacturer`,

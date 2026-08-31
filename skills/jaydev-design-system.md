@@ -12,26 +12,88 @@
 - **Branches**: Rajkot (HQ), Ahmedabad, Mumbai, Lagos (Nigeria).
 - **Tagline**: "Connecting Chemistry, Creating Solutions".
 - **Logo (LOCKED - exact file, no recreation)**: use the PNG at
-  `public/brand/logo.png` (source: `Content/Brand Images/Old Brand Images/Multicomm logo.png`)
-  EVERYWHERE - header, footer, favicon (`app/icon.png`). Rendered via `<Image>` in
-  `components/brand/Logo.tsx` (`<MoleculeMark>` + `<Logo>`). Do NOT substitute an SVG
+  `public/brand/jaydev-group-logo.png` (dark wordmark, for light backgrounds) and
+  `public/brand/jaydev-group-logo-light.png` (white wordmark, for ink backgrounds).
+  Favicon `app/icon.png`, Apple icon `app/apple-icon.png`. Rendered via `<Image>` in
+  `components/brand/Logo.tsx` (`LogoLockup({dark})`). Do NOT substitute an SVG
   recreation, the JM monogram, or any AI-generated mark.
+  **The mark is `#14B04A`.** It was `#26FF00` (neon lime, 1.36:1 on white - unusable);
+  the PNGs were remapped on 2026-08-30. Pre-rebrand originals are kept in
+  `brand-source/pre-green-rebrand/`. `brand-source/*.jpg` is a lossy JPEG master and
+  was deliberately left untouched - a vector/lossless master is still wanted.
 
-## Color tokens (white-first)
+## Color tokens (white-first, lime + pure-neutral ink)
+
+Source of truth is `tailwind.config.ts`.
 
 | Token | Hex | Use |
 |-------|-----|-----|
-| navy.DEFAULT | #0E2040 | primary brand, dark sections, headings |
-| navy.mid | #163566 | hovers, secondary text on light |
-| navy.pale | #F5F7FB | tints, chips |
-| gold.DEFAULT | #C9922A | accent, CTAs, icons |
-| gold.light | #E8B84B | gradients, on-navy accents |
-| gold.dark | #A0751F | text on gold-bg |
-| gold.bg | #FEF3E2 | soft icon plates |
-| white | #FFFFFF | primary background |
+| lime.DEFAULT | #39CE22 | the logo mark's own hue (112 deg). Fills and marks only on light (2.09:1) |
+| lime.text | #1B7D1D | all lime text on light + fills under white text (5.25:1) |
+| lime.light | #6DE250 | text/icons on the dark surfaces (11.5:1) |
+| lime.hover / bright / deep | #33B81E / #8DEF6C / #15561A | hover, gradient head, pressed |
+| lime.tint | #EAF8E7 | pale brand plate - the light alternative to a dark band |
+| ink.deep / DEFAULT / raised / mid | #080808 / #101010 / #1A1A1A / #242424 | **0% saturation**, matching the black wordmark |
+| ink.muted / soft / subtle | #454545 / #5C5C5C / #6E6E6E | text ramp, 9.6 / 6.7 / 5.1 on white |
+| line.* | #E5E5E5 / #EBEBEB / #F2F2F2 | borders |
+| surface.* | #F7F7F6 / #FAFAFA | alternating section grounds |
+| gold.* | #C9922A #E8B84B #A0751F #FEF3E2 | **accreditation badges ONLY** |
+| white | #FFFFFF | the default ground |
 
-White is the primary background; navy is the secondary/dark band; gold is the accent.
-Bright Indian-B2B aesthetic - never make the whole site dark.
+### THE HUE IS THE BRAND. Do not drift off it.
+The logo mark is a **lime at hue 111**. An earlier build used an emerald at 141 -
+thirty degrees away, a different green family - and no amount of lightening ever
+made it read as the logo. If a new green is ever needed, derive it at 108-124.
+
+### THE SITE IS LIGHT. There are no dark section grounds.
+This was the real fix, and it took three rounds to find because each one adjusted
+the *colour* of the dark bands instead of questioning whether they should exist.
+
+Measured on the home page before: **46% of its 20,000px height was a dark surface** -
+the cinematic hero alone was 5,726px (29%), the footer 2,803px (14%). No colour
+choice survives that ratio; the page reads dark whatever the hex is.
+
+Now: **0% on every page.** The hero is white with the faintest lime breath
+(`--grad-hero`), the footer is `surface` with a 2px ink top rule, the final CTA is a
+`lime.tint` plate. Section grounds are, in order of preference: `white`, `surface`,
+`lime.tint`.
+
+Dark survives only at small scale, where it is an accent rather than a ground:
+`.btn-ink`, filter chips, the product formula badge, the price card, and the
+photographic slug-page heroes where a scrim is needed for legibility over an image.
+
+A new full-width dark band needs a real argument. The brand's logo is black type on
+white; the site matches it.
+
+### Ink is 0% saturation
+Tinting the darks toward the accent was tried twice and failed twice: it makes the
+dark read as coloured, and it shrinks the chroma gap so the accent stops popping.
+Same rule for glows - they are pale (`rgba(238,246,236,…)`), never saturated, because
+near-black has no base colour to dilute an overlay and a saturated glow just stains it.
+
+### Contrast rules (measured)
+- `lime.DEFAULT` 2.09:1 on white - fill colour, never text, never behind white text.
+- Lime text on light -> `lime.text`. Lime on dark -> `lime.light`.
+- `.btn-lime` is engraved `#101010` on the lime gradient; worst stop 9.08:1.
+- Focus rings on light use `lime.text`.
+- No `gray-*` anywhere - use the ink ramp.
+
+## Named gradients (`globals.css :root`)
+Never inline a brand gradient in a component - add it here and reference the var.
+- `--grad-hero` - the cinematic dark hero. Its **final stop #0B1C13 is a contract**:
+  `--grad-bridge` must start on it or a seam appears at the join.
+- `--grad-bridge` - dark->white. Never a 2-stop black->white (sRGB muds through
+  grey); the mid stops hold the transition on the green hue line. **Carries no text.**
+- `--grad-ink`, `--grad-ink-panel` - dark panels and `.btn-ink`.
+- `--grad-cta` / `--grad-cta-hover` - the primary button.
+- `--grad-text` (on light) / `--grad-text-dark` (on ink) - `.text-gradient-green`.
+- `--grad-rule`, `--grad-progress` - divider and ProcessFlow line.
+- `--glow-lg/md/sm` - radial glows over dark. Two stops, not one: a single-stop
+  green->transparent gives a hard chromatic edge because saturated green
+  desaturates toward grey abruptly. The mid stop lands it softly.
+
+Ink is ~3x darker in luminance than the old navy, so shadow alphas are stepped
+down one notch from the navy-era values (`rgba(6,18,11,x)`).
 
 ## Typography
 - Headings: **Plus Jakarta Sans** (`font-jakarta`), extrabold.
@@ -49,12 +111,12 @@ Bright Indian-B2B aesthetic - never make the whole site dark.
   four collective states (tent-blend of weights from scroll progress) that enact the verbs:
   Sourced = phyllotaxis cluster · Documented = ordered lattice **+ blueprint-blue constellation
   links along grid neighbours** · Shipped = time-advanced rivers of light with leader trails ·
-  Delivered = fan-out clusters. **Per-act colour shift** (gold→blue→amber→pale-gold via
+  Delivered = fan-out clusters. **Per-act colour shift** (via
   `STATE_COL` blended by weights). Action words stamp in over it; resolves into the
   "From Rajkot to 30+ countries" CTA. NO map / arc / single ship (user rejected that as generic).
   Headline is full opacity on load and fades out as scrolling begins (`1 - ramp(p,0.02,0.12)`),
   NOT a fade-in (regression: don't key it to `ramp(p,0,…)` - that hides it at the top). Stats
-  moved to a separate navy band right after the hero in `HomeClient`.
+  moved to a separate ink band right after the hero in `HomeClient`.
   - **Pin pattern (do not regress):** pin the scene element itself with `pin:true` + `end:'+=2600'`.
     Do NOT use a tall outer track div + `pin:innerChild` + `end:'bottom bottom'` - the pin-spacer
     overflows the track and the scrub range collapses (progress jumps to 1 immediately).
@@ -70,7 +132,7 @@ Bright Indian-B2B aesthetic - never make the whole site dark.
   (repeating-conic-gradient masked to a rim, `jd-spin` 140s) cropped off the right edge; numbered
   engineering-notation left rail (01 The Source / 02 The Proof / 03 The Reach) whose active item
   tracks scroll via IntersectionObserver; full-bleed panels reveal from blur as you descend
-  (serif-italic titles, gold lede, metrics); precision crosshair cursor on mousemove. Placed
+  (serif-italic titles, green lede, metrics); precision crosshair cursor on mousemove. Placed
   right after the hero/stats, before Sourcing Ecosystem. Reverence-first copy, specs second.
   - Disc carries **chemical product names orbiting between the spokes** (`DISC_NAMES`, positioned
     by trig % inside the spinning container so they rotate with it).
@@ -97,7 +159,7 @@ Bright Indian-B2B aesthetic - never make the whole site dark.
 - **Philosophy additions**: compact looping action-word band (Sourced→Documented→Shipped→Delivered,
   1.1s cycle) at the very top; producer marquee ("Backed by India's leading producers") merged into
   the "01 The Source" pillar (old white Sourcing Ecosystem section deleted). Section background is
-  now flat navy (`#0A1730`, was a gradient that went near-black by the finale). Disc names: radius
+  `--grad-hero` (green-tinted ink). Disc names: radius
   25% + smaller font so none overflow the rim.
 - **Claim honesty**: "Countries Served" → "Export Markets" everywhere (the "served" claim was
   flagged as overstated). "From Gujarat to 30+ countries" headline stays (reads as reach, not a
@@ -126,7 +188,7 @@ Bright Indian-B2B aesthetic - never make the whole site dark.
   Philosophy, but it's a distinct interactive component (not redundant) so left as its own section.
 - **Home order (current)**: Philosophy (opens page; ends with 04 finale + stats + CTA) → bridge → Featured carousel →
   Sourcing Ecosystem → Business Units → Process Flow → Industries → Why Us (4 pillars) →
-  **merged Trust band (Presence + Certifications on one navy section)** → Trade Terms → Final CTA.
+  **merged Trust band (Presence + Certifications on one ink section)** → Trade Terms → Final CTA.
   (Export Reach/TradeRouteMap section removed; Presence + Certifications merged for compression.)
 - **DELETED (unused, do not recreate)**: `HeroVisual.tsx`, `ScrollHero.tsx`, `TradeRouteMap.tsx`
   and `public/world-land.json` + `public/world-countries.json` were removed in the cleanup pass -
@@ -146,9 +208,13 @@ Bright Indian-B2B aesthetic - never make the whole site dark.
   products CTA, footer Quick-RFQ. Uses `<a download>` + `<Icon name="Download" />`.
 
 ## Component conventions
-- `.card-white` = white card on light bg (default). `.card-navy` = glass card on navy.
-- Buttons: `.btn-gold` (primary), `.btn-navy`, `.btn-outline`, `.btn-ghost-white` (on navy).
-- Section intro pattern: `<span className="section-label">` → extrabold navy `<h2>` → gray sub.
+- `.card-white` = white card on light bg (default). `.product-card` = catalog grid card.
+  (`.card-navy`, `.card-premium`, `.btn-outline`, `.hero-grid` were dead and are deleted.)
+- Buttons: `.btn-green` (primary), `.btn-ink`, `.btn-ghost-white` (on dark).
+- **Add `on-ink` to every dark section wrapper** - it flips `.section-label`,
+  `.text-gradient-green` and focus rings to their on-dark variants automatically,
+  instead of overriding them inline at ~40 call sites.
+- Section intro pattern: `<span className="section-label">` → extrabold ink `<h2>` → gray sub.
 - Floating WhatsApp button bottom-right on key pages.
 
 ## Information architecture
@@ -187,10 +253,10 @@ Bright Indian-B2B aesthetic - never make the whole site dark.
   cross-links. Listed in `sitemap.ts`. Home tiles link straight to these.
 
 ## Buttons (premium)
-- `.btn-gold` = molten-gold gradient with engraved dark text + inset highlights + gold glow.
-  `.btn-navy` = deep navy gradient. `.btn-ghost-white` = frosted glass (backdrop-blur) for dark
-  bg. `.btn-outline` = crisp on light. All share a hover sheen sweep + spring lift. Defined in
-  `globals.css`. Keep this premium feel for any new buttons.
+- `.btn-green` = bright emerald gradient with engraved dark text + inset highlights + green
+  glow (the molten-gold construction, recoloured). `.btn-ink` = deep ink gradient.
+  `.btn-ghost-white` = frosted glass (backdrop-blur) for dark bg. All share a hover sheen
+  sweep + spring lift. Defined in `globals.css`. Keep this premium feel for any new buttons.
 
 ## Product images
 - ~35 products have unique real photos in `public/images/products/<id>.jpg` (sourced via
@@ -233,7 +299,7 @@ Bright Indian-B2B aesthetic - never make the whole site dark.
 
 ## Product display (image-free, formula-led)
 - Products listing, product detail hero, related products, and industry-page product cards
-  use a **navy formula badge** (the chemical formula in gold mono) as the visual identity -
+  use an **ink formula badge** (the chemical formula in green mono) as the visual identity -
   NOT photos. Reason: most commodities only had generic/duplicate fallback images. Keep this.
 - Home featured products keep their (good, unique) photos. Don't strip those.
 - Products page has **two filter axes**: By Category + By Industry (reverse map built from
@@ -258,7 +324,7 @@ Bright Indian-B2B aesthetic - never make the whole site dark.
   industry product lists also use formula-led layout, not stock photos.
 
 ## Hero (restructured - premium molecular centerpiece, NO stock photo)
-- Deep-navy `#0A1730` hero: layered radial glows + `.hero-grid` dot pattern. Left = eyebrow,
+- Deep-ink hero: layered radial glows + `.hero-grid` dot pattern. Left = eyebrow,
   gradient headline, sub, 2 CTAs, trust chips. Right (lg) = `HeroVisual` honeycomb molecule
   inside a glowing containment with two dashed orbit rings (`animate-jd-spin` / `-rev`) + two
   floating glass intel cards (`animate-jd-float`). Integrated glass stats bar at the bottom
@@ -269,8 +335,8 @@ Bright Indian-B2B aesthetic - never make the whole site dark.
 - Verified via Claude Preview at 1440px: molecule glows, cards positioned, stats integrated.
 
 ## Hero refinements (keep)
-- NO hard circle outlines behind the molecule - only soft blurred gold + blue halos
-  (`bg-gold/[0.08] blur-[110px]`). The user disliked the bright ring; do not re-add solid/dashed
+- NO hard circle outlines behind the molecule - only soft blurred green halos
+  (`bg-green/[0.08] blur-[110px]`). The user disliked the bright ring; do not re-add solid/dashed
   rings around `HeroVisual`.
 - Left column is intentionally lean: uppercase eyebrow tagline, tight headline, ONE concise
   sub-sentence (no founder bio in hero - that's on /about), 2 CTAs, 3 trust chips under a
@@ -282,7 +348,7 @@ Bright Indian-B2B aesthetic - never make the whole site dark.
 ## RFQ journey (guided wizard)
 - `/quote` (`QuoteClient.tsx`) is a 3-step wizard: 1) Product (name, quick-select, qty, unit,
   packaging) 2) Shipping (port, country, incoterm pills, notes) 3) Your Details (name, company,
-  email, phone) + a live review summary. Stepper with gold check-marks + progress lines,
+  email, phone) + a live review summary. Stepper with green check-marks + progress lines,
   per-step validation gating the Continue/Submit button, framer-motion slide transitions,
   prefill from `?product=/industry=/market=`, and a WhatsApp fallback that auto-fills from form
   state. Keep the wizard; don't revert to a single long form.
@@ -293,7 +359,8 @@ Bright Indian-B2B aesthetic - never make the whole site dark.
 - **Marquee** logo strip for Sourcing Ecosystem (`.animate-jd-marquee` + `.marquee-mask`,
   duplicated list, pause-on-hover). No grid.
 - **Palette restraint**: removed rainbow category colors - featured cards use one neutral
-  `catChip`; ProductsClient uses a single gold accent dot. Keep palette to navy + gold + neutrals.
+  `catChip`; ProductsClient uses a single green accent dot. Keep palette to ink + green +
+  neutrals (gold only for accreditation, #25D366 only for WhatsApp).
 - All `<Image fill>` now carry `sizes`; OG/Twitter image = `/brand/logo.png`.
 - Deferred (bigger lifts): GSAP ScrollTrigger pinned story, bento layouts, display typeface,
   real photography. Do these next for the final 10%.
@@ -322,3 +389,73 @@ Bright Indian-B2B aesthetic - never make the whole site dark.
   de-collided labels. Markets card sections aligned via min-heights. Positioning tagline added.
   Global `FloatingWhatsApp` (was home-only). `.no-scrollbar` utility added. Quote form now
   prefills from `?industry=` and `?market=` params.
+- 2026-08-30: **Green/ink rebrand.** navy #0E2040 -> ink #08150E (green-tinted
+  near-black, same hue line as the green); gold #C9922A -> green #0FA043 as the
+  accent; gold demoted to accreditation badges only. Tokens renamed
+  `navy.*`->`ink.*`, `gold.*`->`green.*` (423 class sites); `navy.mid` split into
+  `ink.muted` (text on light) and `ink.mid` (dark surface). Added a named gradient
+  system in `:root` + the `.on-ink` scoping class. Neutral borders retuned off the
+  slate tint onto `line.*`/`surface.*`. Semantic-green collisions resolved (see the
+  three-greens rules above). Logo/favicon remapped #26FF00 -> #0FA043; added
+  `app/manifest.ts`, `app/apple-icon.png`, and a `viewport.themeColor`.
+  Replaced all 103 `gray-*` uses with the four-step ink ramp (`ink-subtle`/`ink-soft`/
+  `ink-muted`/`ink`), clearing the pre-existing `gray-300`/`gray-400` failures
+  (1.47:1 / 2.54:1) and the same bug in the RFQ email. Verified 0 contrast failures
+  across 8 routes by composited-background sweep.
+  Fixed six live WCAG failures the gold palette had been carrying (`text-gold` 2.75:1,
+  `bg-gold text-white` 2.75:1, `.section-label` 2.75:1, `.text-gradient-gold`,
+  `text-gold-dark` 4.15:1, and the focus ring). Rewrote `app/not-found.tsx`, whose
+  CTA had no background at all (`bg-teal`/`shadow-soft` were never defined).
+- 2026-08-30 (later): Brand green lightened `#0FA043` -> **`#14B04A`** to match the
+  logo - the first pick read too dark. Knock-on: `green.DEFAULT` drops to 2.86:1 on
+  white, so the 14 on-white green icons moved to `green.dark`, and the focus ring
+  moved to `green.dark` (1.4.11 needs 3:1). The CTA gradient tail lifted with it and
+  its worst stop actually improved to 6.03:1. Logo/favicon/apple-icon re-derived from
+  `brand-source/pre-green-rebrand/` so the artwork and the UI green stay identical.
+- 2026-08-30 (later 2): `green.dark` `#0A6E2E` -> `#0B8136`. The two prior attempts
+  lightened `green.DEFAULT`, which barely moved anything - measuring the live DOM
+  showed `green.dark` was rendering ~95 of ~100 visible green elements and DEFAULT
+  only ~20 fills. Now at the AA floor (see above). **Gotcha: this project does not
+  hot-reload `tailwind.config.ts`** - a colour change there needs the dev server
+  restarted and `.next` cleared, or the old bundle keeps serving and the change
+  looks like it did nothing.
+- 2026-08-30 (later 3): **Dark surfaces de-tinted.** The green-tinted inks read as
+  dark green and killed the accent (see above). Ink ramp rebuilt neutral
+  (#080909 / #0F1211 / #151917 / #202423), light neutrals and the text ramp
+  neutralised to match, `--grad-hero` / `--grad-bridge` / `--grad-ink` /
+  `--grad-ink-panel` redrawn without hue, shadows neutralised, glow alphas cut ~45%,
+  favicon/apple-icon re-derived on the neutral ink. Green tokens unchanged - the
+  accent did not need fixing, its background did.
+- 2026-08-30 (later 4): De-tinting the inks was necessary but not sufficient - the
+  hero still read green because the radial glows and the spoke disc were saturated
+  green over a near-black ground, compositing back to ~30% saturation. Glows and disc
+  moved to pale `#C8EBD6`; composited surface now ~9%. See the glow table above.
+- 2026-08-30 (later 5): **Brand foundation rebuilt.** Root cause of every previous
+  round: the accent was an emerald at hue 141 while the logo mark is a lime at 111.
+  Rebuilt on the logo's hue (`#39CE22`), ink taken to pure 0% neutral, and the
+  structure changed from eight dark page-bands to two (hero + footer) - every page
+  header is now light. Logo, favicon and apple-icon re-derived to the lime.
+  Brand foundation page: https://claude.ai/code/artifact/50c4d14f-4c6d-4291-b77e-68dd10000140
+- 2026-08-30 (later 6): **Dark grounds removed entirely.** Measurement showed 46% of
+  the home page was dark surface; the hero (5,726px) was the single biggest block and
+  had survived three recolours untouched. Philosophy hero converted to a light
+  "technical drawing" treatment - white ground, ink linework for the spoke disc, ink
+  serif display, lime lede. Footer converted to `surface` with an ink top rule (and
+  switched to the dark-wordmark logo). Final CTA became a `lime.tint` plate. Bridge
+  gradient retired to a plain spacer. `gold.dark` darkened to #7A5816 so accreditation
+  pills still pass on light. Every page now measures 0% dark ground, 0 contrast failures.
+
+## Trade terms - drawn, not tabulated (`components/TradeTerms.tsx`)
+An incoterm is not a label, it is the point on the journey where cost and risk pass
+to the buyer. That is spatial, so the section leads with a **responsibility chart**:
+six stages across (plant -> inland -> load port -> on board -> ocean -> destination),
+one bar per term showing how far we carry the shipment. Clicking a term explains it.
+- EXW reaches stage 0, FOB stage 3, CFR and CIF stage 5.
+- **CIF reaches exactly as far as CFR** - the difference is cover, not distance - so
+  it renders as a hatched overlay plus an INSURED badge, never a longer bar. Drawing
+  it longer would be wrong.
+- Below the chart: the three numbers a buyer decides on (MOQ, quote turnaround,
+  transit), then payment as its own bordered block, then ports/packing/documents as
+  compact chips.
+- Hexagon lattice watermark (benzene, tiled) behind the chart, radial-masked so it
+  fades out where type begins. Structure, not wallpaper.

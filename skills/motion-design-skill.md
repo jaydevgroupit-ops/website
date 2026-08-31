@@ -16,9 +16,9 @@ Create premium, performant animations that enhance UX without distracting from c
 - **Lazy reduce**: Respect `prefers-reduced-motion` media query for accessibility.
 
 ### 3. Export-Professional Tone
-- **Smooth, premium feel**: Easing curves (ease-in-out), duration 300–600ms.
+- **Smooth, premium feel**: Easing curves (ease-in-out), duration 300-600ms.
 - **No bouncy/playful**: This is B2B industrial, not a game; tone should be sophisticated.
-- **Subtle motion**: 5–10% scale changes, not dramatic 50% zooms.
+- **Subtle motion**: 5-10% scale changes, not dramatic 50% zooms.
 
 ## Framer Motion Implementation
 
@@ -343,10 +343,10 @@ whileHover={{
 
 ### Motion Too Fast/Slow
 - **Reference speeds**:
-  - Hover effects: 200–300ms
-  - Scroll reveals: 500–700ms
+  - Hover effects: 200-300ms
+  - Scroll reveals: 500-700ms
   - Page transitions: 300ms
-  - Staggered reveals: 100–150ms between items
+  - Staggered reveals: 100-150ms between items
 
 ---
 

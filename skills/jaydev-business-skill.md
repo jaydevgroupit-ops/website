@@ -20,13 +20,13 @@ Embed the Jaydev Group's business model, value propositions, and market understa
 
 ### Who We Serve
 - **Primary Buyers**: Industrial procurement officers, supply chain managers at multinationals, trading houses in Africa/GCC/SE Asia.
-- **Purchase Cycle**: Quarterly–biannual; typical order 25–500 MT FOB India.
+- **Purchase Cycle**: Quarterly-biannual; typical order 25-500 MT FOB India.
 - **Pain Points**: Supplier reliability, compliance documentation, logistics complexity, price competitiveness.
 
 ### What Sets Us Apart
 1. **Manufacturer-Backed**: Direct relationships with GACL, Grasim, Reliance, DCM Shriram, Kutch producers.
 2. **Export Expertise**: IEC-registered, proven track record to 30+ countries, export documentation support.
-3. **Responsive**: 24–48 hr quote turnaround, WhatsApp-friendly sales desk, flexible payment terms.
+3. **Responsive**: 24-48 hr quote turnaround, WhatsApp-friendly sales desk, flexible payment terms.
 4. **Compliant**: Full COA, MSDS, B/L, CoO, packing list. Quality assurance on every shipment.
 
 ### Geographic Priorities (by volume)
@@ -54,7 +54,7 @@ Embed the Jaydev Group's business model, value propositions, and market understa
 
 ### Product Positioning
 - **Never position as a trader or middleman**: Always mention the manufacturer source.
-- Example ✓: "Sourced directly from GACL – India's leading caustic producer."
+- Example ✓: "Sourced directly from GACL - India's leading caustic producer."
 - Example ✗: "We source from various suppliers."
 - **Always tie to end-use**: "Caustic Soda for textile mercerizing, mining, and alkali-based industries."
 
@@ -66,7 +66,7 @@ Embed the Jaydev Group's business model, value propositions, and market understa
 ### Trust Elements
 - **Certifications**: IEC Code, GST Available, Manufacturer COAs.
 - **Proof**: Years in business, countries served, repeat clients (anonymized if needed).
-- **Speed**: "24–48 hour quote turnaround", "Timely shipments to 30+ countries".
+- **Speed**: "24-48 hour quote turnaround", "Timely shipments to 30+ countries".
 - **Responsiveness**: WhatsApp, email, phone (with person's name and title, if possible).
 
 ## RFQ Form Strategy
@@ -95,10 +95,10 @@ Embed the Jaydev Group's business model, value propositions, and market understa
 ## Content Hierarchy
 
 ### Home Page Focus
-- Headline: "Global Chemical Sourcing – Trusted. Timely. Premium."
+- Headline: "Global Chemical Sourcing - Trusted. Timely. Premium."
 - Subheader: Mention India-based, manufacturer-backed, export to 30+ countries.
 - CTA: Prominent "Request a Quote" button.
-- Preview: 3–4 key products + customer testimonials (anonymized if needed).
+- Preview: 3-4 key products + customer testimonials (anonymized if needed).
 
 ### Products Page Focus
 - Organize by tier: Core Products (Tier 1) and Extended Portfolio (Tier 2).
@@ -145,7 +145,7 @@ Embed the Jaydev Group's business model, value propositions, and market understa
 - ✓ Highlight WhatsApp/responsive communication.
 
 **Don't:**
-- ✗ Oversell ("We're the best in the world" – no proof).
+- ✗ Oversell ("We're the best in the world" - no proof).
 - ✗ Use generic stock photos of unrelated industries.
 - ✗ Hide pricing or payment terms (transparency builds trust).
 - ✗ Make vague claims without manufacturer backing.

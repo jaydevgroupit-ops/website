@@ -35,7 +35,7 @@ export const articles: Article[] = [
         'For most African mine sites, importing and storing liquid SO₂ is impractical. SMBS is a stable, free-flowing powder that releases SO₂ in solution on demand, making it far easier to ship in 25 kg bags or jumbo bags, store in a warehouse, and dose with standard equipment. This logistical simplicity is why SMBS dominates demand across Tanzania, Zambia, DRC, and Ghana.',
       ]},
       { heading: 'Typical dosage', paragraphs: [
-        'Dosage depends on the cyanide load, but a common starting point is roughly 2.5–5 kg of SMBS per kg of cyanide to be destroyed, optimised on site through bench testing. The reaction is catalysed by copper (often added as copper sulphate) and requires controlled aeration and pH (around 8–9) for efficient oxidation of cyanide to cyanate.',
+        'Dosage depends on the cyanide load, but a common starting point is roughly 2.5-5 kg of SMBS per kg of cyanide to be destroyed, optimised on site through bench testing. The reaction is catalysed by copper (often added as copper sulphate) and requires controlled aeration and pH (around 8-9) for efficient oxidation of cyanide to cyanate.',
       ]},
       { heading: 'What to specify when importing', paragraphs: [
         'For metallurgical use, specify technical-grade SMBS at 96.5% min purity with an SO₂ content of 64% min. Always request a manufacturer Certificate of Analysis (COA) per batch, plus MSDS and IMDG documentation for ocean freight. Jaydev Multicomm supplies GACL/Kutch-origin SMBS with full export documentation, CIF to Mombasa, Dar es Salaam, and Beira.',
@@ -60,7 +60,7 @@ export const articles: Article[] = [
       { heading: 'Flakes (98.5% min)', paragraphs: [
         'Solid flakes are the most traded form for export. At 98.5% purity they suit textile mercerizing, soap and detergent, alumina refining, and general manufacturing. They are easy to bag (25/50 kg) and palletise, and tolerate long ocean transit well. For most buyers without bulk-liquid handling, flakes are the default.',
       ]},
-      { heading: 'Lye / Liquid (47–50%)', paragraphs: [
+      { heading: 'Lye / Liquid (47-50%)', paragraphs: [
         'Caustic soda lye is a ready-to-dose liquid favoured by plants with continuous processes - paper mills, large water-treatment works, and chemical synthesis. It removes the dissolving step but requires ISO-tank or flexitank handling and heated storage in cold climates. Best where consumption is high and steady.',
       ]},
       { heading: 'Prills / Pearl (99.4% min)', paragraphs: [
@@ -113,7 +113,7 @@ export const articles: Article[] = [
         'Coagulation is the first chemical step in clarifying turbid water, and the two dominant coagulants - Poly Aluminium Chloride (PAC) and aluminium sulphate (alum) - are not interchangeable. The right choice affects dose rate, pH correction, sludge volume, and performance in cold or low-alkalinity water.',
       ]},
       { heading: 'Poly Aluminium Chloride (PAC)', paragraphs: [
-        'PAC is a pre-hydrolysed coagulant that works across a wider pH band, requires lower doses, and produces less sludge than alum. It performs notably better in cold water and low-turbidity conditions, which is why modern municipal plants increasingly standardise on PAC. It ships as liquid (10–18% Al₂O₃) or powder (28–30%).',
+        'PAC is a pre-hydrolysed coagulant that works across a wider pH band, requires lower doses, and produces less sludge than alum. It performs notably better in cold water and low-turbidity conditions, which is why modern municipal plants increasingly standardise on PAC. It ships as liquid (10-18% Al₂O₃) or powder (28-30%).',
       ]},
       { heading: 'Aluminium Sulphate (Alum)', paragraphs: [
         'Alum remains the cost-effective workhorse for higher-turbidity raw water where its larger dose is offset by lower price per tonne. It consumes more alkalinity and can require pH correction, and it generates more sludge - but for many plants it is still the economical choice.',

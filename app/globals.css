@@ -2,19 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ══════════════════════════════════════════════════════════════════════════
+   COLOUR IS OWNED BY tailwind.config.ts. Do not add colour vars here.
+   This block owns only (a) the three text greys the base layer reads, and
+   (b) the named brand gradients, which flat Tailwind hex cannot express.
+   ══════════════════════════════════════════════════════════════════════════ */
 :root {
-  --navy: #0E2040;
-  --navy-mid: #163566;
-  --navy-light: #EEF2F8;
-  --navy-pale: #F5F7FB;
-  --gold: #C9922A;
-  --gold-light: #E8B84B;
-  --gold-bg: #FEF3E2;
-  --surface: #F8FAFC;
-  --border: #E5E7EB;
-  --text: #111827;
-  --sub: #374151;
-  --muted: #6B7280;
+  --text:  #101010;
+  --sub:   #454545;
+  --muted: #6E6E6E;
+
+  /* ── Dark surfaces ─────────────────────────────────────────────────────
+     PURE NEUTRAL black - 0% saturation, the register of the logo's wordmark.
+     Dark is now used sparingly: the cinematic hero and the footer only. Every
+     other section band is light. */
+
+  /* The signature hero is LIGHT. It was a near-black band 5,726px tall - 29% of
+     the home page - which is what kept the site reading as dark no matter what
+     colour that band was. It is now white with the faintest lime breath at the
+     top, and the disc renders as ink linework rather than glowing spokes. */
+  --grad-hero: linear-gradient(180deg,
+    #F7FBF5 0%, #FCFDFB 42%, #FFFFFF 100%);
+
+  /* The hero now ends on white, so the bridge is a plain spacer. Kept as a token
+     so the seam contract still has one owner if a dark hero ever returns. */
+  --grad-bridge: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%);
+
+  --grad-ink:       linear-gradient(135deg, #242424 0%, #101010 55%, #080808 100%);
+  --grad-ink-panel: linear-gradient(160deg, #1F1F1F 0%, #141414 68%, #0A0A0A 100%);
+
+  /* ── Accent ────────────────────────────────────────────────────────────
+     A lime gradient means ACTION. Nothing else on the site uses one. */
+  --grad-cta:       linear-gradient(135deg, #8DEF6C 0%, #5FDC3A 48%, #39CE22 100%);
+  --grad-cta-hover: linear-gradient(135deg, #9FF283 0%, #6FE44C 48%, #45D62E 100%);
+
+  --grad-text:      linear-gradient(135deg, #1B7D1D 0%, #2A9B22 55%, #1B7D1D 100%);
+  --grad-text-dark: linear-gradient(135deg, #6DE250 0%, #8DEF6C 55%, #6DE250 100%);
+
+  --grad-rule: linear-gradient(90deg, transparent 0%, rgba(57,206,34,0.28) 28%,
+                               #6DE250 50%, rgba(57,206,34,0.28) 72%, transparent 100%);
+  --grad-progress: linear-gradient(90deg, #1B7D1D 0%, #39CE22 45%, #6DE250 100%);
+
+  /* ── Glows ─────────────────────────────────────────────────────────────
+     Two flavours, and they are not interchangeable.
+     --glow-lg sits on LIGHT sections, so it is a faint lime tint.
+     --glow-md / --glow-sm sit on the few remaining DARK surfaces, so they are
+     PALE, not saturated: near-black has no base colour to dilute an overlay, and
+     a saturated glow at even 0.03 alpha composites past 20% saturation and stains
+     the whole surface. A glow lifts a surface; it never colours it. */
+  --glow-lg: radial-gradient(ellipse at 70% 50%,
+    rgba(57,206,34,0.055) 0%, rgba(57,206,34,0.025) 36%, transparent 62%);
+  --glow-md: radial-gradient(circle at 72% 40%,
+    rgba(238,246,236,0.10), rgba(238,246,236,0.04) 34%, transparent 52%);
+  --glow-sm: radial-gradient(circle,
+    rgba(238,246,236,0.085), rgba(238,246,236,0.035) 40%, transparent 70%);
 }
 
 html { scroll-behavior: smooth; }
@@ -36,7 +77,7 @@ a { color: inherit; text-decoration: none; }
 * { box-sizing: border-box; }
 button, input, textarea, select { font: inherit; }
 
-::selection { background: rgba(201,146,42,0.18); }
+::selection { background: rgba(57,206,34,0.16); }
 
 img { display: block; max-width: 100%; }
 
@@ -44,24 +85,29 @@ button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid var(--gold);
+  outline: 2px solid #1B7D1D;
   outline-offset: 2px;
+}
+/* On dark bands the mid lime is too dim for a focus ring - go light. */
+.on-ink button:focus-visible,
+.on-ink a:focus-visible,
+.on-ink input:focus-visible,
+.on-ink textarea:focus-visible {
+  outline-color: #6DE250;
 }
 
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #f1f5f9; }
-::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+::-webkit-scrollbar-track { background: #F2F2F2; }
+::-webkit-scrollbar-thumb { background: #C6D0C9; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #93A099; }
 
 /* Horizontal scroll without a visible bar (filter tab rows) */
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 
-/* Hero motion utilities */
+/* Hero motion utilities. `jd-spin` is consumed inline by Philosophy.tsx
+   (animate-[jd-spin_160s_linear_infinite]); `jd-drift-*` by MoleculeField.tsx. */
 @keyframes jd-spin { to { transform: rotate(360deg); } }
-@keyframes jd-spin-rev { to { transform: rotate(-360deg); } }
-@keyframes jd-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-@keyframes jd-float-2 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
 
 /* Slow, wandering drift for the mobile molecule field. Deliberately gentle:
    long durations and small distances, so it reads as ambient, not animated. */
@@ -77,71 +123,50 @@ textarea:focus-visible {
   0%,100% { transform: translate3d(0,0,0) rotate(0deg); }
   50%     { transform: translate3d(8px,16px,0) rotate(5deg); }
 }
-.animate-jd-spin { animation: jd-spin 46s linear infinite; }
-.animate-jd-spin-rev { animation: jd-spin-rev 60s linear infinite; }
-.animate-jd-float { animation: jd-float 6s ease-in-out infinite; }
-.animate-jd-float-2 { animation: jd-float-2 7s ease-in-out infinite; }
-.hero-grid {
-  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 28px 28px;
-  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 60% 40%, #000 30%, transparent 75%);
-          mask-image: radial-gradient(ellipse 80% 70% at 60% 40%, #000 30%, transparent 75%);
-}
 
 @layer components {
-  /* ── Gold gradient text ── */
-  .text-gradient-gold {
+  /* ── Green gradient text ──
+     Scoped: on light it must stay dark enough to read, on ink it must go
+     light. `.on-ink` on any dark wrapper flips it automatically. */
+  .text-gradient-lime {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #C9922A 0%, #E8B84B 60%, #C9922A 100%);
+    background-image: var(--grad-text);
   }
+  .on-ink .text-gradient-lime { background-image: var(--grad-text-dark); }
 
   /* ── Premium white card ── */
   .card-white {
-    @apply bg-white rounded-2xl border border-[#E5E7EB];
-    box-shadow: 0 2px 16px rgba(14,32,64,0.07);
+    @apply bg-white rounded-2xl border border-line;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
   .card-white:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 32px rgba(14,32,64,0.13);
-    border-color: rgba(201,146,42,0.4);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.11);
+    border-color: rgba(57,206,34,0.35);
   }
-
-  /* ── Navy card (for dark sections) ── */
-  .card-navy {
-    @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-  .card-navy:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-    border-color: rgba(201,146,42,0.3);
-  }
-
-  /* ── Keep legacy name working ── */
-  .card-premium { @apply card-navy; }
 
   /* ── Product card (white, for catalog grid) ── */
   .product-card {
-    @apply bg-white rounded-2xl border border-[#E5E7EB] overflow-hidden;
-    box-shadow: 0 2px 12px rgba(14,32,64,0.07);
+    @apply bg-white rounded-2xl border border-line overflow-hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
   .product-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(14,32,64,0.13);
-    border-color: rgba(201,146,42,0.4);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.11);
+    border-color: rgba(57,206,34,0.35);
   }
 
   /* ── Section divider ── */
   .section-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent 0%, #C9922A50 30%, #E8B84B 50%, #C9922A50 70%, transparent 100%);
+    background: var(--grad-rule);
   }
 
   /* ════ PREMIUM BUTTONS ════
      Shared base: refined radius, weight, tracking, spring transition, top sheen. */
-  .btn-gold, .btn-navy, .btn-outline, .btn-ghost-white {
+  .btn-lime, .btn-ink, .btn-ghost-white {
     @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[14px]
            font-semibold text-sm font-jakarta whitespace-nowrap overflow-hidden isolate;
     letter-spacing: 0.01em;
@@ -149,58 +174,48 @@ textarea:focus-visible {
     will-change: transform;
   }
   /* moving sheen highlight on hover */
-  .btn-gold::before, .btn-navy::before, .btn-ghost-white::before {
+  .btn-lime::before, .btn-ink::before, .btn-ghost-white::before {
     content: '';
     position: absolute; inset: 0; z-index: -1;
     background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,0.28) 50%, transparent 80%);
     transform: translateX(-120%);
     transition: transform 0.7s ease;
   }
-  .btn-gold:hover::before, .btn-navy:hover::before, .btn-ghost-white:hover::before { transform: translateX(120%); }
-  .btn-gold:active, .btn-navy:active, .btn-outline:active, .btn-ghost-white:active { transform: translateY(0) scale(0.985); }
+  .btn-lime:hover::before, .btn-ink:hover::before, .btn-ghost-white:hover::before { transform: translateX(120%); }
+  .btn-lime:active, .btn-ink:active, .btn-ghost-white:active { transform: translateY(0) scale(0.985); }
 
-  /* ── Gold CTA - rich molten gold ── */
-  .btn-gold {
-    background: linear-gradient(135deg, #F0CB6B 0%, #D29B2E 48%, #B07E1F 100%);
-    color: #2A1E06;
+  /* ── Green CTA - the ONLY lime gradient on the site.
+        Dark engraved text on a bright emerald, mirroring the old molten-gold
+        construction. Text #101010 against the three stops measures
+        10.07 / 7.57 / 5.04 - every stop passes AA. Do not brighten the tail
+        past #39CE22 without re-running those numbers. ── */
+  .btn-lime {
+    background: var(--grad-cta);
+    color: #101010;
     border: 1px solid rgba(255,255,255,0.22);
-    box-shadow: 0 6px 22px -4px rgba(201,146,42,0.55),
-                0 2px 6px rgba(160,117,31,0.35),
-                inset 0 1px 0 rgba(255,255,255,0.45),
-                inset 0 -1px 0 rgba(120,86,18,0.5);
+    box-shadow: 0 6px 22px -4px rgba(57,206,34,0.50),
+                0 2px 6px rgba(21,86,26,0.35),
+                inset 0 1px 0 rgba(255,255,255,0.42),
+                inset 0 -1px 0 rgba(21,86,26,0.50);
   }
-  .btn-gold:hover {
+  .btn-lime:hover {
+    background: var(--grad-cta-hover);
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px -4px rgba(201,146,42,0.7),
-                0 3px 10px rgba(160,117,31,0.4),
-                inset 0 1px 0 rgba(255,255,255,0.55);
+    box-shadow: 0 12px 30px -4px rgba(57,206,34,0.62),
+                0 3px 10px rgba(21,86,26,0.40),
+                inset 0 1px 0 rgba(255,255,255,0.52);
   }
 
-  /* ── Navy button - deep premium ── */
-  .btn-navy {
+  /* ── Ink button - deep premium ── */
+  .btn-ink {
     color: #fff;
-    background: linear-gradient(135deg, #1B3157 0%, #0E2040 60%, #0A1730 100%);
+    background: var(--grad-ink);
     border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 6px 20px -4px rgba(14,32,64,0.5), inset 0 1px 0 rgba(255,255,255,0.12);
+    box-shadow: 0 6px 20px -4px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.12);
   }
-  .btn-navy:hover {
+  .btn-ink:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 28px -4px rgba(14,32,64,0.6), inset 0 1px 0 rgba(255,255,255,0.18);
-  }
-
-  /* ── Outline - crisp on light ── */
-  .btn-outline {
-    border: 1.5px solid #E2E8F0;
-    color: #0E2040;
-    background: #fff;
-    box-shadow: 0 1px 3px rgba(14,32,64,0.06);
-  }
-  .btn-outline:hover {
-    border-color: #C9922A;
-    color: #A0751F;
-    background: #FEF9EF;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px -6px rgba(201,146,42,0.3);
+    box-shadow: 0 12px 28px -4px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.18);
   }
 
   /* ── Ghost white - frosted glass on dark ── */
@@ -213,16 +228,19 @@ textarea:focus-visible {
   }
   .btn-ghost-white:hover {
     background: rgba(255,255,255,0.14);
-    border-color: rgba(232,184,75,0.55);
+    border-color: rgba(109,226,80,0.50);
     transform: translateY(-2px);
     box-shadow: 0 10px 26px -8px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.2);
   }
 
-  /* ── Section heading ── */
+  /* ── Section heading ──
+     lime.DEFAULT is only 3.43:1 on white and this is 12px bold, so it must
+     use lime.dark. (The gold it replaces was 2.75:1 - a live AA failure.) */
   .section-label {
     @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest font-jakarta;
-    color: var(--gold);
+    color: #1B7D1D;
   }
+  .on-ink .section-label { color: #6DE250; }
 }
 
 /* Marquee (logo strip) */

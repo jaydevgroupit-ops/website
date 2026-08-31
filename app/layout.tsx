@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -6,6 +6,8 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import SocialRail from '@/components/SocialRail';
 import SmoothScroll from '@/components/SmoothScroll';
 import MobileNav from '@/components/MobileNav';
+import { EnquiryProvider } from '@/components/products/EnquiryContext';
+import EnquiryBar from '@/components/products/EnquiryBar';
 import { SITE_URL, SALES_EMAIL, EXPORT_EMAIL, PHONE_EXPORT, PHONE_RAJKOT } from '@/lib/site';
 import { products } from '@/lib/content';
 import { pharmaProducts, THERAPEUTIC_SEGMENTS } from '@/lib/pharma';
@@ -134,6 +136,14 @@ const jsonLd = {
   ],
 };
 
+// Colours the mobile browser chrome. White on light, brand ink on dark.
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#FFFFFF' },
+    { media: '(prefers-color-scheme: dark)', color: '#101010' },
+  ],
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -150,7 +160,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <Header />
+        <EnquiryProvider>
+          <Header />
         <main>{children}</main>
         <Footer />
         {/* spacer so the floating mobile tray never covers footer content */}
@@ -158,7 +169,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SmoothScroll />
         <SocialRail />
         <FloatingWhatsApp />
-        <MobileNav />
+        <EnquiryBar />
+          <MobileNav />
+        </EnquiryProvider>
       </body>
     </html>
   );

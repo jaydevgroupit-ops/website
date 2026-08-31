@@ -83,10 +83,10 @@ export const scaleInVariants: Variants = {
 
 // Hover effects for cards
 export const cardHoverVariants: Variants = {
-  rest: { y: 0, boxShadow: '0 4px 6px rgba(0, 0, 0, 0.07)' },
+  rest: { y: 0, boxShadow: '0 4px 6px rgba(10, 12, 11, 0.07)' },
   hover: {
     y: -8,
-    boxShadow: '0 20px 25px rgba(0, 0, 0, 0.15)',
+    boxShadow: '0 20px 25px rgba(10, 12, 11, 0.13)',
     transition: { duration: 0.3, ease: 'easeInOut' },
   },
 };

@@ -12,7 +12,7 @@ export default function QuotePage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen pt-24 flex items-center justify-center">
-        <div className="text-white/40">Loading...</div>
+        <div className="text-ink-subtle text-sm">Loading the quote form…</div>
       </div>
     }>
       <QuoteClient />

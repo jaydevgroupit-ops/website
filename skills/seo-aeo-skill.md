@@ -34,7 +34,7 @@ Optimize Jaydev website for search engines (Google, Bing) and AI discovery (Chat
 ```
 Title: "Industrial Chemical Exporter India | GACL, Grasim Sourcing | Jaydev Group"
 Meta Desc: "Reliable bulk chemical exporter to Africa & GCC. Manufacturer-backed sourcing from GACL, Grasim, Reliance. FOB India, export-ready docs, 24-48hr quotes."
-H1: "Global Chemical Sourcing – Trusted. Timely. Premium."
+H1: "Global Chemical Sourcing - Trusted. Timely. Premium."
 Schema: Organization, FAQPage, BreadcrumbList
 ```
 
@@ -42,25 +42,25 @@ Schema: Organization, FAQPage, BreadcrumbList
 ```
 Title: "Industrial Chemicals Export Catalog | GACL, Grasim, Reliance | Jaydev"
 Meta Desc: "Browse caustic soda, sulphuric acid, SMBS, PAC, H2O2, calcium chloride. Manufacturer sourcing India. Export-ready, full compliance docs."
-H1: "Product Catalog – Sourced Direct from Indian Manufacturers"
+H1: "Product Catalog - Sourced Direct from Indian Manufacturers"
 Schema: Product (for each product), FAQPage
 ```
 
 #### Each Product Detail Page (e.g., `/products/caustic-soda`)
 ```
-Title: "Caustic Soda Export – GACL Sourcing | 98% Purity | Jaydev"
+Title: "Caustic Soda Export - GACL Sourcing | 98% Purity | Jaydev"
 Meta Desc: "GACL Caustic Soda in flakes, lye, pearl. 98% purity, export-ready. FOB India to Africa, GCC, SE Asia. Quote in 24 hrs."
-H1: "Caustic Soda – GACL Export Grade"
+H1: "Caustic Soda - GACL Export Grade"
 Schema: Product, AggregateOffer
-Content: 500–800 words covering specs, applications, sourcing, compliance
-Images: 3–5 (product, facility, application images)
+Content: 500-800 words covering specs, applications, sourcing, compliance
+Images: 3-5 (product, facility, application images)
 ```
 
 #### Markets Page (`/markets`)
 ```
-Title: "Chemical Export Markets – Africa, GCC, SE Asia | Jaydev"
+Title: "Chemical Export Markets - Africa, GCC, SE Asia | Jaydev"
 Meta Desc: "Specialized export to East Africa, West Africa, GCC, Southeast Asia. Market insights, lead times, compliance per region."
-H1: "Global Markets – Tailored Chemical Solutions"
+H1: "Global Markets - Tailored Chemical Solutions"
 Schema: FAQPage, LocalBusiness
 ```
 
@@ -93,7 +93,7 @@ Schema: FAQPage, LocalBusiness
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Caustic Soda – GACL",
+  "name": "Caustic Soda - GACL",
   "description": "98% purity caustic soda in flakes, lye, pearl form. Direct from GACL.",
   "manufacturer": { "@type": "Organization", "name": "GACL" },
   "aggregateOffer": {
@@ -197,7 +197,7 @@ Sitemap: https://www.jaydevgroup.co.in/sitemap.xml
 
 3. **FAQ Sections**
    - AI tools pull from FAQ schemas.
-   - Aim for 10–15 common buyer questions with short answers.
+   - Aim for 10-15 common buyer questions with short answers.
    - Example questions:
      - "What does Jaydev Group export?"
      - "How long does export take from India?"
@@ -206,7 +206,7 @@ Sitemap: https://www.jaydevgroup.co.in/sitemap.xml
 
 ### Blog/Content Strategy
 
-#### Blog Topics (1–2 posts/month)
+#### Blog Topics (1-2 posts/month)
 
 | Topic | Keyword Focus | Format |
 |-------|---------------|--------|
@@ -222,7 +222,7 @@ Sitemap: https://www.jaydevgroup.co.in/sitemap.xml
 
 ## Introduction
 - Hook: Industry insight or buyer pain point
-- What this post covers (3–5 key points)
+- What this post covers (3-5 key points)
 - Call-to-action preview ("Get a quote at the end")
 
 ## Section 1: [Topic]
@@ -237,7 +237,7 @@ Sitemap: https://www.jaydevgroup.co.in/sitemap.xml
 
 ## FAQ Section
 **Q: [Common buyer question]**
-A: [Direct answer, 1–2 sentences]
+A: [Direct answer, 1-2 sentences]
 
 **Q: [Another question]**
 A: [Answer]
@@ -260,7 +260,7 @@ By Jaydev Group | Published: [Date]
 
 2. **Manufacturer Partner Links**
    - Request links from GACL, Grasim distributor pages (if applicable)
-   - "Jaydev Group – Authorized Distributor/Export Partner"
+   - "Jaydev Group - Authorized Distributor/Export Partner"
 
 3. **Trade Association Links**
    - Join Indian Chemical Exporters Association; request directory link
@@ -309,9 +309,9 @@ Blog → Related Blog Post
 |--------|--------|
 | Organic traffic (monthly) | 2,000+ visitors |
 | Top 10 keyword rankings | 5+ |
-| Click-through rate (CTR) | 3–5% |
+| Click-through rate (CTR) | 3-5% |
 | Average session duration | 2+ minutes |
-| RFQ form conversion (from organic) | 2–5% |
+| RFQ form conversion (from organic) | 2-5% |
 
 ### Tools
 - Google Search Console: Monitor indexing, CTR, keywords

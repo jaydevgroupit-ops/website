@@ -60,7 +60,7 @@ Guide market expansion, competitive positioning, and lead generation strategy fo
 
 2. **Manufacturing Partner Referrals**:
    - GACL, Grasim, Reliance may refer export customers to Jaydev.
-   - Negotiate referral commission (e.g., 1–2% of first order value).
+   - Negotiate referral commission (e.g., 1-2% of first order value).
 
 3. **Local Trading House Partnerships**:
    - Partner with distributors/traders in target countries (Nigeria, Kenya, etc).
@@ -82,7 +82,7 @@ Guide market expansion, competitive positioning, and lead generation strategy fo
 
 ### Messaging Strategy
 - **Not**: "We're the best in the world."
-- **But**: "We're your reliable partner for [specific region] – backed by GACL and India's top manufacturers, export-ready docs, 24–48 hr quotes."
+- **But**: "We're your reliable partner for [specific region] - backed by GACL and India's top manufacturers, export-ready docs, 24-48 hr quotes."
 
 ## Customer Acquisition Funnel
 
@@ -116,7 +116,7 @@ Buyer becomes repeat customer (quarterly orders)
 ## Retention & Upsell
 
 ### Customer Lifecycle
-1. **First Order**: Smaller qty (50–100 MT). Focus on quality delivery & compliance.
+1. **First Order**: Smaller qty (50-100 MT). Focus on quality delivery & compliance.
 2. **Second Order**: Grow confidence; upsell related product (e.g., buyer of Caustic Soda → offer Hydrogen Peroxide).
 3. **Repeat Customer**: Offer volume discounts, priority shipment, direct sales contact (bypass RFQ form).
 4. **Advocate**: Testimonial, case study, referral bonus.
@@ -130,44 +130,44 @@ Buyer becomes repeat customer (quarterly orders)
 ## Pricing Strategy for Growth
 
 ### Aggressive Phase (Year 1)
-- Offer 3–5% discount to first-time buyers to build portfolio + testimonials.
-- Target: Establish presence in 5–10 key accounts per market.
+- Offer 3-5% discount to first-time buyers to build portfolio + testimonials.
+- Target: Establish presence in 5-10 key accounts per market.
 
 ### Growth Phase (Year 2+)
-- Standard margins 5–10% (per chemical-trading-skill.md).
-- Loyalty discounts: 2–3% for 3+ repeat orders.
-- Volume incentives: Orders 150+ MT get extra 2–3%.
+- Standard margins 5-10% (per chemical-trading-skill.md).
+- Loyalty discounts: 2-3% for 3+ repeat orders.
+- Volume incentives: Orders 150+ MT get extra 2-3%.
 
 ### Profitability Phase (Year 3+)
-- Selective margin expansion: 8–12% for specialty items.
+- Selective margin expansion: 8-12% for specialty items.
 - Fixed relationships: Long-term contracts at negotiated rates.
 
 ## Market Entry Strategy by Region
 
 ### Africa (Primary Target)
-1. **Months 1–3**: Research + LinkedIn outreach to mining companies (Zambia, DRC), water utilities (Kenya, Tanzania).
-2. **Months 4–6**: Participate in mining expo; secure 2–3 pilot orders.
-3. **Months 7–12**: Establish local partner or distributor; grow from 3 to 10+ active accounts.
+1. **Months 1-3**: Research + LinkedIn outreach to mining companies (Zambia, DRC), water utilities (Kenya, Tanzania).
+2. **Months 4-6**: Participate in mining expo; secure 2-3 pilot orders.
+3. **Months 7-12**: Establish local partner or distributor; grow from 3 to 10+ active accounts.
 4. **Year 2**: Expand to West Africa (Nigeria, Ghana); target textile & food industries.
 
 ### GCC (Secondary Target)
-1. **Months 1–3**: LinkedIn + email to oil & gas procurement, water treatment engineers.
-2. **Months 4–6**: Attend petrochemical trade show; showcase Calcium Chloride & PAC.
-3. **Months 7–12**: Secure 3–5 corporate accounts; repeat orders from established businesses.
+1. **Months 1-3**: LinkedIn + email to oil & gas procurement, water treatment engineers.
+2. **Months 4-6**: Attend petrochemical trade show; showcase Calcium Chloride & PAC.
+3. **Months 7-12**: Secure 3-5 corporate accounts; repeat orders from established businesses.
 
 ### SE Asia (Tertiary Target)
-1. **Months 1–3**: Partner with local distributors; provide pricing + support.
-2. **Months 4–12**: Build via local partner; position as "India's trusted supplier".
+1. **Months 1-3**: Partner with local distributors; provide pricing + support.
+2. **Months 4-12**: Build via local partner; position as "India's trusted supplier".
 
 ## KPIs & Success Metrics
 
 | Metric | Target (Year 1) |
 |--------|-----------------|
-| Unique leads per month | 20–30 |
-| RFQ conversion rate | 15–20% |
-| Average order value (FOB) | $50K–$100K |
+| Unique leads per month | 20-30 |
+| RFQ conversion rate | 15-20% |
+| Average order value (FOB) | $50K-$100K |
 | Repeat customer rate | 40% |
-| Monthly revenue (export) | $200K–$400K |
+| Monthly revenue (export) | $200K-$400K |
 | Customer acquisition cost | <$5K per customer |
 | Organic search traffic | 500+ visits/month |
 | LinkedIn followers | 2K+ |

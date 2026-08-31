@@ -29,12 +29,12 @@ This document defines the strategic, design, and technical guidelines for rebuil
 ## Product Portfolio
 
 ### **Tier 1: Core Export Products** (High-volume, manufacturer-certified)
-1. **Caustic Soda** – Source: Grasim, GACL, Reliance. Forms: Flakes (98%), Lye (48–50%), Pearl.
-2. **Sulphuric Acid** – Source: GACL. Grades: 98%, 80%, 70%. Primary: Fertilizer, Mining, Metal Processing.
-3. **SMBS (Sodium Metabisulfite)** – Source: GACL. Grades: Food, Tech, Photo. Key: Africa mining, Food preservation.
-4. **Hydrogen Peroxide** – Source: Reliance. Concentrations: 35%, 50%. Applications: Textile, Paper, Electronics.
-5. **PAC (Polyaluminium Chloride)** – Source: Kutch manufacturers. Forms: Liquid, Powder. Key: Water treatment, WTP projects Africa/GCC.
-6. **Calcium Chloride** – Source: DCM Shriram, Reliance. Grades: Industrial, Oilfield, Food. Key: Oil & Gas, GCC drilling, Construction.
+1. **Caustic Soda** - Source: Grasim, GACL, Reliance. Forms: Flakes (98%), Lye (48-50%), Pearl.
+2. **Sulphuric Acid** - Source: GACL. Grades: 98%, 80%, 70%. Primary: Fertilizer, Mining, Metal Processing.
+3. **SMBS (Sodium Metabisulfite)** - Source: GACL. Grades: Food, Tech, Photo. Key: Africa mining, Food preservation.
+4. **Hydrogen Peroxide** - Source: Reliance. Concentrations: 35%, 50%. Applications: Textile, Paper, Electronics.
+5. **PAC (Polyaluminium Chloride)** - Source: Kutch manufacturers. Forms: Liquid, Powder. Key: Water treatment, WTP projects Africa/GCC.
+6. **Calcium Chloride** - Source: DCM Shriram, Reliance. Grades: Industrial, Oilfield, Food. Key: Oil & Gas, GCC drilling, Construction.
 
 ### **Tier 2: Specialty/Import Products**
 - Zircon Sand (sourced/imported)
@@ -83,9 +83,9 @@ This document defines the strategic, design, and technical guidelines for rebuil
 ### **Visual & Messaging Rules**
 - **Logo**: Use provided Jaydev Group logo (with network/hub motif) as primary brand asset.
 - **Color Palette**: 
-  - Primary: Navy (#0E2040) – Trust, professionalism.
-  - Accent: Teal (#0B7A72) – Energy, chemistry.
-  - Secondary: Gold (#B8720A) – Premium, partnership.
+  - Primary: Navy (#0E2040) - Trust, professionalism.
+  - Accent: Teal (#0B7A72) - Energy, chemistry.
+  - Secondary: Gold (#B8720A) - Premium, partnership.
   - Neutrals: Off-white (#F4F7FB), Slate (#475569).
 - **Typography**: Modern, clean sans-serif (e.g. Inter, Poppins). No decorative fonts.
 - **Imagery**: Show **manufacturers only** (GACL, Grasim logos when used). No trader, no generic stock photos. Emphasize industrial/export authenticity.
@@ -99,15 +99,15 @@ This document defines the strategic, design, and technical guidelines for rebuil
 **Deliverable**: Complete business model, positioning, and technical guidelines.
 - Create/update AGENTS.md (this file)
 - Create 9 skill files in `skills/` folder:
-  1. jaydev-business-skill.md – Business model, value props, RFQ strategy
-  2. chemical-trading-skill.md – Supplier management, pricing, compliance
-  3. export-growth-skill.md – Market entry, lead generation, retention
-  4. manufacturer-validation-skill.md – Authenticity, sourcing transparency
-  5. ui-ux-pro-max-skill.md – B2B design patterns, layouts, responsiveness
-  6. motion-design-skill.md – Framer Motion animations, performance
-  7. seo-aeo-skill.md – Search optimization, AI discovery, schema
-  8. conversion-optimization-skill.md – Forms, follow-up, retention
-  9. website-architecture-skill.md – Tech stack, code organization, deployment
+  1. jaydev-business-skill.md - Business model, value props, RFQ strategy
+  2. chemical-trading-skill.md - Supplier management, pricing, compliance
+  3. export-growth-skill.md - Market entry, lead generation, retention
+  4. manufacturer-validation-skill.md - Authenticity, sourcing transparency
+  5. ui-ux-pro-max-skill.md - B2B design patterns, layouts, responsiveness
+  6. motion-design-skill.md - Framer Motion animations, performance
+  7. seo-aeo-skill.md - Search optimization, AI discovery, schema
+  8. conversion-optimization-skill.md - Forms, follow-up, retention
+  9. website-architecture-skill.md - Tech stack, code organization, deployment
 
 ### Phase 2: Comprehensive Audit
 **Deliverable**: Identify all gaps, issues, and opportunities.
@@ -169,7 +169,7 @@ This document defines the strategic, design, and technical guidelines for rebuil
 - Set up GA4 tracking and conversion goals
 - Implement XML sitemap generation
 - Add internal linking strategy
-- Create 5–10 blog posts (keyword-targeted)
+- Create 5-10 blog posts (keyword-targeted)
 - Optimize images: WebP, lazy-load, responsive sizing
 - Run Lighthouse audit: target 90+ on all metrics
 - Implement Web Vitals monitoring
@@ -191,11 +191,11 @@ This document defines the strategic, design, and technical guidelines for rebuil
 ## Skill Files Organization
 
 Each skill file follows this structure:
-1. **Purpose** – Why this skill matters
-2. **Key Concepts** – Core knowledge
-3. **Implementation Guide** – Step-by-step how-to
-4. **Examples/Templates** – Ready-to-use code/copy
-5. **Integration Points** – How it connects to other skills
+1. **Purpose** - Why this skill matters
+2. **Key Concepts** - Core knowledge
+3. **Implementation Guide** - Step-by-step how-to
+4. **Examples/Templates** - Ready-to-use code/copy
+5. **Integration Points** - How it connects to other skills
 
 ### How to Use Skills
 - **Reference Before Starting**: Before working on a task (e.g., "design homepage"), read the relevant skill(s).
@@ -251,8 +251,8 @@ Each skill file follows this structure:
 | Metric | Target | Reason |
 |--------|--------|--------|
 | Organic monthly visitors | 2,000+ | Growth signal; SEO working |
-| RFQ form submissions | 20–30/month | Lead generation |
-| Quote-to-order conversion | 20–30% | Sales effectiveness |
+| RFQ form submissions | 20-30/month | Lead generation |
+| Quote-to-order conversion | 20-30% | Sales effectiveness |
 | Lighthouse score | 90+ (all categories) | Performance + accessibility |
 | Page load time | <2 seconds | User experience |
 | Repeat customer rate (6mo) | 40%+ | Product/service satisfaction |
@@ -262,14 +262,14 @@ Each skill file follows this structure:
 
 ## Files & Ownership
 
-- **AGENTS.md** – This file. Master coordination guide.
-- **README.md** – Quick start, build commands, deployment.
-- **skills/** – Knowledge base (9 skill files).
-- **app/** – Next.js pages and routes.
-- **components/** – Reusable React components.
-- **lib/content.ts** – Single source of truth (products, markets, copy).
-- **public/images/** – Product, market, industry imagery (WebP format).
-- **legacy/** – Archive of original static HTML (reference only).
+- **AGENTS.md** - This file. Master coordination guide.
+- **README.md** - Quick start, build commands, deployment.
+- **skills/** - Knowledge base (9 skill files).
+- **app/** - Next.js pages and routes.
+- **components/** - Reusable React components.
+- **lib/content.ts** - Single source of truth (products, markets, copy).
+- **public/images/** - Product, market, industry imagery (WebP format).
+- **legacy/** - Archive of original static HTML (reference only).
 
 ---
 

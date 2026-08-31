@@ -8,9 +8,9 @@ Ensure that every product claim, image, and testimonial on the Jaydev website vi
 **EVERY PAGE MUST ANSWER: "Where does this come from?"**
 
 **✓ Correct Framing:**
-- "Sourced directly from GACL – India's leading NaOH producer"
-- "Reliance Caustic Soda – certified for export to 30+ countries"
-- "PAC from Kutch manufacturers – trusted by WTP projects in Africa & GCC"
+- "Sourced directly from GACL - India's leading NaOH producer"
+- "Reliance Caustic Soda - certified for export to 30+ countries"
+- "PAC from Kutch manufacturers - trusted by WTP projects in Africa & GCC"
 
 **✗ Avoid:**
 - "Industrial chemicals" (too generic)
@@ -40,9 +40,9 @@ Ensure that every product claim, image, and testimonial on the Jaydev website vi
 ### Homepage
 **Hero Section:**
 ```
-HEADLINE: "Global Chemical Sourcing – Trusted. Timely. Premium."
+HEADLINE: "Global Chemical Sourcing - Trusted. Timely. Premium."
 
-SUBHEADER: "Sourced directly from India's leading manufacturers – GACL, Grasim, Reliance – 
+SUBHEADER: "Sourced directly from India's leading manufacturers - GACL, Grasim, Reliance - 
 and exported to 30+ countries with full compliance."
 
 VISUAL: Show GACL + Grasim + Reliance logos (obtain permissions; ensure logo quality is professional)
@@ -54,12 +54,12 @@ OR: Show manufacturing facility imagery (not stock photos; use real plant photos
 ```
 PRODUCT NAME: Caustic Soda
 SOURCED FROM: GACL
-GRADES: Flakes (98%), Lye (48–50%), Pearl
+GRADES: Flakes (98%), Lye (48-50%), Pearl
 SPECS: [Full details]
 MANUFACTURER COA: ✓ Available on request
 EXPORT CERT: ✓ ISO 9001, GACL certified
 
-[Image of actual product or GACL facility – NOT generic chemical stock photo]
+[Image of actual product or GACL facility - NOT generic chemical stock photo]
 ```
 
 **Extended Catalog Section (Tier 2):**
@@ -67,7 +67,7 @@ EXPORT CERT: ✓ ISO 9001, GACL certified
 PRODUCT: Lauric Acid
 SOURCED FROM: Specialist producer (name on request)
 APPLICATIONS: Cosmetics, detergents, food preservation
-NOTES: Available on bulk order (100+ MT); 8–12 week lead time
+NOTES: Available on bulk order (100+ MT); 8-12 week lead time
 ```
 
 ### Industries/Markets Page
@@ -79,7 +79,7 @@ PRODUCTS: SMBS, PAC, Caustic Soda
 WHY JAYDEV: Direct sourcing from GACL ensures reliable supply for critical mining operations.
             Full export docs (COA, MSDS, CoO) guaranteed. Timely delivery to Dar es Salaam, Mombasa.
 
-CASE STUDY (Optional): "XYZ Mining – 500 MT SMBS quarterly from GACL via Jaydev. On-time 
+CASE STUDY (Optional): "XYZ Mining - 500 MT SMBS quarterly from GACL via Jaydev. On-time 
                        delivery, full compliance. 3-year relationship."
 ```
 
@@ -96,7 +96,7 @@ and send you a detailed quote including:
 - Full export documentation (COA, MSDS, CoO, B/L template)
 - Competitive FOB pricing
 
-Expect quote within 24–48 hours.
+Expect quote within 24-48 hours.
 
 Questions? WhatsApp us: +91 99875 39258"
 ```

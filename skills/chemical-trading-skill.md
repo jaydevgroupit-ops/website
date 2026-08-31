@@ -23,20 +23,20 @@ Guide business-facing decisions: supplier negotiation, pricing, RFQ handling, an
 ## Pricing Intelligence
 
 ### Cost Components (FOB India)
-1. **Manufacturing cost** (50–60%): GACL/Grasim list price.
-2. **Logistics to port** (5–10%): Hazira, Mundra, JNPT.
-3. **Documentation & compliance** (2–3%): COA, MSDS, export filing, customs.
-4. **Operating margin** (5–10%): Jaydev overhead + profit.
+1. **Manufacturing cost** (50-60%): GACL/Grasim list price.
+2. **Logistics to port** (5-10%): Hazira, Mundra, JNPT.
+3. **Documentation & compliance** (2-3%): COA, MSDS, export filing, customs.
+4. **Operating margin** (5-10%): Jaydev overhead + profit.
 
 ### Pricing Strategy
-- **Volume Discounts**: 25–50 MT, 50–100 MT, 100+ MT tiers.
+- **Volume Discounts**: 25-50 MT, 50-100 MT, 100+ MT tiers.
 - **Market Sensitivity**: Track commodity prices (sulfuric acid, caustic soda are commodity chemicals; price fluctuates monthly).
-- **Competitive Positioning**: Undercut by 5–10% vs. larger traders, but never compete on cost alone.
+- **Competitive Positioning**: Undercut by 5-10% vs. larger traders, but never compete on cost alone.
 - **Incoterms Flexibility**: FOB (buyer arranges shipping), CIF (Jaydev arranges), CFR, EXW as needed.
 
 ### Margin Targets
-- **Standard product (Caustic, H2O2, Sulph. Acid)**: 5–8% FOB margin.
-- **Specialty/import products (Lauric Acid, Zircon Sand)**: 10–15% margin.
+- **Standard product (Caustic, H2O2, Sulph. Acid)**: 5-8% FOB margin.
+- **Specialty/import products (Lauric Acid, Zircon Sand)**: 10-15% margin.
 - **Volume deals (100+ MT)**: Negotiate lower margin but higher absolute profit.
 
 ## RFQ Handling Workflow
@@ -44,11 +44,11 @@ Guide business-facing decisions: supplier negotiation, pricing, RFQ handling, an
 ### Inquiry Reception
 1. **Initial Email/WhatsApp**: Buyer submits product, qty, destination, timeline.
 2. **Qualification Check**:
-   - Is destination a known market? (Africa, GCC, SE Asia – good. Random country – clarify.)
+   - Is destination a known market? (Africa, GCC, SE Asia - good. Random country - clarify.)
    - Is qty realistic? (25 MT minimum; if <25 MT, consider surcharge or bundle with other products.)
-   - Is timeline feasible? (If "immediate shipment" – manage expectations; standard lead is 2–4 weeks FOB India.)
+   - Is timeline feasible? (If "immediate shipment" - manage expectations; standard lead is 2-4 weeks FOB India.)
 
-### Quote Preparation (24–48 hrs)
+### Quote Preparation (24-48 hrs)
 - **Product Spec**: Confirm grade, purity, packaging format.
 - **Quantity & MOQ**: State minimum order qty; offer bulk discounts if applicable.
 - **Pricing**: Quote FOB Hazira/Mundra (specify port).
@@ -56,7 +56,7 @@ Guide business-facing decisions: supplier negotiation, pricing, RFQ handling, an
 - **Shipping Timeline**: State typical lead time to destination (e.g., "FOB Hazira, 15 days to Dar es Salaam port").
 - **Payment Terms**: Offer LC primary; mention TT/DA for established buyers.
 - **COA/Docs**: State that full COA, MSDS, B/L, CoO will be provided pre-shipment.
-- **Validity**: Quote valid for 7–14 days.
+- **Validity**: Quote valid for 7-14 days.
 
 ### Quote Email Template (Key Points)
 ```
@@ -70,7 +70,7 @@ Thank you for your inquiry regarding [Product].
 - Price: [USD/MT FOB Hazira]
 - MOQ: 25 MT
 - Payment: LC (TT/DP available for established accounts)
-- Lead Time: 2–3 weeks FOB India
+- Lead Time: 2-3 weeks FOB India
 - Shipping Port: Hazira / Mundra / JNPT
 - Documentation: Full COA, MSDS, B/L, CoO provided
 
@@ -98,7 +98,7 @@ sales@jaydevgroup.co.in
 - Arrange **LC or payment** per agreed terms.
 
 ### Pre-Shipment Coordination
-1. Request **COA + MSDS** from manufacturer.
+1. Request **COA / MSDS** from manufacturer.
 2. Arrange **pre-shipment inspection** (if buyer requests).
 3. Prepare **packing list, shipping marks** (clearly labeled with buyer's PO number).
 4. Coordinate with **freight forwarder** for container booking.
@@ -150,8 +150,8 @@ sales@jaydevgroup.co.in
 - **Bundle Strategy**: "If we add [Product Y] to order, can we bundle at discount?"
 
 ### For Manufacturers (Cost Reduction)
-- **Aggregation**: "We can consolidate orders from multiple buyers; can you discount 10–15%?"
-- **Forward Booking**: "If we commit 2–3 quarters in advance, can you lock in price?"
+- **Aggregation**: "We can consolidate orders from multiple buyers; can you discount 10-15%?"
+- **Forward Booking**: "If we commit 2-3 quarters in advance, can you lock in price?"
 - **Exclusivity**: "Can we negotiate exclusivity for Africa region in exchange for volume commitment?"
 
 ## Red Flags

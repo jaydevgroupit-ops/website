@@ -2,10 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 /**
- * Official Jaydev Group logo lockup (wordmark + green mark).
+ * Official Jaydev Group logo lockup (wordmark + lime mark).
  * Master artwork: brand-source/JAYDEV GROUP LOGO.jpg (not served); the PNGs
  * in public/brand are keyed-to-transparent derivatives of it.
- * Use the `light` variant on navy/dark surfaces - the default lockup's
+ * Use the `light` variant on ink/dark surfaces - the default lockup's
  * wordmark is black and disappears against them.
  */
 

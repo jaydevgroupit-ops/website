@@ -16,8 +16,8 @@ Create premium, enterprise-grade B2B website design that builds trust, accelerat
 - **Imagery**: Real industrial/commercial photography; no generic stock photos.
 
 ### 3. Conversion-Focused
-- **CTAs prominent**: "Request Quote", "Download Catalog", "WhatsApp Us" – visible above fold & repeated.
-- **Form friction minimal**: RFQ form should be 5–7 fields, not 20. Keep it scannable.
+- **CTAs prominent**: "Request Quote", "Download Catalog", "WhatsApp Us" - visible above fold & repeated.
+- **Form friction minimal**: RFQ form should be 5-7 fields, not 20. Keep it scannable.
 - **Social proof**: Testimonials, case studies, certifications, manufacturer logos visible.
 
 ## Layout Patterns
@@ -27,33 +27,33 @@ Create premium, enterprise-grade B2B website design that builds trust, accelerat
 ```
 HERO SECTION (Full-width above fold)
 ├─ Background: Subtle gradient (Navy to Teal) + overlay
-├─ Headline: "Global Chemical Sourcing – Trusted. Timely. Premium."
+├─ Headline: "Global Chemical Sourcing - Trusted. Timely. Premium."
 ├─ Subheader: "Sourced directly from India's top manufacturers (GACL, Grasim, Reliance)"
 ├─ CTA Button: "Get a Quote" (Teal, size 56px, prominent)
 ├─ Optional: Scrolling stats: "30+ Countries | 10+ Years | 10,000+ MT/Year"
 └─ Visual: Manufacturer logos OR high-res industrial facility image
 
 TRUST SECTION
-├─ Cards (3–4 columns):
+├─ Cards (3-4 columns):
 │  ├─ "Manufacturer-Backed" + certification icon
 │  ├─ "30+ Countries Served" + world map icon
-│  ├─ "24–48 Hour Quotes" + clock icon
+│  ├─ "24-48 Hour Quotes" + clock icon
 │  ├─ "Full Compliance Docs" + checkmark icon
 └─ Smaller text under each explaining benefit
 
 FEATURED PRODUCTS SECTION
 ├─ Headline: "Core Export Products"
-├─ Grid of 3–4 product cards (mobile: 1 col, tablet: 2, desktop: 3)
+├─ Grid of 3-4 product cards (mobile: 1 col, tablet: 2, desktop: 3)
 │  ├─ Product image (real product or facility)
 │  ├─ Product name + manufacturer
-│  ├─ 1-line description (e.g., "GACL Caustic – 98% purity, available in flakes, lye, pearl")
+│  ├─ 1-line description (e.g., "GACL Caustic - 98% purity, available in flakes, lye, pearl")
 │  ├─ "View Details" link
 │  └─ "Request Quote" button (secondary, outline style)
 └─ "Explore Full Catalog" link at bottom
 
 MARKETS SECTION
 ├─ Headline: "Serving Africa, GCC, and SE Asia"
-├─ 3–5 interactive boxes (click to expand or hover):
+├─ 3-5 interactive boxes (click to expand or hover):
 │  ├─ East Africa (Kenya, Tanzania, DRC): Key products, industries, lead times
 │  ├─ GCC (UAE, Saudi): Key products, industries, lead times
 │  ├─ SE Asia: Key products, industries, lead times
@@ -61,7 +61,7 @@ MARKETS SECTION
 └─ Optional: Interactive world map (advanced; future phase)
 
 SOCIAL PROOF SECTION
-├─ Testimonials carousel (3–5 customer quotes, anonymized):
+├─ Testimonials carousel (3-5 customer quotes, anonymized):
 │  ├─ "XYZ company saved 20% on supply costs using Jaydev"
 │  ├─ Author: Procurement Manager, XYZ Industries (Country withheld)
 │  └─ Star rating (optional)
@@ -122,9 +122,9 @@ PRODUCT DETAIL VIEW (Click "View Details")
 │  └─ Applications list (bullet points)
 │     └─ "Caustic for textile mercerizing, mining operations, alkali production..."
 ├─ Right column (40%):
-│  ├─ Price indicator: "FOB India – Contact for quote"
+│  ├─ Price indicator: "FOB India - Contact for quote"
 │  ├─ MOQ: "Minimum 25 MT"
-│  ├─ Lead time: "2–3 weeks FOB Hazira"
+│  ├─ Lead time: "2-3 weeks FOB Hazira"
 │  ├─ Incoterms: "FOB, CIF available"
 │  ├─ Primary CTA: "Request Quote" (Large, Teal)
 │  ├─ Secondary: "Download Spec Sheet" (PDF icon)
@@ -219,7 +219,7 @@ SUCCESS PAGE (After submission)
 
 ### Breakpoints
 - **Mobile** (< 640px): 1 column, stacked layout, large touch targets (48px+).
-- **Tablet** (640px – 1024px): 2 columns, adjusted spacing.
+- **Tablet** (640px - 1024px): 2 columns, adjusted spacing.
 - **Desktop** (> 1024px): 3+ columns, full layout.
 
 ### Mobile-First Rules

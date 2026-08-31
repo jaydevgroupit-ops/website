@@ -26,8 +26,7 @@ export const DIVISIONS: {
     label: 'Industrial Chemicals',
     short: 'Industrial',
     icon: 'Beaker',
-    blurb:
-      'Chlor-alkali, acids, water treatment, solvents, salts and more. Direct from the producer, with COA and MSDS.',
+    blurb: 'Chlor-alkali, acids, solvents and water treatment - direct from the producer.',
     count: products.length,
   },
   {
@@ -35,8 +34,7 @@ export const DIVISIONS: {
     label: 'Pharma, Intermediates & APIs',
     short: 'Pharma & APIs',
     icon: 'FlaskConical',
-    blurb:
-      'APIs across 15 therapeutic areas, plus intermediates, excipients, nutraceutical ingredients and fine chemicals.',
+    blurb: 'APIs, intermediates and excipients across 15 therapeutic areas.',
     count: pharmaProducts.length,
   },
 ];

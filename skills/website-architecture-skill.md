@@ -136,7 +136,7 @@ export const products: Product[] = [
     id: "caustic-soda",
     name: "Caustic Soda",
     manufacturer: "GACL",
-    grades: ["Flakes (98%)", "Lye (48–50%)", "Pearl"],
+    grades: ["Flakes (98%)", "Lye (48-50%)", "Pearl"],
     description: "Premium sodium hydroxide for industrial use",
     image: "/images/caustic-soda.webp",
     cas: "1310-73-2",
@@ -523,17 +523,17 @@ main (production)
 
 ## Future Enhancements
 
-### Phase 2–3 (Near-term)
+### Phase 2-3 (Near-term)
 - [ ] Blog CMS integration (Sanity, Contentful)
 - [ ] Advanced product filtering & search
 - [ ] Customer testimonials dynamic loading
 
-### Phase 4–6 (Medium-term)
+### Phase 4-6 (Medium-term)
 - [ ] 3D product visualizer (Three.js + Babylon.js)
 - [ ] Interactive trade map (Three.js globe or Mapbox)
 - [ ] RFQ dashboard for logged-in buyers
 
-### Phase 7–9 (Long-term)
+### Phase 7-9 (Long-term)
 - [ ] Buyer authentication & account management
 - [ ] Order tracking portal
 - [ ] PDF catalog generation & download

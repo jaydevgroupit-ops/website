@@ -87,9 +87,9 @@ export default function FeaturedCarousel() {
           <article
             key={`${p.id}-${i}`}
             aria-hidden={i >= featured.length}
-            className="group mr-5 w-[260px] sm:w-[300px] flex-shrink-0 bg-white rounded-2xl border border-[#EAEEF3] overflow-hidden shadow-sm hover:shadow-[0_18px_46px_-18px_rgba(14,32,64,0.25)] hover:border-gold/40 transition-all"
+            className="group mr-5 w-[260px] sm:w-[300px] flex-shrink-0 flex flex-col bg-white rounded-2xl border border-line-soft overflow-hidden shadow-sm hover:shadow-[0_18px_46px_-18px_rgba(0,0,0,0.22)] hover:border-lime/40 transition-all"
           >
-            <Link href={`/products/${p.id}`} className="block relative h-40 sm:h-44 bg-navy-pale overflow-hidden">
+            <Link href={`/products/${p.id}`} className="block relative h-40 sm:h-44 bg-ink-pale overflow-hidden">
               <Image
                 src={featuredImage(p)}
                 alt={p.name}
@@ -98,22 +98,23 @@ export default function FeaturedCarousel() {
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
                 draggable={false}
               />
-              <span className="absolute top-3 left-3 text-[11px] px-2.5 py-1 rounded-full bg-white/90 text-navy font-medium capitalize shadow-sm backdrop-blur">
+              <span className="absolute top-3 left-3 text-[11px] px-2.5 py-1 rounded-full bg-white/90 text-ink font-medium capitalize shadow-sm backdrop-blur">
                 {p.category.replace(/-/g, ' ')}
               </span>
             </Link>
-            <div className="p-5">
+            <div className="p-5 flex-1 flex flex-col">
               <div className="flex items-start justify-between gap-2 mb-1">
-                <h3 className="font-jakarta font-bold text-navy text-base leading-snug">{p.name}</h3>
-                <span className="text-[10px] text-gray-400 font-mono flex-shrink-0 mt-0.5">CAS {p.cas}</span>
+                <h3 className="font-jakarta font-bold text-ink text-base leading-snug line-clamp-2">{p.name}</h3>
+                <span className="text-[10px] text-ink-subtle font-mono flex-shrink-0 mt-0.5">CAS {p.cas}</span>
               </div>
-              <p className="text-gold-dark text-xs font-semibold mb-4">{p.grade}</p>
-              <div className="flex gap-2">
-                <Link href={`/products/${p.id}`} className="flex-1 text-center px-3 py-2 rounded-lg bg-navy text-white text-xs font-semibold hover:bg-navy-mid transition-all">
+              <p className="text-lime-text text-xs font-semibold mb-4 line-clamp-1">{p.grade}</p>
+              <div className="flex-1" />
+              <div className="flex items-stretch gap-2 mt-auto">
+                <Link href={`/products/${p.id}`} className="flex-1 inline-flex items-center justify-center px-3 py-2 rounded-lg bg-ink text-white text-xs font-semibold hover:bg-ink-mid transition-all whitespace-nowrap">
                   Specifications
                 </Link>
-                <Link href={`/quote?product=${p.id}`} className="flex-1 text-center px-3 py-2 rounded-lg border border-gold/50 text-gold-dark text-xs font-semibold hover:bg-gold-bg transition-all">
-                  Request Quote
+                <Link href={`/quote?product=${p.id}`} className="flex-1 inline-flex items-center justify-center whitespace-nowrap px-3 py-2 rounded-lg border border-lime/50 text-lime-text text-xs font-semibold hover:bg-lime-tint transition-all">
+                  Get quote
                 </Link>
               </div>
             </div>

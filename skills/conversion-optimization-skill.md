@@ -25,8 +25,8 @@ RETENTION: Repeat purchases; referrals
 **Goal**: Establish trust immediately + drive to RFQ.
 
 ```
-Headline: "Global Chemical Sourcing – Trusted. Timely. Premium."
-Subheader: "Direct from GACL, Grasim, Reliance. Export to 30+ countries. 24–48 hour quotes."
+Headline: "Global Chemical Sourcing - Trusted. Timely. Premium."
+Subheader: "Direct from GACL, Grasim, Reliance. Export to 30+ countries. 24-48 hour quotes."
 CTA: Large "Request a Quote" button (Teal, 56px)
 Visual: Professional industrial/port imagery OR manufacturer logos
 
@@ -43,12 +43,12 @@ Trust Indicators (Below):
 **Goal**: Highlight core products; drive "Request Quote" per-product.
 
 ```
-3–4 featured products (Caustic, Sulphuric Acid, SMBS, PAC)
+3-4 featured products (Caustic, Sulphuric Acid, SMBS, PAC)
 
 Each card shows:
   • Product image (real, high-quality)
   • Grade + manufacturer
-  • 1-line value: "GACL sourced – 98% purity – FOB India"
+  • 1-line value: "GACL sourced - 98% purity - FOB India"
   • "Request Quote" button (Primary) + "View Details" (Secondary)
 ```
 
@@ -61,7 +61,7 @@ Each card shows:
 Cards (4):
   1. "Manufacturer-Backed"
      Icon: Manufacturer building
-     Text: "Direct sourcing from GACL, Grasim, Reliance – no middleman markup"
+     Text: "Direct sourcing from GACL, Grasim, Reliance - no middleman markup"
 
   2. "Export Expertise"
      Icon: Globe + checkmark
@@ -69,11 +69,11 @@ Cards (4):
 
   3. "Responsive Sales Team"
      Icon: WhatsApp icon
-     Text: "24–48 hour quote turnaround, WhatsApp-available, personal support"
+     Text: "24-48 hour quote turnaround, WhatsApp-available, personal support"
 
   4. "Full Documentation"
      Icon: Document checkmark
-     Text: "COA, MSDS, B/L, CoO, export certification – all provided"
+     Text: "COA, MSDS, B/L, CoO, export certification - all provided"
 ```
 
 **Why this works**: Addresses common B2B buyer concerns (authenticity, reliability, responsiveness, compliance).
@@ -101,7 +101,7 @@ Cards (4):
 
 ### Form Design Principles
 
-#### Principle 1: Minimal Fields (5–7 Required)
+#### Principle 1: Minimal Fields (5-7 Required)
 **Goal**: Under 60 seconds to fill; mobile-friendly.
 
 ```
@@ -110,7 +110,7 @@ REQUIRED FIELDS:
 2. Contact Person
 3. Email
 4. Phone
-5. Product(s) – Dropdown multi-select
+5. Product(s) - Dropdown multi-select
 6. Quantity (MT)
 7. Destination (Country dropdown)
 
@@ -151,7 +151,7 @@ User enters "Quantity" → If > 500 MT, show "Volume discount interest?" (checkb
 **From product page**, if user clicks "Request Quote":
 ```
 Form pre-fills:
-  • Product: [Selected product, e.g., "Caustic Soda – GACL"]
+  • Product: [Selected product, e.g., "Caustic Soda - GACL"]
   • Pre-populated to skip user re-entry
 
 User only needs to fill:
@@ -202,7 +202,7 @@ Contact: "Need urgent help? Email sales@jaydevgroup.co.in"
 
 **Auto-Email 1 (Immediate, after form submit)**
 ```
-Subject: "Quote Request Confirmed – [Product Name] | Jaydev Group"
+Subject: "Quote Request Confirmed - [Product Name] | Jaydev Group"
 
 Body:
 "Hello [Contact Name],
@@ -231,7 +231,7 @@ sales@jaydevgroup.co.in"
 
 **Auto-Email 2 (If no response in 48 hrs, sales manually follows up)**
 ```
-Subject: "Your Quote is Ready – [Product] | Jaydev Group"
+Subject: "Your Quote is Ready - [Product] | Jaydev Group"
 
 Body:
 "Hi [Contact Name],
@@ -241,7 +241,7 @@ Your quote for [Product] is attached.
 KEY DETAILS:
   • Price: [FOB Price USD/MT]
   • MOQ: 25 MT
-  • Lead time: 2–3 weeks FOB India
+  • Lead time: 2-3 weeks FOB India
   • Incoterms: FOB Hazira (CIF available)
   • Payment: LC (TT/DP for established accounts)
 
@@ -301,7 +301,7 @@ A: "Standard: LC (Letter of Credit). For established buyers: TT (Telegraphic Tra
     DA/DP available. Terms discussed post-quote."
 
 Q: "What's the typical lead time?"
-A: "2–3 weeks FOB India to your destination port. Faster shipments available at premium."
+A: "2-3 weeks FOB India to your destination port. Faster shipments available at premium."
 
 Q: "Do you handle all export documentation?"
 A: "Yes. We provide COA, MSDS, B/L, CoO, packing list, and customs filing. 
@@ -329,15 +329,15 @@ A: "Yes. We provide COA, MSDS, B/L, CoO, packing list, and customs filing.
     Reply or WhatsApp: +91 99875 39258"
    ```
 
-3. **Email 3 (Monthly newsletter, 3–6 month intervals)**
+3. **Email 3 (Monthly newsletter, 3-6 month intervals)**
    ```
-   Subject: "Market Update – [Market region] | New Products Available"
+   Subject: "Market Update - [Market region] | New Products Available"
    
    Body:
    "Hi [Contact],
    
    MARKET INSIGHTS:
-   • Caustic prices down 5% this month – good time to stock up
+   • Caustic prices down 5% this month - good time to stock up
    • New PAC grade available (50% more efficient for WTP)
    
    YOUR REPEAT ORDER:
@@ -345,7 +345,7 @@ A: "Yes. We provide COA, MSDS, B/L, CoO, packing list, and customs filing.
    • Suggested qty: [Based on previous rhythm]
    • Quote: [Standing offer]
    
-   LOYALTY: Repeat customers enjoy 3–5% volume discounts.
+   LOYALTY: Repeat customers enjoy 3-5% volume discounts.
    
    Ready to order? Reply here or WhatsApp +91 99875 39258"
    ```
@@ -364,9 +364,9 @@ A: "Yes. We provide COA, MSDS, B/L, CoO, packing list, and customs filing.
 | RFQ form completion rate | 70%+ (of starters) |
 | Time to submit form | < 3 minutes |
 | Quote response time | 24 hours |
-| Quote-to-order conversion | 20–30% |
+| Quote-to-order conversion | 20-30% |
 | Repeat order rate (6 months) | 40%+ |
-| Customer lifetime value | $50K+ (2–3 annual orders × $20K avg) |
+| Customer lifetime value | $50K+ (2-3 annual orders × $20K avg) |
 
 ---
 

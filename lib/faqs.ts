@@ -20,7 +20,7 @@ export const faqs: Faq[] = [
   },
   {
     q: 'How quickly can you deliver?',
-    a: 'Indicative lead times are 7–12 days to the GCC, 12–18 days to Southeast Asia, 15–20 days to East Africa, and 18–25 days to West Africa, shipped FOB/CIF from Mundra, JNPT, Hazira, or Kandla.',
+    a: 'Indicative lead times are 7-12 days to the GCC, 12-18 days to Southeast Asia, 15-20 days to East Africa, and 18-25 days to West Africa, shipped FOB/CIF from Mundra, JNPT, Hazira, or Kandla.',
   },
   {
     q: 'What documentation do you provide with each shipment?',

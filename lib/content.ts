@@ -6,7 +6,7 @@ import { SITE_URL, SALES_EMAIL, EXPORT_EMAIL, MARKETING_EMAIL, PROCUREMENT_EMAIL
 
 export const COMPANY = {
   name: 'Jaydev Multicomm Pvt. Ltd.',
-  address: 'B-408 Ratnakar Nine Square, opp ITC Narmada, near Keshavbaug Cross Road, Vastrapur, Ahmedabad, Gujarat – 380015',
+  address: 'B-408 Ratnakar Nine Square, opp ITC Narmada, near Keshavbaug Cross Road, Vastrapur, Ahmedabad, Gujarat - 380015',
   email: SALES_EMAIL,
   website: SITE_URL,
   whatsappExport: PHONE_EXPORT,
@@ -88,7 +88,7 @@ export const GROUP = {
   hq: 'Ahmedabad, Gujarat, India',
   established: '2018',
   description:
-    'Ahmedabad-based. We buy direct from India\'s largest chemical producers.',
+    'Founded in Ahmedabad in 2018, Jaydev Group supplies industrial chemicals and pharmaceutical ingredients to manufacturers across India and to buyers in more than 30 countries. We carry no speculative stock and add no middlemen: every consignment is bought direct from the producer against a confirmed order.',
 };
 
 export type Branch = { city: string; country: string; role: string; lat: number; lng: number; hq?: boolean };
@@ -180,8 +180,7 @@ export const navLinks = [
   { href: '/about', label: 'Group' },
   { href: '/products', label: 'Products' },
   { href: '/industries', label: 'Industries' },
-  { href: '/markets', label: 'Markets' },
-  { href: '/articles', label: 'Insights' },
+  { href: '/markets', label: 'Markets & Insights' },
   { href: '/quote', label: 'Get Quote' },
 ];
 
@@ -306,12 +305,12 @@ export const products: Product[] = [
     name: 'Caustic Soda',
     formula: 'NaOH',
     cas: '1310-73-2',
-    grade: 'Flakes 98.5% · Lye 47–50% · Prills 99.4%',
+    grade: 'Flakes 98.5% · Lye 47-50% · Prills 99.4%',
     category: 'chlor-alkali',
     description: 'Sodium hydroxide via membrane-cell technology - our flagship export from GACL & Grasim. Available as Flakes, Lye (liquid) and Prills/Pearl for textiles, alumina, soap, paper, water treatment, pharma and food processing.',
     specs: [
       { label: 'Flakes Purity', value: '98.5% min (Membrane)' },
-      { label: 'Lye Concentration', value: '47–50%' },
+      { label: 'Lye Concentration', value: '47-50%' },
       { label: 'Prills Purity', value: '99.4% min' },
       { label: 'NaCl', value: '0.03% max' },
       { label: 'Fe', value: '10 ppm max' },
@@ -322,7 +321,7 @@ export const products: Product[] = [
     featured: true,
     variants: [
       { form: 'Flakes', grade: '98.5% min · Membrane Grade' },
-      { form: 'Lye (Liquid)', grade: '47–50% concentration' },
+      { form: 'Lye (Liquid)', grade: '47-50% concentration' },
       { form: 'Prills / Pearl', grade: '99.4% min · low moisture' },
     ],
   },
@@ -331,11 +330,11 @@ export const products: Product[] = [
     name: 'Caustic Potash',
     formula: 'KOH',
     cas: '1310-58-3',
-    grade: 'Lye 47–48% · Flakes 90% / 87%',
+    grade: 'Lye 47-48% · Flakes 90% / 87%',
     category: 'chlor-alkali',
     description: 'Potassium hydroxide in Lye (liquid) and Flakes form for soft-soap production, biodiesel, battery electrolyte, pharmaceuticals, and potassium-salt synthesis.',
     specs: [
-      { label: 'Lye Concentration', value: '47–48%' },
+      { label: 'Lye Concentration', value: '47-48%' },
       { label: 'Flakes Purity', value: '90% / 87% min' },
       { label: 'K₂CO₃', value: '1% max' },
       { label: 'Cl⁻', value: '0.01% max' },
@@ -345,7 +344,7 @@ export const products: Product[] = [
     packaging: ['25 kg / 50 kg HDPE Bags (Flakes)', 'ISO Tanks / Flexi Tanks (Lye)', 'Road Tankers (Lye)'],
     featured: false,
     variants: [
-      { form: 'Lye (Liquid)', grade: '47–48% concentration' },
+      { form: 'Lye (Liquid)', grade: '47-48% concentration' },
       { form: 'Flakes', grade: '90% / 87% min' },
     ],
   },
@@ -398,8 +397,8 @@ export const products: Product[] = [
     specs: [
       { label: 'Purity', value: '99.2% min' },
       { label: 'NaCl', value: '0.5% max' },
-      { label: 'Bulk Density (Dense)', value: '1000–1100 g/L' },
-      { label: 'Bulk Density (Light)', value: '450–600 g/L' },
+      { label: 'Bulk Density (Dense)', value: '1000-1100 g/L' },
+      { label: 'Bulk Density (Light)', value: '450-600 g/L' },
       { label: 'Moisture', value: '0.5% max' },
     ],
     applications: ['Glass Manufacturing', 'Detergent Production', 'Water Softening', 'Pulp & Paper'],
@@ -433,11 +432,11 @@ export const products: Product[] = [
     name: 'Hydrochloric Acid',
     formula: 'HCl',
     cas: '7647-01-0',
-    grade: '30–33% · Industrial',
+    grade: '30-33% · Industrial',
     category: 'acids',
     description: 'Industrial hydrochloric acid for metal pickling, pH adjustment, food processing, and chemical synthesis. Supplied in carboys and barrels.',
     specs: [
-      { label: 'Concentration', value: '30–33%' },
+      { label: 'Concentration', value: '30-33%' },
       { label: 'Fe', value: '5 ppm max' },
       { label: 'As', value: '0.1 ppm max' },
       { label: 'Free Cl₂', value: 'Nil' },
@@ -544,17 +543,17 @@ export const products: Product[] = [
   // ══ WATER TREATMENT ══════════════════════════════════════
   {
     id: 'pac',
-    name: 'PAC – Poly Aluminium Chloride',
+    name: 'PAC - Poly Aluminium Chloride',
     formula: 'Al₂(OH)nCl₆₋ₙ',
     cas: '1327-41-9',
     grade: 'PAC10 / PAC14 / PAC18 / PAC30',
     category: 'water-treatment',
-    description: 'Premium PAC coagulant for municipal water plants and industrial effluent. Available liquid (10–18% Al₂O₃) and powder (28–30%). High demand Africa & Middle East.',
+    description: 'Premium PAC coagulant for municipal water plants and industrial effluent. Available liquid (10-18% Al₂O₃) and powder (28-30%). High demand Africa & Middle East.',
     specs: [
       { label: 'Al₂O₃ (Liquid)', value: '10% · 14% · 18%' },
-      { label: 'Al₂O₃ (Powder)', value: '28–30%' },
-      { label: 'Basicity', value: '70–90%' },
-      { label: 'pH (1% sol.)', value: '3.5–5.0' },
+      { label: 'Al₂O₃ (Powder)', value: '28-30%' },
+      { label: 'Basicity', value: '70-90%' },
+      { label: 'pH (1% sol.)', value: '3.5-5.0' },
       { label: 'Fe Content', value: '0.5% max' },
     ],
     applications: ['Municipal Water Treatment', 'Industrial Effluent', 'Sewage Treatment', 'Paper Manufacturing'],
@@ -573,7 +572,7 @@ export const products: Product[] = [
     specs: [
       { label: 'Al₂O₃', value: '17% min (solid) · 8% (liquid)' },
       { label: 'Fe', value: '0.05% max (potable grade)' },
-      { label: 'pH (1% sol.)', value: '3.0–4.0' },
+      { label: 'pH (1% sol.)', value: '3.0-4.0' },
       { label: 'Form', value: 'Granular / Liquid' },
     ],
     applications: ['Drinking Water Purification', 'Sewage Treatment', 'Paper Making', 'Sugar Refining'],
@@ -586,12 +585,12 @@ export const products: Product[] = [
     name: 'Sodium Hypochlorite',
     formula: 'NaOCl',
     cas: '7681-52-9',
-    grade: '40–200 gpl Available Chlorine',
+    grade: '40-200 gpl Available Chlorine',
     category: 'water-treatment',
     description: 'Liquid sodium hypochlorite for water disinfection, bleaching, and sanitation. Multiple concentrations for municipal and industrial use.',
     specs: [
-      { label: 'Available Chlorine', value: '40–200 g/L' },
-      { label: 'NaOH (free)', value: '0.5–1.5%' },
+      { label: 'Available Chlorine', value: '40-200 g/L' },
+      { label: 'NaOH (free)', value: '0.5-1.5%' },
       { label: 'Appearance', value: 'Clear pale yellow liquid' },
     ],
     applications: ['Water Disinfection', 'Bleaching', 'Sanitation & Hygiene', 'Food Industry CIP', 'Swimming Pools'],
@@ -619,7 +618,7 @@ export const products: Product[] = [
   },
   {
     id: 'tcca',
-    name: 'TCCA – Trichloroisocyanuric Acid',
+    name: 'TCCA - Trichloroisocyanuric Acid',
     formula: 'C₃Cl₃N₃O₃',
     cas: '87-90-1',
     grade: '90% Min Active Chlorine',
@@ -628,7 +627,7 @@ export const products: Product[] = [
     specs: [
       { label: 'Active Chlorine', value: '90% min' },
       { label: 'Moisture', value: '0.5% max' },
-      { label: 'pH (1% sol.)', value: '2.7–3.3' },
+      { label: 'pH (1% sol.)', value: '2.7-3.3' },
       { label: 'Form', value: 'Tablets (200g, 500g) · Granules · Powder' },
     ],
     applications: ['Swimming Pool Disinfection', 'Drinking Water Treatment', 'Industrial Water Systems'],
@@ -641,11 +640,11 @@ export const products: Product[] = [
     name: 'Calcium Hypochlorite',
     formula: 'Ca(OCl)₂',
     cas: '7778-54-3',
-    grade: '65–70% Active Cl₂',
+    grade: '65-70% Active Cl₂',
     category: 'water-treatment',
     description: 'High-content granular calcium hypochlorite for water purification, food sanitation, and industrial bleaching.',
     specs: [
-      { label: 'Active Chlorine', value: '65–70%' },
+      { label: 'Active Chlorine', value: '65-70%' },
       { label: 'Moisture', value: '5.5% max' },
       { label: 'Form', value: 'Granular / Tablet' },
     ],
@@ -676,7 +675,7 @@ export const products: Product[] = [
   // ══ SPECIALTY ══════════════════════════════════════════════
   {
     id: 'smbs',
-    name: 'SMBS – Sodium Metabisulphite',
+    name: 'SMBS - Sodium Metabisulphite',
     formula: 'Na₂S₂O₅',
     cas: '7681-57-4',
     grade: '96.5% Tech / 97% Food Grade',
@@ -741,7 +740,7 @@ export const products: Product[] = [
     description: 'Hydrazine hydrate as boiler water oxygen scavenger, pharmaceutical synthesis reagent, and blowing agent precursor.',
     specs: [
       { label: 'Purity', value: '80% min' },
-      { label: 'Specific Gravity', value: '1.03–1.04' },
+      { label: 'Specific Gravity', value: '1.03-1.04' },
       { label: 'UN Number', value: 'UN 2030' },
     ],
     applications: ['Boiler Water Treatment', 'Pharmaceutical Synthesis', 'Agrochemical Production', 'Blowing Agents'],
@@ -758,9 +757,9 @@ export const products: Product[] = [
     category: 'specialty',
     description: 'Chlorinated paraffin as flame retardant and secondary PVC plasticizer. Reduces flammability in rubber, PVC, and sealant applications.',
     specs: [
-      { label: 'Cl Content (CP-52)', value: '50–52%' },
-      { label: 'Cl Content (CP-60)', value: '60–62%' },
-      { label: 'Viscosity (CP-52)', value: '1500–3000 mPa·s' },
+      { label: 'Cl Content (CP-52)', value: '50-52%' },
+      { label: 'Cl Content (CP-60)', value: '60-62%' },
+      { label: 'Viscosity (CP-52)', value: '1500-3000 mPa·s' },
       { label: 'Colour (Gardner)', value: '≤ 6' },
     ],
     applications: ['Flame Retardant', 'PVC Plasticizer', 'Metalworking Lubricant', 'Rubber Industry'],
@@ -779,7 +778,7 @@ export const products: Product[] = [
     specs: [
       { label: 'Purity', value: '99.5% min' },
       { label: 'Water', value: '0.03% max' },
-      { label: 'Boiling Point', value: '116–117°C' },
+      { label: 'Boiling Point', value: '116-117°C' },
       { label: 'UN Number', value: 'UN 2023' },
     ],
     applications: ['Epoxy Resin Raw Material', 'Water Treatment Resins', 'Elastomers', 'Pharmaceutical Intermediates'],
@@ -796,9 +795,9 @@ export const products: Product[] = [
     category: 'specialty',
     description: 'Bisphenol-A epoxy resins in liquid and solid grades for coatings, adhesives, composites, and electrical laminates. Aditya Birla make.',
     specs: [
-      { label: 'EEW (Liquid)', value: '182–194 g/eq' },
-      { label: 'EEW (Solid)', value: '450–900+ g/eq' },
-      { label: 'Viscosity (Liquid @ 25°C)', value: '11,000–14,000 mPa·s' },
+      { label: 'EEW (Liquid)', value: '182-194 g/eq' },
+      { label: 'EEW (Solid)', value: '450-900+ g/eq' },
+      { label: 'Viscosity (Liquid @ 25°C)', value: '11,000-14,000 mPa·s' },
       { label: 'Hydrolysable Cl', value: '< 200 ppm' },
     ],
     applications: ['Industrial Coatings', 'Adhesives', 'Electrical Laminates', 'Composites', 'Civil Engineering'],
@@ -816,7 +815,7 @@ export const products: Product[] = [
     description: 'Beta Naphthol for azo dye synthesis and rubber antioxidants. Key intermediate for textile dye industry.',
     specs: [
       { label: 'Purity', value: '99% min' },
-      { label: 'Melting Point', value: '121–123°C' },
+      { label: 'Melting Point', value: '121-123°C' },
       { label: 'Moisture', value: '0.5% max' },
     ],
     applications: ['Azo Dye Synthesis', 'Rubber Antioxidants', 'Pharmaceutical Intermediates', 'Fungicide'],
@@ -889,7 +888,7 @@ export const products: Product[] = [
     description: 'TCE for metal cleaning/degreasing, HFC refrigerant production, and chemical synthesis.',
     specs: [
       { label: 'Purity', value: '99.5% min' },
-      { label: 'Boiling Point', value: '86–88°C' },
+      { label: 'Boiling Point', value: '86-88°C' },
       { label: 'UN Number', value: 'UN 1710' },
     ],
     applications: ['Metal Degreasing', 'HFC-134a Production', 'Chemical Synthesis'],
@@ -907,7 +906,7 @@ export const products: Product[] = [
     description: 'Perchloroethylene (tetrachloroethylene) for dry cleaning, metal degreasing, and textile scouring.',
     specs: [
       { label: 'Purity', value: '99.5% min' },
-      { label: 'Boiling Point', value: '120–122°C' },
+      { label: 'Boiling Point', value: '120-122°C' },
       { label: 'UN Number', value: 'UN 1897' },
     ],
     applications: ['Dry Cleaning', 'Metal Degreasing', 'Textile Scouring', 'Chemical Intermediate'],
@@ -961,7 +960,7 @@ export const products: Product[] = [
     description: 'Technical hexane for edible oil extraction, pharmaceutical solvent, and adhesive formulations.',
     specs: [
       { label: 'n-Hexane Content', value: '≥ 55% (extraction grade)' },
-      { label: 'Boiling Range', value: '63–69°C' },
+      { label: 'Boiling Range', value: '63-69°C' },
       { label: 'Bromine Index', value: '< 200' },
     ],
     applications: ['Edible Oil Extraction', 'Pharmaceutical Solvent', 'Adhesive Formulations', 'Rubber Cement'],
@@ -980,7 +979,7 @@ export const products: Product[] = [
     specs: [
       { label: 'Purity', value: '99.5% min' },
       { label: 'Benzene', value: '0.1% max' },
-      { label: 'Boiling Point', value: '110–111°C' },
+      { label: 'Boiling Point', value: '110-111°C' },
     ],
     applications: ['Paint Thinner', 'Adhesive Solvent', 'TDI Feedstock', 'Pharmaceutical Synthesis'],
     manufacturers: ['Reliance'],
@@ -1158,11 +1157,11 @@ export const products: Product[] = [
     name: 'Calcium Chloride',
     formula: 'CaCl₂',
     cas: '10043-52-4',
-    grade: '94–97% Flakes · Industrial / Oilfield / Food',
+    grade: '94-97% Flakes · Industrial / Oilfield / Food',
     category: 'inorganic-salts',
     description: 'Calcium chloride flakes for oilfield drilling fluids, dust control, concrete acceleration, and food processing. High demand from GCC oilfield operators.',
     specs: [
-      { label: 'Purity (Flakes)', value: '94–97%' },
+      { label: 'Purity (Flakes)', value: '94-97%' },
       { label: 'NaCl', value: '2% max' },
       { label: 'MgCl₂', value: '0.5% max' },
       { label: 'Form', value: 'Flakes / Pellets / Powder' },
@@ -1200,12 +1199,12 @@ export const products: Product[] = [
   { id: 'citric-acid', name: 'Citric Acid', formula: 'C₆H₈O₇', cas: '77-92-9', grade: 'Anhydrous / Monohydrate · Food', category: 'acids', description: 'Food-grade citric acid for beverages, food preservation, detergents, and pharmaceutical formulations.', specs: [{ label: 'Purity', value: '99.5% min' }, { label: 'Heavy Metals', value: '10 ppm max' }, { label: 'Form', value: 'Anhydrous / Monohydrate' }], applications: ['Beverages', 'Food Preservation', 'Detergents', 'Pharmaceuticals', 'Cosmetics'], manufacturers: ['Imported / Indian Manufacturers'], packaging: ['25 kg Bags'], featured: false },
   { id: 'nitric-acid', name: 'Nitric Acid', formula: 'HNO₃', cas: '7697-37-2', grade: '60% / 68% · Industrial', category: 'acids', description: 'Nitric acid for fertilizers, explosives, metal pickling, and nitration in chemical synthesis.', specs: [{ label: 'Concentration', value: '60% / 68%' }, { label: 'Appearance', value: 'Colourless to pale yellow' }, { label: 'UN Number', value: 'UN 2031' }], applications: ['Fertilizer (CAN/AN)', 'Metal Pickling', 'Nitration', 'Explosives'], manufacturers: ['Deepak Fertilisers', 'GNFC'], packaging: ['250 kg Drums', 'ISO Tanks'], featured: false },
   { id: 'oxalic-acid', name: 'Oxalic Acid', formula: 'C₂H₂O₄', cas: '144-62-7', grade: '99.6% Min', category: 'acids', description: 'Oxalic acid for metal cleaning, marble polishing, textile and leather processing, and rare-earth refining.', specs: [{ label: 'Purity', value: '99.6% min' }, { label: 'Ash', value: '0.05% max' }, { label: 'Heavy Metals', value: '10 ppm max' }], applications: ['Metal & Rust Cleaning', 'Marble Polishing', 'Textile Bleaching', 'Leather'], manufacturers: ['Imported / Indian Manufacturers'], packaging: ['25 kg Bags'], featured: false },
-  { id: 'stearic-acid', name: 'Stearic Acid', formula: 'C₁₈H₃₆O₂', cas: '57-11-4', grade: 'Single / Double / Triple Pressed', category: 'acids', description: 'Stearic acid for rubber, candles, cosmetics, PVC stabilizers, and lubricants.', specs: [{ label: 'Acid Value', value: '200–212' }, { label: 'Iodine Value', value: '0.5 max (TP)' }, { label: 'Form', value: 'Flakes / Beads' }], applications: ['Rubber Processing', 'Candles', 'Cosmetics', 'PVC Stabilizers', 'Lubricants'], manufacturers: ['Godrej', 'Indian Manufacturers'], packaging: ['25 kg Bags'], featured: false },
+  { id: 'stearic-acid', name: 'Stearic Acid', formula: 'C₁₈H₃₆O₂', cas: '57-11-4', grade: 'Single / Double / Triple Pressed', category: 'acids', description: 'Stearic acid for rubber, candles, cosmetics, PVC stabilizers, and lubricants.', specs: [{ label: 'Acid Value', value: '200-212' }, { label: 'Iodine Value', value: '0.5 max (TP)' }, { label: 'Form', value: 'Flakes / Beads' }], applications: ['Rubber Processing', 'Candles', 'Cosmetics', 'PVC Stabilizers', 'Lubricants'], manufacturers: ['Godrej', 'Indian Manufacturers'], packaging: ['25 kg Bags'], featured: false },
   { id: 'boric-acid', name: 'Boric Acid', formula: 'H₃BO₃', cas: '10043-35-3', grade: '99.9% Min', category: 'acids', description: 'Boric acid for glass & ceramics, flame retardants, fertilizers, and antiseptic applications.', specs: [{ label: 'H₃BO₃', value: '99.9% min' }, { label: 'Sulphate', value: '0.1% max' }, { label: 'Form', value: 'Powder / Granular' }], applications: ['Glass & Ceramics', 'Flame Retardant', 'Micronutrient Fertilizer', 'Antiseptic'], manufacturers: ['Imported'], packaging: ['25 kg Bags', '1000 kg Jumbo Bags'], featured: false },
   { id: 'lactic-acid', name: 'Lactic Acid', formula: 'C₃H₆O₃', cas: '50-21-5', grade: '80% / 88% · Food/Tech', category: 'acids', description: 'Lactic acid for food, beverages, pharmaceuticals, leather, and biodegradable plastics (PLA).', specs: [{ label: 'Concentration', value: '80% / 88%' }, { label: 'Form', value: 'Liquid' }, { label: 'Grade', value: 'Food / Technical' }], applications: ['Food & Beverage', 'Pharmaceutical', 'Leather', 'PLA Bioplastics'], manufacturers: ['Imported'], packaging: ['25 kg Carboys', '250 kg Drums'], featured: false },
 
   // Chlor-alkali / basics
-  { id: 'sodium-silicate', name: 'Sodium Silicate (Water Glass)', formula: 'Na₂SiO₃', cas: '1344-09-8', grade: 'Liquid & Solid · Various Ratios', category: 'chlor-alkali', description: 'Sodium silicate for detergents, adhesives, foundry binders, water treatment, and paper.', specs: [{ label: 'SiO₂:Na₂O Ratio', value: '2.0–3.3' }, { label: 'Solids', value: '36–48%' }, { label: 'Form', value: 'Liquid / Solid Lumps' }], applications: ['Detergents', 'Adhesives & Binders', 'Foundry', 'Water Treatment', 'Paper'], manufacturers: ['Indian Manufacturers'], packaging: ['300 kg Drums', 'Road Tankers', '50 kg Bags (solid)'], featured: false },
+  { id: 'sodium-silicate', name: 'Sodium Silicate (Water Glass)', formula: 'Na₂SiO₃', cas: '1344-09-8', grade: 'Liquid & Solid · Various Ratios', category: 'chlor-alkali', description: 'Sodium silicate for detergents, adhesives, foundry binders, water treatment, and paper.', specs: [{ label: 'SiO₂:Na₂O Ratio', value: '2.0-3.3' }, { label: 'Solids', value: '36-48%' }, { label: 'Form', value: 'Liquid / Solid Lumps' }], applications: ['Detergents', 'Adhesives & Binders', 'Foundry', 'Water Treatment', 'Paper'], manufacturers: ['Indian Manufacturers'], packaging: ['300 kg Drums', 'Road Tankers', '50 kg Bags (solid)'], featured: false },
   { id: 'quick-lime', name: 'Quick Lime (Calcium Oxide)', formula: 'CaO', cas: '1305-78-8', grade: '90% Min', category: 'minerals', description: 'Quick lime for steel, sugar, water treatment, construction, and chemical manufacture.', specs: [{ label: 'CaO', value: '90% min' }, { label: 'Form', value: 'Lumps / Powder' }, { label: 'Reactivity', value: 'High' }], applications: ['Steel Flux', 'Sugar Refining', 'Water Treatment', 'Construction'], manufacturers: ['Indian Manufacturers'], packaging: ['50 kg Bags', '1000 kg Jumbo Bags'], featured: false },
   { id: 'hydrated-lime', name: 'Hydrated Lime', formula: 'Ca(OH)₂', cas: '1305-62-0', grade: '90% Min', category: 'minerals', description: 'Hydrated (slaked) lime for water/effluent treatment, construction, soil stabilization, and flue-gas treatment.', specs: [{ label: 'Ca(OH)₂', value: '90% min' }, { label: 'Form', value: 'Fine Powder' }, { label: 'Fineness', value: '90% < 90 µm' }], applications: ['Water & Effluent Treatment', 'Construction', 'Soil Stabilization', 'Flue-Gas Desulphurization'], manufacturers: ['Indian Manufacturers'], packaging: ['25 kg / 50 kg Bags', 'Jumbo Bags'], featured: false },
 
@@ -1214,31 +1213,31 @@ export const products: Product[] = [
   { id: 'ferrous-sulphate', name: 'Ferrous Sulphate', formula: 'FeSO₄·7H₂O', cas: '7782-63-0', grade: '19% Fe Min', category: 'water-treatment', description: 'Ferrous sulphate for water treatment, micronutrient fertilizer, cement chromate reduction, and pigments.', specs: [{ label: 'Fe', value: '19% min' }, { label: 'FeSO₄·7H₂O', value: '98% min' }, { label: 'Form', value: 'Crystal / Granular' }], applications: ['Water Treatment', 'Micronutrient Fertilizer', 'Cement Additive', 'Pigments'], manufacturers: ['Indian Manufacturers'], packaging: ['50 kg Bags', '1000 kg Jumbo Bags'], featured: false },
   { id: 'copper-sulphate', name: 'Copper Sulphate', formula: 'CuSO₄·5H₂O', cas: '7758-99-8', grade: '98% Min · Pentahydrate', category: 'water-treatment', description: 'Copper sulphate for algaecide, fungicide, animal feed, electroplating, and mining flotation.', specs: [{ label: 'CuSO₄·5H₂O', value: '98% min' }, { label: 'Cu', value: '25% min' }, { label: 'Form', value: 'Crystal / Powder' }], applications: ['Algaecide', 'Fungicide (Bordeaux)', 'Animal Feed', 'Electroplating', 'Froth Flotation'], manufacturers: ['Indian Manufacturers'], packaging: ['25 kg / 50 kg Bags'], featured: false },
   { id: 'potassium-permanganate', name: 'Potassium Permanganate', formula: 'KMnO₄', cas: '7722-64-7', grade: '99% Min', category: 'water-treatment', description: 'Potassium permanganate for water treatment, oxidation, denim washing, and disinfection.', specs: [{ label: 'KMnO₄', value: '99% min' }, { label: 'Form', value: 'Free-flowing crystals' }, { label: 'Insolubles', value: '0.2% max' }], applications: ['Water Treatment', 'Oxidising Agent', 'Denim Washing', 'Disinfection'], manufacturers: ['Indian Manufacturers'], packaging: ['25 kg / 50 kg Drums'], featured: false },
-  { id: 'sodium-thiosulphate', name: 'Sodium Thiosulphate', formula: 'Na₂S₂O₃·5H₂O', cas: '10102-17-7', grade: '99% Min', category: 'water-treatment', description: 'Sodium thiosulphate for dechlorination, photography, gold leaching, and analytical use.', specs: [{ label: 'Purity', value: '99% min' }, { label: 'Form', value: 'Crystal / Pentahydrate' }, { label: 'pH', value: '6.0–8.4' }], applications: ['Dechlorination', 'Photography', 'Gold Leaching', 'Analytical'], manufacturers: ['Indian Manufacturers'], packaging: ['25 kg / 50 kg Bags'], featured: false },
-  { id: 'activated-carbon', name: 'Activated Carbon', formula: 'C', cas: '7440-44-0', grade: 'Granular / Powder · Various Iodine', category: 'water-treatment', description: 'Activated carbon for water/air purification, gold recovery, decolourisation, and solvent recovery.', specs: [{ label: 'Iodine Value', value: '500–1100 mg/g' }, { label: 'Form', value: 'Granular / Powdered' }, { label: 'Moisture', value: '5% max' }], applications: ['Water Purification', 'Gold Recovery (CIP/CIL)', 'Decolourisation', 'Air Filtration'], manufacturers: ['Indian Manufacturers'], packaging: ['25 kg Bags'], featured: false },
+  { id: 'sodium-thiosulphate', name: 'Sodium Thiosulphate', formula: 'Na₂S₂O₃·5H₂O', cas: '10102-17-7', grade: '99% Min', category: 'water-treatment', description: 'Sodium thiosulphate for dechlorination, photography, gold leaching, and analytical use.', specs: [{ label: 'Purity', value: '99% min' }, { label: 'Form', value: 'Crystal / Pentahydrate' }, { label: 'pH', value: '6.0-8.4' }], applications: ['Dechlorination', 'Photography', 'Gold Leaching', 'Analytical'], manufacturers: ['Indian Manufacturers'], packaging: ['25 kg / 50 kg Bags'], featured: false },
+  { id: 'activated-carbon', name: 'Activated Carbon', formula: 'C', cas: '7440-44-0', grade: 'Granular / Powder · Various Iodine', category: 'water-treatment', description: 'Activated carbon for water/air purification, gold recovery, decolourisation, and solvent recovery.', specs: [{ label: 'Iodine Value', value: '500-1100 mg/g' }, { label: 'Form', value: 'Granular / Powdered' }, { label: 'Moisture', value: '5% max' }], applications: ['Water Purification', 'Gold Recovery (CIP/CIL)', 'Decolourisation', 'Air Filtration'], manufacturers: ['Indian Manufacturers'], packaging: ['25 kg Bags'], featured: false },
 
   // Specialty
-  { id: 'titanium-dioxide', name: 'Titanium Dioxide', formula: 'TiO₂', cas: '13463-67-7', grade: 'Rutile / Anatase', category: 'specialty', description: 'TiO₂ white pigment for paints, plastics, paper, inks, and cosmetics - high opacity and brightness.', specs: [{ label: 'TiO₂', value: '93–98%' }, { label: 'Grade', value: 'Rutile / Anatase' }, { label: 'Brightness', value: 'High' }], applications: ['Paints & Coatings', 'Plastics', 'Paper', 'Inks', 'Cosmetics'], manufacturers: ['Imported / Indian Manufacturers'], packaging: ['25 kg Bags'], featured: false },
-  { id: 'zinc-oxide', name: 'Zinc Oxide', formula: 'ZnO', cas: '1314-13-2', grade: '99.5% Min', category: 'specialty', description: 'Zinc oxide for rubber vulcanization, ceramics, paints, cosmetics, and animal feed.', specs: [{ label: 'ZnO', value: '99.5% min' }, { label: 'Form', value: 'White Powder' }, { label: 'Surface Area', value: '3–5 m²/g' }], applications: ['Rubber Activator', 'Ceramics & Glaze', 'Cosmetics', 'Animal Feed', 'Paints'], manufacturers: ['Indian Manufacturers'], packaging: ['25 kg Bags'], featured: false },
+  { id: 'titanium-dioxide', name: 'Titanium Dioxide', formula: 'TiO₂', cas: '13463-67-7', grade: 'Rutile / Anatase', category: 'specialty', description: 'TiO₂ white pigment for paints, plastics, paper, inks, and cosmetics - high opacity and brightness.', specs: [{ label: 'TiO₂', value: '93-98%' }, { label: 'Grade', value: 'Rutile / Anatase' }, { label: 'Brightness', value: 'High' }], applications: ['Paints & Coatings', 'Plastics', 'Paper', 'Inks', 'Cosmetics'], manufacturers: ['Imported / Indian Manufacturers'], packaging: ['25 kg Bags'], featured: false },
+  { id: 'zinc-oxide', name: 'Zinc Oxide', formula: 'ZnO', cas: '1314-13-2', grade: '99.5% Min', category: 'specialty', description: 'Zinc oxide for rubber vulcanization, ceramics, paints, cosmetics, and animal feed.', specs: [{ label: 'ZnO', value: '99.5% min' }, { label: 'Form', value: 'White Powder' }, { label: 'Surface Area', value: '3-5 m²/g' }], applications: ['Rubber Activator', 'Ceramics & Glaze', 'Cosmetics', 'Animal Feed', 'Paints'], manufacturers: ['Indian Manufacturers'], packaging: ['25 kg Bags'], featured: false },
   { id: 'zinc-sulphate', name: 'Zinc Sulphate', formula: 'ZnSO₄', cas: '7733-02-0', grade: '21% / 33% Zn', category: 'specialty', description: 'Zinc sulphate (hepta/mono) for micronutrient fertilizer, animal feed, and viscose rayon.', specs: [{ label: 'Zn (Hepta)', value: '21% min' }, { label: 'Zn (Mono)', value: '33% min' }, { label: 'Form', value: 'Crystal / Powder' }], applications: ['Micronutrient Fertilizer', 'Animal Feed', 'Viscose Rayon', 'Pigments'], manufacturers: ['Indian Manufacturers'], packaging: ['25 kg / 50 kg Bags'], featured: false },
   { id: 'magnesium-sulphate', name: 'Magnesium Sulphate (Epsom)', formula: 'MgSO₄·7H₂O', cas: '10034-99-8', grade: '99.5% Min', category: 'specialty', description: 'Epsom salt for fertilizers, animal feed, pharmaceuticals, and bath/personal care.', specs: [{ label: 'MgSO₄·7H₂O', value: '99.5% min' }, { label: 'MgO', value: '16% min' }, { label: 'Form', value: 'Crystal' }], applications: ['Fertilizer', 'Animal Feed', 'Pharmaceutical', 'Personal Care'], manufacturers: ['Indian Manufacturers'], packaging: ['25 kg / 50 kg Bags'], featured: false },
-  { id: 'magnesium-chloride', name: 'Magnesium Chloride', formula: 'MgCl₂·6H₂O', cas: '7791-18-6', grade: '46–47% Min', category: 'specialty', description: 'Magnesium chloride for dust control, de-icing, tofu coagulant, and textile processing.', specs: [{ label: 'MgCl₂', value: '46–47%' }, { label: 'Form', value: 'Flakes / Pellets' }, { label: 'Insolubles', value: '0.1% max' }], applications: ['Dust Control', 'De-icing', 'Tofu Coagulant', 'Textile'], manufacturers: ['Imported'], packaging: ['25 kg Bags', '1000 kg Jumbo Bags'], featured: false },
+  { id: 'magnesium-chloride', name: 'Magnesium Chloride', formula: 'MgCl₂·6H₂O', cas: '7791-18-6', grade: '46-47% Min', category: 'specialty', description: 'Magnesium chloride for dust control, de-icing, tofu coagulant, and textile processing.', specs: [{ label: 'MgCl₂', value: '46-47%' }, { label: 'Form', value: 'Flakes / Pellets' }, { label: 'Insolubles', value: '0.1% max' }], applications: ['Dust Control', 'De-icing', 'Tofu Coagulant', 'Textile'], manufacturers: ['Imported'], packaging: ['25 kg Bags', '1000 kg Jumbo Bags'], featured: false },
   { id: 'borax', name: 'Borax (Sodium Tetraborate)', formula: 'Na₂B₄O₇·10H₂O', cas: '1303-96-4', grade: 'Decahydrate / Pentahydrate', category: 'specialty', description: 'Borax for glass & ceramics, detergents, metallurgy flux, fertilizers, and wood preservation.', specs: [{ label: 'B₂O₃', value: '36% / 48%' }, { label: 'Form', value: 'Deca / Penta' }, { label: 'Purity', value: '99% min' }], applications: ['Glass & Ceramics', 'Detergents', 'Metallurgy Flux', 'Fertilizer', 'Wood Preservation'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
-  { id: 'sodium-lignosulphonate', name: 'Sodium Lignosulphonate', formula: '-', cas: '8061-51-6', grade: 'Powder · Dispersant', category: 'specialty', description: 'Lignosulphonate dispersant for concrete admixtures, dyes, pesticides, and ceramic processing.', specs: [{ label: 'Form', value: 'Brown Powder' }, { label: 'Water Reduction', value: '8–10%' }, { label: 'pH', value: '7–9' }], applications: ['Concrete Admixture', 'Dye Dispersant', 'Pesticide Carrier', 'Ceramics'], manufacturers: ['Imported / Indian Manufacturers'], packaging: ['25 kg Bags'], featured: false },
+  { id: 'sodium-lignosulphonate', name: 'Sodium Lignosulphonate', formula: '-', cas: '8061-51-6', grade: 'Powder · Dispersant', category: 'specialty', description: 'Lignosulphonate dispersant for concrete admixtures, dyes, pesticides, and ceramic processing.', specs: [{ label: 'Form', value: 'Brown Powder' }, { label: 'Water Reduction', value: '8-10%' }, { label: 'pH', value: '7-9' }], applications: ['Concrete Admixture', 'Dye Dispersant', 'Pesticide Carrier', 'Ceramics'], manufacturers: ['Imported / Indian Manufacturers'], packaging: ['25 kg Bags'], featured: false },
   { id: 'refined-glycerine', name: 'Refined Glycerine', formula: 'C₃H₈O₃', cas: '56-81-5', grade: '99.5% / 99.7% USP', category: 'specialty', description: 'Refined glycerine (USP/technical) for pharmaceuticals, cosmetics, food, tobacco, and polyols.', specs: [{ label: 'Glycerol', value: '99.5% / 99.7%' }, { label: 'Moisture', value: '0.5% max' }, { label: 'Colour (APHA)', value: '10 max' }], applications: ['Pharmaceutical', 'Cosmetics & Personal Care', 'Food', 'Tobacco', 'Polyols'], manufacturers: ['Imported / Indian Manufacturers'], packaging: ['250 kg Drums', 'IBC Tanks', 'ISO Tanks'], featured: false },
 
   // Solvents
   { id: 'isopropyl-alcohol', name: 'Isopropyl Alcohol (IPA)', formula: 'C₃H₈O', cas: '67-63-0', grade: '99.9% Min', category: 'solvents', description: 'IPA for pharmaceuticals, sanitizers, electronics cleaning, coatings, and printing.', specs: [{ label: 'Purity', value: '99.9% min' }, { label: 'Water', value: '0.05% max' }, { label: 'Appearance', value: 'Clear colourless' }], applications: ['Pharmaceutical', 'Sanitizers', 'Electronics Cleaning', 'Coatings', 'Printing'], manufacturers: ['Deepak Phenolics', 'Imported'], packaging: ['160 kg Drums', 'ISO Tanks'], featured: false },
   { id: 'mek', name: 'Methyl Ethyl Ketone (MEK)', formula: 'C₄H₈O', cas: '78-93-3', grade: '99.5% Min', category: 'solvents', description: 'MEK for paints, adhesives, printing inks, synthetic leather, and resins.', specs: [{ label: 'Purity', value: '99.5% min' }, { label: 'Water', value: '0.1% max' }, { label: 'Colour (APHA)', value: '10 max' }], applications: ['Paints & Coatings', 'Adhesives', 'Printing Inks', 'Synthetic Leather'], manufacturers: ['Imported'], packaging: ['165 kg Drums', 'ISO Tanks'], featured: false },
   { id: 'mibk', name: 'Methyl Isobutyl Ketone (MIBK)', formula: 'C₆H₁₂O', cas: '108-10-1', grade: '99.5% Min', category: 'solvents', description: 'MIBK for coatings, rubber chemicals, pharmaceuticals, and metal extraction.', specs: [{ label: 'Purity', value: '99.5% min' }, { label: 'Water', value: '0.05% max' }, { label: 'Colour (APHA)', value: '10 max' }], applications: ['Coatings', 'Rubber Antiozonants', 'Pharmaceutical', 'Metal Extraction'], manufacturers: ['Imported'], packaging: ['160 kg Drums', 'ISO Tanks'], featured: false },
-  { id: 'xylene', name: 'Xylene', formula: 'C₈H₁₀', cas: '1330-20-7', grade: '98.5% Min', category: 'solvents', description: 'Xylene (mixed) for paints, thinners, printing inks, rubber, and chemical synthesis.', specs: [{ label: 'Purity', value: '98.5% min' }, { label: 'Distillation', value: '137–143°C' }, { label: 'Colour (APHA)', value: '15 max' }], applications: ['Paints & Thinners', 'Printing Inks', 'Rubber', 'Chemical Synthesis'], manufacturers: ['Reliance', 'Indian Manufacturers'], packaging: ['180 kg Drums', 'ISO Tanks', 'Flexi Tanks'], featured: false },
+  { id: 'xylene', name: 'Xylene', formula: 'C₈H₁₀', cas: '1330-20-7', grade: '98.5% Min', category: 'solvents', description: 'Xylene (mixed) for paints, thinners, printing inks, rubber, and chemical synthesis.', specs: [{ label: 'Purity', value: '98.5% min' }, { label: 'Distillation', value: '137-143°C' }, { label: 'Colour (APHA)', value: '15 max' }], applications: ['Paints & Thinners', 'Printing Inks', 'Rubber', 'Chemical Synthesis'], manufacturers: ['Reliance', 'Indian Manufacturers'], packaging: ['180 kg Drums', 'ISO Tanks', 'Flexi Tanks'], featured: false },
   { id: 'n-butanol', name: 'n-Butanol', formula: 'C₄H₁₀O', cas: '71-36-3', grade: '99.5% Min', category: 'solvents', description: 'n-Butanol for plasticizers, acrylate esters, coatings, and as a solvent.', specs: [{ label: 'Purity', value: '99.5% min' }, { label: 'Water', value: '0.1% max' }, { label: 'Acidity', value: '0.005% max' }], applications: ['Plasticizers', 'Acrylate Esters', 'Coatings', 'Solvent'], manufacturers: ['Imported'], packaging: ['165 kg Drums', 'ISO Tanks'], featured: false },
   { id: 'propylene-glycol', name: 'Propylene Glycol (MPG)', formula: 'C₃H₈O₂', cas: '57-55-6', grade: 'USP / Industrial', category: 'solvents', description: 'Propylene glycol for unsaturated polyester resins, antifreeze, food, pharma, and cosmetics.', specs: [{ label: 'Purity', value: '99.5% min' }, { label: 'Water', value: '0.1% max' }, { label: 'Grade', value: 'USP / Industrial' }], applications: ['UPR Resins', 'Antifreeze', 'Food & Pharma', 'Cosmetics'], manufacturers: ['Imported'], packaging: ['215 kg Drums', 'IBC Tanks', 'ISO Tanks'], featured: false },
   { id: 'diethylene-glycol', name: 'Diethylene Glycol (DEG)', formula: 'C₄H₁₀O₃', cas: '111-46-6', grade: '99.9% Min', category: 'solvents', description: 'DEG for unsaturated polyester resins, plasticizers, gas dehydration, and brake fluids.', specs: [{ label: 'Purity', value: '99.9% min' }, { label: 'Water', value: '0.1% max' }, { label: 'Colour (APHA)', value: '5 max' }], applications: ['UPR Resins', 'Plasticizers', 'Gas Dehydration', 'Brake Fluids'], manufacturers: ['Reliance', 'Imported'], packaging: ['230 kg Drums', 'ISO Tanks'], featured: false },
   { id: 'mono-ethanolamine', name: 'Mono Ethanolamine (MEA)', formula: 'C₂H₇NO', cas: '141-43-5', grade: '99% Min', category: 'solvents', description: 'MEA for gas treating, detergents, metalworking fluids, and corrosion inhibitors.', specs: [{ label: 'Purity', value: '99% min' }, { label: 'Water', value: '0.5% max' }, { label: 'Colour (APHA)', value: '15 max' }], applications: ['Gas Treating (CO₂/H₂S)', 'Detergents', 'Metalworking Fluids', 'Corrosion Inhibitors'], manufacturers: ['Imported'], packaging: ['200 kg Drums', 'ISO Tanks'], featured: false },
   { id: 'di-ethanolamine', name: 'Di Ethanolamine (DEA)', formula: 'C₄H₁₁NO₂', cas: '111-42-2', grade: '99% Min', category: 'solvents', description: 'DEA for surfactants, gas purification, agrochemicals, and textile chemicals.', specs: [{ label: 'Purity', value: '99% min' }, { label: 'Water', value: '0.5% max' }, { label: 'Form', value: 'Liquid / Crystalline' }], applications: ['Surfactants', 'Gas Purification', 'Agrochemicals', 'Textile'], manufacturers: ['Imported'], packaging: ['230 kg Drums', 'ISO Tanks'], featured: false },
   { id: 'tri-ethanolamine', name: 'Tri Ethanolamine (TEA)', formula: 'C₆H₁₅NO₃', cas: '102-71-6', grade: '85% / 99% Min', category: 'solvents', description: 'TEA for cement grinding aids, cosmetics, surfactants, and metalworking fluids.', specs: [{ label: 'Purity', value: '85% / 99%' }, { label: 'Colour (APHA)', value: '60 max' }, { label: 'Water', value: '0.5% max' }], applications: ['Cement Grinding Aid', 'Cosmetics', 'Surfactants', 'Metalworking Fluids'], manufacturers: ['Imported'], packaging: ['230 kg Drums', 'ISO Tanks'], featured: false },
-  { id: 'formaldehyde', name: 'Formaldehyde', formula: 'CH₂O', cas: '50-00-0', grade: '37% / Para', category: 'solvents', description: 'Formaldehyde (formalin) for resins (UF/PF/MF), disinfectants, and chemical synthesis.', specs: [{ label: 'Concentration', value: '37% min' }, { label: 'Methanol', value: '8–12%' }, { label: 'Acidity', value: '0.05% max' }], applications: ['UF/PF/MF Resins', 'Disinfectants', 'Chemical Synthesis', 'Textile'], manufacturers: ['Indian Manufacturers'], packaging: ['230 kg Drums', 'Road Tankers'], featured: false },
+  { id: 'formaldehyde', name: 'Formaldehyde', formula: 'CH₂O', cas: '50-00-0', grade: '37% / Para', category: 'solvents', description: 'Formaldehyde (formalin) for resins (UF/PF/MF), disinfectants, and chemical synthesis.', specs: [{ label: 'Concentration', value: '37% min' }, { label: 'Methanol', value: '8-12%' }, { label: 'Acidity', value: '0.05% max' }], applications: ['UF/PF/MF Resins', 'Disinfectants', 'Chemical Synthesis', 'Textile'], manufacturers: ['Indian Manufacturers'], packaging: ['230 kg Drums', 'Road Tankers'], featured: false },
   { id: 'ethanol', name: 'Ethanol (Denatured)', formula: 'C₂H₆O', cas: '64-17-5', grade: '99.9% / 96%', category: 'solvents', description: 'Denatured ethanol for sanitizers, pharmaceuticals, cosmetics, printing, and coatings.', specs: [{ label: 'Purity', value: '99.9% / 96%' }, { label: 'Water', value: '0.2% max' }, { label: 'Type', value: 'Denatured / ENA' }], applications: ['Sanitizers', 'Pharmaceutical', 'Cosmetics', 'Printing', 'Coatings'], manufacturers: ['Indian Manufacturers'], packaging: ['160 kg Drums', 'ISO Tanks'], featured: false },
 
   // Inorganic salts
@@ -1246,7 +1245,7 @@ export const products: Product[] = [
   { id: 'ammonium-chloride', name: 'Ammonium Chloride', formula: 'NH₄Cl', cas: '12125-02-9', grade: '99.5% Min', category: 'inorganic-salts', description: 'Ammonium chloride for dry batteries, soldering flux, fertilizer, and pharmaceuticals.', specs: [{ label: 'NH₄Cl', value: '99.5% min' }, { label: 'Form', value: 'Powder / Granular' }, { label: 'Moisture', value: '0.5% max' }], applications: ['Dry Batteries', 'Soldering Flux', 'Fertilizer', 'Pharmaceutical'], manufacturers: ['Imported / Indian Manufacturers'], packaging: ['25 kg / 50 kg Bags'], featured: false },
   { id: 'ammonium-sulphate', name: 'Ammonium Sulphate', formula: '(NH₄)₂SO₄', cas: '7783-20-2', grade: '21% N Min', category: 'agro', description: 'Ammonium sulphate nitrogen-sulphur fertilizer, also used in textile and food sectors.', specs: [{ label: 'Nitrogen', value: '21% min' }, { label: 'Sulphur', value: '24% min' }, { label: 'Form', value: 'Crystal / Granular' }], applications: ['Nitrogen-Sulphur Fertilizer', 'Textile', 'Food Additive', 'Water Treatment'], manufacturers: ['GSFC', 'Indian Manufacturers'], packaging: ['50 kg Bags', '1000 kg Jumbo Bags'], featured: false },
   { id: 'stpp', name: 'Sodium Tripolyphosphate (STPP)', formula: 'Na₅P₃O₁₀', cas: '7758-29-4', grade: '94% Min', category: 'inorganic-salts', description: 'STPP builder for detergents, ceramics, water treatment, and food processing.', specs: [{ label: 'Na₅P₃O₁₀', value: '94% min' }, { label: 'P₂O₅', value: '57% min' }, { label: 'Form', value: 'White Powder' }], applications: ['Detergent Builder', 'Ceramics', 'Water Treatment', 'Food Processing'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
-  { id: 'shmp', name: 'Sodium Hexametaphosphate (SHMP)', formula: '(NaPO₃)₆', cas: '10124-56-8', grade: '68% P₂O₅ Min', category: 'inorganic-salts', description: 'SHMP sequestrant for water treatment, detergents, food, and oilfield scale control.', specs: [{ label: 'P₂O₅', value: '68% min' }, { label: 'Form', value: 'Powder / Granular' }, { label: 'pH (1%)', value: '5.8–6.5' }], applications: ['Water Treatment', 'Detergents', 'Food Additive', 'Oilfield Scale Control'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
+  { id: 'shmp', name: 'Sodium Hexametaphosphate (SHMP)', formula: '(NaPO₃)₆', cas: '10124-56-8', grade: '68% P₂O₅ Min', category: 'inorganic-salts', description: 'SHMP sequestrant for water treatment, detergents, food, and oilfield scale control.', specs: [{ label: 'P₂O₅', value: '68% min' }, { label: 'Form', value: 'Powder / Granular' }, { label: 'pH (1%)', value: '5.8-6.5' }], applications: ['Water Treatment', 'Detergents', 'Food Additive', 'Oilfield Scale Control'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
   { id: 'potassium-chloride', name: 'Potassium Chloride (MOP)', formula: 'KCl', cas: '7447-40-7', grade: '99% / 60% K₂O', category: 'agro', description: 'Muriate of potash (MOP) for fertilizers, plus industrial and food-grade potassium chloride.', specs: [{ label: 'KCl', value: '99% (industrial)' }, { label: 'K₂O', value: '60% (MOP)' }, { label: 'Form', value: 'Crystal / Granular' }], applications: ['Potash Fertilizer', 'Industrial', 'Food Grade', 'Drilling Fluids'], manufacturers: ['Imported'], packaging: ['50 kg Bags', '1000 kg Jumbo Bags'], featured: false },
   { id: 'calcium-nitrate', name: 'Calcium Nitrate', formula: 'Ca(NO₃)₂', cas: '10124-37-5', grade: '15.5% N Min', category: 'agro', description: 'Calcium nitrate for fertigation, greenhouse crops, concrete accelerator, and wastewater odour control.', specs: [{ label: 'Nitrogen', value: '15.5%' }, { label: 'CaO', value: '26%' }, { label: 'Form', value: 'Granular / Soluble' }], applications: ['Fertigation', 'Greenhouse Crops', 'Concrete Accelerator', 'Odour Control'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
   { id: 'potassium-sulphate', name: 'Potassium Sulphate (SOP)', formula: 'K₂SO₄', cas: '7778-80-5', grade: '50% K₂O Min', category: 'agro', description: 'Sulphate of potash (SOP) - chloride-free potassium fertilizer for high-value crops.', specs: [{ label: 'K₂O', value: '50% min' }, { label: 'Sulphur', value: '17.5%' }, { label: 'Cl', value: '1.5% max' }], applications: ['Chloride-Free Fertilizer', 'Fruit & Vegetable Crops', 'Fertigation'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
@@ -1255,7 +1254,7 @@ export const products: Product[] = [
   { id: 'labsa', name: 'LABSA (Sulphonic Acid)', formula: 'C₁₈H₃₀O₃S', cas: '27176-87-0', grade: '96% Min', category: 'surfactants', description: 'Linear Alkyl Benzene Sulphonic Acid - the primary anionic surfactant for detergents, dishwash, and cleaners.', specs: [{ label: 'Active Matter', value: '96% min' }, { label: 'Free Oil', value: '2% max' }, { label: 'Colour (5% Klett)', value: '30 max' }], applications: ['Detergent Powder & Liquid', 'Dishwash', 'Hard-Surface Cleaners', 'Textile Auxiliaries'], manufacturers: ['Indian Manufacturers'], packaging: ['225 kg Drums', 'IBC Tanks'], featured: false },
   { id: 'sles', name: 'SLES (Sodium Lauryl Ether Sulphate)', formula: '-', cas: '9004-82-4', grade: '70% / 28% Active', category: 'surfactants', description: 'SLES 2EO - mild anionic surfactant for shampoos, body wash, dishwash, and liquid detergents.', specs: [{ label: 'Active Matter', value: '70% / 28%' }, { label: 'EO', value: '2 mole' }, { label: '1,4-Dioxane', value: 'Low' }], applications: ['Shampoo & Body Wash', 'Dishwash Liquid', 'Liquid Detergents', 'Personal Care'], manufacturers: ['Indian Manufacturers'], packaging: ['230 kg Drums', 'IBC Tanks'], featured: false },
   { id: 'cdea', name: 'Coconut Diethanolamide (CDEA)', formula: '-', cas: '68603-42-9', grade: '85% Min', category: 'surfactants', description: 'CDEA foam booster and viscosity builder for shampoos, dishwash, and liquid cleaners.', specs: [{ label: 'Active Matter', value: '85% min' }, { label: 'Free Amine', value: '8% max' }, { label: 'Form', value: 'Viscous Liquid' }], applications: ['Foam Booster', 'Viscosity Modifier', 'Shampoo', 'Dishwash'], manufacturers: ['Indian Manufacturers'], packaging: ['215 kg Drums'], featured: false },
-  { id: 'soap-noodles', name: 'Soap Noodles', formula: '-', cas: '-', grade: '80:20 / 90:10', category: 'surfactants', description: 'Toilet & laundry soap noodles (palm/palm-kernel based) for soap finishing and stamping.', specs: [{ label: 'Blend', value: '80:20 / 90:10' }, { label: 'TFM', value: '78% min' }, { label: 'Moisture', value: '12–14%' }], applications: ['Toilet Soap', 'Laundry Soap', 'Soap Finishing'], manufacturers: ['Imported'], packaging: ['25 kg Bags'], featured: false },
+  { id: 'soap-noodles', name: 'Soap Noodles', formula: '-', cas: '-', grade: '80:20 / 90:10', category: 'surfactants', description: 'Toilet & laundry soap noodles (palm/palm-kernel based) for soap finishing and stamping.', specs: [{ label: 'Blend', value: '80:20 / 90:10' }, { label: 'TFM', value: '78% min' }, { label: 'Moisture', value: '12-14%' }], applications: ['Toilet Soap', 'Laundry Soap', 'Soap Finishing'], manufacturers: ['Imported'], packaging: ['25 kg Bags'], featured: false },
 
   // Agro
   { id: 'urea', name: 'Urea', formula: 'CH₄N₂O', cas: '57-13-6', grade: '46% N · Prilled/Granular', category: 'agro', description: 'Urea nitrogen fertilizer (46% N), also used in resins, AdBlue/DEF, and animal feed.', specs: [{ label: 'Nitrogen', value: '46% min' }, { label: 'Biuret', value: '1% max' }, { label: 'Form', value: 'Prilled / Granular' }], applications: ['Nitrogen Fertilizer', 'UF Resins', 'AdBlue / DEF', 'Animal Feed'], manufacturers: ['IFFCO', 'Indian Manufacturers'], packaging: ['50 kg Bags', '1000 kg Jumbo Bags', 'Bulk'], featured: false },
@@ -1265,7 +1264,7 @@ export const products: Product[] = [
   // Minerals
   { id: 'bentonite', name: 'Bentonite', formula: '-', cas: '1302-78-9', grade: 'Drilling / Foundry / API', category: 'minerals', description: 'Sodium/calcium bentonite for drilling fluids, foundry sand, civil engineering, and edible-oil bleaching.', specs: [{ label: 'Viscosity (API)', value: '30 min' }, { label: 'Swelling', value: 'High (Na)' }, { label: 'Moisture', value: '12% max' }], applications: ['Drilling Mud', 'Foundry Sand', 'Civil Engineering', 'Oil Bleaching'], manufacturers: ['Indian Manufacturers'], packaging: ['50 kg Bags', '1000 kg Jumbo Bags'], featured: false },
   { id: 'barite', name: 'Barite (Barytes)', formula: 'BaSO₄', cas: '13462-86-7', grade: '4.2 SG · API Drilling', category: 'minerals', description: 'Barite weighting agent for oil & gas drilling fluids, plus filler for paints, rubber, and plastics.', specs: [{ label: 'Specific Gravity', value: '4.2 min' }, { label: 'BaSO₄', value: '92% min' }, { label: 'Mesh', value: '200 / 325' }], applications: ['Drilling Fluid Weighting', 'Paints Filler', 'Rubber & Plastics', 'Radiation Shielding'], manufacturers: ['Indian Manufacturers'], packaging: ['50 kg Bags', '1000 kg Jumbo Bags'], featured: false },
-  { id: 'china-clay', name: 'China Clay (Kaolin)', formula: 'Al₂Si₂O₅(OH)₄', cas: '1332-58-7', grade: 'Coating / Filler', category: 'minerals', description: 'Refined kaolin for paper coating, ceramics, paints, rubber, and fibreglass.', specs: [{ label: 'Brightness', value: '80–88%' }, { label: 'Al₂O₃', value: '37% min' }, { label: 'Form', value: 'Powder' }], applications: ['Paper Coating', 'Ceramics', 'Paints Filler', 'Rubber', 'Fibreglass'], manufacturers: ['Indian Manufacturers'], packaging: ['50 kg Bags', '1000 kg Jumbo Bags'], featured: false },
+  { id: 'china-clay', name: 'China Clay (Kaolin)', formula: 'Al₂Si₂O₅(OH)₄', cas: '1332-58-7', grade: 'Coating / Filler', category: 'minerals', description: 'Refined kaolin for paper coating, ceramics, paints, rubber, and fibreglass.', specs: [{ label: 'Brightness', value: '80-88%' }, { label: 'Al₂O₃', value: '37% min' }, { label: 'Form', value: 'Powder' }], applications: ['Paper Coating', 'Ceramics', 'Paints Filler', 'Rubber', 'Fibreglass'], manufacturers: ['Indian Manufacturers'], packaging: ['50 kg Bags', '1000 kg Jumbo Bags'], featured: false },
   { id: 'calcium-carbonate', name: 'Calcium Carbonate (GCC/PCC)', formula: 'CaCO₃', cas: '471-34-1', grade: 'Ground / Precipitated', category: 'minerals', description: 'Calcium carbonate filler for plastics, paints, paper, rubber, and PVC - ground and precipitated grades.', specs: [{ label: 'CaCO₃', value: '98% min' }, { label: 'Whiteness', value: '90%+' }, { label: 'Grade', value: 'GCC / PCC' }], applications: ['Plastics & PVC Filler', 'Paints', 'Paper', 'Rubber', 'Adhesives'], manufacturers: ['Indian Manufacturers'], packaging: ['25 kg / 50 kg Bags'], featured: false },
 ];
 
@@ -1292,6 +1291,10 @@ export type IndustryData = {
   productIds: string[];
   additionalProducts: string[];
   markets: string[];
+  /** Pharma sections this sector draws on. The pharma catalogue lives in
+   *  lib/pharma.ts and is a separate axis from the industrial `products` array,
+   *  so sectors that buy APIs or excipients have to opt in explicitly. */
+  pharmaSections?: ('apis' | 'intermediates' | 'ingredients' | 'excipients' | 'others')[];
 };
 
 export const industryData: IndustryData[] = [
@@ -1344,6 +1347,7 @@ export const industryData: IndustryData[] = [
     productIds: ['oleum', 'chlorosulphonic-acid', 'sulphuryl-chloride', 'thionyl-chloride', 'chloroform', 'methylene-chloride', 'epichlorohydrin', 'beta-naphthol', 'acetic-acid', 'formic-acid', 'formaldehyde', 'isopropyl-alcohol', 'mek', 'mibk'],
     additionalProducts: ['Acetic Anhydride', 'Aniline', 'Phenol', 'Acetic Acid', 'Formaldehyde'],
     markets: ['SE Asia', 'GCC'],
+    pharmaSections: ['intermediates', 'others'],
   },
   {
     id: 'paints-coatings',
@@ -1394,6 +1398,7 @@ export const industryData: IndustryData[] = [
     productIds: ['smbs', 'calcium-chloride', 'sodium-bicarbonate', 'hydrogen-peroxide', 'phosphoric-acid', 'sodium-acetate', 'sodium-nitrate', 'decanoic-acid', 'citric-acid', 'lactic-acid', 'refined-glycerine', 'magnesium-sulphate', 'ammonium-chloride'],
     additionalProducts: ['Citric Acid', 'Lactic Acid', 'Potassium Sorbate', 'Sodium Benzoate', 'Dextrose'],
     markets: ['GCC', 'SE Asia', 'West Africa'],
+    pharmaSections: ['apis', 'excipients', 'ingredients'],
   },
   {
     id: 'textile-dyeing',
@@ -1438,7 +1443,7 @@ export const marketData: MarketData[] = [
     countries: ['Kenya', 'Tanzania', 'Uganda', 'DRC', 'Zambia', 'Rwanda', 'Ethiopia', 'Mozambique'],
     industries: ['Mining (Gold/Silver)', 'Water Treatment', 'Food Processing', 'Textiles', 'Agriculture'],
     keyProducts: ['SMBS', 'PAC', 'Caustic Soda Flakes', 'Calcium Chloride', 'Sulphuric Acid'],
-    leadTime: '15–20 days',
+    leadTime: '15-20 days',
     ports: ['Mombasa (Kenya)', 'Dar es Salaam (Tanzania)', 'Beira (Mozambique)', 'Djibouti'],
     description: 'Our largest market. Mining in Zambia, Tanzania, and DRC drives SMBS demand. Rapid urbanization creates strong need for PAC in water plants.',
   },
@@ -1448,7 +1453,7 @@ export const marketData: MarketData[] = [
     countries: ['Nigeria', 'Ghana', 'Côte d\'Ivoire', 'Senegal', 'Cameroon', 'Togo'],
     industries: ['Food Processing', 'Textiles', 'Construction', 'Soap & Detergent', 'Mining'],
     keyProducts: ['Caustic Soda Flakes', 'Soda Ash', 'SMBS', 'Calcium Chloride', 'PAC'],
-    leadTime: '18–25 days',
+    leadTime: '18-25 days',
     ports: ['Lagos/Apapa (Nigeria)', 'Tema (Ghana)', 'Abidjan (Côte d\'Ivoire)', 'Dakar (Senegal)'],
     description: 'West Africa\'s growing FMCG sector drives caustic soda demand. Nigeria and Ghana are key markets for construction and food processing chemicals.',
   },
@@ -1458,7 +1463,7 @@ export const marketData: MarketData[] = [
     countries: ['UAE', 'Saudi Arabia', 'Kuwait', 'Qatar', 'Bahrain', 'Oman', 'Jordan', 'Iraq'],
     industries: ['Oil & Gas', 'Desalination', 'Construction', 'Food Processing', 'Pharmaceuticals'],
     keyProducts: ['Calcium Chloride', 'PAC', 'Caustic Soda Lye', 'Sulphuric Acid', 'Hydrogen Peroxide'],
-    leadTime: '7–12 days',
+    leadTime: '7-12 days',
     ports: ['Jebel Ali (UAE)', 'Ras Tanura (Saudi Arabia)', 'Shuaiba (Kuwait)', 'Sohar (Oman)'],
     description: 'Our fastest-growing market. 7-12 day delivery from Indian ports. Oilfield drilling drives CaCl₂ demand; desalination plants need PAC and caustic soda.',
   },
@@ -1468,8 +1473,18 @@ export const marketData: MarketData[] = [
     countries: ['Indonesia', 'Malaysia', 'Thailand', 'Vietnam', 'Philippines', 'Myanmar', 'Cambodia'],
     industries: ['Textiles', 'Pulp & Paper', 'Food Processing', 'Petrochemicals', 'Electronics'],
     keyProducts: ['Caustic Soda Flakes', 'Hydrogen Peroxide', 'SMBS', 'Sulphuric Acid', 'PAC'],
-    leadTime: '12–18 days',
+    leadTime: '12-18 days',
     ports: ['Port Klang (Malaysia)', 'Bangkok (Thailand)', 'Ho Chi Minh City (Vietnam)', 'Tanjung Priok (Indonesia)'],
     description: 'Southeast Asia\'s manufacturing boom drives demand across textile, paper, and electronics. Vietnam and Indonesia are fast-growing markets.',
   },
 ];
+
+/** How many products a sector actually offers, across BOTH books. The industry
+ *  cards used to count `productIds` alone, which under-reported every sector that
+ *  draws on APIs, intermediates or excipients. */
+export const sectorProductCount = (
+  ind: Pick<IndustryData, 'productIds' | 'pharmaSections'>,
+  pharma: { section: string }[],
+) => ind.productIds.length + (ind.pharmaSections ?? []).reduce(
+  (n, sec) => n + pharma.filter((p) => p.section === sec).length, 0,
+);

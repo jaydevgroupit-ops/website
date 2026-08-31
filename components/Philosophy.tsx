@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import StatCounter from './StatCounter';
@@ -15,6 +16,7 @@ const STATS = [
   { num: 100, suffix: '+', label: 'Global Buyers' },
 ];
 
+const PANEL_COUNT = 4; // 3 pillars + the finale
 const VERBS = ['Bought direct', 'Documented', 'Shipped', 'Delivered'];
 
 /**
@@ -38,28 +40,36 @@ const DISC_NAMES = [
 const pillars = [
   {
     n: '01', tag: 'Philosophy', title: 'The Source', icon: 'Factory',
+    image: '/images/plant.jpg', alt: 'Chemical manufacturing plant',
     lede: 'We buy direct from the producer',
     body: 'GACL, Grasim, Reliance, IOCL, Tata Chemicals and Nirma. No middlemen, so you get factory price and we can trace every tonne back to the plant that made it.',
     metrics: [['Manufacturer-direct', 'GACL & Grasim authorized'], ['9', 'Foundational producers']],
   },
   {
     n: '02', tag: 'Craft', title: 'The Proof', icon: 'ShieldCheck',
+    image: '/images/bags-drums.png', alt: 'Packed drums and bags awaiting despatch',
     lede: 'Every batch ships with its papers',
     body: 'COA, MSDS, Bill of Lading, Certificate of Origin, Packing List and IMDG declaration as standard. Our systems are audited to ISO 9001, 14001 and 45001.',
-    metrics: [['ISO 9001 · 14001 · 45001', 'Certified systems'], ['COA + MSDS', 'On every batch']],
+    metrics: [['ISO 9001 · 14001 · 45001', 'Certified systems'], ['COA / MSDS', 'On every batch']],
   },
   {
     n: '03', tag: 'Reach', title: 'The Reach', icon: 'Globe',
+    image: '/images/logistics-port.png', alt: 'Container port loading operations',
     lede: 'We ship to 30+ countries',
-    body: 'FCL and LCL out of Mundra, JNPT, Hazira and Kandla. East Africa in 15-20 days, the Gulf in 7-12, Southeast Asia in 12-18.',
+    body: 'FCL out of Mundra, JNPT, Hazira and Kandla. East Africa, the Gulf, Southeast Asia, and others.',
     metrics: [['30+', 'Export markets'], ['5000+ MT', 'Moved monthly']],
   },
 ];
 
 export default function Philosophy() {
   const sectionRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
   const panelRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [active, setActive] = useState(0);
+  /** Pinned = the four panels advance in place on one screen instead of stacking
+   *  vertically. Costs one screen of scroll rather than six. Off for reduced
+   *  motion, where the panels fall back to the plain stacked layout. */
+  const [pinned, setPinned] = useState(false);
   const [cross, setCross] = useState({ x: 0, y: 0, on: false });
   const [verb, setVerb] = useState(0); // compact looping action-word sequence
 
@@ -68,7 +78,44 @@ export default function Philosophy() {
     return () => clearInterval(id);
   }, []);
 
+  // Decide whether to pin, and drive `active` from scroll progress when we do.
   useEffect(() => {
+    // Width via matchMedia rather than innerWidth: it is event-driven, needs no
+    // resize listener, and does not read 0 in headless contexts.
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const wide = window.matchMedia('(min-width: 768px)');
+    // ?motion forces the pin on - the preview browser always reports reduced motion.
+    const forced = new URLSearchParams(window.location.search).has('motion');
+    const apply = () => setPinned((forced || !reduce.matches) && (forced || wide.matches));
+    apply();
+    reduce.addEventListener('change', apply);
+    wide.addEventListener('change', apply);
+    return () => { reduce.removeEventListener('change', apply); wide.removeEventListener('change', apply); };
+  }, []);
+
+  useEffect(() => {
+    if (!pinned) return;
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const el = trackRef.current;
+        if (!el) return;
+        const travel = el.offsetHeight - window.innerHeight;
+        if (travel <= 0) return;
+        const progress = (window.scrollY - el.offsetTop) / travel;
+        const i = Math.floor(progress * PANEL_COUNT);
+        setActive(Math.min(PANEL_COUNT - 1, Math.max(0, i)));
+      });
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => { window.removeEventListener('scroll', onScroll); if (raf) cancelAnimationFrame(raf); };
+  }, [pinned]);
+
+  useEffect(() => {
+    if (pinned) return; // stacked fallback only
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -84,7 +131,18 @@ export default function Philosophy() {
     );
     panelRefs.current.forEach((el) => el && obs.observe(el));
     return () => obs.disconnect();
-  }, []);
+  }, [pinned]);
+
+  /** Rail navigation: seek the track when pinned, scroll the panel when stacked. */
+  const goTo = (i: number) => {
+    if (pinned && trackRef.current) {
+      const el = trackRef.current;
+      const travel = el.offsetHeight - window.innerHeight;
+      window.scrollTo({ top: el.offsetTop + (travel * (i + 0.5)) / PANEL_COUNT, behavior: 'smooth' });
+    } else {
+      panelRefs.current[i]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
 
   const onMove = (e: React.MouseEvent) => {
     const r = sectionRef.current?.getBoundingClientRect();
@@ -97,8 +155,8 @@ export default function Philosophy() {
       ref={sectionRef}
       onMouseMove={onMove}
       onMouseLeave={() => setCross((c) => ({ ...c, on: false }))}
-      className="relative bg-[#0A1730] cursor-crosshair"
-      style={{ background: 'linear-gradient(180deg,#0A1730 0%,#0A1730 70%,#0B1B38 100%)' }}
+      className="relative bg-white cursor-crosshair"
+      style={{ background: 'var(--grad-hero)' }}
     >
       {/* clip layer - holds the bleeding disc so the section itself has no overflow:hidden
           (which would break the sticky rail) */}
@@ -113,7 +171,7 @@ export default function Philosophy() {
               className="absolute inset-0 opacity-[0.24] md:opacity-[0.22]"
               style={{
                 background:
-                  'repeating-conic-gradient(from 0deg, rgba(232,184,75,0.55) 0deg 0.25deg, transparent 0.25deg 7.5deg)',
+                  'repeating-conic-gradient(from 0deg, rgba(16,16,16,0.30) 0deg 0.25deg, transparent 0.25deg 7.5deg)',
                 borderRadius: '50%',
                 WebkitMaskImage:
                   'radial-gradient(circle, transparent 30%, #000 31%, #000 68%, transparent 71%)',
@@ -130,7 +188,7 @@ export default function Philosophy() {
               return (
                 <span
                   key={name}
-                  className="absolute hidden sm:inline font-mono text-[11px] lg:text-sm uppercase tracking-[0.14em] text-gold-light/25 whitespace-nowrap"
+                  className="absolute hidden sm:inline font-mono text-[11px] lg:text-sm uppercase tracking-[0.14em] text-ink/20 whitespace-nowrap"
                   style={{
                     // anchor each name's INNER edge at the same radius (16%) and let it
                     // read outward along the spoke - so every name starts on the same line
@@ -146,18 +204,18 @@ export default function Philosophy() {
             })}
           </div>
           {/* glowing hub + rim */}
-          <div className="absolute inset-0 rounded-full" style={{ boxShadow: 'inset 0 0 140px 40px rgba(201,146,42,0.06)' }} />
+          <div className="absolute inset-0 rounded-full" style={{ boxShadow: 'inset 0 0 160px 44px rgba(57,206,34,0.05)' }} />
         </div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_40%,rgba(201,146,42,0.10),transparent_45%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_40%,rgba(57,206,34,0.06),rgba(57,206,34,0.025)_35%,transparent_45%)]" />
       </div>
 
       {/* precision crosshair cursor */}
       {cross.on && (
         <div className="pointer-events-none absolute inset-0 z-30 hidden md:block overflow-hidden">
-          <div className="absolute left-0 right-0 h-px bg-gold/20" style={{ top: cross.y }} />
-          <div className="absolute top-0 bottom-0 w-px bg-gold/20" style={{ left: cross.x }} />
+          <div className="absolute left-0 right-0 h-px bg-lime/20" style={{ top: cross.y }} />
+          <div className="absolute top-0 bottom-0 w-px bg-lime/20" style={{ left: cross.x }} />
           <div
-            className="absolute w-5 h-5 border border-gold/50 rounded-full -translate-x-1/2 -translate-y-1/2"
+            className="absolute w-5 h-5 border border-lime/50 rounded-full -translate-x-1/2 -translate-y-1/2"
             style={{ left: cross.x, top: cross.y }}
           />
         </div>
@@ -176,11 +234,11 @@ export default function Philosophy() {
               <motion.span
                 animate={{ opacity: verb === i ? 1 : 0.55, y: verb === i ? -2 : 0 }}
                 transition={{ duration: 0.45 }}
-                className={`font-mono text-[11px] sm:text-sm uppercase tracking-[0.3em] ${verb === i ? 'text-gradient-gold' : 'text-white/55'}`}
+                className={`font-mono text-[11px] sm:text-sm uppercase tracking-[0.3em] ${verb === i ? 'text-gradient-lime' : 'text-ink-muted'}`}
               >
                 {v}
               </motion.span>
-              {i < VERBS.length - 1 && <span className="w-1 h-1 rounded-full bg-gold/40" />}
+              {i < VERBS.length - 1 && <span className="w-1 h-1 rounded-full bg-lime/40" />}
             </span>
           ))}
         </div>
@@ -189,31 +247,31 @@ export default function Philosophy() {
           {/* ── numbered engineering-notation rail ── */}
           <div className="hidden lg:block">
             <div className="sticky top-1/2 -translate-y-1/2 py-10">
-              <div className="text-[10px] uppercase tracking-[0.3em] text-white/30 mb-6">The Obsession</div>
+              <div className="text-[10px] uppercase tracking-[0.3em] text-ink-subtle mb-6">The Obsession</div>
               <ul className="space-y-5">
                 {pillars.map((p, i) => (
                   <li key={p.n}>
                     <button
-                      onClick={() => panelRefs.current[i]?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                      onClick={() => goTo(i)}
                       className="group flex items-baseline gap-3 text-left"
                     >
-                      <span className={`font-mono text-sm transition-colors ${active === i ? 'text-gold' : 'text-white/25'}`}>{p.n}</span>
-                      <span className={`font-jakarta text-sm font-semibold transition-colors ${active === i ? 'text-white' : 'text-white/35 group-hover:text-white/60'}`}>
+                      <span className={`font-mono text-sm transition-colors ${active === i ? 'text-lime-text' : 'text-ink-subtle'}`}>{p.n}</span>
+                      <span className={`font-jakarta text-sm font-semibold transition-colors ${active === i ? 'text-ink' : 'text-ink-soft group-hover:text-ink-soft'}`}>
                         {p.title}
                       </span>
-                      <span className={`h-px transition-all duration-500 ${active === i ? 'w-8 bg-gold' : 'w-3 bg-white/15'}`} />
+                      <span className={`h-px transition-all duration-500 ${active === i ? 'w-8 bg-lime' : 'w-3 bg-line'}`} />
                     </button>
                   </li>
                 ))}
                 {/* 4th point - the finale */}
                 <li>
                   <button
-                    onClick={() => panelRefs.current[3]?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                    onClick={() => goTo(3)}
                     className="group flex items-baseline gap-3 text-left"
                   >
-                    <span className={`font-mono text-sm transition-colors ${active === 3 ? 'text-gold' : 'text-white/25'}`}>04</span>
-                    <span className={`font-jakarta text-sm font-semibold transition-colors ${active === 3 ? 'text-white' : 'text-white/35 group-hover:text-white/60'}`}>Worldwide</span>
-                    <span className={`h-px transition-all duration-500 ${active === 3 ? 'w-8 bg-gold' : 'w-3 bg-white/15'}`} />
+                    <span className={`font-mono text-sm transition-colors ${active === 3 ? 'text-lime-text' : 'text-ink-subtle'}`}>04</span>
+                    <span className={`font-jakarta text-sm font-semibold transition-colors ${active === 3 ? 'text-ink' : 'text-ink-soft group-hover:text-ink-soft'}`}>Worldwide</span>
+                    <span className={`h-px transition-all duration-500 ${active === 3 ? 'w-8 bg-lime' : 'w-3 bg-line'}`} />
                   </button>
                 </li>
               </ul>
@@ -221,38 +279,44 @@ export default function Philosophy() {
           </div>
 
           {/* ── full-bleed reveal panels ── */}
-          <div>
+          <div ref={trackRef} style={pinned ? { height: `${PANEL_COUNT * 80}vh` } : undefined}>
+            <div className={pinned ? "sticky top-0 h-screen overflow-hidden" : ""}>
+              <div className={pinned ? "relative w-full h-full" : ""}>
             {pillars.map((p, i) => (
               <div
                 key={p.n}
                 ref={(el) => { panelRefs.current[i] = el; }}
-                className="min-h-[56vh] sm:min-h-[72vh] flex flex-col justify-center py-12 sm:py-16"
+                className={pinned
+                    ? 'absolute inset-0 flex flex-col justify-center transition-opacity duration-[600ms] ease-out'
+                    : 'min-h-[56vh] sm:min-h-[72vh] flex flex-col justify-center py-12 sm:py-16'}
+                style={pinned ? { opacity: active === i ? 1 : 0, pointerEvents: active === i ? 'auto' : 'none' } : undefined}
               >
                 <motion.div
                   initial={{ opacity: 0, y: 40, filter: 'blur(14px)' }}
                   whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                   viewport={{ once: true, margin: '-20%' }}
                   transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                  className="max-w-2xl"
+                  className="w-full grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] gap-8 lg:gap-12 items-center"
                 >
+                  <div className="max-w-2xl">
                   <div className="flex items-center gap-3 mb-6">
-                    <span className="font-mono text-gold text-sm">{p.n}</span>
-                    <span className="h-px w-10 bg-gold/40" />
-                    <span className="text-[11px] uppercase tracking-[0.28em] text-white/40">{p.tag}</span>
+                    <span className="font-mono text-lime-text text-sm">{p.n}</span>
+                    <span className="h-px w-10 bg-lime/40" />
+                    <span className="text-[11px] uppercase tracking-[0.28em] text-ink-soft">{p.tag}</span>
                   </div>
 
-                  <h2 className="font-serif italic text-5xl sm:text-6xl lg:text-7xl font-light text-white leading-[0.95] mb-6 tracking-[-0.02em]">
+                  <h2 className="font-serif italic text-5xl sm:text-6xl lg:text-7xl font-light text-ink leading-[0.95] mb-6 tracking-[-0.02em]">
                     {p.title}
                   </h2>
 
-                  <p className="text-gold-light/90 text-xl sm:text-2xl font-light leading-snug mb-5 max-w-xl">{p.lede}</p>
-                  <p className="text-white/55 text-base leading-relaxed max-w-lg mb-9">{p.body}</p>
+                  <p className="text-lime-text text-xl sm:text-2xl font-light leading-snug mb-5 max-w-xl">{p.lede}</p>
+                  <p className="text-ink-muted text-base leading-relaxed max-w-lg mb-9">{p.body}</p>
 
                   <div className="flex flex-wrap gap-x-12 gap-y-5">
                     {p.metrics.map(([k, label]) => (
                       <div key={label}>
-                        <div className="font-jakarta text-2xl font-extrabold text-gradient-gold leading-none">{k}</div>
-                        <div className="text-white/40 text-xs mt-1.5 uppercase tracking-wider">{label}</div>
+                        <div className="font-jakarta text-2xl font-extrabold text-gradient-lime leading-none">{k}</div>
+                        <div className="text-ink-soft text-xs mt-1.5 uppercase tracking-wider">{label}</div>
                       </div>
                     ))}
                   </div>
@@ -260,17 +324,32 @@ export default function Philosophy() {
                   {/* producer marquee - merged in from the old "Sourcing Ecosystem" section */}
                   {i === 0 && (
                     <div className="mt-11 max-w-xl">
-                      <div className="text-[10px] uppercase tracking-[0.28em] text-white/30 mb-3">Our producers</div>
+                      <div className="text-[10px] uppercase tracking-[0.28em] text-ink-subtle mb-3">Our producers</div>
                       <div className="marquee-mask overflow-hidden">
                         <div className="flex w-max animate-jd-marquee" style={{ animationDuration: '32s' }}>
                           {[...COMPANY.manufacturers, ...COMPANY.manufacturers].map((m, k) => (
-                            <span key={k} className="flex items-center gap-1.5 px-5 whitespace-nowrap font-jakarta font-bold text-white/45">
+                            <span key={k} className="flex items-center gap-1.5 px-5 whitespace-nowrap font-jakarta font-bold text-ink-soft">
                               {m.name}
-                              {m.badge && <Icon name="BadgeCheck" className="w-3.5 h-3.5 text-gold/70" />}
+                              {m.badge && <Icon name="BadgeCheck" className="w-3.5 h-3.5 text-gold-dark" />}
                             </span>
                           ))}
                         </div>
                       </div>
+                    </div>
+                  )}
+                  </div>
+
+                  {/* the panel's photograph - what the words are actually describing */}
+                  {p.image && (
+                    <div className="relative aspect-[4/3] lg:aspect-[3/4] rounded-2xl overflow-hidden border border-line bg-ink-pale">
+                      <Image
+                        src={p.image}
+                        alt={p.alt ?? ''}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 420px"
+                        className="object-cover"
+                      />
+                      <span aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/25 to-transparent" />
                     </div>
                   )}
                 </motion.div>
@@ -280,7 +359,10 @@ export default function Philosophy() {
             {/* ── 04 · Finale - the journey resolves: from Gujarat to the world ── */}
             <div
               ref={(el) => { panelRefs.current[3] = el; }}
-              className="min-h-[72vh] sm:min-h-[88vh] flex flex-col justify-center py-12 sm:py-16"
+              className={pinned
+                  ? 'absolute inset-0 flex flex-col justify-center transition-opacity duration-[600ms] ease-out'
+                  : 'min-h-[72vh] sm:min-h-[88vh] flex flex-col justify-center py-12 sm:py-16'}
+              style={pinned ? { opacity: active === 3 ? 1 : 0, pointerEvents: active === 3 ? 'auto' : 'none' } : undefined}
             >
               <motion.div
                 initial={{ opacity: 0, y: 40, filter: 'blur(14px)' }}
@@ -291,15 +373,15 @@ export default function Philosophy() {
               >
                 {/* four-verb recap of the journey just witnessed */}
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="font-mono text-gold text-sm">04</span>
-                  <span className="h-px w-10 bg-gold/40" />
-                  <span className="text-[11px] uppercase tracking-[0.28em] text-white/40">Buy · Document · Ship</span>
+                  <span className="font-mono text-lime-text text-sm">04</span>
+                  <span className="h-px w-10 bg-lime/40" />
+                  <span className="text-[11px] uppercase tracking-[0.28em] text-ink-soft">Buy · Document · Ship</span>
                 </div>
 
-                <h2 className="font-serif italic text-5xl sm:text-6xl lg:text-7xl font-light text-white leading-[0.95] mb-6 tracking-[-0.02em]">
-                  From Gujarat to <span className="text-gradient-gold not-italic font-jakarta font-extrabold">30+ countries</span>
+                <h2 className="font-serif italic text-5xl sm:text-6xl lg:text-7xl font-light text-ink leading-[0.95] mb-6 tracking-[-0.02em]">
+                  From Gujarat to <span className="text-gradient-lime not-italic font-jakarta font-extrabold">30+ countries</span>
                 </h2>
-                <p className="text-white/55 text-lg leading-relaxed max-w-lg mb-10">
+                <p className="text-ink-muted text-lg leading-relaxed max-w-lg mb-10">
                   300+ products - industrial chemicals and pharmaceutical APIs. Sold across India and exported to 30+ countries.
                 </p>
 
@@ -307,23 +389,25 @@ export default function Philosophy() {
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-6 mb-11 max-w-2xl items-start">
                   {STATS.map((s) => (
                     <div key={s.label}>
-                      <div className="font-jakarta text-2xl sm:text-3xl font-extrabold text-gradient-gold leading-none whitespace-nowrap">
+                      <div className="font-jakarta text-2xl sm:text-3xl font-extrabold text-gradient-lime leading-none whitespace-nowrap">
                         <StatCounter end={s.num} suffix={s.suffix} />
                       </div>
-                      <div className="text-white/40 text-xs mt-2 uppercase tracking-wider">{s.label}</div>
+                      <div className="text-ink-soft text-xs mt-2 uppercase tracking-wider">{s.label}</div>
                     </div>
                   ))}
                 </div>
 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3.5">
-                  <Link href="/quote" className="btn-gold px-7 py-3.5 text-base">
+                  <Link href="/quote" className="btn-lime px-7 py-3.5 text-base">
                     Get CIF Quote <Icon name="ArrowRight" className="w-4 h-4" />
                   </Link>
-                  <a href="/Jaydev-Multicomm-Catalogue.pdf" download className="btn-ghost-white px-7 py-3.5 text-base">
+                  <a href="/Jaydev-Multicomm-Catalogue.pdf" download className="btn-ink px-7 py-3.5 text-base">
                     <Icon name="Download" className="w-4 h-4" /> Catalogue
                   </a>
                 </div>
               </motion.div>
+            </div>
+              </div>
             </div>
           </div>
         </div>

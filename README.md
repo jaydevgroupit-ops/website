@@ -212,12 +212,12 @@ npm run lint
 ## 🛒 Products
 
 ### Tier 1: Core Export Products (Manufacturer-Backed)
-1. **Caustic Soda** – GACL, Grasim, Reliance
-2. **Sulphuric Acid** – GACL
-3. **SMBS (Sodium Metabisulfite)** – GACL
-4. **Hydrogen Peroxide** – Reliance
-5. **PAC (Polyaluminium Chloride)** – Kutch manufacturers
-6. **Calcium Chloride** – DCM Shriram, Reliance
+1. **Caustic Soda** - GACL, Grasim, Reliance
+2. **Sulphuric Acid** - GACL
+3. **SMBS (Sodium Metabisulfite)** - GACL
+4. **Hydrogen Peroxide** - Reliance
+5. **PAC (Polyaluminium Chloride)** - Kutch manufacturers
+6. **Calcium Chloride** - DCM Shriram, Reliance
 
 ### Tier 2: Specialty Products
 - Zircon Sand, Lauric Acid, Decanoic Acid, Epichlorohydrin
@@ -322,9 +322,9 @@ npx lighthouse http://localhost:3000 --view
 ## 📚 Documentation
 
 ### Master Guides
-- **AGENTS.md** – Company overview, business model, 9-phase roadmap
-- **PHASE-2-AUDIT-REPORT.md** – Comprehensive audit findings & fixes
-- **skills/*** – 9 skill files (business, design, technical, SEO, etc.)
+- **AGENTS.md** - Company overview, business model, 9-phase roadmap
+- **PHASE-2-AUDIT-REPORT.md** - Comprehensive audit findings & fixes
+- **skills/*** - 9 skill files (business, design, technical, SEO, etc.)
 
 ### How to Use Skills
 1. Before starting a task, read the relevant skill file

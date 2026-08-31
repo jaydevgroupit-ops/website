@@ -61,7 +61,7 @@ Use these concept groups:
 
 - Reinforce trust with certifications, documentation, and source manufacturers.
 - Use strong CTAs like “Request quote,” “Get export pricing,” and “Contact via WhatsApp.”
-- Highlight responsive service and 24–48 hour turnaround.
+- Highlight responsive service and 24-48 hour turnaround.
 
 ## Maintenance
 

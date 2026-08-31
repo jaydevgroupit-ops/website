@@ -1,4 +1,5 @@
 import {
+  SlidersHorizontal, LayoutGrid, List,
   Atom, Beaker, Droplets, Sparkles, FlaskConical, Hexagon, Wheat, Pickaxe,
   Flame, PaintBucket, Recycle, SprayCan, Pill, Shirt, ScrollText, Globe,
   Gem, Ship, Building2, Factory, Package, ShieldCheck, Truck, Clock, FileText,
@@ -9,6 +10,7 @@ import {
 } from 'lucide-react';
 
 const MAP: Record<string, LucideIcon> = {
+  SlidersHorizontal, LayoutGrid, List,
   Atom, Beaker, Droplets, Sparkles, FlaskConical, Hexagon, Wheat, Pickaxe,
   Flame, PaintBucket, Recycle, SprayCan, Pill, Shirt, ScrollText, Globe,
   Gem, Ship, Building2, Factory, Package, ShieldCheck, Truck, Clock, FileText,

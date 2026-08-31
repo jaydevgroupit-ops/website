@@ -3,7 +3,7 @@
  *
  * Replaces the large rotating spoke disc on phones, where the disc is either
  * too big or too faint to work. A handful of simple ring/bond glyphs drift
- * slowly across the navy background at low opacity - subtle, not crowded.
+ * slowly across the light hero at low opacity - subtle, not crowded.
  * Purely decorative, so it is hidden from assistive tech.
  */
 
@@ -29,8 +29,8 @@ const GLYPHS: Glyph[] = [
 ];
 
 function Shape({ kind }: { kind: Glyph['kind'] }) {
-  const stroke = 'rgba(232,184,75,0.75)';
-  const dot = 'rgba(232,184,75,0.9)';
+  const stroke = 'rgba(57,206,34,0.55)';
+  const dot = 'rgba(27,125,29,0.70)';
 
   if (kind === 'ring') {
     // hexagonal ring with vertex atoms
