@@ -8,6 +8,7 @@ import SmoothScroll from '@/components/SmoothScroll';
 import MobileNav from '@/components/MobileNav';
 import { EnquiryProvider } from '@/components/products/EnquiryContext';
 import EnquiryBar from '@/components/products/EnquiryBar';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SITE_URL, SALES_EMAIL, EXPORT_EMAIL, PHONE_EXPORT, PHONE_RAJKOT } from '@/lib/site';
 import { products } from '@/lib/content';
 import { pharmaProducts, THERAPEUTIC_SEGMENTS } from '@/lib/pharma';
@@ -172,6 +173,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <EnquiryBar />
           <MobileNav />
         </EnquiryProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
