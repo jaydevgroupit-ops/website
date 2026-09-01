@@ -5,22 +5,53 @@
  *
  * The site had no next.config at all, so it shipped with none of these. They
  * are all response headers with no build-time cost and no effect on rendering.
- *
- * Deliberately NOT here: a Content-Security-Policy. This site loads Google
- * Fonts, Vercel Speed Insights and framer-motion's inline styles, so a strict
- * policy needs its allowlist verified against a real deploy rather than guessed
- * at - a wrong CSP fails closed and takes the page's styling with it.
  */
+
+/**
+ * Content-Security-Policy.
+ *
+ * Allowlist derived from what the site actually loads, not guessed:
+ *   - fonts.googleapis.com (stylesheet) + fonts.gstatic.com (font files),
+ *     both preconnected in app/layout.tsx
+ *   - va.vercel-scripts.com and vitals.vercel-insights.com for Speed Insights.
+ *     On Vercel the script is proxied same-origin at /_vercel/speed-insights/,
+ *     but the package falls back to the CDN host, so both are permitted.
+ *
+ * `'unsafe-inline'` on script-src is a deliberate trade, not an oversight. Next
+ * hydrates from inline `self.__next_f.push(...)` blocks; the alternative is a
+ * per-request nonce, which requires middleware and forces every one of the 138
+ * static pages to render dynamically. For a marketing site with no auth and no
+ * user-generated content, that cost buys very little.
+ *
+ * So this policy is not an XSS backstop. What it does buy: script and frame
+ * loading is restricted to known origins, `object-src 'none'` kills legacy
+ * plugin vectors, and `base-uri`/`form-action` stop an injected tag from
+ * rewriting relative URLs or repointing the RFQ form at another host.
+ */
+const csp = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' https://fonts.gstatic.com data:",
+  // next/image has no remotePatterns configured, so every image is local.
+  "img-src 'self' data: blob:",
+  "connect-src 'self' https://vitals.vercel-insights.com https://va.vercel-scripts.com",
+  "frame-ancestors 'self'",
+  "form-action 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  'upgrade-insecure-requests',
+].join('; ');
 const securityHeaders = [
   // Never let a browser second-guess a declared Content-Type. Stops a user
   // upload or a text response being sniffed into executable script.
   { key: 'X-Content-Type-Options', value: 'nosniff' },
 
   // No framing, so the site cannot be rendered inside an attacker's page and
-  // clickjacked. frame-ancestors is the modern form; X-Frame-Options is kept
-  // for older browsers that ignore CSP.
+  // clickjacked. frame-ancestors (inside the CSP below) is the modern form;
+  // X-Frame-Options is kept for older browsers that ignore CSP.
   { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
-  { key: 'Content-Security-Policy', value: "frame-ancestors 'self'" },
+  { key: 'Content-Security-Policy', value: csp },
 
   // Send the origin cross-site, the full path same-site, and nothing at all when
   // downgrading to http. Keeps buyer-identifying query strings off referrers.

@@ -66,6 +66,8 @@ const jsonLd = {
       telephone: PHONE_EXPORT,
       slogan: 'Connecting Chemistry, Creating Solutions',
       founder: { '@type': 'Person', name: 'Jitesh Vajir' },
+      foundingDate: '2018',
+      foundingLocation: { '@type': 'Place', name: 'Ahmedabad, Gujarat, India' },
       address: ADDRESS,
       hasOfferCatalog: [
         {
@@ -133,6 +135,14 @@ const jsonLd = {
       name: 'Jaydev Group',
       inLanguage: 'en',
       publisher: { '@id': ORG_ID },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${SITE_URL}/products?q={search_term_string}`,
+        },
+        'query-input': 'required name=search_term_string',
+      },
     },
   ],
 };

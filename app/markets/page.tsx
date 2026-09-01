@@ -1,6 +1,7 @@
 import MarketsClient from '@/components/MarketsClient';
 import MarketNews from '@/components/MarketNews';
 import { SITE_URL } from '@/lib/site';
+import { breadcrumb, jsonLdScript } from '@/lib/seo';
 
 export const metadata = {
   title: 'Where We Supply - India & Export Markets',
@@ -9,5 +10,10 @@ export const metadata = {
 };
 
 export default function MarketsPage() {
-  return <MarketsClient news={<MarketNews />} />;
+  return (
+    <>
+      <script {...jsonLdScript(breadcrumb([{ name: 'Markets & Insights', path: '/markets' }]))} />
+      <MarketsClient news={<MarketNews />} />
+    </>
+  );
 }

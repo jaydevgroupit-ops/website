@@ -54,7 +54,7 @@ export default function ProductsClient() {
   const params = useSearchParams();
 
   const [division, setDivision] = useState<Division>((params.get('division') as Division) || 'industrial');
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(params.get('q') || '');
   const [activeCategory, setActiveCategory] = useState(params.get('category') || 'all');
   const [section, setSection] = useState<PharmaSection | 'all'>((params.get('section') as PharmaSection) || 'all');
   const [segment, setSegment] = useState(params.get('segment') || 'all');
@@ -65,16 +65,23 @@ export default function ProductsClient() {
   const { ids, has, toggle } = useEnquiry();
   const selected = useMemo(() => new Set(ids), [ids]);
 
-  // Keep the URL in step so any filtered view is shareable.
+  // Keep the URL in step so any filtered view is shareable. The search term is
+  // included so a result set can be linked to (and so the WebSite SearchAction
+  // in the root layout points at a URL that genuinely filters) - debounced,
+  // because without it every keystroke would fire its own router.replace.
   useEffect(() => {
-    const q = new URLSearchParams();
-    if (division !== 'industrial') q.set('division', division);
-    if (division === 'industrial' && activeCategory !== 'all') q.set('category', activeCategory);
-    if (division === 'pharma' && section !== 'all') q.set('section', section);
-    if (division === 'pharma' && segment !== 'all') q.set('segment', segment);
-    const qs = q.toString();
-    router.replace(qs ? `/products?${qs}` : '/products', { scroll: false });
-  }, [division, activeCategory, section, segment, router]);
+    const t = setTimeout(() => {
+      const q = new URLSearchParams();
+      if (division !== 'industrial') q.set('division', division);
+      if (division === 'industrial' && activeCategory !== 'all') q.set('category', activeCategory);
+      if (division === 'pharma' && section !== 'all') q.set('section', section);
+      if (division === 'pharma' && segment !== 'all') q.set('segment', segment);
+      if (search.trim()) q.set('q', search.trim());
+      const qs = q.toString();
+      router.replace(qs ? `/products?${qs}` : '/products', { scroll: false });
+    }, 350);
+    return () => clearTimeout(t);
+  }, [division, activeCategory, section, segment, search, router]);
 
   const q = search.toLowerCase().trim();
 

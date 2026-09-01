@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import QuoteClient from '@/components/QuoteClient';
 import { SITE_URL } from '@/lib/site';
+import { breadcrumb, jsonLdScript } from '@/lib/seo';
 
 export const metadata = {
   title: 'Request a Quote - Price in 48 Hours',
@@ -10,6 +11,8 @@ export const metadata = {
 
 export default function QuotePage() {
   return (
+    <>
+    <script {...jsonLdScript(breadcrumb([{ name: 'Request a Quote', path: '/quote' }]))} />
     <Suspense fallback={
       <div className="min-h-screen bg-white pt-20 pb-20">
         <div className="bg-surface py-12">
@@ -26,5 +29,6 @@ export default function QuotePage() {
     }>
       <QuoteClient />
     </Suspense>
+    </>
   );
 }

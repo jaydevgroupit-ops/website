@@ -1,6 +1,7 @@
 import IndustriesClient from '@/components/IndustriesClient';
 import { industryData } from '@/lib/content';
 import { SITE_URL } from '@/lib/site';
+import { breadcrumb, jsonLdScript } from '@/lib/seo';
 
 export const metadata = {
   title: 'Industries - Chemicals & APIs for 12 Sectors',
@@ -9,5 +10,10 @@ export const metadata = {
 };
 
 export default function IndustriesPage() {
-  return <IndustriesClient />;
+  return (
+    <>
+      <script {...jsonLdScript(breadcrumb([{ name: 'Industries', path: '/industries' }]))} />
+      <IndustriesClient />
+    </>
+  );
 }

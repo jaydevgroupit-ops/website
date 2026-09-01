@@ -4,6 +4,7 @@ import { faqs } from '@/lib/faqs';
 import FaqAccordion from '@/components/FaqAccordion';
 import { Icon } from '@/components/Icon';
 import { SITE_URL } from '@/lib/site';
+import { breadcrumb, jsonLdScript } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'FAQ - Export, Payment & Documentation',
@@ -26,6 +27,7 @@ export default function FaqPage() {
   return (
     <div className="min-h-screen bg-white pt-16 pb-20">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script {...jsonLdScript(breadcrumb([{ name: 'FAQ', path: '/faq' }]))} />
 
       <div className="bg-surface py-14 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(238,246,236,0.10),rgba(238,246,236,0.04)_35%,transparent_60%)]" />

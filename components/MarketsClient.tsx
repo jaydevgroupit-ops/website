@@ -55,7 +55,7 @@ export default function MarketsClient({ news }: { news?: React.ReactNode }) {
             {[
               ['Pan-India', 'Domestic supply'],
               ['4', 'Export regions'],
-              [`${totalCountries}+`, 'Countries served'],
+              [`${totalCountries}`, 'Named markets'],
               ['7-25', 'Days transit'],
             ].map(([v, l]) => (
               <div key={l} className="px-4 py-5 text-center">

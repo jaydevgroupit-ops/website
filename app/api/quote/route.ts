@@ -17,6 +17,43 @@ const NOTIFICATION_FROM_EMAIL =
 const WEBHOOK = process.env.QUOTE_WEBHOOK_URL || '';
 const emailEnabled = Boolean(RESEND_API_KEY);
 
+/**
+ * Rate limit: a fixed window per client IP.
+ *
+ * Best-effort by design. Serverless instances are ephemeral and there may be
+ * several warm at once, so this is not a hard global cap - a distributed
+ * attacker spread across instances will get more through than the numbers
+ * suggest. What it reliably stops is the common case: one source hammering one
+ * warm instance to flood the sales inbox and burn Resend quota. A hard cap
+ * needs shared state (Vercel KV / Upstash), which is an infra decision.
+ */
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const hits = new Map<string, { n: number; resetAt: number }>();
+
+function rateLimited(ip: string): { limited: boolean; retryAfter: number } {
+  const now = Date.now();
+  const rec = hits.get(ip);
+  if (!rec || now > rec.resetAt) {
+    hits.set(ip, { n: 1, resetAt: now + RATE_WINDOW_MS });
+    // Opportunistic sweep so the map cannot grow without bound on a
+    // long-lived instance. Cheap: it only runs on a fresh window.
+    if (hits.size > 5000) {
+      for (const [k, v] of hits) if (now > v.resetAt) hits.delete(k);
+    }
+    return { limited: false, retryAfter: 0 };
+  }
+  rec.n += 1;
+  return { limited: rec.n > RATE_LIMIT, retryAfter: Math.ceil((rec.resetAt - now) / 1000) };
+}
+
+/** Vercel sets x-forwarded-for; the client-controlled tail is ignored by
+ *  taking the FIRST hop, which the platform prepends. */
+const clientIp = (req: Request) =>
+  (req.headers.get('x-forwarded-for') ?? '').split(',')[0].trim() ||
+  req.headers.get('x-real-ip') ||
+  'unknown';
+
 const esc = (s: unknown) =>
   String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -127,6 +164,14 @@ function clamp(q: Quote): Quote {
 
 export async function POST(request: Request) {
   try {
+    const { limited, retryAfter } = rateLimited(clientIp(request));
+    if (limited) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please try again shortly.' },
+        { status: 429, headers: { 'Retry-After': String(retryAfter) } },
+      );
+    }
+
     const raw = await request.text();
     if (raw.length > MAX_BODY_BYTES) {
       return NextResponse.json({ error: 'Payload too large' }, { status: 413 });

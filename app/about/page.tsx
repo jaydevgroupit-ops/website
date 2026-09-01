@@ -1,5 +1,6 @@
 import AboutClient from '@/components/AboutClient';
 import { SITE_URL } from '@/lib/site';
+import { breadcrumb, jsonLdScript } from '@/lib/seo';
 
 export const metadata = {
   title: 'About - Business Units & Leadership',
@@ -8,5 +9,10 @@ export const metadata = {
 };
 
 export default function AboutPage() {
-  return <AboutClient />;
+  return (
+    <>
+      <script {...jsonLdScript(breadcrumb([{ name: 'About', path: '/about' }]))} />
+      <AboutClient />
+    </>
+  );
 }
