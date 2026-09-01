@@ -20,8 +20,17 @@ const emailEnabled = Boolean(RESEND_API_KEY);
 const esc = (s: unknown) =>
   String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
+/** Largest body we will even parse. A genuine RFQ is a few hundred bytes; this
+ *  is only here so a script cannot make us buffer megabytes per request. */
+const MAX_BODY_BYTES = 32 * 1024;
+/** Free-text caps, applied before the value reaches the email. */
+const MAX_NOTES = 4000;
+const MAX_FIELD = 200;
+
 type Line = { product?: string; quantity?: string; unit?: string };
 type Quote = {
+  /** Honeypot. Real people never see this field, so anything in it is a bot. */
+  company_website?: string;
   /** One row per product. A quote may cover several lines. */
   lines?: Line[];
   destinationPort?: string;
@@ -92,9 +101,44 @@ async function sendEmail(q: Quote) {
   if (error) throw new Error(`Resend: ${error.message}`);
 }
 
+/** Trim every string down to a sane length so one huge field cannot turn a
+ *  submission into an unreadable (or undeliverable) email. */
+function clamp(q: Quote): Quote {
+  const cut = (v: unknown, n: number) =>
+    typeof v === 'string' ? v.slice(0, n) : v as undefined;
+  return {
+    ...q,
+    lines: q.lines?.slice(0, 25).map((l) => ({
+      product: cut(l.product, MAX_FIELD),
+      quantity: cut(l.quantity, 40),
+      unit: cut(l.unit, 20),
+    })),
+    destinationPort: cut(q.destinationPort, MAX_FIELD),
+    incoterm: cut(q.incoterm, 40),
+    packaging: cut(q.packaging, MAX_FIELD),
+    name: cut(q.name, MAX_FIELD),
+    company: cut(q.company, MAX_FIELD),
+    email: cut(q.email, MAX_FIELD),
+    phone: cut(q.phone, 60),
+    country: cut(q.country, MAX_FIELD),
+    notes: cut(q.notes, MAX_NOTES),
+  };
+}
+
 export async function POST(request: Request) {
   try {
-    const q = (await request.json()) as Quote;
+    const raw = await request.text();
+    if (raw.length > MAX_BODY_BYTES) {
+      return NextResponse.json({ error: 'Payload too large' }, { status: 413 });
+    }
+    const q = clamp(JSON.parse(raw) as Quote);
+
+    // Honeypot: answer exactly as we would a real submission. Telling a bot it
+    // was caught just teaches whoever runs it to stop filling the field.
+    if (q.company_website?.trim()) {
+      console.warn('[quote] honeypot tripped; dropping submission');
+      return NextResponse.json({ ok: true });
+    }
 
     const hasLine = q.lines?.some((l) => l.product?.trim());
     if (!hasLine || !q.name || !q.email || !/\S+@\S+\.\S+/.test(q.email)) {
@@ -138,5 +182,7 @@ export async function POST(request: Request) {
 }
 
 export async function GET() {
-  return NextResponse.json({ ok: true, message: 'Quote endpoint is live', emailEnabled });
+  // Deliberately says nothing about which channels are configured: that is a
+  // free reconnaissance signal for anyone probing the endpoint.
+  return NextResponse.json({ ok: true, message: 'Quote endpoint is live' });
 }

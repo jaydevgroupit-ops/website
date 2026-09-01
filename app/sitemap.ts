@@ -11,7 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/markets`, lastModified: new Date(), priority: 0.8 },
     { url: `${BASE}/about`, lastModified: new Date(), priority: 0.7 },
     { url: `${BASE}/quote`, lastModified: new Date(), priority: 0.9 },
-    { url: `${BASE}/articles`, lastModified: new Date(), priority: 0.8 },
     { url: `${BASE}/faq`, lastModified: new Date(), priority: 0.7 },
   ];
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, Fragment } from 'react';
+import { useState, useEffect, useRef, Fragment } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -51,6 +51,9 @@ export default function QuoteClient() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [submitError, setSubmitError] = useState(false);
+  /** Honeypot. Uncontrolled on purpose - it must never re-render or be touched
+   *  by the real form state; only a bot autofilling the DOM will populate it. */
+  const botField = useRef<HTMLInputElement>(null);
 
   const submitQuote = async () => {
     if (!stepValid(2) || sending) return;
@@ -60,7 +63,7 @@ export default function QuoteClient() {
       const res = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, company_website: botField.current?.value ?? '' }),
       });
       if (!res.ok) throw new Error('request failed');
       setSubmitted(true);
@@ -422,6 +425,19 @@ export default function QuoteClient() {
                   </button>
                 )}
               </div>
+
+              {/* Honeypot. Positioned off-screen rather than display:none, because
+                  the crawlers worth catching skip fields they can see are hidden.
+                  aria-hidden + tabIndex=-1 keep it away from real users entirely. */}
+              <input
+                ref={botField}
+                type="text"
+                name="company_website"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute -left-[9999px] top-0 h-px w-px opacity-0"
+              />
 
               {submitError && (
                 <p className="mt-4 text-sm text-red-600">

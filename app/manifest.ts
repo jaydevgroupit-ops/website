@@ -10,6 +10,13 @@ export default function manifest(): MetadataRoute.Manifest {
     display: 'standalone',
     background_color: '#FFFFFF',
     theme_color: '#101010',
-    icons: [{ src: '/icon.png', sizes: '512x512', type: 'image/png' }],
+    icons: [
+      { src: '/icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
+      { src: '/icon.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+      // Without a maskable icon Android shows the square plate inside its own
+      // mask - a white tile with a letterboxed logo. This one keeps the mark
+      // inside the guaranteed 80% safe circle, so any launcher shape works.
+      { src: '/icon-maskable.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+    ],
   };
 }

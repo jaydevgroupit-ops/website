@@ -6,7 +6,7 @@ import { SITE_URL as BASE } from '@/lib/site';
 
 export const metadata = {
   title: 'Products - Chemicals, APIs & Intermediates',
-  description: `Browse ${products.length}+ industrial chemicals and ${pharmaProducts.length} pharmaceutical products from Jaydev Group - APIs across 15 therapeutic areas, intermediates, excipients and fine chemicals. Domestic supply and export.`,
+  description: `${products.length} industrial chemicals and ${pharmaProducts.length} pharmaceutical products - APIs, intermediates, excipients and fine chemicals. Domestic supply and export.`,
   alternates: { canonical: `${BASE}/products` },
 };
 
@@ -39,7 +39,21 @@ export default function ProductsPage() {
       {jsonLd.map((s, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
-      <Suspense fallback={<div className="min-h-screen bg-white pt-24" />}>
+      <Suspense fallback={
+        <div className="min-h-screen bg-white pt-20">
+          <div className="bg-surface">
+            <div className="max-w-7xl mx-auto px-4 py-14 text-center">
+              <span className="section-label mb-3">Catalogue</span>
+              <h1 className="font-jakarta text-3xl sm:text-4xl font-extrabold text-ink mb-2">
+                {products.length + pharmaProducts.length} products, one enquiry
+              </h1>
+              <p className="text-ink-soft max-w-2xl mx-auto">
+                Industrial chemicals and pharmaceutical APIs, in one catalogue.
+              </p>
+            </div>
+          </div>
+        </div>
+      }>
         <ProductsClient />
       </Suspense>
     </>
