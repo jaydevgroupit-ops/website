@@ -1,4 +1,5 @@
 import MarketsClient from '@/components/MarketsClient';
+import MarketNews from '@/components/MarketNews';
 import { SITE_URL } from '@/lib/site';
 
 export const metadata = {
@@ -8,5 +9,5 @@ export const metadata = {
 };
 
 export default function MarketsPage() {
-  return <MarketsClient />;
+  return <MarketsClient news={<MarketNews />} />;
 }

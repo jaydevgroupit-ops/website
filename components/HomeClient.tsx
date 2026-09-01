@@ -20,7 +20,7 @@ const WaIcon = ({ className = 'w-5 h-5' }: { className?: string }) => (
   </svg>
 );
 
-export default function HomeClient({ news }: { news?: React.ReactNode }) {
+export default function HomeClient() {
   return (
     <>
       {/* ═══ HERO = CINEMATIC NARRATIVE - The Obsession. Opens the page; ends with
@@ -100,8 +100,6 @@ export default function HomeClient({ news }: { news?: React.ReactNode }) {
           </div>
         </div>
       </section>
-
-      {news}
 
       {/* ═══ PROCESS FLOW ═══ */}
       <section className="py-14 bg-white">

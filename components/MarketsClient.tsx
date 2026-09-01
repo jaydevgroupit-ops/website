@@ -31,7 +31,9 @@ function Row({ label, children }: { label: string; children: React.ReactNode }) 
   );
 }
 
-export default function MarketsClient() {
+/** `news` is <MarketNews />, an async server component: it cannot be imported
+ *  here (this file is a client boundary), so the page passes it in as a slot. */
+export default function MarketsClient({ news }: { news?: React.ReactNode }) {
   const indiaOffices = BRANCHES.filter((b) => b.country === 'India');
   const totalCountries = marketData.reduce((n, m) => n + m.countries.length, 0);
 
@@ -64,6 +66,10 @@ export default function MarketsClient() {
           </dl>
         </div>
       </div>
+
+      {/* ── Market wire ── full-bleed, straight off the hero: what the market is
+           doing today frames every region and lead time listed below it. ── */}
+      {news}
 
       <div className="max-w-7xl mx-auto px-4 py-14 space-y-14">
         {/* ── Domestic ── */}
