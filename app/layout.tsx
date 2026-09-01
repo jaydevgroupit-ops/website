@@ -84,7 +84,7 @@ const jsonLd = {
           '@id': `${SITE_URL}/#catalog-pharma`,
           name: 'Pharma, Intermediates & APIs',
           numberOfItems: pharmaProducts.length,
-          description: `Active pharmaceutical ingredients across ${THERAPEUTIC_SEGMENTS.length} therapeutic areas, plus pharmaceutical intermediates, excipients, nutraceutical ingredients and fine chemicals. Supplied for R&D and regulatory-filing purposes.`,
+          description: `Active pharmaceutical ingredients across ${THERAPEUTIC_SEGMENTS.length} therapeutic areas, plus veterinary APIs, pharmaceutical intermediates, excipients and nutraceutical ingredients. Supplied for R&D and regulatory-filing purposes.`,
           url: `${SITE_URL}/products?division=pharma`,
         },
       ],
@@ -122,7 +122,7 @@ const jsonLd = {
         'Sodium Metabisulphite (SMBS)', 'Hydrogen Peroxide', 'Calcium Chloride', 'Water treatment chemicals',
         'Chlor-alkali chemicals', 'Chemical trading', 'Pharmaceutical intermediates',
         'Active pharmaceutical ingredients (APIs)', 'Pharmaceutical excipients',
-        'Nutraceutical ingredients', 'Fine chemicals', 'API sourcing',
+        'Nutraceutical ingredients', 'Veterinary APIs', 'Pharmaceutical intermediates', 'API sourcing',
         'Export documentation (COA, MSDS, IMDG)',
       ],
       description:

@@ -102,8 +102,19 @@ export default function QuoteClient() {
 
         const ph = ids.length === 1 ? pharmaProducts.find((x) => x.id === ids[0]) : undefined;
         if (ph) {
-          const kind = ph.section === 'apis' ? 'API' : 'pharmaceutical';
-          next.notes = `${kind} enquiry${ph.therapeuticSegment ? ` - ${ph.therapeuticSegment}` : ''}. Please confirm pharmacopoeial grade and DMF availability.`;
+          // APIs split into human and veterinary books; an intermediate carries
+          // the API it feeds, which is the detail the buyer actually needs quoted.
+          const kind =
+            ph.section === 'apis-human' ? 'API'
+            : ph.section === 'apis-veterinary' ? 'Veterinary API'
+            : ph.section === 'intermediates' ? 'Intermediate'
+            : 'pharmaceutical';
+          const qualifier =
+            ph.therapeuticSegment ? ` - ${ph.therapeuticSegment}`
+            : ph.forApi ? ` for ${ph.forApi}`
+            : ph.ingredientType ? ` - ${ph.ingredientType}`
+            : '';
+          next.notes = `${kind} enquiry${qualifier}. Please confirm pharmacopoeial grade and DMF availability.`;
         }
         const imp = ids.length === 1 ? IMPORT_PRODUCTS.find((x) => x.id === ids[0]) : undefined;
         if (imp) next.notes = 'Import enquiry (into India).';

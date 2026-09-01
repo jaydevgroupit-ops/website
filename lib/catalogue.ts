@@ -9,7 +9,7 @@
 // ─────────────────────────────────────────────
 
 import { products } from './content';
-import { pharmaProducts, displayName } from './pharma';
+import { pharmaProducts, displayName, THERAPEUTIC_SEGMENTS } from './pharma';
 
 export type Division = 'industrial' | 'pharma';
 
@@ -34,7 +34,7 @@ export const DIVISIONS: {
     label: 'Pharma, Intermediates & APIs',
     short: 'Pharma & APIs',
     icon: 'FlaskConical',
-    blurb: 'APIs, intermediates and excipients across 15 therapeutic areas.',
+    blurb: `Human and veterinary APIs, intermediates and excipients across ${THERAPEUTIC_SEGMENTS.length} therapeutic areas.`,
     count: pharmaProducts.length,
   },
 ];
@@ -75,7 +75,8 @@ export const catalogue: CatalogueEntry[] = [
     href: undefined,
     // Index the full chemical name too, so a buyer can search either.
     haystack: norm(
-      [p.name, p.shortName, p.cas, ...(p.casForms ?? []).map((f) => f.cas), p.therapeuticSegment]
+      [p.name, p.shortName, p.cas, ...(p.casForms ?? []).map((f) => f.cas),
+       p.therapeuticSegment, p.ingredientType, p.forApi]
         .filter(Boolean)
         .join(' '),
     ),

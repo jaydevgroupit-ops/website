@@ -1,10 +1,15 @@
 // ─── FAQ content (also powers FAQPage JSON-LD for AEO) ──
+// Counts are derived, not typed out: this text is published as FAQPage schema,
+// so a stale number here becomes a wrong answer in a search result.
+import { products } from './content';
+import { pharmaProducts, THERAPEUTIC_SEGMENTS } from './pharma';
+
 export type Faq = { q: string; a: string };
 
 export const faqs: Faq[] = [
   {
     q: 'What does Jaydev Group supply?',
-    a: 'Two things. Industrial chemicals - 100+ products including Caustic Soda, Sulphuric Acid, PAC, SMBS, Hydrogen Peroxide and Calcium Chloride. And pharmaceuticals - APIs across 15 therapeutic areas, plus intermediates, excipients and nutraceutical ingredients. We sell both across India and export both. We also import Zircon Sand, Lauric Acid (C12) and Decanoic Acid (C10).',
+    a: `Two things. Industrial chemicals - ${products.length} products including Caustic Soda, Sulphuric Acid, PAC, SMBS, Hydrogen Peroxide and Calcium Chloride. And pharmaceuticals - ${pharmaProducts.length} products: human APIs across ${THERAPEUTIC_SEGMENTS.length} therapeutic areas, veterinary APIs, intermediates, excipients and nutraceutical ingredients. We sell both across India and export both. We also import Zircon Sand, Lauric Acid (C12) and Decanoic Acid (C10).`,
   },
   {
     q: 'Which countries do you supply to?',

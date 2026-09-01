@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useMemo, useEffect, useCallback } from 'react';
+import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { products, categories, IMPORT_PRODUCTS } from '@/lib/content';
-import { pharmaProducts, PHARMA_SECTIONS, THERAPEUTIC_SEGMENTS, displayName, type PharmaSection } from '@/lib/pharma';
+import { pharmaProducts, PHARMA_SECTIONS, THERAPEUTIC_SEGMENTS, INGREDIENT_TYPES, displayName, type PharmaSection } from '@/lib/pharma';
 import { DIVISIONS, PHARMA_DISCLAIMER, countMatches, type Division } from '@/lib/catalogue';
 import { Icon } from './Icon';
 import { CatalogueGrid, CatalogueTable } from './products/CatalogueViews';
@@ -14,6 +14,7 @@ import { useEnquiry } from './products/EnquiryContext';
 const catLabel: Record<string, string> = Object.fromEntries(categories.map((c) => [c.id, c.label]));
 const sectionLabel: Record<string, string> = Object.fromEntries(PHARMA_SECTIONS.map((s) => [s.id, s.label]));
 const segIdOf: Record<string, string> = Object.fromEntries(THERAPEUTIC_SEGMENTS.map((s) => [s.label, s.id]));
+const ingIdOf: Record<string, string> = Object.fromEntries(INGREDIENT_TYPES.map((s) => [s.label, s.id]));
 
 type View = 'grid' | 'table';
 
@@ -35,7 +36,9 @@ const pharmaRow = (p: (typeof pharmaProducts)[number]): Row => ({
   id: p.id,
   name: displayName(p),
   cas: p.cas ?? p.casForms?.map((f) => f.cas).join(' · '),
-  meta: p.therapeuticSegment,
+  // The qualifier that matters differs by book: therapeutic area for an API,
+  // the drug it feeds for an intermediate, the sub-type for an ingredient.
+  meta: p.therapeuticSegment ?? (p.forApi ? `For ${p.forApi}` : undefined) ?? p.ingredientType,
   group: sectionLabel[p.section] ?? p.section,
   flag: p.investigational ? 'Investigational' : undefined,
 });
@@ -58,6 +61,7 @@ export default function ProductsClient() {
   const [activeCategory, setActiveCategory] = useState(params.get('category') || 'all');
   const [section, setSection] = useState<PharmaSection | 'all'>((params.get('section') as PharmaSection) || 'all');
   const [segment, setSegment] = useState(params.get('segment') || 'all');
+  const [ingType, setIngType] = useState(params.get('type') || 'all');
   const [showImports, setShowImports] = useState(false);
   const [view, setView] = useState<View>('grid');
   const [filtersOpen, setFiltersOpen] = useState(false);
@@ -69,19 +73,25 @@ export default function ProductsClient() {
   // included so a result set can be linked to (and so the WebSite SearchAction
   // in the root layout points at a URL that genuinely filters) - debounced,
   // because without it every keystroke would fire its own router.replace.
+  // State is seeded from the URL on mount, so writing it straight back achieves
+  // nothing - and if the component did not remount (a soft navigation between
+  // two /products URLs) it would overwrite the params that were just requested.
+  const synced = useRef(false);
   useEffect(() => {
+    if (!synced.current) { synced.current = true; return; }
     const t = setTimeout(() => {
       const q = new URLSearchParams();
       if (division !== 'industrial') q.set('division', division);
       if (division === 'industrial' && activeCategory !== 'all') q.set('category', activeCategory);
       if (division === 'pharma' && section !== 'all') q.set('section', section);
       if (division === 'pharma' && segment !== 'all') q.set('segment', segment);
+      if (division === 'pharma' && ingType !== 'all') q.set('type', ingType);
       if (search.trim()) q.set('q', search.trim());
       const qs = q.toString();
       router.replace(qs ? `/products?${qs}` : '/products', { scroll: false });
     }, 350);
     return () => clearTimeout(t);
-  }, [division, activeCategory, section, segment, search, router]);
+  }, [division, activeCategory, section, segment, ingType, search, router]);
 
   const q = search.toLowerCase().trim();
 
@@ -103,7 +113,11 @@ export default function ProductsClient() {
       (p.shortName ?? '').toLowerCase().includes(q) ||
       (p.cas ?? '').includes(q) ||
       (p.casForms ?? []).some((f) => f.cas.includes(q)) ||
-      (p.therapeuticSegment ?? '').toLowerCase().includes(q),
+      (p.therapeuticSegment ?? '').toLowerCase().includes(q) ||
+      (p.ingredientType ?? '').toLowerCase().includes(q) ||
+      // Buyers search by the finished drug ("ticagrelor intermediate"), so the
+      // target API has to be in the index, not just on the card.
+      (p.forApi ?? '').toLowerCase().includes(q),
     [q],
   );
 
@@ -123,6 +137,16 @@ export default function ProductsClient() {
     });
     return m;
   }, [matchPharma, segment]);
+
+  const ingTypeCounts = useMemo(() => {
+    const m: Record<string, number> = {};
+    pharmaProducts.filter(matchPharma).forEach((p) => {
+      if (!p.ingredientType) return;
+      const id = ingIdOf[p.ingredientType];
+      if (id) m[id] = (m[id] ?? 0) + 1;
+    });
+    return m;
+  }, [matchPharma]);
 
   const segmentCounts = useMemo(() => {
     const m: Record<string, number> = {};
@@ -146,20 +170,21 @@ export default function ProductsClient() {
       .filter((p) => {
         const okSection = section === 'all' || p.section === section;
         const okSegment = segment === 'all' || (p.therapeuticSegment && segIdOf[p.therapeuticSegment] === segment);
-        return okSection && okSegment && matchPharma(p);
+        const okType = ingType === 'all' || (p.ingredientType && ingIdOf[p.ingredientType] === ingType);
+        return okSection && okSegment && okType && matchPharma(p);
       })
       .map(pharmaRow);
-  }, [division, activeCategory, section, segment, matchIndustrial, matchPharma, showImports]);
+  }, [division, activeCategory, section, segment, ingType, matchIndustrial, matchPharma, showImports]);
 
   const otherDivision: Division = division === 'industrial' ? 'pharma' : 'industrial';
   const otherMatches = q ? countMatches(q, otherDivision) : 0;
 
   const switchDivision = (d: Division) => {
-    setDivision(d); setSearch(''); setActiveCategory('all'); setSection('all'); setSegment('all');
+    setDivision(d); setSearch(''); setActiveCategory('all'); setSection('all'); setSegment('all'); setIngType('all');
   };
-  const clearAll = () => { setSearch(''); setActiveCategory('all'); setSection('all'); setSegment('all'); };
+  const clearAll = () => { setSearch(''); setActiveCategory('all'); setSection('all'); setSegment('all'); setIngType('all'); };
 
-  const isFiltered = Boolean(q) || activeCategory !== 'all' || section !== 'all' || segment !== 'all';
+  const isFiltered = Boolean(q) || activeCategory !== 'all' || section !== 'all' || segment !== 'all' || ingType !== 'all';
   const active = DIVISIONS.find((d) => d.id === division)!;
 
   /* ── facet rail ── */
@@ -205,7 +230,7 @@ export default function ProductsClient() {
                 type="search"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search 312 products by name, CAS, formula or use…"
+                placeholder={`Search ${products.length + pharmaProducts.length} products by name, CAS, formula or use…`}
                 aria-label="Search the catalogue"
                 className="w-full pl-11 pr-4 py-3 rounded-xl bg-white border border-line text-ink placeholder-ink-subtle text-sm focus:border-lime/50 outline-none transition-colors"
               />
@@ -285,26 +310,54 @@ export default function ProductsClient() {
                 <div className="px-3 pb-1 text-[10px] font-bold uppercase tracking-[0.13em] text-ink-subtle">Section</div>
                 <Facet label="All sections" count={pharmaProducts.filter(matchPharma).length} on={section === 'all'} onClick={() => setSection('all')} />
                 {PHARMA_SECTIONS.map((s) => (
-                  <Facet key={s.id} label={s.label} count={sectionCounts[s.id] ?? 0} on={section === s.id} onClick={() => setSection(s.id)} />
-                ))}
-              </div>
-              <div className="space-y-0.5">
-                <div className="px-3 pb-1 text-[10px] font-bold uppercase tracking-[0.13em] text-ink-subtle">Therapeutic area</div>
-                <div className="px-1 pb-1.5">
-                  <input
-                    type="search"
-                    value={facetQuery}
-                    onChange={(e) => setFacetQuery(e.target.value)}
-                    placeholder="Narrow areas…"
-                    aria-label="Filter therapeutic areas"
-                    className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-line text-xs text-ink placeholder-ink-subtle focus:border-lime/50 outline-none"
+                  <Facet
+                    key={s.id}
+                    label={s.label}
+                    count={sectionCounts[s.id] ?? 0}
+                    on={section === s.id}
+                    onClick={() => {
+                      setSection(s.id);
+                      // Drop the other axis when it cannot apply to the new
+                      // section, or the view lands on an empty result set.
+                      if (s.id !== 'apis-human') setSegment('all');
+                      if (s.id !== 'ingredients-excipients') setIngType('all');
+                    }}
                   />
-                </div>
-                <Facet label="All areas" count={pharmaProducts.filter(matchPharma).length} on={segment === 'all'} onClick={() => setSegment('all')} />
-                {THERAPEUTIC_SEGMENTS.filter((s) => (segmentCounts[s.id] ?? 0) > 0 && s.label.toLowerCase().includes(facetQuery.toLowerCase())).map((s) => (
-                  <Facet key={s.id} label={s.label} count={segmentCounts[s.id] ?? 0} on={segment === s.id} onClick={() => setSegment(s.id)} />
                 ))}
               </div>
+              {/* The second axis depends on the book being browsed: therapeutic
+                  area only means something for human APIs, and the ingredient
+                  sub-type only for the ingredients book. Showing both at once
+                  offers combinations that can only ever return nothing. */}
+              {(section === 'all' || section === 'apis-human') && (
+                <div className="space-y-0.5">
+                  <div className="px-3 pb-1 text-[10px] font-bold uppercase tracking-[0.13em] text-ink-subtle">Therapeutic area</div>
+                  <div className="px-1 pb-1.5">
+                    <input
+                      type="search"
+                      value={facetQuery}
+                      onChange={(e) => setFacetQuery(e.target.value)}
+                      placeholder="Narrow areas…"
+                      aria-label="Filter therapeutic areas"
+                      className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-line text-xs text-ink placeholder-ink-subtle focus:border-lime/50 outline-none"
+                    />
+                  </div>
+                  <Facet label="All areas" count={pharmaProducts.filter(matchPharma).length} on={segment === 'all'} onClick={() => setSegment('all')} />
+                  {THERAPEUTIC_SEGMENTS.filter((s) => (segmentCounts[s.id] ?? 0) > 0 && s.label.toLowerCase().includes(facetQuery.toLowerCase())).map((s) => (
+                    <Facet key={s.id} label={s.label} count={segmentCounts[s.id] ?? 0} on={segment === s.id} onClick={() => setSegment(s.id)} />
+                  ))}
+                </div>
+              )}
+
+              {section === 'ingredients-excipients' && (
+                <div className="space-y-0.5">
+                  <div className="px-3 pb-1 text-[10px] font-bold uppercase tracking-[0.13em] text-ink-subtle">Ingredient type</div>
+                  <Facet label="All types" count={sectionCounts['ingredients-excipients'] ?? 0} on={ingType === 'all'} onClick={() => setIngType('all')} />
+                  {INGREDIENT_TYPES.filter((t) => (ingTypeCounts[t.id] ?? 0) > 0).map((t) => (
+                    <Facet key={t.id} label={t.label} count={ingTypeCounts[t.id] ?? 0} on={ingType === t.id} onClick={() => setIngType(t.id)} />
+                  ))}
+                </div>
+              )}
             </>
           )}
         </aside>
@@ -332,6 +385,11 @@ export default function ProductsClient() {
               {segment !== 'all' && (
                 <button type="button" onClick={() => setSegment('all')} className="group inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full bg-lime-tint border border-lime/35 text-ink font-medium">
                   {THERAPEUTIC_SEGMENTS.find((x) => x.id === segment)?.label} <Icon name="X" className="w-3 h-3 text-ink-subtle group-hover:text-ink" />
+                </button>
+              )}
+              {ingType !== 'all' && (
+                <button type="button" onClick={() => setIngType('all')} className="group inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full bg-lime-tint border border-lime/35 text-ink font-medium">
+                  {INGREDIENT_TYPES.find((x) => x.id === ingType)?.label} <Icon name="X" className="w-3 h-3 text-ink-subtle group-hover:text-ink" />
                 </button>
               )}
               <button type="button" onClick={clearAll} className="text-xs font-semibold text-ink-subtle hover:text-ink underline ml-1">Clear all</button>

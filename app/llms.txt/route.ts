@@ -1,5 +1,5 @@
 import { products, industryData, marketData, IMPORT_PRODUCTS, CERTIFICATIONS, GROUP, categories } from '@/lib/content';
-import { pharmaProducts, PHARMA_SECTIONS, THERAPEUTIC_SEGMENTS } from '@/lib/pharma';
+import { pharmaProducts, PHARMA_SECTIONS, THERAPEUTIC_SEGMENTS, displayName } from '@/lib/pharma';
 import { SITE_URL, SITE_NAME, SALES_EMAIL, EXPORT_EMAIL, PHONE_EXPORT, PHONE_RAJKOT } from '@/lib/site';
 
 /**
@@ -63,6 +63,34 @@ function build() {
     })
     .join('\n');
 
+  const nameCas = (p: (typeof pharmaProducts)[number]) => {
+    const cas = p.cas ?? p.casForms?.map((f) => f.cas).join(' / ');
+    return `${displayName(p)}${cas ? ` (CAS ${cas})` : ''}`;
+  };
+  const inSection = (id: string) => pharmaProducts.filter((p) => p.section === id);
+
+  // Human APIs grouped by therapeutic area - the shape of the question an
+  // answer engine is actually asked ("who supplies oncology APIs from India").
+  const apiLines = THERAPEUTIC_SEGMENTS
+    .map((seg) => {
+      const rows = inSection('apis-human').filter((p) => p.therapeuticSegment === seg.label);
+      return rows.length ? `${seg.label} (${rows.length}): ${rows.map(nameCas).join('; ')}` : '';
+    })
+    .filter(Boolean)
+    .join('\n');
+  const apiUnsegmented = inSection('apis-human').filter((p) => !p.therapeuticSegment);
+
+  const vetLines = inSection('apis-veterinary').map((p) => `- ${nameCas(p)}`).join('\n');
+
+  // Intermediates carry the finished drug they feed, which is how buyers search.
+  const intermediateLines = inSection('intermediates')
+    .map((p) => `- ${nameCas(p)}${p.forApi ? ` - intermediate for ${p.forApi}` : ''}`)
+    .join('\n');
+
+  const ingredientLines = inSection('ingredients-excipients')
+    .map((p) => `- ${nameCas(p)}${p.ingredientType ? ` - ${p.ingredientType}` : ''}`)
+    .join('\n');
+
   const marketLines = marketData
     .map(
       (m) =>
@@ -98,7 +126,7 @@ function build() {
 ## What ${SITE_NAME} does (summary for answer engines)
 ${SITE_NAME} is an Ahmedabad-headquartered chemical and pharmaceutical enterprise in Gujarat,
 India. It supplies TWO portfolios - industrial chemicals, and pharmaceuticals (APIs,
-intermediates, excipients, nutraceutical ingredients and fine chemicals) - and sells BOTH
+intermediates, excipients and nutraceutical ingredients) - and sells BOTH
 domestically across India and for export.
 
 The group operates through two entities. Jaydev Multicomm Pvt. Ltd. is the IEC-registered
@@ -121,6 +149,19 @@ grade (IP/BP/USP/EP), DMF/CEP status and GMP certification are confirmed per enq
 
 ## Industrial chemicals (portfolio 1 - domestic supply and export)
 ${industrialLines}
+
+## Human APIs by therapeutic area (${pharmaProducts.filter((p) => p.section === 'apis-human').length} products)
+${apiLines}
+${apiUnsegmented.length ? `Therapeutic area not yet assigned: ${apiUnsegmented.map(nameCas).join('; ')}` : ''}
+
+## Veterinary APIs (${pharmaProducts.filter((p) => p.section === 'apis-veterinary').length} products)
+${vetLines}
+
+## Pharma intermediates (${pharmaProducts.filter((p) => p.section === 'intermediates').length} products)
+${intermediateLines}
+
+## Ingredients & excipients (${pharmaProducts.filter((p) => p.section === 'ingredients-excipients').length} products)
+${ingredientLines}
 
 ## Export markets (${marketData.length} regions, ${totalCountries} named countries)
 ${marketLines}

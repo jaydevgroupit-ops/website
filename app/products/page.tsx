@@ -6,7 +6,7 @@ import { SITE_URL as BASE } from '@/lib/site';
 
 export const metadata = {
   title: 'Products - Chemicals, APIs & Intermediates',
-  description: `${products.length} industrial chemicals and ${pharmaProducts.length} pharmaceutical products - APIs, intermediates, excipients and fine chemicals. Domestic supply and export.`,
+  description: `${products.length} industrial chemicals and ${pharmaProducts.length} pharmaceutical products - human and veterinary APIs, intermediates, excipients and nutraceutical ingredients. Domestic supply and export.`,
   alternates: { canonical: `${BASE}/products` },
 };
 

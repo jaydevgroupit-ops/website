@@ -73,6 +73,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
             </div>
 
             {/* Specs Table */}
+            {product.specs.length > 0 && (
             <div className="card-white overflow-hidden">
               <div className="px-6 py-4 bg-ink-pale border-b border-line">
                 <h2 className="font-jakarta font-bold text-ink text-base">Technical Specifications</h2>
@@ -88,8 +89,10 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                 </tbody>
               </table>
             </div>
+            )}
 
             {/* Applications */}
+            {product.applications.length > 0 && (
             <div className="card-white p-6">
               <h2 className="font-jakarta font-bold text-ink mb-4">Applications</h2>
               <div className="flex flex-wrap gap-2">
@@ -98,8 +101,10 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                 ))}
               </div>
             </div>
+            )}
 
             {/* Packaging */}
+            {product.packaging.length > 0 && (
             <div className="card-white p-6">
               <h2 className="font-jakarta font-bold text-ink mb-4">Packaging Options</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -111,8 +116,10 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                 ))}
               </div>
             </div>
+            )}
 
             {/* Manufacturers */}
+            {product.manufacturers.length > 0 && (
             <div className="card-white p-6">
               <h2 className="font-jakarta font-bold text-ink mb-4">Available From</h2>
               <div className="flex flex-wrap gap-2">
@@ -121,6 +128,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                 ))}
               </div>
             </div>
+            )}
           </div>
 
           {/* ── SIDEBAR ── */}
