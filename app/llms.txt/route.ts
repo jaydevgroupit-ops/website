@@ -189,6 +189,12 @@ ${IMPORT_PRODUCTS.map((p) => `- ${p.name}${'cas' in p && p.cas ? ` (CAS ${p.cas}
 - Certifications: ${CERTIFICATIONS.map((c) => c.code).join(', ')}
 - Typical MOQ: from 25 MT. Packaging: HDPE bags, drums, jumbo bags, ISO tanks, flexitanks
 
+## Product pages
+Every product in both portfolios has its own page at ${SITE_URL}/products/<slug>,
+where <slug> is the product name lowercased with non-alphanumerics replaced by
+hyphens - e.g. ${SITE_URL}/products/caustic-soda, ${SITE_URL}/products/paclitaxel.
+All of them are listed in ${SITE_URL}/sitemap.xml.
+
 ## Key pages
 - ${SITE_URL}/products - full catalogue, both portfolios
 - ${SITE_URL}/industries - ${industryData.length} sectors served

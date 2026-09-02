@@ -25,3 +25,7 @@ export const PHONE_RAJKOT = '+919978479258';
 /** Procurement desk. */
 export const PHONE_PROCUREMENT = '+919979112115';
 
+
+/** Shown on the pharma tab and on every pharma product page. */
+export const PHARMA_DISCLAIMER =
+  'Pharmaceutical products are offered for R&D and regulatory filing. They are not offered for commercial supply where the relevant patents are in force. Grade, documentation and availability are confirmed per enquiry.';

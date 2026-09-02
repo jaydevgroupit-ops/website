@@ -39,9 +39,9 @@ export const DIVISIONS: {
   },
 ];
 
-/** Shown on the pharma tab and on every API page. */
-export const PHARMA_DISCLAIMER =
-  'Pharmaceutical products are offered for R&D and regulatory filing. They are not offered for commercial supply where the relevant patents are in force. Grade, documentation and availability are confirmed per enquiry.';
+// Lives in lib/site so a client component can import it without pulling in the
+// search index built below.
+export { PHARMA_DISCLAIMER } from './site';
 
 /** Lightweight row used only for cross-division search counts. */
 export type CatalogueEntry = {
@@ -66,13 +66,12 @@ export const catalogue: CatalogueEntry[] = [
       [p.name, p.cas, p.formula, p.description, ...p.applications].filter(Boolean).join(' '),
     ),
   })),
-  // Pharma items have no detail page - they are enquiry rows on /products.
   ...pharmaProducts.map((p) => ({
     id: p.id,
     name: displayName(p),
     division: 'pharma' as Division,
     cas: p.cas,
-    href: undefined,
+    href: `/products/${p.id}`,
     // Index the full chemical name too, so a buyer can search either.
     haystack: norm(
       [p.name, p.shortName, p.cas, ...(p.casForms ?? []).map((f) => f.cas),

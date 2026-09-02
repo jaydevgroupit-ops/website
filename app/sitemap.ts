@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { products, industryData } from '@/lib/content';
 import { articles } from '@/lib/articles';
+import { pharmaProducts } from '@/lib/pharma';
 import { SITE_URL as BASE } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -33,5 +34,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...productPages, ...industryPages, ...articlePages];
+  // Pharma pages carry a verified name, CAS and classification but no grade or
+  // specification yet, so they sit a notch below the industrial pages.
+  const pharmaPages: MetadataRoute.Sitemap = pharmaProducts.map(p => ({
+    url: `${BASE}/products/${p.id}`,
+    lastModified: new Date(),
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...productPages, ...pharmaPages, ...industryPages, ...articlePages];
 }

@@ -40,6 +40,7 @@ const pharmaRow = (p: (typeof pharmaProducts)[number]): Row => ({
   // the drug it feeds for an intermediate, the sub-type for an ingredient.
   meta: p.therapeuticSegment ?? (p.forApi ? `For ${p.forApi}` : undefined) ?? p.ingredientType,
   group: sectionLabel[p.section] ?? p.section,
+  href: `/products/${p.id}`,
   flag: p.investigational ? 'Investigational' : undefined,
 });
 
