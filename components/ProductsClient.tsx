@@ -160,6 +160,30 @@ export default function ProductsClient() {
     return m;
   }, [matchPharma, section]);
 
+  /* The "All ..." row of each group has to respect the OTHER axis, exactly as
+     the individual rows above already do. Using the unfiltered total made the
+     rail contradict itself - picking "APIs - Human 71" left "All areas" still
+     reading 205, so the filter looked like it had done nothing even though the
+     result list was correct. */
+  const countInSection = useMemo(
+    () =>
+      pharmaProducts.filter(matchPharma).filter((p) => section === 'all' || p.section === section)
+        .length,
+    [matchPharma, section],
+  );
+
+  const countAcrossSections = useMemo(
+    () =>
+      pharmaProducts.filter(matchPharma).filter((p) => {
+        if (segment !== 'all' && (!p.therapeuticSegment || segIdOf[p.therapeuticSegment] !== segment))
+          return false;
+        if (ingType !== 'all' && (!p.ingredientType || ingIdOf[p.ingredientType] !== ingType))
+          return false;
+        return true;
+      }).length,
+    [matchPharma, segment, ingType],
+  );
+
   const rows: Row[] = useMemo(() => {
     if (division === 'industrial') {
       const base = products
@@ -309,7 +333,7 @@ export default function ProductsClient() {
             <>
               <div className="space-y-0.5 mb-6">
                 <div className="px-3 pb-1 text-[10px] font-bold uppercase tracking-[0.13em] text-ink-subtle">Section</div>
-                <Facet label="All sections" count={pharmaProducts.filter(matchPharma).length} on={section === 'all'} onClick={() => setSection('all')} />
+                <Facet label="All sections" count={countAcrossSections} on={section === 'all'} onClick={() => setSection('all')} />
                 {PHARMA_SECTIONS.map((s) => (
                   <Facet
                     key={s.id}
@@ -343,7 +367,7 @@ export default function ProductsClient() {
                       className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-line text-xs text-ink placeholder-ink-subtle focus:border-lime/50 outline-none"
                     />
                   </div>
-                  <Facet label="All areas" count={pharmaProducts.filter(matchPharma).length} on={segment === 'all'} onClick={() => setSegment('all')} />
+                  <Facet label="All areas" count={countInSection} on={segment === 'all'} onClick={() => setSegment('all')} />
                   {THERAPEUTIC_SEGMENTS.filter((s) => (segmentCounts[s.id] ?? 0) > 0 && s.label.toLowerCase().includes(facetQuery.toLowerCase())).map((s) => (
                     <Facet key={s.id} label={s.label} count={segmentCounts[s.id] ?? 0} on={segment === s.id} onClick={() => setSegment(s.id)} />
                   ))}
@@ -353,7 +377,7 @@ export default function ProductsClient() {
               {section === 'ingredients-excipients' && (
                 <div className="space-y-0.5">
                   <div className="px-3 pb-1 text-[10px] font-bold uppercase tracking-[0.13em] text-ink-subtle">Ingredient type</div>
-                  <Facet label="All types" count={sectionCounts['ingredients-excipients'] ?? 0} on={ingType === 'all'} onClick={() => setIngType('all')} />
+                  <Facet label="All types" count={countInSection} on={ingType === 'all'} onClick={() => setIngType('all')} />
                   {INGREDIENT_TYPES.filter((t) => (ingTypeCounts[t.id] ?? 0) > 0).map((t) => (
                     <Facet key={t.id} label={t.label} count={ingTypeCounts[t.id] ?? 0} on={ingType === t.id} onClick={() => setIngType(t.id)} />
                   ))}
