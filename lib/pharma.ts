@@ -32,6 +32,20 @@ export type PharmaProduct = {
    *  the target drug, so it is part of the search index. */
   forApi?: string;
   investigational?: boolean;
+
+  /* ── Optional, absent until the source sheet carries them. Every one of
+     these renders on the product page the moment it is supplied; until then
+     the page states that it is confirmed per enquiry rather than guessing. ── */
+  description?: string;
+  /** Pharmacopoeial grade, e.g. "IP / BP / USP". */
+  grade?: string;
+  pharmacopoeia?: string;
+  dmf?: string;
+  cep?: string;
+  gmp?: string;
+  moq?: string;
+  packaging?: string[];
+  applications?: string[];
 };
 
 /** What a card and the search index display. */

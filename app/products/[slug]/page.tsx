@@ -42,12 +42,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     ...p.applications.slice(0, 6).map((a) => `${p.name} for ${a}`),
   ];
 
+  // Pharma products have no artwork, so they fall back to the branded site
+  // card. Omitting `images` entirely would leave the page with no preview at
+  // all, because declaring openGraph suppresses the inherited one.
+  const ogImage = p.image ?? `${BASE}/opengraph-image`;
   const og = {
     type: 'website' as const,
     url: `${BASE}/products/${p.id}`,
     title,
     description: description.slice(0, 200),
-    ...(p.image ? { images: [{ url: p.image, alt: p.name }] } : {}),
+    images: [{ url: ogImage, alt: p.name }],
   };
 
   return {
@@ -60,7 +64,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: 'summary_large_image',
       title,
       description: description.slice(0, 200),
-      ...(p.image ? { images: [p.image] } : {}),
+      images: [ogImage],
     },
   };
 }

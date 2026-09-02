@@ -45,6 +45,30 @@ TABS = [
 
 CAS_RE = re.compile(r"^\d{2,7}-\d{2}-\d$")
 
+# Optional columns. None of these exist in the sheet today - the pharma pages
+# say "confirmed per enquiry" precisely because the source cannot answer them.
+# Add any of these headers to a pharma tab and the value flows straight through
+# to the product page and its Product schema; leave them out and nothing
+# changes. Multi-value cells split on ";".
+OPTIONAL_TEXT = {
+    "Description": "description",
+    "Grade": "grade",
+    "Pharmacopoeia": "pharmacopoeia",
+    "DMF": "dmf",
+    "CEP": "cep",
+    "GMP": "gmp",
+    "MOQ": "moq",
+}
+OPTIONAL_LIST = {
+    "Packaging": "packaging",
+    "Applications": "applications",
+}
+
+
+def cell(row, header):
+    v = (row.get(header) or "").strip()
+    return "" if v in {"-", "n/a", "N/A", "TBC"} else v
+
 
 def slug(name: str) -> str:
     s = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
@@ -131,6 +155,17 @@ def main():
             if "investigational" in notes.lower():
                 item["investigational"] = True
 
+            for header, key in OPTIONAL_TEXT.items():
+                v = cell(r, header)
+                if v:
+                    item[key] = v
+            for header, key in OPTIONAL_LIST.items():
+                v = cell(r, header)
+                if v:
+                    parts = [x.strip() for x in v.split(";") if x.strip()]
+                    if parts:
+                        item[key] = parts
+
             seen[pid] = tab
             items.append(item)
 
@@ -183,6 +218,20 @@ export type PharmaProduct = {{
    *  the target drug, so it is part of the search index. */
   forApi?: string;
   investigational?: boolean;
+
+  /* ── Optional, absent until the source sheet carries them. Every one of
+     these renders on the product page the moment it is supplied; until then
+     the page states that it is confirmed per enquiry rather than guessing. ── */
+  description?: string;
+  /** Pharmacopoeial grade, e.g. "IP / BP / USP". */
+  grade?: string;
+  pharmacopoeia?: string;
+  dmf?: string;
+  cep?: string;
+  gmp?: string;
+  moq?: string;
+  packaging?: string[];
+  applications?: string[];
 }};
 
 /** What a card and the search index display. */
@@ -219,6 +268,18 @@ export const pharmaById = (id: string) => pharmaProducts.find((p) => p.id === id
     print(f"  {'intermediates w/ target API':28} {sum(1 for i in items if i.get('forApi')):4}")
     print(f"  {'short names applied':28} {sum(1 for i in items if i.get('shortName')):4}")
     print(f"  {'investigational':28} {sum(1 for i in items if i.get('investigational')):4}")
+
+    optional_keys = list(OPTIONAL_TEXT.values()) + list(OPTIONAL_LIST.values())
+    have = {k: sum(1 for i in items if i.get(k)) for k in optional_keys}
+    if any(have.values()):
+        print("\n  optional fields supplied:")
+        for k, n in have.items():
+            if n:
+                print(f"      {k:16} {n:4}/{len(items)}")
+    else:
+        print(f"\n  optional fields (grade, DMF, CEP, GMP, MOQ, packaging,")
+        print(f"  applications, description): none supplied yet - pages show")
+        print(f"  'confirmed per enquiry'. Add the columns to any pharma tab.")
 
     missing = [i["name"] for i in items if not i.get("cas")]
     if missing:

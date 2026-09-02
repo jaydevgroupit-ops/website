@@ -22,7 +22,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description: desc,
     keywords: ind.seoKeywords.split(',').map((s) => s.trim()),
     alternates: { canonical: `${BASE}/industries/${ind.id}` },
-    openGraph: { title: `${title} | Jaydev Group`, description: desc, type: 'website' },
+    openGraph: {
+      title: `${title} | Jaydev Group`,
+      description: desc,
+      type: 'website',
+      // Falls back to the branded site card; without an explicit entry a page
+      // that declares openGraph inherits no image at all.
+      images: [{ url: `${BASE}/opengraph-image`, alt: 'Jaydev Group' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${title} | Jaydev Group`,
+      description: desc,
+      images: [`${BASE}/opengraph-image`],
+    },
   };
 }
 

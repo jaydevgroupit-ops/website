@@ -54,6 +54,10 @@ export type ProductDetail = {
   targetApiId?: string;
   /** OG image; pharma has no artwork of its own. */
   image?: string;
+  /** Pharma only: the buyer-facing facts the sheet has not supplied yet, so
+   *  the page can name them as "confirmed per enquiry" instead of listing
+   *  every one unconditionally. Empty once the sheet carries them all. */
+  pendingConfirmation: string[];
 };
 
 const catLabel = new Map(categories.map((c) => [c.id, c.label]));
@@ -102,6 +106,7 @@ function fromIndustrial(p: Product): ProductDetail {
     ).map((x) => ({ id: x.id, name: x.name, sub: x.grade, formula: x.formula })),
     sameTarget: [],
     image: productImage(p),
+    pendingConfirmation: [],
   };
 }
 
@@ -131,6 +136,21 @@ function fromPharma(p: PharmaProduct): ProductDetail {
   // pages, which is useless to a buyer and reads as boilerplate to a crawler.
   const window = relatedWindow(sameClass, p.name);
 
+  // Whatever the sheet has supplied becomes a real spec row, rendered in the
+  // same table an industrial product uses. Whatever it has not is named below
+  // as pending, so the page never implies a value it does not hold.
+  const specSources: [string, string | undefined][] = [
+    ['Pharmacopoeial Grade', p.pharmacopoeia ?? p.grade],
+    ['DMF', p.dmf],
+    ['CEP', p.cep],
+    ['GMP', p.gmp],
+    ['Minimum Order', p.moq],
+  ];
+  const specs = specSources
+    .filter(([, v]) => v)
+    .map(([label, value]) => ({ label, value: value as string }));
+  const pendingConfirmation = specSources.filter(([, v]) => !v).map(([label]) => label);
+
   return {
     id: p.id,
     name: displayName(p),
@@ -138,12 +158,12 @@ function fromPharma(p: PharmaProduct): ProductDetail {
     kicker: sectionLabel.get(p.section) ?? p.section,
     cas: p.cas,
     casForms: p.casForms,
-    // No grade is asserted: pharmacopoeia grade, DMF and CEP status are not in
-    // the source sheet and are confirmed per enquiry.
-    specs: [],
-    applications: [],
+    grade: p.grade,
+    description: p.description,
+    specs,
+    applications: p.applications ?? [],
     manufacturers: [],
-    packaging: [],
+    packaging: p.packaging ?? [],
     therapeuticSegment: p.therapeuticSegment,
     ingredientType: p.ingredientType,
     forApi: p.forApi,
@@ -151,6 +171,7 @@ function fromPharma(p: PharmaProduct): ProductDetail {
     related: window.map((x) => ({ id: x.id, name: displayName(x), sub: pharmaSub(x) })),
     sameTarget: sameTarget.map((x) => ({ id: x.id, name: displayName(x), sub: x.cas ? `CAS ${x.cas}` : undefined })),
     targetApiId: target?.id,
+    pendingConfirmation,
   };
 }
 

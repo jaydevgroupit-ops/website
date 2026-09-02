@@ -150,24 +150,24 @@ export default function ProductDetailClient({
             {/* What a pharma buyer needs before ordering. The sheet does not
                 carry any of it, so the page says so plainly instead of
                 printing a specification nobody has verified. */}
+            {/* Only what the sheet has not answered. As columns are added
+                upstream those facts move into the specifications table above
+                and this list shrinks; documents are always per-consignment. */}
             {isPharma && (
               <div className="card-white overflow-hidden">
                 <div className="px-6 py-4 bg-ink-pale border-b border-line">
-                  <h2 className="font-jakarta font-bold text-ink text-base">Grade &amp; Documentation</h2>
+                  <h2 className="font-jakarta font-bold text-ink text-base">Confirmed on Enquiry</h2>
                 </div>
                 <div className="p-6">
                   <p className="text-ink-muted text-sm leading-relaxed mb-4">
-                    Confirmed per enquiry against the batch offered - we do not publish a
-                    specification we have not verified for your consignment.
+                    Confirmed against the batch offered - we do not publish a specification
+                    we have not verified for your consignment.
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {[
-                      'Pharmacopoeial grade (IP / BP / USP / EP)',
-                      'DMF / CEP status',
-                      'GMP certification',
+                      ...product.pendingConfirmation,
                       'Certificate of Analysis (COA)',
                       'MSDS / Safety Data Sheet',
-                      'Packaging & MOQ',
                     ].map((d) => (
                       <div key={d} className="flex items-center gap-2.5 text-sm text-ink-muted">
                         <Icon name="Check" className="w-4 h-4 text-lime-text flex-shrink-0" strokeWidth={2.5} />
