@@ -81,6 +81,20 @@ const nextConfig = {
   async headers() {
     return [{ source: '/:path*', headers: securityHeaders }];
   },
+
+  async redirects() {
+    return [
+      {
+        // The catalogue was served under the old entity name and that URL has
+        // been shared by email and WhatsApp for months. The file is renamed to
+        // the group brand, so the old path is kept alive permanently rather
+        // than 404ing on anyone holding the link.
+        source: '/Jaydev-Multicomm-Catalogue.pdf',
+        destination: '/Jaydev-Group-Catalogue.pdf',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

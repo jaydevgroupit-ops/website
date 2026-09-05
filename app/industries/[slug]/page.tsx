@@ -114,7 +114,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
             <Link href={`/quote?industry=${ind.id}`} className="btn-lime px-7 py-3.5">
               Request a Quote <Icon name="ArrowRight" className="w-4 h-4" />
             </Link>
-            <a href="/Jaydev-Multicomm-Catalogue.pdf" download className="btn-ghost-white px-7 py-3.5">
+            <a href="/Jaydev-Group-Catalogue.pdf" download className="btn-ghost-white px-7 py-3.5">
               <Icon name="Download" className="w-4 h-4" /> Catalogue
             </a>
           </div>

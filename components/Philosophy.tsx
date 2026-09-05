@@ -401,7 +401,7 @@ export default function Philosophy() {
                   <Link href="/quote" className="btn-lime px-7 py-3.5 text-base">
                     Get CIF Quote <Icon name="ArrowRight" className="w-4 h-4" />
                   </Link>
-                  <a href="/Jaydev-Multicomm-Catalogue.pdf" download className="btn-ink px-7 py-3.5 text-base">
+                  <a href="/Jaydev-Group-Catalogue.pdf" download className="btn-ink px-7 py-3.5 text-base">
                     <Icon name="Download" className="w-4 h-4" /> Catalogue
                   </a>
                 </div>

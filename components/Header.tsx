@@ -102,7 +102,7 @@ export default function Header() {
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-2">
             <a
-              href="/Jaydev-Multicomm-Catalogue.pdf"
+              href="/Jaydev-Group-Catalogue.pdf"
               download
               className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-ink border border-line text-sm font-medium hover:border-lime hover:text-lime-text hover:bg-lime-tint transition-all"
             >
@@ -162,7 +162,7 @@ export default function Header() {
                 );
               })}
               <a
-                href="/Jaydev-Multicomm-Catalogue.pdf"
+                href="/Jaydev-Group-Catalogue.pdf"
                 download
                 onClick={() => setMobileOpen(false)}
                 className="mt-3 flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg border border-line text-ink text-sm font-medium"

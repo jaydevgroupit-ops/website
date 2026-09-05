@@ -20,7 +20,7 @@ export const COMPANY = {
   team: [
     {
       name: 'Manish Shukla',
-      role: 'Chief Procurement Officer (CPO)',
+      role: 'Head - Procurement',
       remit: 'Global procurement, sourcing & supplier relationships',
       linkedin: null as string | null,
       email: PROCUREMENT_EMAIL as string | null,
@@ -29,7 +29,7 @@ export const COMPANY = {
     },
     {
       name: 'Meet Sheth',
-      role: 'Chief Operating Officer (COO)',
+      role: 'Head - Exports',
       remit: 'Export, import, logistics, documentation & operations',
       linkedin: 'https://www.linkedin.com/in/meet-sheth-0871/',
       email: EXPORT_EMAIL,
@@ -38,7 +38,7 @@ export const COMPANY = {
     },
     {
       name: 'Darsh Katkoria',
-      role: 'Chief Business Officer (CBO)',
+      role: 'Business Development Manager',
       remit: 'Sales, customers, revenue & commercial growth',
       linkedin: 'https://www.linkedin.com/in/darsh-k-07579a3b5/',
       email: SALES_EMAIL,
@@ -47,7 +47,7 @@ export const COMPANY = {
     },
     {
       name: 'Mahir Bhojani',
-      role: 'Marketing & Business Development',
+      role: 'Marketing Executive',
       remit: 'Pharma & API sales, marketing & market expansion',
       linkedin: 'https://www.linkedin.com/in/mahir-bhojani-b49027268/',
       email: MARKETING_EMAIL,
