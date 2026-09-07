@@ -85,15 +85,25 @@
     "forApi": "Isavuconazonium Sulfate"
   },
   "4-2-bromoacetyl-benzonitrile": {
-    "forApi": "Isavuconazonium Sulfate"
+    "forApi": "Fluvoxamine",
+    "_wasInSheet": "Isavuconazonium Sulfate"
   },
-  "_unresolved": {
-    "_comment": "The sheet and the catalogue each name a different API for these five rows, and the catalogue's own layout is not decisive. Left as the sheet has them until a chemist rules; the catalogue's reading is recorded here so the question is not lost.",
-    "2-2-3-2-7-chloro-2-quinolinyl-ethenylphenyl-3-hydroxypropyl-2-propanol": "sheet: Flumethasone / catalogue: Montelukast (CAS 142569-70-8)",
-    "4-methoxy-alpha-methyl-n-phenylmethyl-benzeneethanamine-hydrochloride": "sheet: Montelukast / catalogue: Formoterol (CAS 1049695-95-5)",
-    "n-5-1r-2-bromo-1-hydroxyethyl-2-phenylmethoxy-phenyl-carboxamide": "sheet: Indacaterol / catalogue: Formoterol (CAS 201677-59-0)",
-    "2-methylamino-pyridine-3-methanol": "sheet: Indacaterol / catalogue: Isavuconazonium Sulfate (CAS 32399-12-5)",
-    "4-2-bromoacetyl-benzonitrile": "sheet: Isavuconazonium Sulfate / catalogue: Fluvoxamine (CAS 20099-89-2). The sheet reads correctly here, so only its line break is normalised above.",
-    "2s-1-chloroacetyl-2-pyrrolidinecarbonitrile": "sheet: Vildagliptin / catalogue: 'Fluoro intermediate' (CAS 207557-35-5), which is a group heading rather than an API."
-  }
+  "_note_catalogue_wins": "Rows where the sheet and the catalogue named a different API. The catalogue is the final word on this book, so its reading is published and the sheet's is recorded beside it. Each is the API the catalogue prints on that row, on every page the row appears.",
+  "2-2-3-2-7-chloro-2-quinolinyl-ethenylphenyl-3-hydroxypropyl-2-propanol": {
+    "forApi": "Montelukast",
+    "_wasInSheet": "Flumethasone"
+  },
+  "4-methoxy-alpha-methyl-n-phenylmethyl-benzenemethanamine-hydrochloride": {
+    "forApi": "Formoterol",
+    "_wasInSheet": "Montelukast"
+  },
+  "n-5-1r-2-bromo-1-hydroxyethyl-2-phenylmethoxy-phenyl-carboxamide": {
+    "forApi": "Formoterol",
+    "_wasInSheet": "Indacaterol"
+  },
+  "2-methylamino-pyridine-3-methanol": {
+    "forApi": "Isavuconazonium Sulfate",
+    "_wasInSheet": "Indacaterol"
+  },
+  "_note_vildagliptin": "(2S)-1-(Chloroacetyl)-2-pyrrolidinecarbonitrile, CAS 207557-35-5, appears three times in the catalogue: twice under Vildagliptin and once under the 'Fluoro intermediate' heading, which names a product family rather than an API. Vildagliptin is the catalogue's own answer and is what the sheet already had, so the row is left alone. The other rows under that heading name no target API and so carry none."
 }

@@ -7,8 +7,9 @@
 //  sheet and are deliberately absent here rather than guessed. The UI
 //  renders "Grade & documentation on request" until they are supplied.
 //
-//  Classification and corrected CAS come from data/pharma-classification.json
-//  and data/pharma-cas-overrides.json, applied after the sheet is read.
+//  Classification, corrected CAS and rows the catalogue carries but the sheet
+//  does not come from data/pharma-classification.json, -cas-overrides.json and
+//  -additions.json, applied after the sheet is read.
 // ─────────────────────────────────────────────
 
 export type PharmaSection =
@@ -186,9 +187,9 @@ export const pharmaProducts: PharmaProduct[] = [
   {"id": "2-6-dioxopiperidine-3-ammonium-chloride", "name": "2,6-Dioxopiperidine-3-ammonium chloride", "section": "intermediates", "cas": "24666-56-6", "forApi": "Lenalidomide"},
   {"id": "2-2-6-bromohexyl-oxy-ethoxy-methyl-1-3-dichlorobenzene", "name": "2-((2-((6-Bromohexyl)oxy)ethoxy)methyl)-1,3-dichlorobenzene", "section": "intermediates", "cas": "503070-57-3", "forApi": "Vilanterol"},
   {"id": "2-3ar-4s-6r-6as-6-amino-2-2-dimethyltetrahydro-3ah-cyclopenta-d-1-3-di", "name": "2-((3aR,4S,6R,6aS)-6-amino-2,2-dimethyltetrahydro-3ah-cyclopenta[d][1,3]dioxol-4-yloxy)ethanol L-tataric acid", "section": "intermediates", "cas": "376608-65-0", "shortName": "Ticagrelor intermediate", "forApi": "Ticagrelor"},
-  {"id": "2-2-3-2-7-chloro-2-quinolinyl-ethenylphenyl-3-hydroxypropyl-2-propanol", "name": "2-(2-(3-(2-(7-chloro-2-quinolinyl)-ethenylphenyl)-3-hydroxypropyl)-2-propanol", "section": "intermediates", "cas": "142569-70-8", "shortName": "Montelukast intermediate", "forApi": "Flumethasone"},
+  {"id": "2-2-3-2-7-chloro-2-quinolinyl-ethenylphenyl-3-hydroxypropyl-2-propanol", "name": "2-(2-(3-(2-(7-chloro-2-quinolinyl)-ethenylphenyl)-3-hydroxypropyl)-2-propanol", "section": "intermediates", "cas": "142569-70-8", "shortName": "Montelukast intermediate", "forApi": "Montelukast"},
   {"id": "2-2-amino-5-bromobenzoyl-pyridine", "name": "2-(2-amino-5-bromobenzoyl)pyridine", "section": "intermediates", "cas": "1563-56-0", "forApi": "Remimazolam"},
-  {"id": "2-methylamino-pyridine-3-methanol", "name": "2-(Methylamino)pyridine-3-methanol", "section": "intermediates", "cas": "32399-12-5", "forApi": "Indacaterol"},
+  {"id": "2-methylamino-pyridine-3-methanol", "name": "2-(Methylamino)pyridine-3-methanol", "section": "intermediates", "cas": "32399-12-5", "forApi": "Isavuconazonium Sulfate"},
   {"id": "2-1-mercaptomethyl-cyclopropyl-acetic-acid", "name": "2-[1-(Mercaptomethyl) cyclopropyl]acetic acid", "section": "intermediates", "cas": "162515-68-6", "forApi": "Montelukast"},
   {"id": "2-bromo-thiophene", "name": "2-Bromo Thiophene", "section": "intermediates", "cas": "1003-09-4", "forApi": "Clopidogrel"},
   {"id": "2-bromopropionic-acid", "name": "2-Bromopropionic acid", "section": "intermediates", "cas": "598-72-1"},
@@ -200,11 +201,11 @@ export const pharmaProducts: PharmaProduct[] = [
   {"id": "3-1-dimethylamino-ethyl-phenol", "name": "3-[1-(Dimethylamino) ethyl]phenol", "section": "intermediates", "cas": "105601-04-5", "forApi": "Rivastigmine"},
   {"id": "4-4-difluorocyclohexanecarboxylic-acid", "name": "4,4-Difluorocyclohexanecarboxylic acid", "section": "intermediates", "cas": "122665-97-8"},
   {"id": "4-6-dichloro-2-propylthiopyrimidine-5-amine", "name": "4,6-dichloro-2-propylthiopyrimidine-5-amine", "section": "intermediates", "cas": "145783-15-9", "forApi": "Ticagrelor"},
-  {"id": "4-2-bromoacetyl-benzonitrile", "name": "4-(2-Bromoacetyl)Benzonitrile", "section": "intermediates", "cas": "20099-89-2", "forApi": "Isavuconazonium Sulfate"},
+  {"id": "4-2-bromoacetyl-benzonitrile", "name": "4-(2-Bromoacetyl)Benzonitrile", "section": "intermediates", "cas": "20099-89-2", "forApi": "Fluvoxamine"},
   {"id": "4-chloro-1-2-methylpropyl-1h-imidazo-4-5-c-quinoline", "name": "4-chloro-1-(2-methylpropyl)-1H-imidazo[4,5-c]quinoline", "section": "intermediates", "cas": "99010-64-7", "forApi": "Imiquimod"},
   {"id": "4-chloro-6-ethyl-5-fluoropyrimidine", "name": "4-Chloro-6-ethyl-5-fluoropyrimidine", "section": "intermediates", "cas": "137234-74-3", "forApi": "Voriconazole"},
   {"id": "4-hydroxy-1-methyl-7-phenoxy-3-isoquinolinecarboxylic-acid-ethyl-ester", "name": "4-Hydroxy-1-methyl-7-phenoxy-3-isoquinolinecarboxylic acid ethyl ester", "section": "intermediates", "cas": "1809286-36-9", "shortName": "Roxadustat intermediate", "forApi": "Roxadustat"},
-  {"id": "4-methoxy-alpha-methyl-n-phenylmethyl-benzenemethanamine-hydrochloride", "name": "4-Methoxy-alpha-methyl-n-(phenylmethyl)benzenemethanamine hydrochloride", "section": "intermediates", "cas": "1049695-95-5", "shortName": "Formoterol intermediate", "forApi": "Montelukast"},
+  {"id": "4-methoxy-alpha-methyl-n-phenylmethyl-benzenemethanamine-hydrochloride", "name": "4-Methoxy-alpha-methyl-n-(phenylmethyl)benzenemethanamine hydrochloride", "section": "intermediates", "cas": "1049695-95-5", "shortName": "Formoterol intermediate", "forApi": "Formoterol"},
   {"id": "4-octylphenethyl-methanesulfonate", "name": "4-Octylphenethyl methanesulfonate", "section": "intermediates", "cas": "162358-06-7", "forApi": "Fingolimod"},
   {"id": "4-phenoxybenzoic-acid", "name": "4-Phenoxybenzoic Acid", "section": "intermediates", "cas": "2215-77-2", "forApi": "Ibrutinib"},
   {"id": "4-pyrimidinecarboxylic-acid-1-6-dihydro-5-hydroxy-2-1-methyl-1-phenylm", "name": "4-pyrimidinecarboxylic acid,1,6-dihydro-5-hydroxy-2-[1-methyl-1-[[(phenylmethoxy)carbonyl]amino]ethyl]-6-oxo-methyl ester", "section": "intermediates", "cas": "519032-08-7", "shortName": "Raltegravir intermediate", "forApi": "Raltegravir"},
@@ -220,11 +221,12 @@ export const pharmaProducts: PharmaProduct[] = [
   {"id": "dapagliflozin-tetraacetate", "name": "Dapagliflozin Tetraacetate", "section": "intermediates", "cas": "461432-25-7", "forApi": "Dapagliflozin"},
   {"id": "db11", "name": "DB11", "section": "intermediates", "cas": "981-34-0", "forApi": "Betamethasone"},
   {"id": "diethyl-2-acetamido-2-4-octylphenethyl-malonate", "name": "Diethyl 2-acetamido-2-(4-octylphenethyl)malonate", "section": "intermediates", "cas": "162358-08-9", "forApi": "Fingolimod"},
+  {"id": "erbium-hydroxide", "name": "Erbium hydroxide", "section": "intermediates", "cas": "138401-24-8", "forApi": "Irbesartan"},
   {"id": "fmoc-d-thr-oh", "name": "FMOC-D-Thr-OH", "section": "intermediates", "cas": "157355-81-2"},
   {"id": "methyl-2-2-difluoro-2-fluorosulfonyl-acetate", "name": "Methyl 2,2-difluoro-2-(fluorosulfonyl)acetate", "section": "intermediates", "cas": "915095-99-7"},
   {"id": "methyl-2-bromomethyl-3-nitrobenzoate", "name": "Methyl 2-bromomethyl-3-nitrobenzoate", "section": "intermediates", "cas": "98475-07-1", "forApi": "Lenalidomide"},
   {"id": "n-5-acetyl-6-ethyl-2-3-dihydro-1h-inden-2-yl-2-2-2-trifluoro-acetamide", "name": "N-(5-acetyl-6-ethyl-2,3-dihydro-1H-inden-2-yl)-2,2,2-trifluoro-acetamide", "section": "intermediates", "cas": "601487-89-2", "shortName": "Indanyl trifluoroacetamide", "forApi": "Indacaterol"},
-  {"id": "n-5-1r-2-bromo-1-hydroxyethyl-2-phenylmethoxy-phenyl-carboxamide", "name": "N-[5-((1R)-2-bromo-1-hydroxyethyl)-2-(phenylmethoxy)phenyl]carboxamide", "section": "intermediates", "cas": "201677-59-0", "shortName": "Formoterol intermediate", "forApi": "Indacaterol"},
+  {"id": "n-5-1r-2-bromo-1-hydroxyethyl-2-phenylmethoxy-phenyl-carboxamide", "name": "N-[5-((1R)-2-bromo-1-hydroxyethyl)-2-(phenylmethoxy)phenyl]carboxamide", "section": "intermediates", "cas": "201677-59-0", "shortName": "Formoterol intermediate", "forApi": "Formoterol"},
   {"id": "n-5-4-methylphenyl-sulfonyl-5h-pyrrolo-2-3-b-pyrazin-2-yl-carbamic-aci", "name": "N-[5-[(4-Methylphenyl)sulfonyl]-5H-pyrrolo[2,3-b]pyrazin 2-yl]carbamic acid ethyl ester", "section": "intermediates", "cas": "1869118-24-0", "shortName": "Upadacitinib intermediate", "forApi": "Upadacitinib"},
   {"id": "n-amino-3-azabicyclo-3-3-0-octan-hcl", "name": "N-amino-3-azabicyclo[3.3.0]-Octan HCl", "section": "intermediates", "cas": "58108-05-7", "forApi": "Gliclazide"},
   {"id": "n-boc-3-pyrrolidinone", "name": "N-Boc-3-pyrrolidinone", "section": "intermediates", "cas": "101385-93-7"},

@@ -1,0 +1,12 @@
+{
+  "_comment": "Products the published catalogue lists that the source sheet does not carry. Merged by scripts/import_products.py after the sheet is read, in the same shape a sheet row produces, so a re-import keeps them. Remove an entry once the sheet carries the row itself.",
+  "_provenance": "'Product Catalog - Jaydev Group' (18pp, September 2026), the PDF published at /Jaydev-Group-Catalogue.pdf. The catalogue is the final word on this book.",
+
+  "erbium-hydroxide": {
+    "name": "Erbium hydroxide",
+    "section": "intermediates",
+    "cas": "138401-24-8",
+    "forApi": "Irbesartan",
+    "_note": "Published as the catalogue prints it, name and CAS both. Flagged on import because 138401-24-8 is elsewhere registered to irbesartan itself and erbium hydroxide to 14646-16-3; confirmed as catalogue-final in September 2026. Correct here if the sheet later resolves it."
+  }
+}

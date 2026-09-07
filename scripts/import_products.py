@@ -19,6 +19,8 @@ Side files merged after the sheet is read, so a re-import never loses them:
   - data/pharma-classification.json therapeutic segment and intermediate target,
                                    where the sheet is blank or the published
                                    catalogue says otherwise
+  - data/pharma-additions.json     products the catalogue lists that the sheet
+                                   does not carry at all
 
 Still deliberately absent rather than guessed: pharmacopoeia grade, DMF, CEP,
 GMP status, packaging, manufacturers. A "-" in the sheet means unverified.
@@ -37,6 +39,7 @@ OUT = ROOT / "lib" / "pharma.ts"
 SHORT_NAMES = ROOT / "data" / "pharma-short-names.json"
 CAS_OVERRIDES = ROOT / "data" / "pharma-cas-overrides.json"
 CLASSIFICATION = ROOT / "data" / "pharma-classification.json"
+ADDITIONS = ROOT / "data" / "pharma-additions.json"
 
 # Order matters: it is the order the facets render in, and the order used to
 # resolve a product that appears on two tabs (earlier tab loses).
@@ -102,7 +105,7 @@ def main():
         sys.exit(f"Workbook not found: {src}")
     wb = openpyxl.load_workbook(src, data_only=True)
 
-    shorts, cas_forms, cas_fixed, classification = {}, {}, {}, {}
+    shorts, cas_forms, cas_fixed, classification, additions = {}, {}, {}, {}, {}
     if SHORT_NAMES.exists():
         shorts = {
             k: v.strip()
@@ -122,8 +125,14 @@ def main():
                 cas_fixed[k] = v.strip()
     if CLASSIFICATION.exists():
         classification = {
-            k: v
+            k: {kk: vv for kk, vv in v.items() if not kk.startswith("_")}
             for k, v in json.loads(CLASSIFICATION.read_text()).items()
+            if not k.startswith("_") and isinstance(v, dict)
+        }
+    if ADDITIONS.exists():
+        additions = {
+            k: {kk: vv for kk, vv in v.items() if not kk.startswith("_")}
+            for k, v in json.loads(ADDITIONS.read_text()).items()
             if not k.startswith("_") and isinstance(v, dict)
         }
 
@@ -191,6 +200,20 @@ def main():
 
             seen[pid] = tab
             items.append(item)
+
+    # Rows the catalogue lists and the sheet does not. Added only when the sheet
+    # has not since caught up, so the file needs no pruning to stay correct.
+    for pid, extra in additions.items():
+        if pid in seen:
+            continue
+        item = {"id": pid, **extra}
+        item.update(classification.get(pid, {}))
+        cas = item.get("cas", "")
+        if cas and not cas_valid(cas):
+            bad_cas.append((item.get("name", pid), cas))
+            continue
+        seen[pid] = "data/pharma-additions.json"
+        items.append(item)
 
     # Emit in a stable order so the generated file diffs cleanly.
     order = {s: i for i, (_, s, _) in enumerate(TABS)}
