@@ -13,9 +13,12 @@ Tab -> section:
     APIs - Veterinary         -> apis-veterinary
     Ingredients & Excipients  -> ingredients-excipients (+ ingredient type)
 
-Carried over from the old importer, because the sheet does not hold them:
+Side files merged after the sheet is read, so a re-import never loses them:
   - data/pharma-short-names.json   trade names shown on cards, keyed by CAS
-  - data/pharma-cas-overrides.json multi-form CAS (e.g. phytoene cis/trans)
+  - data/pharma-cas-overrides.json corrected and multi-form CAS, keyed by id
+  - data/pharma-classification.json therapeutic segment and intermediate target,
+                                   where the sheet is blank or the published
+                                   catalogue says otherwise
 
 Still deliberately absent rather than guessed: pharmacopoeia grade, DMF, CEP,
 GMP status, packaging, manufacturers. A "-" in the sheet means unverified.
@@ -33,6 +36,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "lib" / "pharma.ts"
 SHORT_NAMES = ROOT / "data" / "pharma-short-names.json"
 CAS_OVERRIDES = ROOT / "data" / "pharma-cas-overrides.json"
+CLASSIFICATION = ROOT / "data" / "pharma-classification.json"
 
 # Order matters: it is the order the facets render in, and the order used to
 # resolve a product that appears on two tabs (earlier tab loses).
@@ -98,17 +102,30 @@ def main():
         sys.exit(f"Workbook not found: {src}")
     wb = openpyxl.load_workbook(src, data_only=True)
 
-    shorts, cas_forms = {}, {}
+    shorts, cas_forms, cas_fixed, classification = {}, {}, {}, {}
     if SHORT_NAMES.exists():
         shorts = {
             k: v.strip()
             for k, v in json.loads(SHORT_NAMES.read_text()).items()
             if not k.startswith("_") and isinstance(v, str) and v.strip()
         }
+    # A list declares several forms; a string replaces whatever the sheet holds,
+    # which is how a CAS the sheet got wrong gets corrected without editing it.
     if CAS_OVERRIDES.exists():
         for k, v in json.loads(CAS_OVERRIDES.read_text()).items():
-            if not k.startswith("_") and isinstance(v, list) and v:
+            if k.startswith("_"):
+                continue
+            if isinstance(v, list) and v:
                 cas_forms[k] = v
+                cas_fixed[k] = v[0]["cas"]
+            elif isinstance(v, str) and v.strip():
+                cas_fixed[k] = v.strip()
+    if CLASSIFICATION.exists():
+        classification = {
+            k: v
+            for k, v in json.loads(CLASSIFICATION.read_text()).items()
+            if not k.startswith("_") and isinstance(v, dict)
+        }
 
     items, seen, bad_cas, dupes = [], {}, [], []
     for tab, section, _ in TABS:
@@ -127,7 +144,7 @@ def main():
                 dupes.append((name, seen[pid], tab))
                 continue
 
-            cas = (r.get("CAS") or "").strip()
+            cas = cas_fixed.get(pid) or (r.get("CAS") or "").strip()
             cas = "" if cas == "-" else cas
             if cas and not cas_valid(cas):
                 bad_cas.append((name, cas))
@@ -144,7 +161,9 @@ def main():
                 item["casForms"] = cas_forms[pid]
             if cas and cas in shorts:
                 item["shortName"] = shorts[cas]
-            if section == "apis-human" and seg:
+            # Veterinary rows carry a Category too, and it is the same axis the
+            # human tab uses, so both books feed the therapeutic filter.
+            if section.startswith("apis") and seg:
                 item["therapeuticSegment"] = seg
             if section == "ingredients-excipients" and seg:
                 item["ingredientType"] = seg
@@ -165,6 +184,10 @@ def main():
                     parts = [x.strip() for x in v.split(";") if x.strip()]
                     if parts:
                         item[key] = parts
+
+            # Last word, so a value taken from the published catalogue survives
+            # a sheet that still disagrees with it.
+            item.update(classification.get(pid, {}))
 
             seen[pid] = tab
             items.append(item)
@@ -195,6 +218,9 @@ def main():
 //  Pharmacopoeia grade, DMF, CEP and GMP status are NOT in the source
 //  sheet and are deliberately absent here rather than guessed. The UI
 //  renders "Grade & documentation on request" until they are supplied.
+//
+//  Classification and corrected CAS come from data/pharma-classification.json
+//  and data/pharma-cas-overrides.json, applied after the sheet is read.
 // ─────────────────────────────────────────────
 
 export type PharmaSection =
@@ -210,7 +236,7 @@ export type PharmaProduct = {{
   cas?: string;
   /** Set when the product is sold in more than one isomeric form. */
   casForms?: {{ label: string; cas: string }}[];
-  /** Human APIs only - the therapeutic filter axis. */
+  /** Human and veterinary APIs - the therapeutic filter axis. */
   therapeuticSegment?: string;
   /** Ingredients & Excipients only - nutraceutical / excipient / amino acid. */
   ingredientType?: string;

@@ -27,10 +27,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   // Pharma has no marketing description, so the description is built from what
   // the sheet does verify: classification, CAS, and how it is supplied.
+  // A product taken straight from the catalogue has no grade or description of
+  // its own, so the sentence has to read without them.
   const description =
     p.book === 'industrial'
-      ? `Buy ${p.name}${p.formula ? ` (${p.formula}, CAS ${p.cas})` : ''} from Jaydev Group - ${p.grade}. ` +
-        `${(p.description ?? '').slice(0, 100)} Manufacturer-direct export with COA, MSDS & full documentation. Request a CIF/FOB quote.`
+      ? `Buy ${p.name}${p.formula && p.cas ? ` (${p.formula}, CAS ${p.cas})` : ''} from Jaydev Group` +
+        `${p.grade ? ` - ${p.grade}` : ''}. ${(p.description ?? '').slice(0, 100)} ` +
+        `Manufacturer-direct export with COA, MSDS & full documentation. Request a CIF/FOB quote.`
       : `${p.name}${p.cas ? ` (CAS ${p.cas})` : ''} - ${classify(p)} supplied by Jaydev Group from India. ` +
         `Pharmacopoeial grade, DMF/CEP status and GMP documentation confirmed per enquiry. Request a quote.`;
 

@@ -54,9 +54,9 @@ export type ProductDetail = {
   targetApiId?: string;
   /** OG image; pharma has no artwork of its own. */
   image?: string;
-  /** Pharma only: the buyer-facing facts the sheet has not supplied yet, so
-   *  the page can name them as "confirmed per enquiry" instead of listing
-   *  every one unconditionally. Empty once the sheet carries them all. */
+  /** The buyer-facing facts the source has not supplied yet, so the page can
+   *  name them as "confirmed per enquiry" instead of listing every one
+   *  unconditionally. Empty once the source carries them all. */
   pendingConfirmation: string[];
 };
 
@@ -85,6 +85,20 @@ const pharmaSub = (p: PharmaProduct) =>
   p.therapeuticSegment ?? p.ingredientType ?? (p.forApi ? `For ${p.forApi}` : undefined);
 
 function fromIndustrial(p: Product): ProductDetail {
+  // A product added straight from the catalogue has a name, a CAS and a
+  // category and nothing else. Rather than render a near-empty page, name what
+  // is still to be confirmed - the same contract the pharma book states.
+  const pending = (
+    [
+      ['Grade & Purity', p.grade],
+      ['Technical Specification', p.specs?.length],
+      ['Packaging Options', p.packaging?.length],
+      ['Manufacturer / Origin', p.manufacturers?.length],
+    ] as [string, unknown][]
+  )
+    .filter(([, v]) => !v)
+    .map(([label]) => label);
+
   return {
     id: p.id,
     name: p.name,
@@ -106,7 +120,7 @@ function fromIndustrial(p: Product): ProductDetail {
     ).map((x) => ({ id: x.id, name: x.name, sub: x.grade, formula: x.formula })),
     sameTarget: [],
     image: productImage(p),
-    pendingConfirmation: [],
+    pendingConfirmation: pending,
   };
 }
 

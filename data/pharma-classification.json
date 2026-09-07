@@ -1,0 +1,99 @@
+{
+  "_comment": "Classification the source sheet leaves blank or records differently from the published catalogue, keyed by product id. Merged by scripts/import_products.py after the sheet is read, so re-running the importer never loses it. `therapeuticSegment` is the filter axis on /products; `forApi` is the finished drug an intermediate feeds.",
+  "_provenance": "Taken from 'Product Catalog - Jaydev Group' (18pp, September 2026) - the same PDF the site publishes at /Jaydev-Group-Catalogue.pdf. Cross-checked against the sheet before being written here.",
+  "_note_fertility": "The catalogue prints 'Fertility / Reproductive Health' for Cetrorelix Acetate and the shorter 'Fertility / Reproductive' for HCG and HMG. They are one area, so all three carry the longer label rather than splitting the facet in two.",
+  "5-ala-5-aminolevulinic-acid-hydrochloride": {
+    "therapeuticSegment": "Oncology"
+  },
+  "cetrorelix-acetate": {
+    "therapeuticSegment": "Fertility / Reproductive Health"
+  },
+  "folcisteine": {
+    "therapeuticSegment": "Respiratory / Steroids"
+  },
+  "hcg": {
+    "therapeuticSegment": "Fertility / Reproductive Health"
+  },
+  "hmg": {
+    "therapeuticSegment": "Fertility / Reproductive Health"
+  },
+  "mycophenolate-mofetil": {
+    "therapeuticSegment": "Immunology"
+  },
+  "promethazine-hydrochloride": {
+    "therapeuticSegment": "Allergy / Antihistamine"
+  },
+  "tranexamic-acid": {
+    "therapeuticSegment": "Hematology / Hemostatic"
+  },
+  "_note_veterinary": "The veterinary tab carries a Category column too, but the importer used to keep therapeuticSegment for human APIs only, so none of it reached the site. It does now, and these are the catalogue's values.",
+  "afoxolaner": {
+    "therapeuticSegment": "Antiparasitic"
+  },
+  "flunixin-meglumine": {
+    "therapeuticSegment": "Pain / Anti-inflammatory"
+  },
+  "fluralaner": {
+    "therapeuticSegment": "Antiparasitic"
+  },
+  "marbofloxacin": {
+    "therapeuticSegment": "Anti-infective"
+  },
+  "maropitant-citrate-hydrate": {
+    "therapeuticSegment": "GI / Liver"
+  },
+  "moxidectin": {
+    "therapeuticSegment": "Antiparasitic"
+  },
+  "propetamphos": {
+    "therapeuticSegment": "Antiparasitic"
+  },
+  "selamectin": {
+    "therapeuticSegment": "Antiparasitic"
+  },
+  "tilmicosin": {
+    "therapeuticSegment": "Anti-infective"
+  },
+  "_note_fingolimod": "The catalogue groups four intermediates under Fingolimod: the methanesulfonate, the iodoethyl compound, 1-phenyloctane and the malonate. The sheet had the methanesulfonate against Clopidogrel, whose only intermediate here is 2-bromothiophene, and left the iodoethyl compound with no target at all.",
+  "4-octylphenethyl-methanesulfonate": {
+    "forApi": "Fingolimod"
+  },
+  "1-2-iodoethyl-4-octylbenzene": {
+    "forApi": "Fingolimod"
+  },
+  "_note_intermediate_targets": "Intermediates the sheet left with no target where the catalogue names one on the same row. Only unambiguous rows are filled here; where the sheet and the catalogue each name a different API, neither is published over the other - see _unresolved below.",
+  "11-17-dihydroxy-6-methylpregna-1-4-diene-3-20-dione": {
+    "forApi": "Methylprednisolone"
+  },
+  "5-methoxy-1-4-trifluoromethyl-phenyl-1-pentanone": {
+    "forApi": "Fluvoxamine"
+  },
+  "methyl-2-bromomethyl-3-nitrobenzoate": {
+    "forApi": "Lenalidomide"
+  },
+  "2-6-dioxopiperidine-3-ammonium-chloride": {
+    "forApi": "Lenalidomide"
+  },
+  "5-2r-2-oxiranyl-8-benzyloxy-2-1h-quinolonone": {
+    "forApi": "Indacaterol"
+  },
+  "n-5-acetyl-6-ethyl-2-3-dihydro-1h-inden-2-yl-2-2-2-trifluoro-acetamide": {
+    "forApi": "Indacaterol"
+  },
+  "_note_wrapped_target": "The sheet stored this target with the line break the catalogue prints it with.",
+  "2r-3r-3-2-5-difluorophenyl-3-hydroxy-2-methyl-4-1h-1-2-4-triazol-1-yl-": {
+    "forApi": "Isavuconazonium Sulfate"
+  },
+  "4-2-bromoacetyl-benzonitrile": {
+    "forApi": "Isavuconazonium Sulfate"
+  },
+  "_unresolved": {
+    "_comment": "The sheet and the catalogue each name a different API for these five rows, and the catalogue's own layout is not decisive. Left as the sheet has them until a chemist rules; the catalogue's reading is recorded here so the question is not lost.",
+    "2-2-3-2-7-chloro-2-quinolinyl-ethenylphenyl-3-hydroxypropyl-2-propanol": "sheet: Flumethasone / catalogue: Montelukast (CAS 142569-70-8)",
+    "4-methoxy-alpha-methyl-n-phenylmethyl-benzeneethanamine-hydrochloride": "sheet: Montelukast / catalogue: Formoterol (CAS 1049695-95-5)",
+    "n-5-1r-2-bromo-1-hydroxyethyl-2-phenylmethoxy-phenyl-carboxamide": "sheet: Indacaterol / catalogue: Formoterol (CAS 201677-59-0)",
+    "2-methylamino-pyridine-3-methanol": "sheet: Indacaterol / catalogue: Isavuconazonium Sulfate (CAS 32399-12-5)",
+    "4-2-bromoacetyl-benzonitrile": "sheet: Isavuconazonium Sulfate / catalogue: Fluvoxamine (CAS 20099-89-2). The sheet reads correctly here, so only its line break is normalised above.",
+    "2s-1-chloroacetyl-2-pyrrolidinecarbonitrile": "sheet: Vildagliptin / catalogue: 'Fluoro intermediate' (CAS 207557-35-5), which is a group heading rather than an API."
+  }
+}

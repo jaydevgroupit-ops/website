@@ -281,15 +281,20 @@ export type ProductSpec = { label: string; value: string };
 export type Product = {
   id: string;
   name: string;
-  formula: string;
   cas: string;
-  grade: string;
   category: string;
-  description: string;
-  specs: ProductSpec[];
-  applications: string[];
-  manufacturers: string[];
-  packaging: string[];
+  /* ── Everything below is what we have researched about a product, not what
+     the catalogue lists. A catalogue row carries a name, a CAS and a category
+     and nothing else, so a product can join the site on those alone; the page
+     names the rest as confirmed on enquiry rather than printing a
+     specification nobody has verified. Same rule the pharma book follows. ── */
+  formula?: string;
+  grade?: string;
+  description?: string;
+  specs?: ProductSpec[];
+  applications?: string[];
+  manufacturers?: string[];
+  packaging?: string[];
   featured?: boolean;
   image?: string; // resolved via IMAGE_MAP at render time
   variants?: { form: string; grade: string }[]; // bundled forms (e.g. flakes/lye/prills)
@@ -1225,6 +1230,9 @@ export const products: Product[] = [
   { id: 'borax', name: 'Borax (Sodium Tetraborate)', formula: 'Na₂B₄O₇·10H₂O', cas: '1303-96-4', grade: 'Decahydrate / Pentahydrate', category: 'specialty', description: 'Borax for glass & ceramics, detergents, metallurgy flux, fertilizers, and wood preservation.', specs: [{ label: 'B₂O₃', value: '36% / 48%' }, { label: 'Form', value: 'Deca / Penta' }, { label: 'Purity', value: '99% min' }], applications: ['Glass & Ceramics', 'Detergents', 'Metallurgy Flux', 'Fertilizer', 'Wood Preservation'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
   { id: 'sodium-lignosulphonate', name: 'Sodium Lignosulphonate', formula: '-', cas: '8061-51-6', grade: 'Powder · Dispersant', category: 'specialty', description: 'Lignosulphonate dispersant for concrete admixtures, dyes, pesticides, and ceramic processing.', specs: [{ label: 'Form', value: 'Brown Powder' }, { label: 'Water Reduction', value: '8-10%' }, { label: 'pH', value: '7-9' }], applications: ['Concrete Admixture', 'Dye Dispersant', 'Pesticide Carrier', 'Ceramics'], manufacturers: ['Imported / Indian Manufacturers'], packaging: ['25 kg Bags'], featured: false },
   { id: 'refined-glycerine', name: 'Refined Glycerine', formula: 'C₃H₈O₃', cas: '56-81-5', grade: '99.5% / 99.7% USP', category: 'specialty', description: 'Refined glycerine (USP/technical) for pharmaceuticals, cosmetics, food, tobacco, and polyols.', specs: [{ label: 'Glycerol', value: '99.5% / 99.7%' }, { label: 'Moisture', value: '0.5% max' }, { label: 'Colour (APHA)', value: '10 max' }], applications: ['Pharmaceutical', 'Cosmetics & Personal Care', 'Food', 'Tobacco', 'Polyols'], manufacturers: ['Imported / Indian Manufacturers'], packaging: ['250 kg Drums', 'IBC Tanks', 'ISO Tanks'], featured: false },
+  // Catalogued with a name, a CAS and a category only - an OLED / electronic-
+  // materials intermediate we do not publish a specification for.
+  { id: 'bis-biphenylyl-chlorotriazine', name: "2,4-Bis([1,1'-biphenyl]-4-yl)-6-chloro-1,3,5-triazine", cas: '182918-13-4', category: 'specialty' },
 
   // Solvents
   { id: 'isopropyl-alcohol', name: 'Isopropyl Alcohol (IPA)', formula: 'C₃H₈O', cas: '67-63-0', grade: '99.9% Min', category: 'solvents', description: 'IPA for pharmaceuticals, sanitizers, electronics cleaning, coatings, and printing.', specs: [{ label: 'Purity', value: '99.9% min' }, { label: 'Water', value: '0.05% max' }, { label: 'Appearance', value: 'Clear colourless' }], applications: ['Pharmaceutical', 'Sanitizers', 'Electronics Cleaning', 'Coatings', 'Printing'], manufacturers: ['Deepak Phenolics', 'Imported'], packaging: ['160 kg Drums', 'ISO Tanks'], featured: false },

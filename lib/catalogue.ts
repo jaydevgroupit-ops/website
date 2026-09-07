@@ -63,7 +63,9 @@ export const catalogue: CatalogueEntry[] = [
     cas: p.cas,
     href: `/products/${p.id}`,
     haystack: norm(
-      [p.name, p.cas, p.formula, p.description, ...p.applications].filter(Boolean).join(' '),
+      [p.name, p.cas, p.formula, p.description, ...(p.applications ?? [])]
+        .filter(Boolean)
+        .join(' '),
     ),
   })),
   ...pharmaProducts.map((p) => ({

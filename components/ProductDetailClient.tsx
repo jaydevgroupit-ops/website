@@ -20,7 +20,11 @@ export default function ProductDetailClient({
   fullName?: string;
 }) {
   const isPharma = product.book === 'pharma';
-  const casLine = product.cas ?? product.casForms?.map((f) => `${f.cas} (${f.label})`).join(' · ');
+  // Every product that has more than one registered form also carries a
+  // primary `cas`, so preferring `cas` here meant the forms never rendered
+  // and the page showed one number for a product sold under two.
+  const casLine =
+    product.casForms?.map((f) => `${f.cas} (${f.label})`).join(' · ') ?? product.cas;
 
   const priceAsk = `Hi, please share your best offer for ${product.name}${product.cas ? ` (CAS ${product.cas})` : ''}.`;
 
@@ -147,13 +151,14 @@ export default function ProductDetailClient({
               </div>
             )}
 
-            {/* What a pharma buyer needs before ordering. The sheet does not
-                carry any of it, so the page says so plainly instead of
-                printing a specification nobody has verified. */}
-            {/* Only what the sheet has not answered. As columns are added
-                upstream those facts move into the specifications table above
-                and this list shrinks; documents are always per-consignment. */}
-            {isPharma && (
+            {/* What a buyer needs before ordering that the source does not
+                carry, so the page says so plainly instead of printing a
+                specification nobody has verified. Every pharma product has
+                some of these; an industrial one only when it joined the site
+                from a catalogue row. As the source gains columns those facts
+                move into the specifications table above and this list shrinks;
+                documents are always per-consignment. */}
+            {product.pendingConfirmation.length > 0 && (
               <div className="card-white overflow-hidden">
                 <div className="px-6 py-4 bg-ink-pale border-b border-line">
                   <h2 className="font-jakarta font-bold text-ink text-base">Confirmed on Enquiry</h2>

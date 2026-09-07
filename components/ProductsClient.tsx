@@ -101,9 +101,9 @@ export default function ProductsClient() {
       !q ||
       p.name.toLowerCase().includes(q) ||
       p.cas.includes(q) ||
-      p.formula.toLowerCase().includes(q) ||
-      p.description.toLowerCase().includes(q) ||
-      p.applications.some((a) => a.toLowerCase().includes(q)),
+      (p.formula ?? '').toLowerCase().includes(q) ||
+      (p.description ?? '').toLowerCase().includes(q) ||
+      (p.applications ?? []).some((a) => a.toLowerCase().includes(q)),
     [q],
   );
 
@@ -351,10 +351,11 @@ export default function ProductsClient() {
                 ))}
               </div>
               {/* The second axis depends on the book being browsed: therapeutic
-                  area only means something for human APIs, and the ingredient
-                  sub-type only for the ingredients book. Showing both at once
-                  offers combinations that can only ever return nothing. */}
-              {(section === 'all' || section === 'apis-human') && (
+                  area only means something for an API, human or veterinary, and
+                  the ingredient sub-type only for the ingredients book. Showing
+                  both at once offers combinations that can only ever return
+                  nothing. */}
+              {(section === 'all' || section.startsWith('apis')) && (
                 <div className="space-y-0.5">
                   <div className="px-3 pb-1 text-[10px] font-bold uppercase tracking-[0.13em] text-ink-subtle">Therapeutic area</div>
                   <div className="px-1 pb-1.5">

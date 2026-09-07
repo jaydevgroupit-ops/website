@@ -1,12 +1,21 @@
 {
-  "_comment": "CAS numbers for rows the source sheet left blank or wrote as #VALUE!. Keyed by product id. A string sets one CAS; a list of {label, cas} declares a product sold in multiple isomeric forms. Every CAS is validated against the official check-digit algorithm before it is emitted.",
-  "_provenance": "Each verified against multiple independent references (ChemicalBook, Sigma-Aldrich, PubChem, USP, TCI, Cayman Chemical) in August 2026.",
+  "_comment": "CAS numbers for rows the source sheet left blank, wrote as #VALUE!, or recorded differently from the published catalogue. Keyed by product id. A string sets one CAS, replacing whatever the sheet holds; a list of {label, cas} declares a product sold - or registered - in more than one form. Every CAS is validated against the official check-digit algorithm before it is emitted.",
+  "_provenance": "Each verified against multiple independent references (ChemicalBook, Sigma-Aldrich, PubChem, USP, TCI, Cayman Chemical) in August 2026. Entries added in September 2026 are marked below with the catalogue row that prompted them.",
   "heparin-sodium": "9041-08-1",
   "clindamycin-palmitate-hydrochloride": "25507-04-4",
   "2-bromo-thiophene": "1003-09-4",
   "methyl-2-bromomethyl-3-nitrobenzoate": "98475-07-1",
   "inositol-nicotinate": "6556-11-2",
-  "hydroxypropyl-beta-cyclodextrin": "128446-35-5",
+  "hydroxypropyl-beta-cyclodextrin": [
+    {
+      "label": "registry",
+      "cas": "128446-35-5"
+    },
+    {
+      "label": "as catalogued",
+      "cas": "94035-02-6"
+    }
+  ],
   "5-ala-5-aminolevulinic-acid-hydrochloride": "5451-09-2",
   "phytoene": [
     {
@@ -25,5 +34,11 @@
   },
   "_removed": {
     "kinds-of-beef-organs-powder": "Removed from the catalogue - not a defined chemical substance."
+  },
+  "_note_hydroxypropyl_beta_cyclodextrin": "One substance, two live registrations. 128446-35-5 is the number verified for the sheet; 94035-02-6 is the one printed in the catalogue. Both are carried so a buyer searching either finds the page.",
+  "1-2-iodoethyl-4-octylbenzene": "162358-07-8",
+  "_note_1_2_iodoethyl_4_octylbenzene": "The sheet gave this the CAS of 4-octylphenethyl methanesulfonate (162358-06-7), the row above it in the catalogue. 162358-07-8 is the iodoethyl compound's own number.",
+  "_not_published": {
+    "erbium-hydroxide": "The catalogue lists 'Erbium hydroxide' as an Irbesartan intermediate against CAS 138401-24-8, which is irbesartan itself; erbium hydroxide is 14646-16-3. Name and number contradict each other, so the row is held back until the sheet says which was meant."
   }
 }
