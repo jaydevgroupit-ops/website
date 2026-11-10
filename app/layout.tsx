@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     default: 'Industrial Chemicals & Pharma APIs India | Jaydev Group',
     template: '%s | Jaydev Group',
   },
-  description: 'Industrial chemicals and pharmaceutical APIs from Ahmedabad, India. 300+ products supplied across India and exported to 30+ countries, fully documented.',
+  description: 'Industrial chemicals and pharmaceutical APIs from Ahmedabad, India. 295 products supplied across India and exported to 30+ countries, fully documented.',
   keywords: ['industrial chemicals exporter India', 'caustic soda exporter', 'sulphuric acid supplier', 'PAC SMBS exporter', 'GACL Grasim authorized partner', 'chemical trading Ahmedabad Gujarat', 'zircon sand importer', 'lauric acid decanoic acid'],
   metadataBase: new URL(SITE_URL),
   openGraph: {

@@ -382,7 +382,7 @@ export default function Philosophy() {
                   From Gujarat to <span className="text-gradient-lime not-italic font-jakarta font-extrabold">30+ countries</span>
                 </h2>
                 <p className="text-ink-muted text-lg leading-relaxed max-w-lg mb-10">
-                  300+ products - industrial chemicals and pharmaceutical APIs. Sold across India and exported to 30+ countries.
+                  295 products - industrial chemicals and pharmaceutical APIs. Sold across India and exported to 30+ countries.
                 </p>
 
                 {/* stats strip (moved in from the old hero band) */}
