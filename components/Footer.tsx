@@ -96,13 +96,6 @@ export default function Footer() {
             </ul>
             <div className="flex flex-wrap gap-2">
               <Link href="/quote" className="btn-lime text-xs">Request a quote</Link>
-              <a
-                href="/Jaydev-Group-Catalogue.pdf"
-                download
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-[14px] bg-white border border-line text-ink text-xs font-semibold hover:border-lime/45 transition-colors"
-              >
-                <Icon name="Download" className="w-3.5 h-3.5" /> Catalogue
-              </a>
             </div>
           </div>
         </div>

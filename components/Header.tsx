@@ -8,7 +8,6 @@ import { navLinks } from '@/lib/content';
 import { Logo } from './brand/Logo';
 import { Icon } from './Icon';
 
-const DownloadIcon = () => <Icon name="Download" className="w-4 h-4" />;
 
 const WaIcon = () => (
   // WhatsApp is a third-party mark: #25D366 lives on the glyph and nowhere else.
@@ -102,14 +101,6 @@ export default function Header() {
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-2">
             <a
-              href="/Jaydev-Group-Catalogue.pdf"
-              download
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-ink border border-line text-sm font-medium hover:border-lime hover:text-lime-text hover:bg-lime-tint transition-all"
-            >
-              <DownloadIcon />
-              Catalogue
-            </a>
-            <a
               href="https://wa.me/919099796811"
               target="_blank"
               rel="noopener noreferrer"
@@ -161,14 +152,6 @@ export default function Header() {
                   </Link>
                 );
               })}
-              <a
-                href="/Jaydev-Group-Catalogue.pdf"
-                download
-                onClick={() => setMobileOpen(false)}
-                className="mt-3 flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg border border-line text-ink text-sm font-medium"
-              >
-                <DownloadIcon /> Download Catalogue
-              </a>
               <div className="mt-3 pt-3 border-t border-line flex gap-3">
                 <a
                   href="https://wa.me/919099796811"

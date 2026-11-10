@@ -158,8 +158,8 @@ export const IMPORT_PRODUCTS: ImportProduct[] = [
     cas: '143-07-7',
     origin: 'Imported',
     description:
-      'Saturated medium-chain fatty acid (dodecanoic acid) for soaps, surfactants, cosmetics, and food-grade emulsifiers. Sourced from established Southeast Asian oleochemical producers.',
-    applications: ['Soap & Detergent', 'Surfactants', 'Cosmetics & Personal Care', 'Food Emulsifiers', 'Lubricants'],
+      'Saturated medium-chain fatty acid (dodecanoic acid) for soaps, surfactants, and cosmetics. Sourced from established Southeast Asian oleochemical producers.',
+    applications: ['Soap & Detergent', 'Surfactants', 'Cosmetics & Personal Care', 'Lubricants'],
     icon: 'Droplets',
   },
   {
@@ -169,8 +169,8 @@ export const IMPORT_PRODUCTS: ImportProduct[] = [
     cas: '334-48-5',
     origin: 'Imported',
     description:
-      'Medium-chain capric acid for esters, plasticizers, lubricants, flavour & fragrance, and food-grade applications. Imported to serve Indian specialty and oleochemical processors.',
-    applications: ['Esters & Plasticizers', 'Synthetic Lubricants', 'Flavour & Fragrance', 'Food Additives', 'Pharmaceuticals'],
+      'Medium-chain capric acid for esters, plasticizers, lubricants, and flavour & fragrance. Imported to serve Indian specialty and oleochemical processors.',
+    applications: ['Esters & Plasticizers', 'Synthetic Lubricants', 'Flavour & Fragrance', 'Pharmaceuticals'],
     icon: 'Droplets',
   },
 ];
@@ -202,6 +202,8 @@ export const IMAGE_MAP: Record<string, string> = {
   'hydrogen-gas': '/images/products/hydrogen-gas.jpg',
   'hydrogen-peroxide': '/images/products/hydrogen-peroxide.jpg',
   'liquid-chlorine': '/images/products/liquid-chlorine.jpg',
+  'acetone': '/images/products/acetone.jpg',
+  'toluene': '/images/products/toluene.jpg',
   'methylene-chloride': '/images/products/methylene-chloride.jpg',
   'oleum': '/images/products/oleum.jpg',
   'phosphoric-acid': '/images/products/phosphoric-acid.jpg',
@@ -306,7 +308,7 @@ export const products: Product[] = [
     cas: '1310-73-2',
     grade: 'Flakes 98.5% · Lye 47-50% · Prills 99.4%',
     category: 'chlor-alkali',
-    description: 'Sodium hydroxide via membrane-cell technology - our flagship export from GACL & Grasim. Available as Flakes, Lye (liquid) and Prills/Pearl for textiles, alumina, soap, paper, water treatment, pharma and food processing.',
+    description: 'Sodium hydroxide via membrane-cell technology - our flagship export from GACL & Grasim. Available as Flakes, Lye (liquid) and Prills/Pearl for textiles, alumina, soap, paper, water treatment and pharma.',
     specs: [
       { label: 'Flakes Purity', value: '98.5% min (Membrane)' },
       { label: 'Lye Concentration', value: '47-50%' },
@@ -314,7 +316,7 @@ export const products: Product[] = [
       { label: 'NaCl', value: '0.03% max' },
       { label: 'Fe', value: '10 ppm max' },
     ],
-    applications: ['Alumina Refining', 'Textile Mercerizing', 'Soap & Detergent', 'Paper & Pulp', 'Water Treatment', 'Pharmaceutical Synthesis', 'Food Processing', 'Oil & Gas Drilling'],
+    applications: ['Alumina Refining', 'Textile Mercerizing', 'Soap & Detergent', 'Paper & Pulp', 'Water Treatment', 'Pharmaceutical Synthesis', 'Oil & Gas Drilling'],
     manufacturers: ['GACL', 'Grasim', 'DCM Shriram', 'Reliance'],
     packaging: ['25 kg / 50 kg HDPE Bags', '500 kg / 1000 kg Jumbo Bags', 'ISO Tanks / Flexi Tanks (Lye)', 'Road Tankers (Lye)'],
     featured: true,
@@ -437,14 +439,14 @@ export const products: Product[] = [
     cas: '7647-01-0',
     grade: '30-33% · Industrial',
     category: 'acids',
-    description: 'Industrial hydrochloric acid for metal pickling, pH adjustment, food processing, and chemical synthesis. Supplied in carboys and barrels.',
+    description: 'Industrial hydrochloric acid for metal pickling, pH adjustment and chemical synthesis. Supplied in carboys and barrels.',
     specs: [
       { label: 'Concentration', value: '30-33%' },
       { label: 'Fe', value: '5 ppm max' },
       { label: 'As', value: '0.1 ppm max' },
       { label: 'Free Cl₂', value: 'Nil' },
     ],
-    applications: ['Metal Pickling & Cleaning', 'pH Control', 'Food Processing', 'Organic Synthesis', 'Oil Well Acidizing'],
+    applications: ['Metal Pickling & Cleaning', 'pH Control', 'Organic Synthesis', 'Oil Well Acidizing'],
     manufacturers: ['GACL', 'DCM Shriram'],
     packaging: ['35 kg Carboys', '265 kg Barrels', 'ISO Tanks'],
     featured: false,
@@ -455,16 +457,15 @@ export const products: Product[] = [
     name: 'Phosphoric Acid',
     formula: 'H₃PO₄',
     cas: '7664-38-2',
-    grade: '85% Min · Technical + Food Grade',
+    grade: '85% Min · Technical',
     category: 'acids',
-    description: 'High-purity phosphoric acid in technical and food grade for fertilizers, food/beverage, metal treatment, and detergents.',
+    description: 'High-purity phosphoric acid for fertilizers, metal treatment, and detergents.',
     specs: [
       { label: 'Concentration', value: '85% min' },
-      { label: 'As (Food Grade)', value: '1 ppm max' },
       { label: 'Heavy Metals', value: '10 ppm max' },
       { label: 'Colour (APHA)', value: '20 max' },
     ],
-    applications: ['Fertilizer Production', 'Food & Beverage Acidulant', 'Metal Treatment', 'Detergent Manufacturing', 'Water Treatment'],
+    applications: ['Fertilizer Production', 'Metal Treatment', 'Detergent Manufacturing', 'Water Treatment'],
     manufacturers: ['Reliance', 'GACL'],
     packaging: ['35 kg Carboys', '250 kg IBC', 'ISO Tanks'],
     featured: false,
@@ -690,16 +691,15 @@ export const products: Product[] = [
     name: 'SMBS - Sodium Metabisulphite',
     formula: 'Na₂S₂O₅',
     cas: '7681-57-4',
-    grade: '96.5% Tech / 97% Food Grade',
+    grade: '96.5% Tech',
     category: 'specialty',
-    description: 'Critical for gold/silver cyanide leaching destruction, food preservation, and water dechlorination. Key product for East African mining sector.',
+    description: 'Critical for gold/silver cyanide leaching destruction and water dechlorination. Key product for East African mining sector.',
     specs: [
       { label: 'Purity (Tech)', value: '96.5% min' },
-      { label: 'Purity (Food)', value: '97% min' },
       { label: 'SO₂ Content', value: '64% min' },
       { label: 'Fe', value: '10 ppm max' },
     ],
-    applications: ['Gold/Silver Cyanide Destruction', 'Food Preservation', 'Water Dechlorination', 'Wine Industry', 'Photography'],
+    applications: ['Gold/Silver Cyanide Destruction', 'Water Dechlorination', 'Photography'],
     manufacturers: ['GACL', 'Kutch Chemical'],
     packaging: ['25 kg Bags', '50 kg Bags', 'Bulk Big Bags'],
     featured: true,
@@ -712,14 +712,14 @@ export const products: Product[] = [
     cas: '7757-83-7',
     grade: '96% Min · Anhydrous',
     category: 'specialty',
-    description: 'Sodium sulphite as oxygen scavenger, photographic developer, and food preservative. Used in paper making and water treatment.',
+    description: 'Sodium sulphite as oxygen scavenger and photographic developer. Used in paper making and water treatment.',
     specs: [
       { label: 'Purity', value: '96% min' },
       { label: 'Fe', value: '20 ppm max' },
       { label: 'Chloride (as NaCl)', value: '0.5% max' },
       { label: 'Moisture', value: '1% max' },
     ],
-    applications: ['Boiler Water O₂ Scavenger', 'Photographic Developer', 'Paper Making', 'Food Preservation (E221)'],
+    applications: ['Boiler Water O₂ Scavenger', 'Photographic Developer', 'Paper Making'],
     manufacturers: ['GACL', 'Kutch Chemical'],
     packaging: ['25 kg HDPE Bags', '50 kg HDPE Bags'],
     featured: false,
@@ -739,7 +739,7 @@ export const products: Product[] = [
       { label: 'Non-volatile Residue', value: '0.05 g/100mL max' },
       { label: 'Acidity (H₂SO₄)', value: '0.04% max' },
     ],
-    applications: ['Textile Bleaching', 'Paper & Pulp', 'Wastewater Treatment', 'Food Processing', 'Electronics'],
+    applications: ['Textile Bleaching', 'Paper & Pulp', 'Wastewater Treatment', 'Electronics'],
     manufacturers: ['Reliance'],
     packaging: ['35 kg HDPE Carboys', '230 kg HDPE Drums', 'SS Tankers'],
     featured: true,
@@ -907,13 +907,13 @@ export const products: Product[] = [
     cas: '141-78-6',
     grade: '99.5% Min',
     category: 'solvents',
-    description: 'High-purity ethyl acetate for pharmaceutical, food flavouring, coatings, adhesives, and extraction.',
+    description: 'High-purity ethyl acetate for pharmaceutical, coatings, adhesives, and extraction.',
     specs: [
       { label: 'Purity', value: '99.5% min' },
       { label: 'Water', value: '0.05% max' },
       { label: 'Acidity (as AcOH)', value: '0.005% max' },
     ],
-    applications: ['Pharmaceutical Solvent', 'Food Flavouring', 'Coatings & Paints', 'Adhesives'],
+    applications: ['Pharmaceutical Solvent', 'Coatings & Paints', 'Adhesives'],
     manufacturers: ['Reliance'],
     packaging: ['200 kg MS Drums', 'ISO Tanks', 'IBC Tanks'],
     featured: false,
@@ -938,7 +938,45 @@ export const products: Product[] = [
     featured: false,
   },
 
+    {
+    id: 'toluene',
+    name: 'Toluene',
+    formula: 'C₇H₈',
+    cas: '108-88-3',
+    grade: '99.5% Min',
+    category: 'solvents',
+    description: 'Industrial toluene for paint thinners, adhesives, rubber, pharmaceutical, and TDI feedstock.',
+    specs: [
+      { label: 'Purity', value: '99.5% min' },
+      { label: 'Benzene', value: '0.1% max' },
+      { label: 'Boiling Point', value: '110-111°C' },
+    ],
+    applications: ['Paint Thinner', 'Adhesive Solvent', 'TDI Feedstock', 'Pharmaceutical Synthesis'],
+    manufacturers: ['Reliance'],
+    packaging: ['200 kg MS Drums', 'ISO Tanks', 'Flexi Tanks'],
+    featured: false,
+  },
+
   {
+    id: 'acetone',
+    name: 'Acetone',
+    formula: 'C₃H₆O',
+    cas: '67-64-1',
+    grade: '99.5% Min',
+    category: 'solvents',
+    description: 'Industrial acetone for pharmaceutical, cosmetics, coatings, and adhesive applications.',
+    specs: [
+      { label: 'Purity', value: '99.5% min' },
+      { label: 'Water', value: '0.1% max' },
+      { label: 'Aldehyde (as CH₂O)', value: '10 ppm max' },
+    ],
+    applications: ['Pharmaceutical Solvent', 'Nail Polish Remover', 'Coatings', 'Adhesives', 'Resin Production'],
+    manufacturers: ['Reliance'],
+    packaging: ['200 kg MS Drums', 'ISO Tanks'],
+    featured: false,
+  },
+
+{
     id: 'ethylene-glycol',
     name: 'Ethylene Glycol (MEG)',
     formula: 'C₂H₆O₂',
@@ -982,16 +1020,16 @@ export const products: Product[] = [
     name: 'Sodium Bicarbonate',
     formula: 'NaHCO₃',
     cas: '144-55-8',
-    grade: '99.5% Min · Food Grade',
+    grade: '99.5% Min',
     category: 'inorganic-salts',
-    description: 'Food-grade sodium bicarbonate for food leavening, pharmaceutical antacid, fire extinguishers, and pH control.',
+    description: 'Sodium bicarbonate for pharmaceutical antacid, fire extinguishers, and pH control.',
     specs: [
       { label: 'Purity', value: '99.5% min' },
       { label: 'As', value: '1 ppm max' },
       { label: 'Heavy Metals', value: '5 ppm max' },
       { label: 'Loss on Drying', value: '0.2% max' },
     ],
-    applications: ['Food Leavening Agent', 'Pharmaceutical Antacid', 'Fire Extinguisher', 'Water Treatment', 'Animal Feed'],
+    applications: ['Pharmaceutical Antacid', 'Fire Extinguisher', 'Water Treatment', 'Animal Feed'],
     manufacturers: ['GHCL', 'DCM Shriram'],
     packaging: ['25 kg Bags', '50 kg Bags'],
     featured: false,
@@ -1010,7 +1048,7 @@ export const products: Product[] = [
       { label: 'Chloride (Cl⁻)', value: '0.005% max' },
       { label: 'Moisture', value: '0.5% max' },
     ],
-    applications: ['Glass Manufacturing', 'Soap & Detergent', 'Food Processing', 'Agrochemicals'],
+    applications: ['Glass Manufacturing', 'Soap & Detergent', 'Agrochemicals'],
     manufacturers: ['DCM Shriram'],
     packaging: ['25 kg HDPE Bags', '50 kg HDPE Bags'],
     featured: false,
@@ -1023,13 +1061,13 @@ export const products: Product[] = [
     cas: '127-09-3',
     grade: '99% Min · Anhydrous + Trihydrate',
     category: 'inorganic-salts',
-    description: 'Sodium acetate as food preservative (E262), textile dye mordant, and pharmaceutical buffer.',
+    description: 'Sodium acetate as textile dye mordant and pharmaceutical buffer.',
     specs: [
       { label: 'Purity', value: '99% min' },
       { label: 'Form', value: 'Anhydrous / Trihydrate' },
       { label: 'Heavy Metals', value: '10 ppm max' },
     ],
-    applications: ['Food Preservative (E262)', 'Textile Dyeing', 'Pharmaceutical Buffer', 'Heat Packs'],
+    applications: ['Textile Dyeing', 'Pharmaceutical Buffer', 'Heat Packs'],
     manufacturers: ['DCM Shriram'],
     packaging: ['25 kg Bags', '50 kg Bags'],
     featured: false,
@@ -1061,13 +1099,13 @@ export const products: Product[] = [
     cas: '7631-99-4',
     grade: '99% Min · Industrial',
     category: 'inorganic-salts',
-    description: 'Sodium nitrate as fertilizer, food curing salt (E251), glass flux, and heat transfer fluid.',
+    description: 'Sodium nitrate as fertilizer, glass flux, and heat transfer fluid.',
     specs: [
       { label: 'Purity', value: '99% min' },
       { label: 'NaCl', value: '0.3% max' },
       { label: 'Moisture', value: '0.5% max' },
     ],
-    applications: ['Fertilizer', 'Food Preservation (E251)', 'Glass Manufacturing', 'Heat Transfer Fluid'],
+    applications: ['Fertilizer', 'Glass Manufacturing', 'Heat Transfer Fluid'],
     manufacturers: ['DCM Shriram'],
     packaging: ['50 kg PP Bags', '1000 kg Jumbo Bags'],
     featured: false,
@@ -1078,16 +1116,16 @@ export const products: Product[] = [
     name: 'Calcium Chloride',
     formula: 'CaCl₂',
     cas: '10043-52-4',
-    grade: '94-97% Flakes · Industrial / Oilfield / Food',
+    grade: '94-97% Flakes · Industrial / Oilfield',
     category: 'inorganic-salts',
-    description: 'Calcium chloride flakes for oilfield drilling fluids, dust control, concrete acceleration, and food processing. High demand from GCC oilfield operators.',
+    description: 'Calcium chloride flakes for oilfield drilling fluids, dust control, and concrete acceleration. High demand from GCC oilfield operators.',
     specs: [
       { label: 'Purity (Flakes)', value: '94-97%' },
       { label: 'NaCl', value: '2% max' },
       { label: 'MgCl₂', value: '0.5% max' },
       { label: 'Form', value: 'Flakes / Pellets / Powder' },
     ],
-    applications: ['Oilfield Drilling Fluids', 'Dust Suppression', 'Concrete Acceleration', 'Refrigeration Brine', 'Food Processing'],
+    applications: ['Oilfield Drilling Fluids', 'Dust Suppression', 'Concrete Acceleration', 'Refrigeration Brine'],
     manufacturers: ['Kutch Chemical', 'GHCL'],
     packaging: ['25 kg HDPE Bags', '50 kg HDPE Bags', '1000 kg Jumbo Bags'],
     featured: true,
@@ -1112,11 +1150,11 @@ export const products: Product[] = [
     featured: false,
   },
 
-  { id: 'acetic-acid', name: 'Acetic Acid (Glacial)', formula: 'CH₃COOH', cas: '64-19-7', grade: '99.85% Min · Glacial', category: 'acids', description: 'Glacial acetic acid for textiles, PTA, food acidulant, pharmaceuticals, and ester/solvent manufacture.', specs: [{ label: 'Purity', value: '99.85% min' }, { label: 'Water', value: '0.15% max' }, { label: 'Appearance', value: 'Clear colourless liquid' }], applications: ['Textile Processing', 'PTA / PET', 'Food Acidulant', 'Pharmaceutical', 'Ester Manufacture'], manufacturers: ['Indian Manufacturers'], packaging: ['30 kg Carboys', '200 kg Drums', 'ISO Tanks'], featured: false },
+  { id: 'acetic-acid', name: 'Acetic Acid (Glacial)', formula: 'CH₃COOH', cas: '64-19-7', grade: '99.85% Min · Glacial', category: 'acids', description: 'Glacial acetic acid for textiles, PTA, pharmaceuticals, and ester/solvent manufacture.', specs: [{ label: 'Purity', value: '99.85% min' }, { label: 'Water', value: '0.15% max' }, { label: 'Appearance', value: 'Clear colourless liquid' }], applications: ['Textile Processing', 'PTA / PET', 'Pharmaceutical', 'Ester Manufacture'], manufacturers: ['Indian Manufacturers'], packaging: ['30 kg Carboys', '200 kg Drums', 'ISO Tanks'], featured: false },
 
   { id: 'formic-acid', name: 'Formic Acid', formula: 'CH₂O₂', cas: '64-18-6', grade: '85% / 90% Min', category: 'acids', description: 'Formic acid for leather tanning, rubber coagulation, textile dyeing, and animal feed preservation.', specs: [{ label: 'Concentration', value: '85% / 90%' }, { label: 'Chloride', value: '5 ppm max' }, { label: 'Sulphate', value: '5 ppm max' }], applications: ['Leather Tanning', 'Rubber Coagulation', 'Textile Dyeing', 'Feed Preservative'], manufacturers: ['Indian Manufacturers'], packaging: ['35 kg Carboys', '250 kg Drums'], featured: false },
 
-  { id: 'citric-acid', name: 'Citric Acid', formula: 'C₆H₈O₇', cas: '77-92-9', grade: 'Anhydrous / Monohydrate · Food', category: 'acids', description: 'Food-grade citric acid for beverages, food preservation, detergents, and pharmaceutical formulations.', specs: [{ label: 'Purity', value: '99.5% min' }, { label: 'Heavy Metals', value: '10 ppm max' }, { label: 'Form', value: 'Anhydrous / Monohydrate' }], applications: ['Beverages', 'Food Preservation', 'Detergents', 'Pharmaceuticals', 'Cosmetics'], manufacturers: ['Imported / Indian Manufacturers'], packaging: ['25 kg Bags'], featured: false },
+  { id: 'citric-acid', name: 'Citric Acid', formula: 'C₆H₈O₇', cas: '77-92-9', grade: 'Anhydrous / Monohydrate', category: 'acids', description: 'Citric acid for detergents and pharmaceutical formulations.', specs: [{ label: 'Purity', value: '99.5% min' }, { label: 'Heavy Metals', value: '10 ppm max' }, { label: 'Form', value: 'Anhydrous / Monohydrate' }], applications: ['Detergents', 'Pharmaceuticals', 'Cosmetics'], manufacturers: ['Imported / Indian Manufacturers'], packaging: ['25 kg Bags'], featured: false },
 
   { id: 'nitric-acid', name: 'Nitric Acid', formula: 'HNO₃', cas: '7697-37-2', grade: '60% / 68% · Industrial', category: 'acids', description: 'Nitric acid for fertilizers, explosives, metal pickling, and nitration in chemical synthesis.', specs: [{ label: 'Concentration', value: '60% / 68%' }, { label: 'Appearance', value: 'Colourless to pale yellow' }, { label: 'UN Number', value: 'UN 2031' }], applications: ['Fertilizer (CAN/AN)', 'Metal Pickling', 'Nitration', 'Explosives'], manufacturers: ['Deepak Fertilisers', 'GNFC'], packaging: ['250 kg Drums', 'ISO Tanks'], featured: false },
 
@@ -1126,7 +1164,7 @@ export const products: Product[] = [
 
   { id: 'boric-acid', name: 'Boric Acid', formula: 'H₃BO₃', cas: '10043-35-3', grade: '99.9% Min', category: 'acids', description: 'Boric acid for glass & ceramics, flame retardants, fertilizers, and antiseptic applications.', specs: [{ label: 'H₃BO₃', value: '99.9% min' }, { label: 'Sulphate', value: '0.1% max' }, { label: 'Form', value: 'Powder / Granular' }], applications: ['Glass & Ceramics', 'Flame Retardant', 'Micronutrient Fertilizer', 'Antiseptic'], manufacturers: ['Imported'], packaging: ['25 kg Bags', '1000 kg Jumbo Bags'], featured: false },
 
-  { id: 'lactic-acid', name: 'Lactic Acid', formula: 'C₃H₆O₃', cas: '50-21-5', grade: '80% / 88% · Food/Tech', category: 'acids', description: 'Lactic acid for food, beverages, pharmaceuticals, leather, and biodegradable plastics (PLA).', specs: [{ label: 'Concentration', value: '80% / 88%' }, { label: 'Form', value: 'Liquid' }, { label: 'Grade', value: 'Food / Technical' }], applications: ['Food & Beverage', 'Pharmaceutical', 'Leather', 'PLA Bioplastics'], manufacturers: ['Imported'], packaging: ['25 kg Carboys', '250 kg Drums'], featured: false },
+  { id: 'lactic-acid', name: 'Lactic Acid', formula: 'C₃H₆O₃', cas: '50-21-5', grade: '80% / 88%', category: 'acids', description: 'Lactic acid for pharmaceuticals, leather, and biodegradable plastics (PLA).', specs: [{ label: 'Concentration', value: '80% / 88%' }, { label: 'Form', value: 'Liquid' }], applications: ['Pharmaceutical', 'Leather', 'PLA Bioplastics'], manufacturers: ['Imported'], packaging: ['25 kg Carboys', '250 kg Drums'], featured: false },
 
   { id: 'sodium-silicate', name: 'Sodium Silicate (Water Glass)', formula: 'Na₂SiO₃', cas: '1344-09-8', grade: 'Liquid & Solid · Various Ratios', category: 'inorganic-salts', description: 'Sodium silicate for detergents, adhesives, foundry binders, water treatment, and paper.', specs: [{ label: 'SiO₂:Na₂O Ratio', value: '2.0-3.3' }, { label: 'Solids', value: '36-48%' }, { label: 'Form', value: 'Liquid / Solid Lumps' }], applications: ['Detergents', 'Adhesives & Binders', 'Foundry', 'Water Treatment', 'Paper'], manufacturers: ['Indian Manufacturers'], packaging: ['300 kg Drums', 'Road Tankers', '50 kg Bags (solid)'], featured: false },
 
@@ -1158,7 +1196,7 @@ export const products: Product[] = [
 
   { id: 'sodium-lignosulphonate', name: 'Sodium Lignosulphonate', formula: '-', cas: '8061-51-6', grade: 'Powder · Dispersant', category: 'specialty', description: 'Lignosulphonate dispersant for concrete admixtures, dyes, pesticides, and ceramic processing.', specs: [{ label: 'Form', value: 'Brown Powder' }, { label: 'Water Reduction', value: '8-10%' }, { label: 'pH', value: '7-9' }], applications: ['Concrete Admixture', 'Dye Dispersant', 'Pesticide Carrier', 'Ceramics'], manufacturers: ['Imported / Indian Manufacturers'], packaging: ['25 kg Bags'], featured: false },
 
-  { id: 'refined-glycerine', name: 'Refined Glycerine', formula: 'C₃H₈O₃', cas: '56-81-5', grade: '99.5% / 99.7% USP', category: 'specialty', description: 'Refined glycerine (USP/technical) for pharmaceuticals, cosmetics, food, tobacco, and polyols.', specs: [{ label: 'Glycerol', value: '99.5% / 99.7%' }, { label: 'Moisture', value: '0.5% max' }, { label: 'Colour (APHA)', value: '10 max' }], applications: ['Pharmaceutical', 'Cosmetics & Personal Care', 'Food', 'Tobacco', 'Polyols'], manufacturers: ['Imported / Indian Manufacturers'], packaging: ['250 kg Drums', 'IBC Tanks', 'ISO Tanks'], featured: false },
+  { id: 'refined-glycerine', name: 'Refined Glycerine', formula: 'C₃H₈O₃', cas: '56-81-5', grade: '99.5% / 99.7% USP', category: 'specialty', description: 'Refined glycerine (USP/technical) for pharmaceuticals, cosmetics, tobacco, and polyols.', specs: [{ label: 'Glycerol', value: '99.5% / 99.7%' }, { label: 'Moisture', value: '0.5% max' }, { label: 'Colour (APHA)', value: '10 max' }], applications: ['Pharmaceutical', 'Cosmetics & Personal Care', 'Tobacco', 'Polyols'], manufacturers: ['Imported / Indian Manufacturers'], packaging: ['250 kg Drums', 'IBC Tanks', 'ISO Tanks'], featured: false },
 
   { id: 'bis-biphenylyl-chlorotriazine', name: "2,4-Bis([1,1'-biphenyl]-4-yl)-6-chloro-1,3,5-triazine", cas: '182918-13-4', category: 'specialty' },
 
@@ -1168,7 +1206,7 @@ export const products: Product[] = [
 
   { id: 'n-butanol', name: 'n-Butanol', formula: 'C₄H₁₀O', cas: '71-36-3', grade: '99.5% Min', category: 'solvents', description: 'n-Butanol for plasticizers, acrylate esters, coatings, and as a solvent.', specs: [{ label: 'Purity', value: '99.5% min' }, { label: 'Water', value: '0.1% max' }, { label: 'Acidity', value: '0.005% max' }], applications: ['Plasticizers', 'Acrylate Esters', 'Coatings', 'Solvent'], manufacturers: ['Imported'], packaging: ['165 kg Drums', 'ISO Tanks'], featured: false },
 
-  { id: 'propylene-glycol', name: 'Propylene Glycol (MPG)', formula: 'C₃H₈O₂', cas: '57-55-6', grade: 'USP / Industrial', category: 'solvents', description: 'Propylene glycol for unsaturated polyester resins, antifreeze, food, pharma, and cosmetics.', specs: [{ label: 'Purity', value: '99.5% min' }, { label: 'Water', value: '0.1% max' }, { label: 'Grade', value: 'USP / Industrial' }], applications: ['UPR Resins', 'Antifreeze', 'Food & Pharma', 'Cosmetics'], manufacturers: ['Imported'], packaging: ['215 kg Drums', 'IBC Tanks', 'ISO Tanks'], featured: false },
+  { id: 'propylene-glycol', name: 'Propylene Glycol (MPG)', formula: 'C₃H₈O₂', cas: '57-55-6', grade: 'USP / Industrial', category: 'solvents', description: 'Propylene glycol for unsaturated polyester resins, antifreeze, pharma, and cosmetics.', specs: [{ label: 'Purity', value: '99.5% min' }, { label: 'Water', value: '0.1% max' }, { label: 'Grade', value: 'USP / Industrial' }], applications: ['UPR Resins', 'Antifreeze', 'Pharma', 'Cosmetics'], manufacturers: ['Imported'], packaging: ['215 kg Drums', 'IBC Tanks', 'ISO Tanks'], featured: false },
 
   { id: 'diethylene-glycol', name: 'Diethylene Glycol (DEG)', formula: 'C₄H₁₀O₃', cas: '111-46-6', grade: '99.9% Min', category: 'solvents', description: 'DEG for unsaturated polyester resins, plasticizers, gas dehydration, and brake fluids.', specs: [{ label: 'Purity', value: '99.9% min' }, { label: 'Water', value: '0.1% max' }, { label: 'Colour (APHA)', value: '5 max' }], applications: ['UPR Resins', 'Plasticizers', 'Gas Dehydration', 'Brake Fluids'], manufacturers: ['Reliance', 'Imported'], packaging: ['230 kg Drums', 'ISO Tanks'], featured: false },
 
@@ -1182,19 +1220,19 @@ export const products: Product[] = [
 
   { id: 'ethanol', name: 'Ethanol (Denatured)', formula: 'C₂H₆O', cas: '64-17-5', grade: '99.9% / 96%', category: 'solvents', description: 'Denatured ethanol for sanitizers, pharmaceuticals, cosmetics, printing, and coatings.', specs: [{ label: 'Purity', value: '99.9% / 96%' }, { label: 'Water', value: '0.2% max' }, { label: 'Type', value: 'Denatured / ENA' }], applications: ['Sanitizers', 'Pharmaceutical', 'Cosmetics', 'Printing', 'Coatings'], manufacturers: ['Indian Manufacturers'], packaging: ['160 kg Drums', 'ISO Tanks'], featured: false },
 
-  { id: 'potassium-nitrate', name: 'Potassium Nitrate', formula: 'KNO₃', cas: '7757-79-1', grade: '99% Min · Tech/Agri', category: 'inorganic-salts', description: 'Potassium nitrate for water-soluble fertilizers, glass, fireworks, and food curing.', specs: [{ label: 'KNO₃', value: '99% min' }, { label: 'N', value: '13.5%' }, { label: 'K₂O', value: '46%' }], applications: ['Water-Soluble Fertilizer', 'Glass Manufacturing', 'Pyrotechnics', 'Food Curing'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
+  { id: 'potassium-nitrate', name: 'Potassium Nitrate', formula: 'KNO₃', cas: '7757-79-1', grade: '99% Min · Tech/Agri', category: 'inorganic-salts', description: 'Potassium nitrate for water-soluble fertilizers, glass, and fireworks.', specs: [{ label: 'KNO₃', value: '99% min' }, { label: 'N', value: '13.5%' }, { label: 'K₂O', value: '46%' }], applications: ['Water-Soluble Fertilizer', 'Glass Manufacturing', 'Pyrotechnics'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
 
   { id: 'ammonium-chloride', name: 'Ammonium Chloride', formula: 'NH₄Cl', cas: '12125-02-9', grade: '99.5% Min', category: 'inorganic-salts', description: 'Ammonium chloride for dry batteries, soldering flux, fertilizer, and pharmaceuticals.', specs: [{ label: 'NH₄Cl', value: '99.5% min' }, { label: 'Form', value: 'Powder / Granular' }, { label: 'Moisture', value: '0.5% max' }], applications: ['Dry Batteries', 'Soldering Flux', 'Fertilizer', 'Pharmaceutical'], manufacturers: ['Imported / Indian Manufacturers'], packaging: ['25 kg / 50 kg Bags'], featured: false },
 
   { id: 'zineb', name: 'Zineb', formula: 'C₄H₆N₂S₄Zn', cas: '12122-67-7', grade: 'Technical', category: 'agro', description: 'Zineb, a zinc ethylenebis(dithiocarbamate) contact fungicide used in crop protection formulations.', specs: [], applications: ['Crop Protection', 'Fungicide Formulations'], manufacturers: [], packaging: [], featured: false },
 
-  { id: 'ammonium-sulphate', name: 'Ammonium Sulphate', formula: '(NH₄)₂SO₄', cas: '7783-20-2', grade: '21% N Min', category: 'agro', description: 'Ammonium sulphate nitrogen-sulphur fertilizer, also used in textile and food sectors.', specs: [{ label: 'Nitrogen', value: '21% min' }, { label: 'Sulphur', value: '24% min' }, { label: 'Form', value: 'Crystal / Granular' }], applications: ['Nitrogen-Sulphur Fertilizer', 'Textile', 'Food Additive', 'Water Treatment'], manufacturers: ['GSFC', 'Indian Manufacturers'], packaging: ['50 kg Bags', '1000 kg Jumbo Bags'], featured: false },
+  { id: 'ammonium-sulphate', name: 'Ammonium Sulphate', formula: '(NH₄)₂SO₄', cas: '7783-20-2', grade: '21% N Min', category: 'agro', description: 'Ammonium sulphate nitrogen-sulphur fertilizer, also used in textiles.', specs: [{ label: 'Nitrogen', value: '21% min' }, { label: 'Sulphur', value: '24% min' }, { label: 'Form', value: 'Crystal / Granular' }], applications: ['Nitrogen-Sulphur Fertilizer', 'Textile', 'Water Treatment'], manufacturers: ['GSFC', 'Indian Manufacturers'], packaging: ['50 kg Bags', '1000 kg Jumbo Bags'], featured: false },
 
-  { id: 'stpp', name: 'Sodium Tripolyphosphate (STPP)', formula: 'Na₅P₃O₁₀', cas: '7758-29-4', grade: '94% Min', category: 'inorganic-salts', description: 'STPP builder for detergents, ceramics, water treatment, and food processing.', specs: [{ label: 'Na₅P₃O₁₀', value: '94% min' }, { label: 'P₂O₅', value: '57% min' }, { label: 'Form', value: 'White Powder' }], applications: ['Detergent Builder', 'Ceramics', 'Water Treatment', 'Food Processing'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
+  { id: 'stpp', name: 'Sodium Tripolyphosphate (STPP)', formula: 'Na₅P₃O₁₀', cas: '7758-29-4', grade: '94% Min', category: 'inorganic-salts', description: 'STPP builder for detergents, ceramics, and water treatment.', specs: [{ label: 'Na₅P₃O₁₀', value: '94% min' }, { label: 'P₂O₅', value: '57% min' }, { label: 'Form', value: 'White Powder' }], applications: ['Detergent Builder', 'Ceramics', 'Water Treatment'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
 
-  { id: 'shmp', name: 'Sodium Hexametaphosphate (SHMP)', formula: '(NaPO₃)₆', cas: '10124-56-8', grade: '68% P₂O₅ Min', category: 'inorganic-salts', description: 'SHMP sequestrant for water treatment, detergents, food, and oilfield scale control.', specs: [{ label: 'P₂O₅', value: '68% min' }, { label: 'Form', value: 'Powder / Granular' }, { label: 'pH (1%)', value: '5.8-6.5' }], applications: ['Water Treatment', 'Detergents', 'Food Additive', 'Oilfield Scale Control'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
+  { id: 'shmp', name: 'Sodium Hexametaphosphate (SHMP)', formula: '(NaPO₃)₆', cas: '10124-56-8', grade: '68% P₂O₅ Min', category: 'inorganic-salts', description: 'SHMP sequestrant for water treatment, detergents, and oilfield scale control.', specs: [{ label: 'P₂O₅', value: '68% min' }, { label: 'Form', value: 'Powder / Granular' }, { label: 'pH (1%)', value: '5.8-6.5' }], applications: ['Water Treatment', 'Detergents', 'Oilfield Scale Control'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
 
-  { id: 'potassium-chloride', name: 'Potassium Chloride (MOP)', formula: 'KCl', cas: '7447-40-7', grade: '99% / 60% K₂O', category: 'agro', description: 'Muriate of potash (MOP) for fertilizers, plus industrial and food-grade potassium chloride.', specs: [{ label: 'KCl', value: '99% (industrial)' }, { label: 'K₂O', value: '60% (MOP)' }, { label: 'Form', value: 'Crystal / Granular' }], applications: ['Potash Fertilizer', 'Industrial', 'Food Grade', 'Drilling Fluids'], manufacturers: ['Imported'], packaging: ['50 kg Bags', '1000 kg Jumbo Bags'], featured: false },
+  { id: 'potassium-chloride', name: 'Potassium Chloride (MOP)', formula: 'KCl', cas: '7447-40-7', grade: '99% / 60% K₂O', category: 'agro', description: 'Muriate of potash (MOP) for fertilizers, plus industrial potassium chloride.', specs: [{ label: 'KCl', value: '99% (industrial)' }, { label: 'K₂O', value: '60% (MOP)' }, { label: 'Form', value: 'Crystal / Granular' }], applications: ['Potash Fertilizer', 'Industrial', 'Drilling Fluids'], manufacturers: ['Imported'], packaging: ['50 kg Bags', '1000 kg Jumbo Bags'], featured: false },
 
   { id: 'calcium-nitrate', name: 'Calcium Nitrate', formula: 'Ca(NO₃)₂', cas: '10124-37-5', grade: '15.5% N Min', category: 'agro', description: 'Calcium nitrate for fertigation, greenhouse crops, concrete accelerator, and wastewater odour control.', specs: [{ label: 'Nitrogen', value: '15.5%' }, { label: 'CaO', value: '26%' }, { label: 'Form', value: 'Granular / Soluble' }], applications: ['Fertigation', 'Greenhouse Crops', 'Concrete Accelerator', 'Odour Control'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
 
@@ -1309,7 +1347,7 @@ export const industryData: IndustryData[] = [
     icon: 'PaintBucket',
     description: 'Resins, solvents, pigments dispersants, and additives for paints, printing inks, and protective/industrial coatings.',
     seoKeywords: 'paint chemicals supplier, epoxy resin exporter, coating solvents, MEG, titanium dioxide',
-    productIds: ['epoxy-resin', 'ethyl-acetate', 'ethylene-glycol', 'titanium-dioxide', 'xylene', 'n-butanol', 'propylene-glycol', 'calcium-carbonate', 'stearic-acid'],
+    productIds: ['epoxy-resin', 'toluene', 'acetone', 'ethyl-acetate', 'ethylene-glycol', 'titanium-dioxide', 'xylene', 'n-butanol', 'propylene-glycol', 'calcium-carbonate', 'stearic-acid'],
     additionalProducts: ['Titanium Dioxide', 'Xylene', 'MIBK', 'Butyl Acetate', 'Driers & Additives'],
     markets: ['SE Asia', 'GCC', 'West Africa'],
   },
@@ -1342,17 +1380,6 @@ export const industryData: IndustryData[] = [
     productIds: ['sulphur', 'sulphuric-acid', 'sodium-nitrate', 'phosphoric-acid', 'sodium-chlorate', 'urea', 'dap', 'potassium-chloride', 'calcium-nitrate', 'potassium-sulphate', 'ammonium-sulphate', 'potassium-nitrate', 'magnesium-sulphate', 'zinc-sulphate', 'boric-acid'],
     additionalProducts: ['Urea', 'MOP (Potassium Chloride)', 'Zinc Sulphate', 'Magnesium Sulphate', 'Micronutrient Blends'],
     markets: ['East Africa', 'West Africa', 'SE Asia'],
-  },
-  {
-    id: 'food-pharma',
-    name: 'Food & Pharma',
-    icon: 'Pill',
-    description: 'Food-grade and pharmaceutical-grade chemicals for processing, preservation, buffering, and active synthesis.',
-    seoKeywords: 'food grade chemicals exporter, pharma intermediates, sodium bicarbonate food grade, calcium chloride food, phosphoric acid food grade',
-    productIds: ['smbs', 'calcium-chloride', 'sodium-bicarbonate', 'hydrogen-peroxide', 'phosphoric-acid', 'sodium-acetate', 'sodium-nitrate', 'decanoic-acid', 'citric-acid', 'lactic-acid', 'refined-glycerine', 'magnesium-sulphate', 'ammonium-chloride'],
-    additionalProducts: ['Citric Acid', 'Lactic Acid', 'Potassium Sorbate', 'Sodium Benzoate', 'Dextrose'],
-    markets: ['GCC', 'SE Asia', 'West Africa'],
-    pharmaSections: ['apis-human', 'ingredients-excipients'],
   },
   {
     id: 'textile-dyeing',
