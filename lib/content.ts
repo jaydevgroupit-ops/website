@@ -900,24 +900,6 @@ export const products: Product[] = [
     featured: false,
   },
 
-  {
-    id: 'ethyl-acetate',
-    name: 'Ethyl Acetate',
-    formula: 'C₄H₈O₂',
-    cas: '141-78-6',
-    grade: '99.5% Min',
-    category: 'solvents',
-    description: 'High-purity ethyl acetate for pharmaceutical, coatings, adhesives, and extraction.',
-    specs: [
-      { label: 'Purity', value: '99.5% min' },
-      { label: 'Water', value: '0.05% max' },
-      { label: 'Acidity (as AcOH)', value: '0.005% max' },
-    ],
-    applications: ['Pharmaceutical Solvent', 'Coatings & Paints', 'Adhesives'],
-    manufacturers: ['Reliance'],
-    packaging: ['200 kg MS Drums', 'ISO Tanks', 'IBC Tanks'],
-    featured: false,
-  },
 
   {
     id: 'hexane',
@@ -1218,13 +1200,9 @@ export const products: Product[] = [
 
   { id: 'formaldehyde', name: 'Formaldehyde', formula: 'CH₂O', cas: '50-00-0', grade: '37% / Para', category: 'specialty', description: 'Formaldehyde (formalin) for resins (UF/PF/MF), disinfectants, and chemical synthesis.', specs: [{ label: 'Concentration', value: '37% min' }, { label: 'Methanol', value: '8-12%' }, { label: 'Acidity', value: '0.05% max' }], applications: ['UF/PF/MF Resins', 'Disinfectants', 'Chemical Synthesis', 'Textile'], manufacturers: ['Indian Manufacturers'], packaging: ['230 kg Drums', 'Road Tankers'], featured: false },
 
-  { id: 'ethanol', name: 'Ethanol (Denatured)', formula: 'C₂H₆O', cas: '64-17-5', grade: '99.9% / 96%', category: 'solvents', description: 'Denatured ethanol for sanitizers, pharmaceuticals, cosmetics, printing, and coatings.', specs: [{ label: 'Purity', value: '99.9% / 96%' }, { label: 'Water', value: '0.2% max' }, { label: 'Type', value: 'Denatured / ENA' }], applications: ['Sanitizers', 'Pharmaceutical', 'Cosmetics', 'Printing', 'Coatings'], manufacturers: ['Indian Manufacturers'], packaging: ['160 kg Drums', 'ISO Tanks'], featured: false },
-
   { id: 'potassium-nitrate', name: 'Potassium Nitrate', formula: 'KNO₃', cas: '7757-79-1', grade: '99% Min · Tech/Agri', category: 'inorganic-salts', description: 'Potassium nitrate for water-soluble fertilizers, glass, and fireworks.', specs: [{ label: 'KNO₃', value: '99% min' }, { label: 'N', value: '13.5%' }, { label: 'K₂O', value: '46%' }], applications: ['Water-Soluble Fertilizer', 'Glass Manufacturing', 'Pyrotechnics'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
 
   { id: 'ammonium-chloride', name: 'Ammonium Chloride', formula: 'NH₄Cl', cas: '12125-02-9', grade: '99.5% Min', category: 'inorganic-salts', description: 'Ammonium chloride for dry batteries, soldering flux, fertilizer, and pharmaceuticals.', specs: [{ label: 'NH₄Cl', value: '99.5% min' }, { label: 'Form', value: 'Powder / Granular' }, { label: 'Moisture', value: '0.5% max' }], applications: ['Dry Batteries', 'Soldering Flux', 'Fertilizer', 'Pharmaceutical'], manufacturers: ['Imported / Indian Manufacturers'], packaging: ['25 kg / 50 kg Bags'], featured: false },
-
-  { id: 'zineb', name: 'Zineb', formula: 'C₄H₆N₂S₄Zn', cas: '12122-67-7', grade: 'Technical', category: 'agro', description: 'Zineb, a zinc ethylenebis(dithiocarbamate) contact fungicide used in crop protection formulations.', specs: [], applications: ['Crop Protection', 'Fungicide Formulations'], manufacturers: [], packaging: [], featured: false },
 
   { id: 'ammonium-sulphate', name: 'Ammonium Sulphate', formula: '(NH₄)₂SO₄', cas: '7783-20-2', grade: '21% N Min', category: 'agro', description: 'Ammonium sulphate nitrogen-sulphur fertilizer, also used in textiles.', specs: [{ label: 'Nitrogen', value: '21% min' }, { label: 'Sulphur', value: '24% min' }, { label: 'Form', value: 'Crystal / Granular' }], applications: ['Nitrogen-Sulphur Fertilizer', 'Textile', 'Water Treatment'], manufacturers: ['GSFC', 'Indian Manufacturers'], packaging: ['50 kg Bags', '1000 kg Jumbo Bags'], featured: false },
 
@@ -1232,7 +1210,7 @@ export const products: Product[] = [
 
   { id: 'shmp', name: 'Sodium Hexametaphosphate (SHMP)', formula: '(NaPO₃)₆', cas: '10124-56-8', grade: '68% P₂O₅ Min', category: 'inorganic-salts', description: 'SHMP sequestrant for water treatment, detergents, and oilfield scale control.', specs: [{ label: 'P₂O₅', value: '68% min' }, { label: 'Form', value: 'Powder / Granular' }, { label: 'pH (1%)', value: '5.8-6.5' }], applications: ['Water Treatment', 'Detergents', 'Oilfield Scale Control'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
 
-  { id: 'potassium-chloride', name: 'Potassium Chloride (MOP)', formula: 'KCl', cas: '7447-40-7', grade: '99% / 60% K₂O', category: 'agro', description: 'Muriate of potash (MOP) for fertilizers, plus industrial potassium chloride.', specs: [{ label: 'KCl', value: '99% (industrial)' }, { label: 'K₂O', value: '60% (MOP)' }, { label: 'Form', value: 'Crystal / Granular' }], applications: ['Potash Fertilizer', 'Industrial', 'Drilling Fluids'], manufacturers: ['Imported'], packaging: ['50 kg Bags', '1000 kg Jumbo Bags'], featured: false },
+  { id: 'potassium-chloride', name: 'Potassium Chloride', formula: 'KCl', cas: '7447-40-7', grade: '99%', category: 'inorganic-salts', description: 'Industrial potassium chloride.', specs: [{ label: 'KCl', value: '99% (industrial)' }, { label: 'Form', value: 'Crystal / Granular' }], applications: ['Industrial', 'Drilling Fluids'], manufacturers: ['Imported'], packaging: ['50 kg Bags', '1000 kg Jumbo Bags'], featured: false },
 
   { id: 'calcium-nitrate', name: 'Calcium Nitrate', formula: 'Ca(NO₃)₂', cas: '10124-37-5', grade: '15.5% N Min', category: 'agro', description: 'Calcium nitrate for fertigation, greenhouse crops, concrete accelerator, and wastewater odour control.', specs: [{ label: 'Nitrogen', value: '15.5%' }, { label: 'CaO', value: '26%' }, { label: 'Form', value: 'Granular / Soluble' }], applications: ['Fertigation', 'Greenhouse Crops', 'Concrete Accelerator', 'Odour Control'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
 
@@ -1245,10 +1223,6 @@ export const products: Product[] = [
   { id: 'cdea', name: 'Coconut Diethanolamide (CDEA)', formula: '-', cas: '68603-42-9', grade: '85% Min', category: 'surfactants', description: 'CDEA foam booster and viscosity builder for shampoos, dishwash, and liquid cleaners.', specs: [{ label: 'Active Matter', value: '85% min' }, { label: 'Free Amine', value: '8% max' }, { label: 'Form', value: 'Viscous Liquid' }], applications: ['Foam Booster', 'Viscosity Modifier', 'Shampoo', 'Dishwash'], manufacturers: ['Indian Manufacturers'], packaging: ['215 kg Drums'], featured: false },
 
   { id: 'soap-noodles', name: 'Soap Noodles', formula: '-', cas: '-', grade: '80:20 / 90:10', category: 'surfactants', description: 'Toilet & laundry soap noodles (palm/palm-kernel based) for soap finishing and stamping.', specs: [{ label: 'Blend', value: '80:20 / 90:10' }, { label: 'TFM', value: '78% min' }, { label: 'Moisture', value: '12-14%' }], applications: ['Toilet Soap', 'Laundry Soap', 'Soap Finishing'], manufacturers: ['Imported'], packaging: ['25 kg Bags'], featured: false },
-
-  { id: 'urea', name: 'Urea', formula: 'CH₄N₂O', cas: '57-13-6', grade: '46% N · Prilled/Granular', category: 'agro', description: 'Urea nitrogen fertilizer (46% N), also used in resins, AdBlue/DEF, and animal feed.', specs: [{ label: 'Nitrogen', value: '46% min' }, { label: 'Biuret', value: '1% max' }, { label: 'Form', value: 'Prilled / Granular' }], applications: ['Nitrogen Fertilizer', 'UF Resins', 'AdBlue / DEF', 'Animal Feed'], manufacturers: ['IFFCO', 'Indian Manufacturers'], packaging: ['50 kg Bags', '1000 kg Jumbo Bags', 'Bulk'], featured: false },
-
-  { id: 'dap', name: 'Di-Ammonium Phosphate (DAP)', formula: '(NH₄)₂HPO₄', cas: '7783-28-0', grade: '18-46-0', category: 'agro', description: 'DAP - the leading phosphate fertilizer (18% N, 46% P₂O₅) for broad-acre and horticultural crops.', specs: [{ label: 'Nitrogen', value: '18%' }, { label: 'P₂O₅', value: '46%' }, { label: 'Form', value: 'Granular' }], applications: ['Phosphate Fertilizer', 'Crop Nutrition', 'Soil Conditioning'], manufacturers: ['Coromandel', 'Imported'], packaging: ['50 kg Bags', 'Bulk'], featured: false },
 
   { id: 'gypsum', name: 'Gypsum (Agricultural/Industrial)', formula: 'CaSO₄·2H₂O', cas: '13397-24-5', grade: 'Agri / Industrial', category: 'minerals', description: 'Gypsum for soil conditioning, cement, plaster, and as a sulphur-calcium source for crops.', specs: [{ label: 'CaSO₄·2H₂O', value: '85% min' }, { label: 'Form', value: 'Powder / Granular' }, { label: 'Moisture', value: '8% max' }], applications: ['Soil Conditioning', 'Cement Retarder', 'Plaster / POP', 'Sulphur-Calcium Source'], manufacturers: ['Indian Manufacturers'], packaging: ['50 kg Bags', 'Bulk'], featured: false },
 
@@ -1347,7 +1321,7 @@ export const industryData: IndustryData[] = [
     icon: 'PaintBucket',
     description: 'Resins, solvents, pigments dispersants, and additives for paints, printing inks, and protective/industrial coatings.',
     seoKeywords: 'paint chemicals supplier, epoxy resin exporter, coating solvents, MEG, titanium dioxide',
-    productIds: ['epoxy-resin', 'toluene', 'acetone', 'ethyl-acetate', 'ethylene-glycol', 'titanium-dioxide', 'xylene', 'n-butanol', 'propylene-glycol', 'calcium-carbonate', 'stearic-acid'],
+    productIds: ['epoxy-resin', 'toluene', 'acetone', 'ethylene-glycol', 'titanium-dioxide', 'xylene', 'n-butanol', 'propylene-glycol', 'calcium-carbonate', 'stearic-acid'],
     additionalProducts: ['Titanium Dioxide', 'Xylene', 'MIBK', 'Butyl Acetate', 'Driers & Additives'],
     markets: ['SE Asia', 'GCC', 'West Africa'],
   },
@@ -1377,9 +1351,20 @@ export const industryData: IndustryData[] = [
     icon: 'Wheat',
     description: 'Crop nutrition, soil treatment, and crop-protection intermediates - sulphur, acids, and nitrate salts for agriculture.',
     seoKeywords: 'agro chemicals exporter, fertilizer raw material, sulphur supplier, sodium nitrate, phosphoric acid agriculture',
-    productIds: ['sulphur', 'sulphuric-acid', 'sodium-nitrate', 'phosphoric-acid', 'sodium-chlorate', 'urea', 'dap', 'potassium-chloride', 'calcium-nitrate', 'potassium-sulphate', 'ammonium-sulphate', 'potassium-nitrate', 'magnesium-sulphate', 'zinc-sulphate', 'boric-acid'],
-    additionalProducts: ['Urea', 'MOP (Potassium Chloride)', 'Zinc Sulphate', 'Magnesium Sulphate', 'Micronutrient Blends'],
+    productIds: ['sulphur', 'sulphuric-acid', 'sodium-nitrate', 'phosphoric-acid', 'sodium-chlorate', 'calcium-nitrate', 'potassium-sulphate', 'ammonium-sulphate', 'potassium-nitrate', 'magnesium-sulphate', 'zinc-sulphate', 'boric-acid'],
+    additionalProducts: ['Zinc Sulphate', 'Magnesium Sulphate', 'Micronutrient Blends'],
     markets: ['East Africa', 'West Africa', 'SE Asia'],
+  },
+  {
+    id: 'food-pharma',
+    name: 'Food & Pharma',
+    icon: 'Pill',
+    description: 'Pharmaceutical-grade chemicals for processing, buffering, and active synthesis.',
+    seoKeywords: 'pharma intermediates',
+    productIds: ['smbs', 'calcium-chloride', 'sodium-bicarbonate', 'hydrogen-peroxide', 'phosphoric-acid', 'sodium-acetate', 'sodium-nitrate', 'decanoic-acid', 'citric-acid', 'lactic-acid', 'refined-glycerine', 'magnesium-sulphate', 'ammonium-chloride'],
+    additionalProducts: ['Citric Acid', 'Lactic Acid'],
+    markets: ['GCC', 'SE Asia', 'West Africa'],
+    pharmaSections: ['apis-human', 'ingredients-excipients'],
   },
   {
     id: 'textile-dyeing',
