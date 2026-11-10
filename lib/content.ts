@@ -1327,7 +1327,7 @@ export const industryData: IndustryData[] = [
     id: 'food-pharma',
     name: 'Food & Pharma',
     icon: 'Pill',
-    description: 'Pharmaceutical-grade chemicals for processing, buffering, and active synthesis.',
+    description: 'Chemicals for pharma processing and synthesis. Grades confirmed on enquiry.',
     seoKeywords: 'processing chemicals supplier India, buffering agents, pH control chemicals, cleaning-in-place chemicals, citric acid supplier, refined glycerine supplier',
     productIds: ['smbs', 'calcium-chloride', 'sodium-bicarbonate', 'hydrogen-peroxide', 'phosphoric-acid', 'sodium-acetate', 'sodium-nitrate', 'decanoic-acid', 'citric-acid', 'lactic-acid', 'refined-glycerine', 'magnesium-sulphate', 'ammonium-chloride'],
     additionalProducts: ['Citric Acid', 'Lactic Acid'],

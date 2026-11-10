@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const desc = pharmaOnly
     ? `${ind.description} ${sectorProductCount(ind, pharmaProducts)} catalogue products across APIs, intermediates, excipients and nutraceutical ingredients, supplied from India.`
     : ind.id === 'food-pharma'
-      ? `${ind.description} Grade, documentation and availability confirmed per enquiry.`
+      ? ind.description
       : `${ind.description} Jaydev Group supplies ${sectorProductCount(ind, pharmaProducts)}+ products for ${ind.name.toLowerCase()} with full COA, MSDS & export documentation to Africa, GCC & SE Asia.`;
   return {
     title,
