@@ -215,7 +215,6 @@ export const IMAGE_MAP: Record<string, string> = {
   'stable-bleaching-powder': '/images/products/stable-bleaching-powder.jpg',
   'sulphur': '/images/products/sulphur.jpg',
   'sulphuryl-chloride': '/images/products/sulphuryl-chloride.jpg',
-  'thionyl-chloride': '/images/products/thionyl-chloride.jpg',
   'trichloroethylene': '/images/products/trichloroethylene.jpg',
   // Distinct local assets for flagships without a sourced photo
   'pac': '/images/pac.webp',
@@ -530,24 +529,6 @@ export const products: Product[] = [
     featured: false,
   },
 
-  {
-    id: 'thionyl-chloride',
-    name: 'Thionyl Chloride',
-    formula: 'SOCl₂',
-    cas: '7719-09-7',
-    grade: '98% Min',
-    category: 'acids',
-    description: 'Thionyl chloride for pharmaceutical synthesis, agrochemical production, and organic chemistry.',
-    specs: [
-      { label: 'Purity', value: '98% min' },
-      { label: 'Boiling Point', value: '74.6°C' },
-      { label: 'UN Number', value: 'UN 1836' },
-    ],
-    applications: ['Pharmaceutical Synthesis', 'Agrochemical Production', 'Acyl Chloride Manufacture'],
-    manufacturers: ['DCM Shriram'],
-    packaging: ['50 kg MS Drums', '250 kg MS Drums'],
-    featured: false,
-  },
 
   {
     id: 'pac',
@@ -1196,8 +1177,6 @@ export const products: Product[] = [
 
   { id: 'di-ethanolamine', name: 'Di Ethanolamine (DEA)', formula: 'C₄H₁₁NO₂', cas: '111-42-2', grade: '99% Min', category: 'solvents', description: 'DEA for surfactants, gas purification, agrochemicals, and textile chemicals.', specs: [{ label: 'Purity', value: '99% min' }, { label: 'Water', value: '0.5% max' }, { label: 'Form', value: 'Liquid / Crystalline' }], applications: ['Surfactants', 'Gas Purification', 'Agrochemicals', 'Textile'], manufacturers: ['Imported'], packaging: ['230 kg Drums', 'ISO Tanks'], featured: false },
 
-  { id: 'tri-ethanolamine', name: 'Tri Ethanolamine (TEA)', formula: 'C₆H₁₅NO₃', cas: '102-71-6', grade: '85% / 99% Min', category: 'solvents', description: 'TEA for cement grinding aids, cosmetics, surfactants, and metalworking fluids.', specs: [{ label: 'Purity', value: '85% / 99%' }, { label: 'Colour (APHA)', value: '60 max' }, { label: 'Water', value: '0.5% max' }], applications: ['Cement Grinding Aid', 'Cosmetics', 'Surfactants', 'Metalworking Fluids'], manufacturers: ['Imported'], packaging: ['230 kg Drums', 'ISO Tanks'], featured: false },
-
   { id: 'formaldehyde', name: 'Formaldehyde', formula: 'CH₂O', cas: '50-00-0', grade: '37% / Para', category: 'specialty', description: 'Formaldehyde (formalin) for resins (UF/PF/MF), disinfectants, and chemical synthesis.', specs: [{ label: 'Concentration', value: '37% min' }, { label: 'Methanol', value: '8-12%' }, { label: 'Acidity', value: '0.05% max' }], applications: ['UF/PF/MF Resins', 'Disinfectants', 'Chemical Synthesis', 'Textile'], manufacturers: ['Indian Manufacturers'], packaging: ['230 kg Drums', 'Road Tankers'], featured: false },
 
   { id: 'potassium-nitrate', name: 'Potassium Nitrate', formula: 'KNO₃', cas: '7757-79-1', grade: '99% Min · Tech/Agri', category: 'inorganic-salts', description: 'Potassium nitrate for water-soluble fertilizers, glass, and fireworks.', specs: [{ label: 'KNO₃', value: '99% min' }, { label: 'N', value: '13.5%' }, { label: 'K₂O', value: '46%' }], applications: ['Water-Soluble Fertilizer', 'Glass Manufacturing', 'Pyrotechnics'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
@@ -1209,8 +1188,6 @@ export const products: Product[] = [
   { id: 'stpp', name: 'Sodium Tripolyphosphate (STPP)', formula: 'Na₅P₃O₁₀', cas: '7758-29-4', grade: '94% Min', category: 'inorganic-salts', description: 'STPP builder for detergents, ceramics, and water treatment.', specs: [{ label: 'Na₅P₃O₁₀', value: '94% min' }, { label: 'P₂O₅', value: '57% min' }, { label: 'Form', value: 'White Powder' }], applications: ['Detergent Builder', 'Ceramics', 'Water Treatment'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
 
   { id: 'shmp', name: 'Sodium Hexametaphosphate (SHMP)', formula: '(NaPO₃)₆', cas: '10124-56-8', grade: '68% P₂O₅ Min', category: 'inorganic-salts', description: 'SHMP sequestrant for water treatment, detergents, and oilfield scale control.', specs: [{ label: 'P₂O₅', value: '68% min' }, { label: 'Form', value: 'Powder / Granular' }, { label: 'pH (1%)', value: '5.8-6.5' }], applications: ['Water Treatment', 'Detergents', 'Oilfield Scale Control'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
-
-  { id: 'potassium-chloride', name: 'Potassium Chloride', formula: 'KCl', cas: '7447-40-7', grade: '99%', category: 'inorganic-salts', description: 'Industrial potassium chloride.', specs: [{ label: 'KCl', value: '99% (industrial)' }, { label: 'Form', value: 'Crystal / Granular' }], applications: ['Industrial', 'Drilling Fluids'], manufacturers: ['Imported'], packaging: ['50 kg Bags', '1000 kg Jumbo Bags'], featured: false },
 
   { id: 'calcium-nitrate', name: 'Calcium Nitrate', formula: 'Ca(NO₃)₂', cas: '10124-37-5', grade: '15.5% N Min', category: 'agro', description: 'Calcium nitrate for fertigation, greenhouse crops, concrete accelerator, and wastewater odour control.', specs: [{ label: 'Nitrogen', value: '15.5%' }, { label: 'CaO', value: '26%' }, { label: 'Form', value: 'Granular / Soluble' }], applications: ['Fertigation', 'Greenhouse Crops', 'Concrete Accelerator', 'Odour Control'], manufacturers: ['Imported'], packaging: ['25 kg / 50 kg Bags'], featured: false },
 
@@ -1290,7 +1267,7 @@ export const industryData: IndustryData[] = [
     icon: 'Flame',
     description: 'Drilling fluids, well completion, refinery, and energy-sector chemicals - high-demand calcium chloride and caustic across GCC oilfields.',
     seoKeywords: 'oilfield chemicals supplier, calcium chloride drilling fluid, caustic soda oil and gas, GCC chemical exporter',
-    productIds: ['calcium-chloride', 'caustic-soda', 'hydrochloric-acid', 'sulphuric-acid', 'sodium-bicarbonate', 'bentonite', 'mono-ethanolamine', 'potassium-chloride', 'shmp'],
+    productIds: ['calcium-chloride', 'caustic-soda', 'hydrochloric-acid', 'sulphuric-acid', 'sodium-bicarbonate', 'bentonite', 'mono-ethanolamine', 'shmp'],
     additionalProducts: [ 'Bentonite', 'Mono Ethylene Glycol', 'Corrosion Inhibitors', 'Defoamers'],
     markets: ['GCC', 'East Africa'],
   },
@@ -1310,7 +1287,7 @@ export const industryData: IndustryData[] = [
     icon: 'FlaskConical',
     description: 'Building-block solvents, acids, and reactive intermediates for pharmaceutical, agrochemical, dye, and specialty chemical synthesis.',
     seoKeywords: 'chemical intermediates exporter, chlorinated solvents, oleum, chlorosulphonic acid, epichlorohydrin India',
-    productIds: ['oleum', 'chlorosulphonic-acid', 'sulphuryl-chloride', 'thionyl-chloride', 'chloroform', 'methylene-chloride', 'epichlorohydrin', 'beta-naphthol', 'acetic-acid', 'formic-acid', 'formaldehyde', 'mibk'],
+    productIds: ['oleum', 'chlorosulphonic-acid', 'sulphuryl-chloride', 'chloroform', 'methylene-chloride', 'epichlorohydrin', 'beta-naphthol', 'acetic-acid', 'formic-acid', 'formaldehyde', 'mibk'],
     additionalProducts: [ 'Aniline', 'Phenol', 'Acetic Acid', 'Formaldehyde'],
     markets: ['SE Asia', 'GCC'],
     pharmaSections: ['intermediates'],
@@ -1359,10 +1336,10 @@ export const industryData: IndustryData[] = [
     id: 'food-pharma',
     name: 'Food & Pharma',
     icon: 'Pill',
-    description: 'Pharmaceutical-grade chemicals for processing, buffering, and active synthesis.',
-    seoKeywords: 'pharma intermediates',
+    description: 'Food-grade and pharmaceutical-grade chemicals for processing, preservation, buffering, and active synthesis.',
+    seoKeywords: 'food grade chemicals exporter, pharma intermediates, sodium bicarbonate food grade, calcium chloride food, phosphoric acid food grade',
     productIds: ['smbs', 'calcium-chloride', 'sodium-bicarbonate', 'hydrogen-peroxide', 'phosphoric-acid', 'sodium-acetate', 'sodium-nitrate', 'decanoic-acid', 'citric-acid', 'lactic-acid', 'refined-glycerine', 'magnesium-sulphate', 'ammonium-chloride'],
-    additionalProducts: ['Citric Acid', 'Lactic Acid'],
+    additionalProducts: ['Citric Acid', 'Lactic Acid', 'Potassium Sorbate', 'Sodium Benzoate', 'Dextrose'],
     markets: ['GCC', 'SE Asia', 'West Africa'],
     pharmaSections: ['apis-human', 'ingredients-excipients'],
   },
