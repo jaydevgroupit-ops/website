@@ -92,6 +92,19 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           </section>
         ))}
 
+        {a.sources && a.sources.length > 0 && (
+          <section className="mb-7">
+            <h2 className="font-jakarta text-xl font-extrabold text-ink mb-3">Sources</h2>
+            <ul className="list-disc pl-5 text-ink-muted leading-relaxed">
+              {a.sources.map((s) => (
+                <li key={s.url}>
+                  <a href={s.url} target="_blank" rel="noopener noreferrer" className="underline hover:text-lime-text">{s.label}</a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         {/* CTA */}
         <div className="on-ink bg-ink rounded-2xl p-8 text-center mt-10">
           <h3 className="font-jakarta text-xl font-extrabold text-white mb-2">Need a quote for these chemicals?</h3>

@@ -17,6 +17,15 @@ function classify(p: ProductDetail): string {
   return p.kicker;
 }
 
+/** First description sentence with the CAS folded in after the product name. */
+function pharmaMetaLead(p: ProductDetail): string {
+  const first = (p.description ?? '').split(/(?<=\.) /)[0];
+  if (p.cas && p.name && first.startsWith(p.name)) {
+    return `${p.name} (CAS ${p.cas})${first.slice(p.name.length)}`;
+  }
+  return `${p.name}${p.cas ? ` (CAS ${p.cas})` : ''} - ${first}`;
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const p = findProductDetail(slug);
@@ -34,8 +43,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       ? `Buy ${p.name}${p.formula && p.cas ? ` (${p.formula}, CAS ${p.cas})` : ''} from Jaydev Group` +
         `${p.grade ? ` - ${p.grade}` : ''}. ${(p.description ?? '').slice(0, 100)} ` +
         `Manufacturer-direct export with COA, MSDS & full documentation. Request a CIF/FOB quote.`
-      : `${p.name}${p.cas ? ` (CAS ${p.cas})` : ''} - ${classify(p)} supplied by Jaydev Group from India. ` +
-        `Pharmacopoeial grade, DMF/CEP status and GMP documentation confirmed per enquiry. Request a quote.`;
+      : p.description
+        ? `${pharmaMetaLead(p)} Supplied by Jaydev Group from India; grade and documentation confirmed per enquiry. Request a quote.`
+        : `${p.name}${p.cas ? ` (CAS ${p.cas})` : ''} - Listed in the Jaydev Group pharma catalogue. ` +
+          `Supplied by Jaydev Group from India; grade and documentation confirmed per enquiry. Request a quote.`;
 
   const keywords = [
     `${p.name} exporter`, `${p.name} supplier India`, `${p.name} manufacturer`, `buy ${p.name}`,

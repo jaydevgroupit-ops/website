@@ -16,7 +16,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const ind = industryData.find((i) => i.id === slug);
   if (!ind) return { title: 'Industry' };
   const title = `${ind.name} Chemicals - Exporter & Supplier`;
-  const desc = `${ind.description} Jaydev Group supplies ${sectorProductCount(ind, pharmaProducts)}+ products for ${ind.name.toLowerCase()} with full COA, MSDS & export documentation to Africa, GCC & SE Asia.`;
+  const pharmaOnly = ind.productIds.length === 0 && (ind.pharmaSections ?? []).length > 0;
+  const desc = pharmaOnly
+    ? `${ind.description} ${sectorProductCount(ind, pharmaProducts)}+ catalogue products across APIs, intermediates, excipients and nutraceutical ingredients, supplied from India.`
+    : `${ind.description} Jaydev Group supplies ${sectorProductCount(ind, pharmaProducts)}+ products for ${ind.name.toLowerCase()} with full COA, MSDS & export documentation to Africa, GCC & SE Asia.`;
   return {
     title,
     description: desc,
@@ -120,6 +123,8 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
 
       {/* Products */}
       <div className="max-w-7xl mx-auto px-4 py-14">
+        {industryProducts.length > 0 && (
+        <>
         <h2 className="font-jakarta text-2xl font-extrabold text-ink mb-2">Products for {ind.name}</h2>
         <p className="text-ink-soft mb-8">Manufacturer-backed chemicals with COA, MSDS &amp; full export documentation.</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -138,6 +143,8 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
             </Link>
           ))}
         </div>
+        </>
+        )}
 
         {sectorPharma.length > 0 && (
           <div className="mt-12">

@@ -20,6 +20,7 @@ Side files merged after the sheet is read, so a re-import never loses them:
                                    where the sheet is blank or the published
                                    catalogue says otherwise
   - data/pharma-additions.json     products the catalogue lists that the sheet
+  - data/pharma-descriptions.json  buyer-facing factual descriptions, keyed by id
                                    does not carry at all
 
 Still deliberately absent rather than guessed: pharmacopoeia grade, DMF, CEP,
@@ -40,6 +41,7 @@ SHORT_NAMES = ROOT / "data" / "pharma-short-names.json"
 CAS_OVERRIDES = ROOT / "data" / "pharma-cas-overrides.json"
 CLASSIFICATION = ROOT / "data" / "pharma-classification.json"
 ADDITIONS = ROOT / "data" / "pharma-additions.json"
+DESCRIPTIONS = ROOT / "data" / "pharma-descriptions.json"
 
 # Order matters: it is the order the facets render in, and the order used to
 # resolve a product that appears on two tabs (earlier tab loses).
@@ -105,7 +107,7 @@ def main():
         sys.exit(f"Workbook not found: {src}")
     wb = openpyxl.load_workbook(src, data_only=True)
 
-    shorts, cas_forms, cas_fixed, classification, additions = {}, {}, {}, {}, {}
+    shorts, cas_forms, cas_fixed, classification, additions, descriptions = {}, {}, {}, {}, {}, {}
     if SHORT_NAMES.exists():
         shorts = {
             k: v.strip()
@@ -128,6 +130,12 @@ def main():
             k: {kk: vv for kk, vv in v.items() if not kk.startswith("_")}
             for k, v in json.loads(CLASSIFICATION.read_text()).items()
             if not k.startswith("_") and isinstance(v, dict)
+        }
+    if DESCRIPTIONS.exists():
+        descriptions = {
+            k: v.strip()
+            for k, v in json.loads(DESCRIPTIONS.read_text()).items()
+            if not k.startswith("_") and isinstance(v, str) and v.strip()
         }
     if ADDITIONS.exists():
         additions = {
@@ -197,6 +205,8 @@ def main():
             # Last word, so a value taken from the published catalogue survives
             # a sheet that still disagrees with it.
             item.update(classification.get(pid, {}))
+            if descriptions.get(pid):
+                item["description"] = descriptions[pid]
 
             seen[pid] = tab
             items.append(item)
@@ -208,6 +218,8 @@ def main():
             continue
         item = {"id": pid, **extra}
         item.update(classification.get(pid, {}))
+        if descriptions.get(pid):
+            item["description"] = descriptions[pid]
         cas = item.get("cas", "")
         if cas and not cas_valid(cas):
             bad_cas.append((item.get("name", pid), cas))
@@ -242,7 +254,8 @@ def main():
 //  sheet and are deliberately absent here rather than guessed. The UI
 //  renders "Grade & documentation on request" until they are supplied.
 //
-//  Classification and corrected CAS come from data/pharma-classification.json
+//  Descriptions merge from data/pharma-descriptions.json. Classification and
+//  corrected CAS come from data/pharma-classification.json
 //  and data/pharma-cas-overrides.json, applied after the sheet is read.
 // ─────────────────────────────────────────────
 

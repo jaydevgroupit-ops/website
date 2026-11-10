@@ -13,6 +13,8 @@ export type Article = {
   keywords: string;
   // Body as simple section blocks (heading optional + paragraphs)
   body: { heading?: string; paragraphs: string[] }[];
+  // Official references the article wording follows; rendered as links.
+  sources?: { label: string; url: string }[];
 };
 
 export const articles: Article[] = [
@@ -121,6 +123,75 @@ export const articles: Article[] = [
       { heading: 'The practical decision', paragraphs: [
         'If you are dosing cold or low-turbidity water, fighting sludge handling costs, or want a wider operating window, PAC usually wins on total cost-in-use despite a higher per-tonne price. For high-turbidity surface water on a tight budget, alum holds its ground. Jaydev Multicomm supplies both with batch COAs, CIF to East Africa, GCC, and SE Asia.',
       ]},
+    ],
+  },
+  {
+    slug: 'api-vs-intermediate-sourcing',
+    title: 'API vs Intermediate: What the Difference Means When You Source Pharma Raw Materials',
+    excerpt:
+      'APIs and pharmaceutical intermediates are different products with different buyers, different documentation and different price drivers. What the distinction means for your RFQ.',
+    date: '2026-11-10',
+    author: 'Jaydev Group',
+    readTime: '5 min read',
+    category: 'Pharma Sourcing',
+    image: '/images/pharma.webp',
+    keywords: 'API vs intermediate difference, pharmaceutical intermediates sourcing, API supplier India RFQ, pharma raw materials',
+    body: [
+      { paragraphs: [
+        'In conversation, "API" and "intermediate" get bundled together as pharma raw materials. In practice they are different products, sold to different buyers, against different documentation, and priced on different drivers. Getting the distinction right at RFQ stage avoids a common sourcing mistake: asking an intermediate supplier for API paperwork, or vice versa.',
+      ]},
+      { heading: 'What an API is', paragraphs: [
+        'An API (active pharmaceutical ingredient) is the substance in a medicine that produces the intended effect. ICH Q7, the international GMP guide for API manufacturing, defines it as any substance or mixture of substances intended to be used in the manufacture of a drug product and that, when used in production, becomes an active ingredient of that drug product. A formulation manufacturer mixes the API with excipients and turns it into tablets, capsules, injections or syrups. Because it goes directly into a medicine, an API is usually bought against a pharmacopoeial standard (such as IP, BP, USP or EP) with a batch Certificate of Analysis, and buyers generally expect the manufacturing site to operate under GMP. For regulated markets, buyers may also ask for a DMF or CEP - the regulatory filings that can support their own product registrations.',
+      ]},
+      { heading: 'What an intermediate is', paragraphs: [
+        'A pharmaceutical intermediate is a chemical building block consumed one or more synthesis steps earlier. It is bought mainly by API manufacturers rather than by formulation companies. Intermediates are not usually covered by pharmacopoeial monographs; quality is typically agreed as a technical specification - assay, related substances, residual solvents, moisture - matched to the downstream synthesis. What matters to the buyer is consistency and the impurity profile, because impurities in an intermediate can carry through to the finished API.',
+      ]},
+      { heading: 'Why the difference matters in an RFQ', paragraphs: [
+        'The fastest way to get a useful quote for an intermediate is to name the API it feeds. Suppliers commonly search their production and sourcing records by the target drug, and the same molecule can have very different specs depending on the route. For an API, the RFQ should state the pharmacopoeia and the documentation needed (COA per batch, GMP evidence, DMF or CEP where required), because those vary by molecule and manufacturing site and are confirmed per enquiry rather than assumed.',
+      ]},
+      { heading: 'How our catalogue separates them', paragraphs: [
+        'The Jaydev Group catalogue keeps the two books apart: APIs - Human and APIs - Veterinary are listed by therapeutic area, intermediates sit in their own Pharma Intermediates section, and excipients, amino acids and nutraceutical ingredients in a fourth. Where an intermediate\'s target API is recorded - ticagrelor, montelukast, empagliflozin, dolutegravir and others - it is shown on the product page. Send your molecule, target API or CAS number through the Get Quote form and we will confirm availability, specification and documentation.',
+      ]},
+    ],
+    sources: [
+      { label: 'ICH Q7: Good Manufacturing Practice Guide for Active Pharmaceutical Ingredients (FDA publication)', url: 'https://www.fda.gov/media/71518/download' },
+    ],
+  },
+  {
+    slug: 'api-supplier-qualification-documents',
+    title: 'DMF, CEP, GMP, COA: The Documents That Qualify an API Supplier',
+    excerpt:
+      'The four documents buyers ask for when qualifying an API supplier - what each one proves, who issues it, and what to check before you place a purchase order.',
+    date: '2026-11-10',
+    author: 'Jaydev Group',
+    readTime: '6 min read',
+    category: 'Pharma Sourcing',
+    image: '/images/pharma.webp',
+    keywords: 'DMF CEP GMP COA explained, API supplier qualification documents, drug master file, certificate of suitability, API COA review',
+    body: [
+      { paragraphs: [
+        'An API price means very little on its own. What sits behind the material matters as much: the documentation that supports what the material is and how it was made. Four documents come up in most supplier qualification - the COA, GMP evidence, the DMF and the CEP.',
+      ]},
+      { heading: 'COA - Certificate of Analysis', paragraphs: [
+        'The COA is batch-specific and comes from the manufacturer\'s quality control lab. It lists the actual test results for that batch - assay, impurities, residual solvents, heavy metals, microbial limits - against the specification. Check that the specification matches the pharmacopoeia you are buying to (IP, BP, USP or EP) and that quantitative tests report actual results. A COA with "conforms" in place of numbers is a starting point for questions, not an answer.',
+      ]},
+      { heading: 'GMP - Good Manufacturing Practice', paragraphs: [
+        'GMP describes the quality system of the manufacturing site, not the product. The form of evidence varies by regulator: the US FDA inspects facilities for compliance with its CGMP regulations rather than issuing GMP certificates, while authorities in some other regions, such as EU inspectorates, do issue them. When you review the evidence, check the scope (which products and operations it covers), the dates, and the inspecting or certifying body. Evidence for the wrong site does not cover your material.',
+      ]},
+      { heading: 'DMF - Drug Master File', paragraphs: [
+        'A DMF is a confidential technical dossier the API manufacturer submits to a regulator (most commonly the US FDA) to support applications that reference it. The FDA neither approves nor disapproves DMFs - it reviews the technical contents only in connection with an application that references the file. You never read the closed part; instead the manufacturer gives you a Letter of Authorization that lets the regulator reference the file when your own application is reviewed. What to confirm at sourcing stage: that a DMF exists for the molecule, its number and status, and that the manufacturing site in the DMF is the site your material comes from.',
+      ]},
+      { heading: 'CEP - Certificate of Suitability', paragraphs: [
+        'The CEP (Certificate of Suitability to the monographs of the European Pharmacopoeia) is granted by the EDQM after assessors conclude that a substance\'s quality is suitably controlled by the relevant European Pharmacopoeia monograph. CEPs are recognised by European Pharmacopoeia member states and the EU, and are also accepted by a number of other countries and organisations. For buyers formulating for those markets, a CEP can support or replace parts of the quality documentation in their own applications.',
+      ]},
+      { heading: 'What to ask for at RFQ stage', paragraphs: [
+        'Ask early: which pharmacopoeia the material complies with, whether a DMF or CEP exists for the molecule, and what GMP evidence exists for the manufacturing site. These vary by molecule and by site, so they are confirmed per enquiry rather than assumed - a supplier who answers them precisely is usually the one whose material passes audit. Jaydev Group supplies human and veterinary APIs, intermediates, excipients and nutraceutical ingredients from India; send your molecule and documentation requirements through the Get Quote form and we will confirm grade, status and availability.',
+      ]},
+    ],
+    sources: [
+      { label: 'FDA - Drug Master Files (DMFs)', url: 'https://www.fda.gov/drugs/forms-submission-requirements/drug-master-files-dmfs' },
+      { label: 'FDA - Facts About Current Good Manufacturing Practices (CGMPs)', url: 'https://www.fda.gov/drugs/pharmaceutical-quality-resources/facts-about-current-good-manufacturing-practices-cgmps' },
+      { label: 'EDQM - Certification of Suitability: background & legal framework', url: 'https://www.edqm.eu/en/background-legal-framework' },
     ],
   },
 ];
