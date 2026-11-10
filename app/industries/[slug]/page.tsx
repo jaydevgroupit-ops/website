@@ -18,8 +18,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const title = `${ind.name} Chemicals - Exporter & Supplier`;
   const pharmaOnly = ind.productIds.length === 0 && (ind.pharmaSections ?? []).length > 0;
   const desc = pharmaOnly
-    ? `${ind.description} ${sectorProductCount(ind, pharmaProducts)}+ catalogue products across APIs, intermediates, excipients and nutraceutical ingredients, supplied from India.`
-    : `${ind.description} Jaydev Group supplies ${sectorProductCount(ind, pharmaProducts)}+ products for ${ind.name.toLowerCase()} with full COA, MSDS & export documentation to Africa, GCC & SE Asia.`;
+    ? `${ind.description} ${sectorProductCount(ind, pharmaProducts)} catalogue products across APIs, intermediates, excipients and nutraceutical ingredients, supplied from India.`
+    : ind.id === 'food-pharma'
+      ? `${ind.description} Grade, documentation and availability confirmed per enquiry.`
+      : `${ind.description} Jaydev Group supplies ${sectorProductCount(ind, pharmaProducts)}+ products for ${ind.name.toLowerCase()} with full COA, MSDS & export documentation to Africa, GCC & SE Asia.`;
   return {
     title,
     description: desc,

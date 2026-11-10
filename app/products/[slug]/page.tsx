@@ -17,6 +17,21 @@ function classify(p: ProductDetail): string {
   return p.kicker;
 }
 
+/** Trim to the last complete sentence within max chars; never cut mid-sentence. */
+function trimToSentences(text: string, max: number): string {
+  if (text.length <= max) return text;
+  const sentences = text.split(/(?<=[.!?]) /);
+  let out = '';
+  for (const s of sentences) {
+    const next = out ? `${out} ${s}` : s;
+    if (next.length > max) break;
+    out = next;
+  }
+  if (out) return out;
+  const cut = text.slice(0, max);
+  return cut.slice(0, cut.lastIndexOf(' '));
+}
+
 /** First description sentence with the CAS folded in after the product name. */
 function pharmaMetaLead(p: ProductDetail): string {
   const first = (p.description ?? '').split(/(?<=\.) /)[0];
@@ -64,20 +79,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     type: 'website' as const,
     url: `${BASE}/products/${p.id}`,
     title,
-    description: description.slice(0, 200),
+    description: trimToSentences(description, 200),
     images: [{ url: ogImage, alt: p.name }],
   };
 
   return {
     title,
-    description: description.slice(0, 300),
+    description: trimToSentences(description, 300),
     keywords,
     alternates: { canonical: `${BASE}/products/${p.id}` },
     openGraph: og,
     twitter: {
       card: 'summary_large_image',
       title,
-      description: description.slice(0, 200),
+      description: trimToSentences(description, 200),
       images: [ogImage],
     },
   };
