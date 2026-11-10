@@ -2,7 +2,7 @@
 //  JAYDEV GROUP - Master Content Library
 // ─────────────────────────────────────────────
 
-import { SITE_URL, SALES_EMAIL, EXPORT_EMAIL, MARKETING_EMAIL, PROCUREMENT_EMAIL, PHONE_EXPORT, PHONE_RAJKOT, PHONE_PROCUREMENT } from './site';
+import { SITE_URL, SALES_EMAIL, EXPORT_EMAIL, MARKETING_EMAIL, PHONE_EXPORT, PHONE_RAJKOT } from './site';
 
 export const COMPANY = {
   name: 'Jaydev Multicomm Pvt. Ltd.',
@@ -19,18 +19,9 @@ export const COMPANY = {
   },
   team: [
     {
-      name: 'Manish Shukla',
-      role: 'Head - Procurement',
-      remit: 'Global procurement, sourcing & supplier relationships',
-      linkedin: null as string | null,
-      email: PROCUREMENT_EMAIL as string | null,
-      whatsapp: PHONE_PROCUREMENT as string | null,
-      image: null as string | null,
-    },
-    {
       name: 'Meet Sheth',
       role: 'Head - Exports',
-      remit: 'Export, import, logistics, documentation & operations',
+      remit: 'Exports & imports - industrial chemicals',
       linkedin: 'https://www.linkedin.com/in/meet-sheth-0871/',
       email: EXPORT_EMAIL,
       whatsapp: PHONE_EXPORT,
@@ -39,7 +30,7 @@ export const COMPANY = {
     {
       name: 'Darsh Katkoria',
       role: 'Business Development Manager',
-      remit: 'Sales, customers, revenue & commercial growth',
+      remit: 'Domestic - industrial chemicals',
       linkedin: 'https://www.linkedin.com/in/darsh-k-07579a3b5/',
       email: SALES_EMAIL,
       whatsapp: '+919987539258',
@@ -48,7 +39,7 @@ export const COMPANY = {
     {
       name: 'Mahir Bhojani',
       role: 'Marketing Executive',
-      remit: 'Pharma & API sales, marketing & market expansion',
+      remit: 'Marketing - API, Pharma & Intermediates',
       linkedin: 'https://www.linkedin.com/in/mahir-bhojani-b49027268/',
       email: MARKETING_EMAIL,
       whatsapp: '+919825112687',

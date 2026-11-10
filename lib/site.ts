@@ -14,16 +14,11 @@ export const SALES_EMAIL = 'sales@jaydevgroup.co.in';
 /** Export enquiries and every RFQ from the quote form. Paired with PHONE_EXPORT. */
 export const EXPORT_EMAIL = 'exports@jaydevgroup.co.in';
 export const MARKETING_EMAIL = 'marketing@jaydevgroup.co.in';
-/** Procurement & sourcing desk. */
-export const PROCUREMENT_EMAIL = 'procurement@jaydevgroup.co.in';
 
 /** Import & export desk. */
 export const PHONE_EXPORT = '+919099796811';
 /** Rajkot office line (domestic desk). */
 export const PHONE_RAJKOT = '+919978479258';
-
-/** Procurement desk. */
-export const PHONE_PROCUREMENT = '+919979112115';
 
 
 /** Shown on the pharma tab and on every pharma product page. */
