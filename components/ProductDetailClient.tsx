@@ -1,5 +1,7 @@
 'use client';
 
+import { WHATSAPP_ENQUIRY_URL } from '@/lib/site';
+
 import Link from 'next/link';
 import type { ProductDetail } from '@/lib/product-detail';
 import { PHARMA_DISCLAIMER } from '@/lib/site';
@@ -249,7 +251,7 @@ export default function ProductDetailClient({
                     : `Market-linked. Get the current CIF/FOB rate for ${product.name}.`}
                 </p>
                 <a
-                  href={`https://wa.me/919099796811?text=${encodeURIComponent(priceAsk)}`}
+                  href={`${WHATSAPP_ENQUIRY_URL}?text=${encodeURIComponent(priceAsk)}`}
                   target="_blank" rel="noopener noreferrer"
                   className="btn-lime w-full justify-center text-sm"
                 >

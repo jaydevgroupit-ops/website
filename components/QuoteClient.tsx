@@ -1,5 +1,7 @@
 'use client';
 
+import { WHATSAPP_ENQUIRY_URL } from '@/lib/site';
+
 import { useState, useEffect, useRef, Fragment } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
@@ -170,7 +172,7 @@ export default function QuoteClient() {
           </div>
           <h1 className="font-jakarta text-2xl font-extrabold text-ink mb-3">Quote Request Received!</h1>
           <p className="text-ink-soft mb-8">We&apos;ll respond within 48 hours with a detailed quote. For a faster response, reach us on WhatsApp.</p>
-          <a href={`https://wa.me/919099796811?text=${waMessage}`} target="_blank" rel="noopener noreferrer"
+          <a href={`${WHATSAPP_ENQUIRY_URL}?text=${waMessage}`} target="_blank" rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 w-full px-6 py-4 rounded-xl bg-ink-pale border border-line text-ink font-semibold mb-4 hover:bg-line-faint transition-all">
             <WaIcon className="w-5 h-5" /> Follow Up on WhatsApp
           </a>
@@ -453,7 +455,7 @@ export default function QuoteClient() {
               {submitError && (
                 <p className="mt-4 text-sm text-red-600">
                   Couldn&apos;t send your request just now.{' '}
-                  <a href={`https://wa.me/919099796811?text=${waMessage}`} target="_blank" rel="noopener noreferrer" className="font-semibold underline">
+                  <a href={`${WHATSAPP_ENQUIRY_URL}?text=${waMessage}`} target="_blank" rel="noopener noreferrer" className="font-semibold underline">
                     Send it on WhatsApp instead
                   </a>{' '}or try again.
                 </p>
@@ -485,7 +487,7 @@ export default function QuoteClient() {
             <div className="card-white p-6 rounded-2xl border-2 border-line">
               <h3 className="font-jakarta font-extrabold text-ink mb-2">Prefer WhatsApp?</h3>
               <p className="text-ink-soft text-xs mb-4">Skip the form - your entries auto-fill the message. Fastest response.</p>
-              <a href={`https://wa.me/919099796811?text=${waMessage}`} target="_blank" rel="noopener noreferrer"
+              <a href={`${WHATSAPP_ENQUIRY_URL}?text=${waMessage}`} target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-ink-pale border border-line text-ink text-sm font-semibold hover:bg-line-faint transition-all">
                 <WaIcon /> WhatsApp +91 90997 96811
               </a>

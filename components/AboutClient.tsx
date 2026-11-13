@@ -1,5 +1,7 @@
 'use client';
 
+import { WHATSAPP_ENQUIRY_URL } from '@/lib/site';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -8,7 +10,7 @@ import { COMPANY, GROUP, BUSINESS_UNITS, BRANCHES } from '@/lib/content';
 
 export default function AboutClient() {
   return (
-    <div className="min-h-screen bg-white pt-20 pb-20">
+    <div className="min-h-screen bg-white pt-20">
       {/* Hero */}
       <div className="bg-surface py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(238,246,236,0.11),rgba(238,246,236,0.04)_35%,transparent_60%)]" />
@@ -19,7 +21,7 @@ export default function AboutClient() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-12 space-y-12">
+      <div className="max-w-6xl mx-auto px-4 pt-12 pb-8 sm:pb-12 space-y-12">
 
         {/* Story + Founder */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -244,12 +246,12 @@ export default function AboutClient() {
         </div>
 
         {/* CTA */}
-        <div className="on-ink bg-ink rounded-2xl p-10 text-center">
+        <div className="on-ink bg-ink rounded-2xl p-6 sm:p-10 text-center">
           <h3 className="font-jakarta text-2xl font-extrabold text-white mb-3">Partner With Jaydev</h3>
           <p className="text-white/60 mb-6">We reply within 48 hours.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href="/quote" className="btn-lime px-8 py-3">Request a Quote <Icon name="ArrowRight" className="w-4 h-4" /></Link>
-            <a href="https://wa.me/919099796811" target="_blank" rel="noopener noreferrer" className="btn-ghost-white px-8 py-3">WhatsApp Us</a>
+            <a href={`${WHATSAPP_ENQUIRY_URL}`} target="_blank" rel="noopener noreferrer" className="btn-ghost-white px-8 py-3">WhatsApp Us</a>
           </div>
         </div>
       </div>

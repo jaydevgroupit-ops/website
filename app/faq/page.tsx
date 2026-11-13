@@ -1,3 +1,4 @@
+import { WHATSAPP_ENQUIRY_URL } from '@/lib/site';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { faqs } from '@/lib/faqs';
@@ -46,7 +47,7 @@ export default function FaqPage() {
           <p className="text-white/60 mb-5 text-sm">Our trade desk responds within 48 hours.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href="/quote" className="btn-lime px-7 py-3">Request a Quote <Icon name="ArrowRight" className="w-4 h-4" /></Link>
-            <a href="https://wa.me/919099796811" target="_blank" rel="noopener noreferrer" className="btn-ghost-white px-7 py-3">WhatsApp Us</a>
+            <a href={`${WHATSAPP_ENQUIRY_URL}`} target="_blank" rel="noopener noreferrer" className="btn-ghost-white px-7 py-3">WhatsApp Us</a>
           </div>
         </div>
       </div>

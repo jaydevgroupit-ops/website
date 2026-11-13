@@ -1,3 +1,4 @@
+import { WHATSAPP_ENQUIRY_URL } from '@/lib/site';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -213,7 +214,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
           <p className="text-white/60 mb-6">Get a CIF quote within 48 hours - full documentation included.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href={`/quote?industry=${ind.id}`} className="btn-lime px-8 py-3">Request a Quote</Link>
-            <a href={`https://wa.me/919099796811?text=Hi%2C%20I%20need%20chemicals%20for%20the%20${encodeURIComponent(ind.name)}%20industry`} target="_blank" rel="noopener noreferrer" className="btn-ghost-white px-8 py-3">WhatsApp Us</a>
+            <a href={`${WHATSAPP_ENQUIRY_URL}?text=Hi%2C%20I%20need%20chemicals%20for%20the%20${encodeURIComponent(ind.name)}%20industry`} target="_blank" rel="noopener noreferrer" className="btn-ghost-white px-8 py-3">WhatsApp Us</a>
           </div>
         </div>
       </div>

@@ -1,5 +1,7 @@
 'use client';
 
+import { WHATSAPP_ENQUIRY_URL } from '@/lib/site';
+
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -68,7 +70,7 @@ export default function Header() {
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-2">
             <a
-              href="https://wa.me/919099796811"
+              href={`${WHATSAPP_ENQUIRY_URL}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-ink bg-ink-pale border border-line text-sm font-medium hover:bg-line-faint transition-all"
@@ -121,7 +123,7 @@ export default function Header() {
               })}
               <div className="mt-3 pt-3 border-t border-line flex gap-3">
                 <a
-                  href="https://wa.me/919099796811"
+                  href={`${WHATSAPP_ENQUIRY_URL}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-ink-pale border border-line text-ink text-sm font-medium"

@@ -176,7 +176,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer />
         {/* spacer so the floating mobile tray never covers footer content */}
-        <div className="h-20 lg:hidden" aria-hidden="true" />
+        <div className="h-16 lg:hidden" aria-hidden="true" />
         <SmoothScroll />
         <SocialRail />
         <FloatingWhatsApp />

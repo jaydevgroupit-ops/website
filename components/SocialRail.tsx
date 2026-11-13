@@ -1,3 +1,4 @@
+import { WHATSAPP_ENQUIRY_URL } from '@/lib/site';
 import { Icon } from './Icon';
 
 const items = [
@@ -13,7 +14,7 @@ const items = [
   },
   {
     label: 'WhatsApp',
-    href: 'https://wa.me/919099796811?text=Hi%2C%20I%20need%20a%20chemical%20quote',
+    href: `${WHATSAPP_ENQUIRY_URL}?text=Hi%2C%20I%20need%20a%20chemical%20quote`,
     hover: 'hover:bg-[#25D366]',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">

@@ -1,5 +1,7 @@
 'use client';
 
+import { WHATSAPP_ENQUIRY_URL } from '@/lib/site';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -170,7 +172,7 @@ export default function HomeClient() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/quote" className="btn-lime px-10 py-4 text-base">Request a Quote <Icon name="ArrowRight" className="w-4 h-4" /></Link>
             <a
-              href="https://wa.me/919099796811?text=Hi%2C%20I%20need%20a%20quote%20for%20industrial%20chemicals"
+              href={`${WHATSAPP_ENQUIRY_URL}?text=Hi%2C%20I%20need%20a%20quote%20for%20industrial%20chemicals`}
               target="_blank" rel="noopener noreferrer"
               className="btn-ink px-8 py-4"
             >

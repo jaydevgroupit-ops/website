@@ -1,5 +1,7 @@
 'use client';
 
+import { WHATSAPP_ENQUIRY_URL } from '@/lib/site';
+
 import Link from 'next/link';
 import { marketData, BRANCHES } from '@/lib/content';
 import { Icon } from './Icon';
@@ -40,7 +42,7 @@ export default function MarketsClient({ news }: { news?: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-white pt-20 pb-20">
       {/* ── Hero ── */}
-      <div className="bg-surface py-14">
+      <div className="bg-surface pt-14 pb-5">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <span className="section-label mb-3">Where We Supply</span>
           <h1 className="font-jakarta text-4xl sm:text-5xl font-extrabold text-ink mb-4">
@@ -50,19 +52,30 @@ export default function MarketsClient({ news }: { news?: React.ReactNode }) {
             Domestic supply, and export to 30+ countries.
           </p>
 
-          {/* summary strip - four facts, hairline-separated, lime rule on top */}
-          <dl className="mt-10 max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-4 divide-x divide-line border-t-2 border-lime bg-white rounded-b-xl">
-            {[
-              ['Pan-India', 'Domestic supply'],
-              ['4', 'Export regions'],
-              [`${totalCountries}`, 'Named markets'],
-              ['7-25', 'Days transit'],
-            ].map(([v, l]) => (
-              <div key={l} className="px-4 py-5 text-center">
-                <dt className="font-jakarta font-extrabold text-ink text-xl sm:text-2xl leading-none tabular-nums">{v}</dt>
-                <dd className="text-ink-subtle text-[10px] uppercase tracking-[0.14em] mt-2 m-0">{l}</dd>
+          {/* A supply route, with a domestic origin and three export milestones. */}
+          <dl className="mt-5 max-w-3xl mx-auto text-left rounded-2xl border border-line-soft bg-white overflow-hidden">
+            <div className="grid grid-cols-[1fr_1.65fr] sm:grid-cols-[1fr_2fr]">
+              <div className="relative bg-lime-tint px-3 py-4 sm:px-5 flex items-center gap-2 border-r border-lime/20">
+                <Icon name="Factory" className="w-6 h-6 text-lime-text flex-shrink-0" />
+                <div><dt className="font-jakarta font-extrabold text-sm sm:text-lg whitespace-nowrap">Pan-India</dt><dd className="m-0 mt-1 text-[10px] text-ink-soft">Domestic supply</dd></div>
               </div>
-            ))}
+              <div className="relative px-3 py-3 sm:px-6">
+                <div aria-hidden="true" className="absolute left-6 right-6 top-5 border-t border-dashed border-lime-text/40" />
+                <div className="relative flex items-start justify-between gap-2">
+                  {[
+                    ['4', 'Export regions', 'Globe'],
+                    [`${totalCountries}`, 'Named markets', 'MapPin'],
+                    ['7-25', 'Days transit', 'Ship'],
+                  ].map(([value, label, icon]) => (
+                    <div key={label} className="min-w-0 flex-1 text-center">
+                      <span className="relative inline-flex bg-white px-1.5 text-lime-text"><Icon name={icon} className="w-4 h-4" /></span>
+                      <dt className="font-jakarta font-extrabold text-base min-[375px]:text-lg sm:text-2xl leading-none tabular-nums mt-1.5 whitespace-nowrap">{value}</dt>
+                      <dd className="m-0 mt-1 text-[9px] sm:text-[10px] text-ink-soft leading-snug">{label}</dd>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </dl>
         </div>
       </div>
@@ -162,7 +175,7 @@ export default function MarketsClient({ news }: { news?: React.ReactNode }) {
                     <Icon name="ArrowRight" className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                   </Link>
                   <a
-                    href={`https://wa.me/919099796811?text=Hi%2C%20I%20need%20chemicals%20for%20${encodeURIComponent(m.name)}`}
+                    href={`${WHATSAPP_ENQUIRY_URL}?text=Hi%2C%20I%20need%20chemicals%20for%20${encodeURIComponent(m.name)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`WhatsApp enquiry for ${m.name}`}

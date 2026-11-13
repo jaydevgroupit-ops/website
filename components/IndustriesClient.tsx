@@ -1,5 +1,7 @@
 'use client';
 
+import { WHATSAPP_ENQUIRY_URL } from '@/lib/site';
+
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -171,7 +173,7 @@ export default function IndustriesClient() {
                       </span>
                     </Link>
                     <a
-                      href={`https://wa.me/919099796811?text=Hi%2C%20I%20need%20chemicals%20for%20the%20${encodeURIComponent(industry.name)}%20industry`}
+                      href={`${WHATSAPP_ENQUIRY_URL}?text=Hi%2C%20I%20need%20chemicals%20for%20the%20${encodeURIComponent(industry.name)}%20industry`}
                       target="_blank" rel="noopener noreferrer"
                       aria-label={`WhatsApp enquiry for ${industry.name}`}
                       className="flex-shrink-0 w-9 h-9 rounded-full bg-ink-pale border border-line text-[#25D366] flex items-center justify-center hover:bg-line-faint transition-colors"

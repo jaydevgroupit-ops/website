@@ -15,7 +15,7 @@ const ITEMS = [
   { href: '/products', label: 'Products', icon: 'FlaskConical' },
   { href: '/industries', label: 'Sectors', icon: 'Factory' },
   { href: '/markets', label: 'Markets', icon: 'Globe' },
-  { href: '/quote', label: 'Quote', icon: 'MessageCircle', cta: true },
+  { href: '/quote', label: 'Quote', icon: 'Mail', cta: true },
 ];
 
 export default function MobileNav() {
