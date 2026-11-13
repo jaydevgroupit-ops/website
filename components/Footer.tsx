@@ -89,7 +89,7 @@ export default function Footer() {
         </details>
         <div className="hidden lg:block mt-6 pt-5 border-t border-line"><CompanyDetails /></div>
 
-        <div className="mt-3 lg:mt-6 lg:pt-4 lg:border-t border-line flex flex-col lg:flex-row lg:items-center lg:justify-between gap-1.5">
+        <div className="pr-16 lg:pr-20 mt-3 lg:mt-6 lg:pt-4 lg:border-t border-line flex flex-col lg:flex-row lg:items-center lg:justify-between gap-1.5">
           <p className="text-ink-subtle text-[10px] lg:text-[11px]">© {new Date().getFullYear()} Jaydev Group · Ahmedabad, Gujarat, India</p>
           <p className="text-ink-subtle text-[10px] lg:text-[11px] leading-relaxed">Jaydev Multicomm Pvt. Ltd. · Jaydev Pharma &amp; Intermediates LLP</p>
         </div>
