@@ -489,7 +489,7 @@ export default function QuoteClient() {
               <p className="text-ink-soft text-xs mb-4">Skip the form - your entries auto-fill the message. Fastest response.</p>
               <a href={`${WHATSAPP_ENQUIRY_URL}?text=${waMessage}`} target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-ink-pale border border-line text-ink text-sm font-semibold hover:bg-line-faint transition-all">
-                <WaIcon /> WhatsApp +91 90997 96811
+                <WaIcon /> WhatsApp +91 99875 39258
               </a>
             </div>
 
