@@ -31,7 +31,15 @@ export default function FaqAccordion() {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.25 }}
                 >
-                  <p className="px-6 pb-5 text-ink-muted leading-relaxed">{f.a}</p>
+                  {f.points ? (
+                    <div className="px-6 pb-6 text-ink-muted leading-relaxed">
+                      <p className="mb-4">Every export shipment carries:</p>
+                      <ul className="space-y-3 mb-5 list-disc pl-5 marker:text-lime-text">
+                        {f.points.map(point => <li key={point} className="pl-1">{point}</li>)}
+                      </ul>
+                      <p className="text-sm border-t border-line-soft pt-4">{f.note}</p>
+                    </div>
+                  ) : <p className="px-6 pb-5 text-ink-muted leading-relaxed">{f.a}</p>}
                 </motion.div>
               )}
             </AnimatePresence>

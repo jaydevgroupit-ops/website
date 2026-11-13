@@ -44,61 +44,24 @@ export default function HomeClient() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-            {/* Two divisions, one structure: name, then formula / CAS in mono.
-                Industrial carries both; pharma carries CAS. */}
-            {[
-              {
-                href: '/products?division=industrial',
-                title: 'Industrial Chemicals',
-                count: products.length,
-                surface: 'bg-white border border-line-soft',
-                names: ['Caustic Soda', 'Sulphuric Acid', 'PAC', 'SMBS', 'Hydrogen Peroxide', 'Calcium Chloride'],
-                lookup: (n: string) => products.find((p) => p.name === n || p.name.startsWith(n)),
-              },
-              {
-                href: '/products?division=pharma',
-                title: 'Pharma & APIs',
-                count: pharmaProducts.length,
-                surface: 'bg-lime-tint border border-lime/25',
-                names: ['Paclitaxel', 'Azithromycin', 'Heparin Sodium', 'Budesonide', 'Acyclovir', 'Propofol'],
-                lookup: (n: string) => pharmaProducts.find((p) => p.name.toLowerCase() === n.toLowerCase()),
-              },
-            ].map((col) => (
-              <Link
-                key={col.title}
-                href={col.href}
-                className={`group relative overflow-hidden rounded-3xl p-7 sm:p-8 transition-all hover:border-lime/40 hover:shadow-[0_20px_50px_-24px_rgba(0,0,0,0.22)] ${col.surface}`}
-              >
-                <div className="flex items-baseline gap-3 mb-6">
-                  <span className="font-jakarta font-extrabold text-ink text-2xl">{col.title}</span>
-                  <span className="font-jakarta font-extrabold text-lime-text text-lg tabular-nums">{col.count}</span>
-                </div>
-
-                <ul className="grid grid-cols-2 gap-x-5 gap-y-3 mb-7">
-                  {col.names.map((n) => {
-                    const hit = col.lookup(n) as { formula?: string; cas?: string } | undefined;
-                    const formula = hit?.formula && hit.formula !== '-' ? hit.formula : null;
-                    const meta = [formula, hit?.cas ? `CAS ${hit.cas}` : null].filter(Boolean).join('  ');
-                    return (
-                      <li key={n} className="flex flex-col pb-1">
-                        <span className="text-ink text-sm font-semibold leading-tight">{n}</span>
-                        {meta && <span className="font-mono text-[11px] text-lime-text mt-0.5">{meta}</span>}
-                      </li>
-                    );
-                  })}
-                </ul>
-
-                <span className="inline-flex items-center gap-2 font-jakarta font-bold text-ink text-sm group-hover:text-lime-text transition-colors">
-                  See all {col.count}
-                  <Icon name="ArrowRight" className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </span>
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-14">
-            <FeaturedCarousel />
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] gap-5 items-stretch">
+            <div className="min-w-0 rounded-3xl border border-line-soft py-7 sm:py-8 overflow-hidden">
+              <div className="flex flex-wrap items-baseline justify-between gap-3 px-6 sm:px-8 mb-6">
+                <h3 className="font-jakarta font-extrabold text-ink text-2xl">Industrial Chemicals <span className="text-lime-text text-lg">{products.length}</span></h3>
+                <Link href="/products?division=industrial" className="inline-flex items-center gap-2 font-jakarta font-bold text-sm text-lime-text">See all {products.length} <Icon name="ArrowRight" className="w-4 h-4" /></Link>
+              </div>
+              <FeaturedCarousel />
+            </div>
+            <div className="rounded-3xl p-7 sm:p-8 bg-lime-tint border border-lime/25 flex flex-col">
+              <h3 className="font-jakarta font-extrabold text-ink text-2xl mb-6">Pharma &amp; APIs <span className="text-lime-text text-lg">{pharmaProducts.length}</span></h3>
+              <ul className="grid grid-cols-2 gap-x-5 gap-y-5 mb-7">
+                {['Paclitaxel', 'Azithromycin', 'Heparin Sodium', 'Budesonide', 'Acyclovir', 'Propofol'].map((n) => {
+                  const hit = pharmaProducts.find(p => p.name.toLowerCase() === n.toLowerCase());
+                  return <li key={n}><span className="text-ink text-sm font-semibold leading-tight">{n}</span><span className="block font-mono text-[11px] text-lime-text mt-1">CAS {hit?.cas}</span></li>;
+                })}
+              </ul>
+              <Link href="/products?division=pharma" className="inline-flex items-center gap-2 font-jakarta font-bold text-ink text-sm mt-auto">See all {pharmaProducts.length} <Icon name="ArrowRight" className="w-4 h-4" /></Link>
+            </div>
           </div>
         </div>
       </section>

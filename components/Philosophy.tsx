@@ -16,7 +16,7 @@ const STATS = [
   { num: 100, suffix: '+', label: 'Global Buyers' },
 ];
 
-const PANEL_COUNT = 4; // 3 pillars + the finale
+const PANEL_COUNT = 3; // Source, Proof and Reach
 const VERBS = ['Bought direct', 'Documented', 'Shipped', 'Delivered'];
 
 /**
@@ -42,7 +42,7 @@ const pillars = [
     n: '01', tag: 'Philosophy', title: 'The Source', icon: 'Factory',
     image: '/images/plant.jpg', alt: 'Chemical manufacturing plant',
     lede: 'We buy direct from the producer',
-    body: 'GACL, Grasim, Reliance, IOCL, Tata Chemicals and Nirma. No middlemen, so you get factory price and we can trace every tonne back to the plant that made it.',
+    body: 'No middlemen: every tonne can be traced back to the plant that made it. Our producer network is shown below.',
     metrics: [['Manufacturer-direct', 'GACL & Grasim authorized'], ['9', 'Foundational producers']],
   },
   {
@@ -263,17 +263,6 @@ export default function Philosophy() {
                     </button>
                   </li>
                 ))}
-                {/* 4th point - the finale */}
-                <li>
-                  <button
-                    onClick={() => goTo(3)}
-                    className="group flex items-baseline gap-3 text-left"
-                  >
-                    <span className={`font-mono text-sm transition-colors ${active === 3 ? 'text-lime-text' : 'text-ink-subtle'}`}>04</span>
-                    <span className={`font-jakarta text-sm font-semibold transition-colors ${active === 3 ? 'text-ink' : 'text-ink-soft group-hover:text-ink-soft'}`}>Worldwide</span>
-                    <span className={`h-px transition-all duration-500 ${active === 3 ? 'w-8 bg-lime' : 'w-3 bg-line'}`} />
-                  </button>
-                </li>
               </ul>
             </div>
           </div>
@@ -313,13 +302,27 @@ export default function Philosophy() {
                   <p className="text-ink-muted text-base leading-relaxed max-w-lg mb-9">{p.body}</p>
 
                   <div className="flex flex-wrap gap-x-12 gap-y-5">
-                    {p.metrics.map(([k, label]) => (
+                    {(i === 2 ? [] : p.metrics).map(([k, label]) => (
                       <div key={label}>
                         <div className="font-jakarta text-2xl font-extrabold text-gradient-lime leading-none">{k}</div>
                         <div className="text-ink-soft text-xs mt-1.5 uppercase tracking-wider">{label}</div>
                       </div>
                     ))}
                   </div>
+
+                  {i === 2 && (
+                    <>
+                      <div className="grid grid-cols-2 gap-x-6 gap-y-5 mb-7 max-w-lg">
+                        {STATS.map((s) => (
+                          <div key={s.label}>
+                            <div className="font-jakarta text-2xl font-extrabold text-gradient-lime leading-none"><StatCounter end={s.num} suffix={s.suffix} /></div>
+                            <div className="text-ink-soft text-xs mt-2 uppercase tracking-wider">{s.label}</div>
+                          </div>
+                        ))}
+                      </div>
+                      <Link href="/markets" className="inline-flex items-center gap-2 font-jakarta text-sm font-bold text-lime-text">Explore markets &amp; shipping <Icon name="ArrowRight" className="w-4 h-4" /></Link>
+                    </>
+                  )}
 
                   {/* producer marquee - merged in from the old "Sourcing Ecosystem" section */}
                   {i === 0 && (
@@ -356,54 +359,6 @@ export default function Philosophy() {
               </div>
             ))}
 
-            {/* ── 04 · Finale - the journey resolves: from Gujarat to the world ── */}
-            <div
-              ref={(el) => { panelRefs.current[3] = el; }}
-              className={pinned
-                  ? 'absolute inset-0 flex flex-col justify-center transition-opacity duration-[600ms] ease-out'
-                  : 'min-h-[72vh] sm:min-h-[88vh] flex flex-col justify-center py-12 sm:py-16'}
-              style={pinned ? { opacity: active === 3 ? 1 : 0, pointerEvents: active === 3 ? 'auto' : 'none' } : undefined}
-            >
-              <motion.div
-                initial={{ opacity: 0, y: 40, filter: 'blur(14px)' }}
-                whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                viewport={{ once: true, margin: '-20%' }}
-                transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                className="max-w-3xl"
-              >
-                {/* four-verb recap of the journey just witnessed */}
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="font-mono text-lime-text text-sm">04</span>
-                  <span className="h-px w-10 bg-lime/40" />
-                  <span className="text-[11px] uppercase tracking-[0.28em] text-ink-soft">Buy · Document · Ship</span>
-                </div>
-
-                <h2 className="font-serif italic text-5xl sm:text-6xl lg:text-7xl font-light text-ink leading-[0.95] mb-6 tracking-[-0.02em]">
-                  From Gujarat to <span className="text-gradient-lime not-italic font-jakarta font-extrabold">30+ countries</span>
-                </h2>
-                <p className="text-ink-muted text-lg leading-relaxed max-w-lg mb-10">
-                  295 products - industrial chemicals and pharmaceutical APIs. Sold across India and exported to 30+ countries.
-                </p>
-
-                {/* stats strip (moved in from the old hero band) */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-6 mb-11 max-w-2xl items-start">
-                  {STATS.map((s) => (
-                    <div key={s.label}>
-                      <div className="font-jakarta text-2xl sm:text-3xl font-extrabold text-gradient-lime leading-none whitespace-nowrap">
-                        <StatCounter end={s.num} suffix={s.suffix} />
-                      </div>
-                      <div className="text-ink-soft text-xs mt-2 uppercase tracking-wider">{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex flex-col sm:flex-row sm:items-center gap-3.5">
-                  <Link href="/quote" className="btn-lime px-7 py-3.5 text-base">
-                    Get CIF Quote <Icon name="ArrowRight" className="w-4 h-4" />
-                  </Link>
-                </div>
-              </motion.div>
-            </div>
               </div>
             </div>
           </div>

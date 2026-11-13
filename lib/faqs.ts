@@ -4,7 +4,7 @@
 import { products } from './content';
 import { pharmaProducts, THERAPEUTIC_SEGMENTS } from './pharma';
 
-export type Faq = { q: string; a: string };
+export type Faq = { q: string; a: string; points?: string[]; note?: string };
 
 export const faqs: Faq[] = [
   {
@@ -28,16 +28,24 @@ export const faqs: Faq[] = [
     a: 'Indicative lead times are 7-12 days to the GCC, 12-18 days to Southeast Asia, 15-20 days to East Africa, and 18-25 days to West Africa, shipped FOB/CIF from Mundra, JNPT, Hazira, or Kandla.',
   },
   {
-    q: 'What documentation do you provide with each shipment?',
-    a: 'Every shipment includes a batch-specific Certificate of Analysis (COA), MSDS/Safety Data Sheet, Certificate of Origin, Bill of Lading, Packing List, Commercial Invoice, and IMDG declarations for hazardous cargo - all standard, at no extra charge.',
-  },
-  {
     q: 'Are you a manufacturer or a trader?',
     a: 'Jaydev Multicomm is an IEC-registered exporter and authorized partner of GACL and Grasim, with direct relationships to GACL, Grasim, Reliance, DCM Shriram, and other leading Indian producers. You get manufacturer-backed quality and traceability without multi-tier markup.',
   },
   {
     q: 'What documentation do you provide with each shipment?',
-    a: 'Every export shipment carries a batch-specific Certificate of Analysis (COA) from the manufacturer, a GHS-compliant MSDS / Safety Data Sheet in English, a Certificate of Origin issued by the Indian Chamber of Commerce or the relevant Export Promotion Council, the full set of original Bill of Lading or Seaway Bill as your bank requires, a detailed Packing List with weights, dimensions, marks and lot numbers, a Commercial Invoice with all fields needed for customs clearance, an IMDG / IMO dangerous goods declaration for hazardous shipments, and a phytosanitary fumigation certificate where wooden packaging is used. We hold ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018 certification and are IEC, GST and RCMC registered.',
+    a: 'Every export shipment carries a batch-specific Certificate of Analysis (COA) from the manufacturer, a GHS-compliant MSDS / Safety Data Sheet in English, a Certificate of Origin issued by the Indian Chamber of Commerce or the relevant Export Promotion Council, the full set of original Bill of Lading or Seaway Bill as your bank requires, a detailed Packing List with weights, dimensions, marks and lot numbers, a Commercial Invoice with all fields needed for customs clearance, an IMDG / IMO dangerous goods declaration for hazardous shipments, and a phytosanitary fumigation certificate where wooden packaging is used. We hold ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018 certification and are IEC, GST and RCMC registered. Standard shipment documentation is provided at no extra charge.',
+    points: [
+      'Batch-specific Certificate of Analysis (COA) from the manufacturer.',
+      'GHS-compliant MSDS / Safety Data Sheet in English.',
+      'Certificate of Origin from the Indian Chamber of Commerce or the relevant Export Promotion Council.',
+      'Full set of original Bill of Lading or Seaway Bill, as your bank requires.',
+      'Packing List with weights, dimensions, marks and lot numbers.',
+      'Commercial Invoice with the fields needed for customs clearance.',
+      'For hazardous shipments: IMDG / IMO dangerous goods declaration.',
+      'Where wooden packaging is used: phytosanitary fumigation certificate.',
+    ],
+    note: 'We hold ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018 certification and are IEC, GST and RCMC registered. Standard shipment documentation is provided at no extra charge.',
+
   },
   {
     q: 'What grades and documentation are available for APIs?',

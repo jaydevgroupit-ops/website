@@ -107,7 +107,7 @@ export default function FeaturedCarousel() {
                 <h3 className="font-jakarta font-bold text-ink text-base leading-snug line-clamp-2">{p.name}</h3>
                 <span className="text-[10px] text-ink-subtle font-mono flex-shrink-0 mt-0.5">CAS {p.cas}</span>
               </div>
-              <p className="text-lime-text text-xs font-semibold mb-4 line-clamp-1">{p.grade}</p>
+              <p className="text-lime-text text-xs font-semibold mb-4 leading-relaxed">{p.grade}</p>
               <div className="flex-1" />
               <div className="flex items-stretch gap-2 mt-auto">
                 <Link href={`/products/${p.id}`} className="flex-1 inline-flex items-center justify-center px-3 py-2 rounded-lg bg-ink text-white text-xs font-semibold hover:bg-ink-mid transition-all whitespace-nowrap">
