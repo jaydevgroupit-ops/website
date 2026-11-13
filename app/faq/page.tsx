@@ -26,7 +26,7 @@ export default function FaqPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-16 pb-20">
+    <div className="min-h-screen bg-white pt-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script {...jsonLdScript(breadcrumb([{ name: 'FAQ', path: '/faq' }]))} />
 
@@ -39,7 +39,7 @@ export default function FaqPage() {
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto px-4 py-12">
+      <div className="max-w-3xl mx-auto px-4 pt-12 pb-8 sm:pb-12">
         <FaqAccordion />
 
         <div className="on-ink bg-ink rounded-2xl p-8 text-center mt-10">

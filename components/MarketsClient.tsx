@@ -40,7 +40,7 @@ export default function MarketsClient({ news }: { news?: React.ReactNode }) {
   const totalCountries = marketData.reduce((n, m) => n + m.countries.length, 0);
 
   return (
-    <div className="min-h-screen bg-white pt-20 pb-20">
+    <div className="min-h-screen bg-white pt-20">
       {/* ── Hero ── */}
       <div className="bg-surface pt-14 pb-5">
         <div className="max-w-7xl mx-auto px-4 text-center">
@@ -84,7 +84,7 @@ export default function MarketsClient({ news }: { news?: React.ReactNode }) {
            doing today frames every region and lead time listed below it. ── */}
       {news}
 
-      <div className="max-w-7xl mx-auto px-4 py-14 space-y-14">
+      <div className="max-w-7xl mx-auto px-4 pt-14 pb-8 sm:pb-12 space-y-14">
         {/* ── Domestic ── */}
         <section>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-1 sm:gap-4 mb-5">

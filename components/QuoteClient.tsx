@@ -165,7 +165,7 @@ export default function QuoteClient() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-white pt-24 pb-20 flex items-center justify-center">
+      <div className="min-h-screen bg-white pt-24 pb-8 sm:pb-12 flex items-center justify-center">
         <div className="max-w-md mx-auto px-4 text-center">
           <div className="w-20 h-20 rounded-full bg-lime-tint flex items-center justify-center mx-auto mb-6">
             <Icon name="Check" className="w-10 h-10 text-lime-text" strokeWidth={2.5} />
@@ -189,7 +189,7 @@ export default function QuoteClient() {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-20 pb-20">
+    <div className="min-h-screen bg-white pt-20 pb-8 sm:pb-12">
       <div className="bg-surface py-12">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <span className="section-label mb-3">Get Quote</span>

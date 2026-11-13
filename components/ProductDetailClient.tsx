@@ -31,7 +31,7 @@ export default function ProductDetailClient({
   const priceAsk = `Hi, please share your best offer for ${product.name}${product.cas ? ` (CAS ${product.cas})` : ''}.`;
 
   return (
-    <div className="min-h-screen bg-white pt-20 pb-20">
+    <div className="min-h-screen bg-white pt-20 pb-8 sm:pb-12">
       {/* Breadcrumb */}
       <div className="bg-ink-pale border-b border-line">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center gap-2 text-sm text-ink-soft">

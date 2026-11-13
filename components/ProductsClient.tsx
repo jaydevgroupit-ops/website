@@ -228,7 +228,7 @@ export default function ProductsClient() {
   );
 
   return (
-    <div className="bg-white min-h-screen pt-20 pb-28">
+    <div className="bg-white min-h-screen pt-20">
       {/* ── header ── */}
       <div className="relative bg-surface border-b border-line overflow-hidden">
         <svg aria-hidden="true" className="pointer-events-none absolute inset-0 w-full h-full" style={{ maskImage: 'radial-gradient(ellipse 60% 80% at 85% 30%, #000 10%, transparent 70%)', WebkitMaskImage: 'radial-gradient(ellipse 60% 80% at 85% 30%, #000 10%, transparent 70%)' }}>
@@ -305,7 +305,7 @@ export default function ProductsClient() {
         </button>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-6 lg:py-8 grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-6 lg:gap-8">
+      <div className="max-w-7xl mx-auto px-4 pt-6 lg:pt-8 pb-8 sm:pb-12 grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-6 lg:gap-8">
 
         {/* facet rail */}
         <aside className={`${filtersOpen ? "block" : "hidden"} lg:block lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto rounded-xl border border-line p-4 lg:p-0 lg:border-0 lg:rounded-none`}>

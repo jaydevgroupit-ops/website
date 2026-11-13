@@ -14,7 +14,7 @@ export default function QuotePage() {
     <>
     <script {...jsonLdScript(breadcrumb([{ name: 'Request a Quote', path: '/quote' }]))} />
     <Suspense fallback={
-      <div className="min-h-screen bg-white pt-20 pb-20">
+      <div className="min-h-screen bg-white pt-20 pb-8 sm:pb-12">
         <div className="bg-surface py-12">
           <div className="max-w-6xl mx-auto px-4 text-center">
             <span className="section-label mb-3">Get Quote</span>

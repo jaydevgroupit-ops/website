@@ -89,7 +89,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
   ];
 
   return (
-    <div className="min-h-screen bg-white pt-16 pb-20">
+    <div className="min-h-screen bg-white pt-16 pb-8 sm:pb-12">
       {jsonLd.map((s, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}

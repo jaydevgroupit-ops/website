@@ -19,7 +19,7 @@ export default function IndustriesClient() {
   );
 
   return (
-    <div className="min-h-screen bg-white pt-20 pb-20">
+    <div className="min-h-screen bg-white pt-20">
       {/* Header */}
       <div className="bg-surface py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(238,246,236,0.10),rgba(238,246,236,0.04)_35%,transparent_60%)]" />
@@ -57,7 +57,7 @@ export default function IndustriesClient() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-12 space-y-10">
+      <div className="max-w-7xl mx-auto px-4 pt-12 pb-8 sm:pb-12 space-y-10">
         <AnimatePresence mode="popLayout">
           {filtered.map((industry, idx) => {
             const industryProducts = industry.productIds.map(id => products.find(p => p.id === id)).filter(Boolean);
