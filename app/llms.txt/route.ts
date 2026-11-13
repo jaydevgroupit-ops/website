@@ -1,6 +1,6 @@
 import { products, industryData, marketData, IMPORT_PRODUCTS, CERTIFICATIONS, GROUP, categories } from '@/lib/content';
 import { pharmaProducts, PHARMA_SECTIONS, THERAPEUTIC_SEGMENTS, displayName } from '@/lib/pharma';
-import { SITE_URL, SITE_NAME, SALES_EMAIL, EXPORT_EMAIL, PHONE_EXPORT, PHONE_RAJKOT } from '@/lib/site';
+import { SITE_URL, SITE_NAME, SALES_EMAIL, EXPORT_EMAIL, PHONE_EXPORT, PHONE_RAJKOT, WHATSAPP_ENQUIRY_URL } from '@/lib/site';
 
 /**
  * llms.txt - the answer-engine briefing.
@@ -117,8 +117,7 @@ function build() {
 - Email (export enquiries): ${EXPORT_EMAIL}
 - Email (domestic & general): ${SALES_EMAIL}
 - Website: ${SITE_URL}
-- WhatsApp (Export & Import): ${PHONE_EXPORT}
-- WhatsApp (Domestic): ${PHONE_RAJKOT}
+- WhatsApp (business enquiries): ${WHATSAPP_ENQUIRY_URL.replace('https://wa.me/', '+')}
 - IEC Registered Exporter: Yes
 - GACL Authorized Partner: Yes
 - Grasim / Aditya Birla Authorized Partner: Yes
@@ -178,7 +177,7 @@ ${IMPORT_PRODUCTS.map((p) => `- ${p.name}${'cas' in p && p.cas ? ` (CAS ${p.cas}
 - Reliance Industries, IOCL, Tata Chemicals, Nirma, DCM Shriram, GHCL, Kutch Chemical
 
 ## How to buy / request a quote (RFQ)
-- Submit an RFQ at ${SITE_URL}/quote, email ${EXPORT_EMAIL}, or WhatsApp ${PHONE_EXPORT}
+- Submit an RFQ at ${SITE_URL}/quote, email ${EXPORT_EMAIL}, or WhatsApp ${WHATSAPP_ENQUIRY_URL.replace('https://wa.me/', '+')}
   with product, grade, quantity and destination port.
 - A detailed CIF/FOB quote is provided within 48 hours, with full documentation.
 

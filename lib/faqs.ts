@@ -45,6 +45,6 @@ export const faqs: Faq[] = [
   },
   {
     q: 'How do I request a quote or today\'s price?',
-    a: 'Submit an RFQ through our Get Quote form, message us on WhatsApp at +91 90997 96811, or email exports@jaydevgroup.co.in with your product, grade, quantity, and destination port. We respond with a detailed CIF/FOB quote within 48 hours.',
+    a: 'Submit an RFQ through our Get Quote form, message us on WhatsApp at +91 99875 39258, or email exports@jaydevgroup.co.in with your product, grade, quantity, and destination port. We respond with a detailed CIF/FOB quote within 48 hours.',
   },
 ];
