@@ -30,7 +30,7 @@ export default function AboutClient() {
             <div className="space-y-4 text-ink-muted leading-relaxed">
               <p>{GROUP.description}</p>
               <p>
-                The group trades through two companies. <strong className="text-ink">Jaydev Multicomm Pvt. Ltd.</strong> handles export and import; <strong className="text-ink">Jaydev Pharma &amp; Intermediates LLP</strong> serves the domestic market. Both draw on the same producer relationships - <strong className="text-ink">GACL</strong>, <strong className="text-ink">Grasim</strong>, Reliance, IOCL, Tata Chemicals and DCM Shriram among them - and both are authorized channel partners for GACL and Grasim.
+                The group trades through two companies. <strong className="text-ink">Jaydev Multicomm Pvt. Ltd.</strong> handles export and import; <strong className="text-ink">Jaydev Pharma &amp; Intermediates LLP</strong> serves the domestic market. Both draw on the manufacturer network below and are authorized channel partners for GACL and Grasim.
               </p>
               <p>
                 That footprint is deliberate. The head office in Ahmedabad and the trade desk in Rajkot sit inside Gujarat&apos;s chemical belt, within a day of the plants we buy from and the ports we ship through - Mundra, JNPT, Hazira and Kandla. Offices in Mumbai and Lagos keep us close to the buyers at the other end of the trade.

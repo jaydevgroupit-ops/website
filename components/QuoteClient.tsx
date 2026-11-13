@@ -496,7 +496,7 @@ export default function QuoteClient() {
             <div className="card-white p-6 rounded-2xl">
               <h3 className="font-jakarta font-extrabold text-ink mb-4 text-sm">Every Quote Includes</h3>
               <div className="space-y-2.5">
-                {['CIF/FOB pricing', 'Certificate of Analysis (COA)', 'MSDS / Safety Data Sheet', 'Certificate of Origin', 'Lead time estimate', 'Packaging options'].map(item => (
+                {['CIF/FOB pricing', 'COA, MSDS / Safety Data Sheet & Certificate of Origin', 'Lead time estimate', 'Packaging options'].map(item => (
                   <div key={item} className="flex items-center gap-2.5 text-sm text-ink-muted">
                     <Icon name="Check" className="w-4 h-4 text-lime-text flex-shrink-0" strokeWidth={2.5} /> {item}
                   </div>
@@ -504,14 +504,7 @@ export default function QuoteClient() {
               </div>
             </div>
 
-            <div className="card-white p-6 rounded-2xl">
-              <h3 className="font-jakarta font-extrabold text-ink mb-3 text-sm">Direct Contact</h3>
-              <div className="space-y-2.5 text-sm text-ink-muted">
-                <div className="flex items-center gap-2"><Icon name="Mail" className="w-4 h-4 text-lime-text flex-shrink-0" /> <a href="mailto:exports@jaydevgroup.co.in" className="hover:text-ink transition-colors">exports@jaydevgroup.co.in</a></div>
-                <div className="flex items-center gap-2"><Icon name="Phone" className="w-4 h-4 text-lime-text flex-shrink-0" /> +91 90997 96811</div>
-                <div className="flex items-center gap-2"><Icon name="Phone" className="w-4 h-4 text-lime-text flex-shrink-0" /> +91 99875 39258</div>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>

@@ -49,7 +49,7 @@ const pillars = [
     n: '02', tag: 'Craft', title: 'The Proof', icon: 'ShieldCheck',
     image: '/images/bags-drums.png', alt: 'Packed drums and bags awaiting despatch',
     lede: 'Every batch ships with its papers',
-    body: 'COA, MSDS, Bill of Lading, Certificate of Origin, Packing List and IMDG declaration as standard. Our systems are audited to ISO 9001, 14001 and 45001.',
+    body: 'Batch and shipment documentation accompanies every export order. See the full document list and cargo-specific requirements in our documentation FAQ.',
     metrics: [['ISO 9001 · 14001 · 45001', 'Certified systems'], ['COA / MSDS', 'On every batch']],
   },
   {
@@ -309,6 +309,10 @@ export default function Philosophy() {
                       </div>
                     ))}
                   </div>
+
+                  {i === 1 && (
+                    <Link href="/faq#shipment-documentation" className="inline-flex items-center gap-2 font-jakarta text-sm font-bold text-lime-text mt-7">Shipment documentation <Icon name="ArrowRight" className="w-4 h-4" /></Link>
+                  )}
 
                   {i === 2 && (
                     <>

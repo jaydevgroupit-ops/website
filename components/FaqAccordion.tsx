@@ -1,18 +1,28 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { faqs } from '@/lib/faqs';
 import { Icon } from './Icon';
 
 export default function FaqAccordion() {
   const [open, setOpen] = useState<number | null>(0);
+  useEffect(() => {
+    const reveal = () => {
+      if (window.location.hash === '#shipment-documentation') {
+        setOpen(faqs.findIndex(f => f.q === 'What documentation do you provide with each shipment?'));
+      }
+    };
+    reveal();
+    window.addEventListener('hashchange', reveal);
+    return () => window.removeEventListener('hashchange', reveal);
+  }, []);
   return (
     <div className="space-y-3">
       {faqs.map((f, i) => {
         const isOpen = open === i;
         return (
-          <div key={i} className={`card-white overflow-hidden ${isOpen ? 'border-lime/30' : ''}`}>
+          <div key={i} id={f.q === 'What documentation do you provide with each shipment?' ? 'shipment-documentation' : undefined} className={`card-white overflow-hidden scroll-mt-24 ${isOpen ? 'border-lime/30' : ''}`}>
             <button
               onClick={() => setOpen(isOpen ? null : i)}
               className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"

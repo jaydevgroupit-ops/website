@@ -19,7 +19,6 @@ const LOAD_PORTS = {
   east: ['Visakhapatnam', 'Chennai', 'Krishnapatnam', 'Kolkata / Haldia'],
 };
 const INCOTERMS = ['EXW', 'FOB', 'CFR', 'CIF'];
-const DOCS = ['COA', 'MSDS', 'Certificate of Origin', 'Bill of Lading', 'Packing List', 'IMDG Declaration'];
 
 /** One label + value row inside a region card. */
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
@@ -245,7 +244,6 @@ export default function MarketsClient({ news }: { news?: React.ReactNode }) {
               { label: 'West coast', note: 'Africa, GCC', items: LOAD_PORTS.west },
               { label: 'East coast', note: 'SE Asia', items: LOAD_PORTS.east },
               { label: 'Incoterms', note: '', items: INCOTERMS },
-              { label: 'Documents', note: '', items: DOCS },
             ].map((row, i) => (
               <div
                 key={row.label}
@@ -265,6 +263,7 @@ export default function MarketsClient({ news }: { news?: React.ReactNode }) {
               </div>
             ))}
           </div>
+          <Link href="/faq#shipment-documentation" className="inline-flex items-center gap-2 text-sm font-semibold text-lime-text mt-4">Shipment documents &amp; cargo-specific requirements <Icon name="ArrowRight" className="w-4 h-4" /></Link>
           <p className="text-ink-soft text-sm mt-4 max-w-3xl">
             MOQ typically from 25 MT. HDPE bags, drums, jumbo bags, ISO tanks or flexitanks.
             Payment by LC at sight, or 30% advance and 70% against documents.

@@ -25,14 +25,14 @@ const steps = [
   },
   {
     icon: 'BadgeCheck', title: 'Manufacturer sourcing', short: 'Sourcing',
-    desc: 'Direct allocation from GACL, Grasim, Reliance, IOCL and partner plants. No middlemen, so the price is the factory price and every tonne is traceable.',
+    desc: 'Direct allocation from our producer network, with the batch reserved and traced to the plant that made it.',
     outputs: ['Producer allocation', 'Batch reservation'],
     image: '/images/plant.jpg', alt: 'Chemical manufacturing plant',
     time: '1–3 days',
   },
   {
     icon: 'ShieldCheck', title: 'Quality & documentation', short: 'Documents',
-    desc: 'Every batch ships with its papers. Systems audited to ISO 9001, 14001 and 45001, with pharmacopoeial grade confirmed where it applies.',
+    desc: 'Batch quality and cargo-specific documentation are checked before despatch, with pharmacopoeial grade confirmed where it applies.',
     outputs: ['Batch COA', 'MSDS', 'Certificate of Origin', 'IMDG declaration'],
     image: '/images/pharma.webp', alt: 'Laboratory quality control',
     time: 'Before despatch',
@@ -132,6 +132,8 @@ export default function ProcessFlow() {
                   </span>
                 ))}
               </div>
+
+              {active === 2 && <Link href="/faq#shipment-documentation" className="inline-flex items-center gap-2 text-sm font-semibold text-lime-text mt-4">Full shipment document list <Icon name="ArrowRight" className="w-4 h-4" /></Link>}
 
               <div className="flex items-center gap-2 mt-6">
                 <button
