@@ -24,7 +24,7 @@ export const COMPANY = {
       remit: 'Exports & imports - industrial chemicals',
       linkedin: 'https://www.linkedin.com/in/meet-sheth-0871/',
       email: EXPORT_EMAIL,
-      whatsapp: PHONE_EXPORT,
+      whatsapp: '+919987539258',
       image: null,
     },
     {
