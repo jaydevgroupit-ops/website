@@ -12,7 +12,7 @@ const companyLinks = [
 
 const desks = [
   { title: 'Export', email: 'exports@jaydevgroup.co.in', phones: ['+91 99875 39258', '+91 90997 96811'] },
-  { title: 'Sales & domestic', email: 'sales@jaydevgroup.co.in', phones: ['+91 98251 12687', '+91 99784 79258'] },
+  { title: 'Sales & domestic', email: 'sales@jaydevgroup.co.in', phones: ['+91 99784 79258'] },
 ];
 
 function CompanyDetails() {
