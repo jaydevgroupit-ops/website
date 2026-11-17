@@ -42,7 +42,7 @@ export const COMPANY = {
       remit: 'Marketing - API, Pharma & Intermediates',
       linkedin: 'https://www.linkedin.com/in/mahir-bhojani-b49027268/',
       email: MARKETING_EMAIL,
-      whatsapp: '+919825112687',
+      whatsapp: '+919978479258',
       image: null,
     },
   ],
@@ -1433,4 +1433,3 @@ export const sectorProductCount = (
 ) => ind.productIds.length + (ind.pharmaSections ?? []).reduce(
   (n, sec) => n + pharma.filter((p) => p.section === sec).length, 0,
 );
-
